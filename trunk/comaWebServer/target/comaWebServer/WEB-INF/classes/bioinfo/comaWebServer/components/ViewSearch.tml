@@ -81,7 +81,7 @@
 						          t:model="compositionScores" 
 			                      value="search.lc_t" 
 			                      blankOption="NEVER"
-			                      style="width: 400px;"/>
+			                      style="width: 380px;"/>
 		            </span>
 				</td>
 			</tr>

@@ -37,9 +37,11 @@
           <string>WEB-INF/web.xml</string>
           <string>WEB-INF/app.properties</string>
           <string>JobInfo.tml</string>
+          <string>WEB-INF/classes/.directory</string>
           <string>WEB-INF/classes/c3p0.properties</string>
           <string>WEB-INF/classes/log4j.properties</string>
           <string>WEB-INF/classes/hibernate.cfg.xml</string>
+          <string>WEB-INF/classes/bioinfo/.directory</string>
           <string>WEB-INF/classes/bioinfo/comaWebServer/util/GenericSelectionModel.class</string>
           <string>WEB-INF/classes/bioinfo/comaWebServer/util/DatabaseItemSelectModel.class</string>
           <string>WEB-INF/classes/bioinfo/comaWebServer/util/AttachmentStreamResponse.class</string>
@@ -52,6 +54,7 @@
           <string>WEB-INF/classes/bioinfo/comaWebServer/util/DatabaseItemEncoder.class</string>
           <string>WEB-INF/classes/bioinfo/comaWebServer/comparators/ResultsHitComparator.class</string>
           <string>WEB-INF/classes/bioinfo/comaWebServer/comparators/ResultsAlignmentComparator.class</string>
+          <string>WEB-INF/classes/bioinfo/comaWebServer/comparators/.directory</string>
           <string>WEB-INF/classes/bioinfo/comaWebServer/comparators/ResultsQueryComparator.class</string>
           <string>WEB-INF/classes/bioinfo/comaWebServer/cache/Cache.class</string>
           <string>WEB-INF/classes/bioinfo/comaWebServer/enums/PsiBlastRadioParams.class</string>
@@ -66,6 +69,7 @@
           <string>WEB-INF/classes/bioinfo/comaWebServer/pages/edit/EditPeriodicalWorkerParams.properties</string>
           <string>WEB-INF/classes/bioinfo/comaWebServer/pages/edit/EditSearchParams.class</string>
           <string>WEB-INF/classes/bioinfo/comaWebServer/pages/edit/EditPeriodicalWorkerParams.class</string>
+          <string>WEB-INF/classes/bioinfo/comaWebServer/pages/edit/.directory</string>
           <string>WEB-INF/classes/bioinfo/comaWebServer/pages/edit/EditClusterParams.class</string>
           <string>WEB-INF/classes/bioinfo/comaWebServer/pages/edit/EditDatabase.class</string>
           <string>WEB-INF/classes/bioinfo/comaWebServer/pages/edit/EditComaParams.class</string>
@@ -77,6 +81,7 @@
           <string>WEB-INF/classes/bioinfo/comaWebServer/pages/show/ShowDatabases.class</string>
           <string>WEB-INF/classes/bioinfo/comaWebServer/pages/show/ShowInfo.class</string>
           <string>WEB-INF/classes/bioinfo/comaWebServer/pages/Index.properties</string>
+          <string>WEB-INF/classes/bioinfo/comaWebServer/pages/.directory</string>
           <string>WEB-INF/classes/bioinfo/comaWebServer/pages/Contacts.class</string>
           <string>WEB-INF/classes/bioinfo/comaWebServer/pages/Index.class</string>
           <string>WEB-INF/classes/bioinfo/comaWebServer/pages/WaitForResults.class</string>
@@ -175,6 +180,7 @@
           <string>WEB-INF/classes/bioinfo/comaWebServer/components/ViewCluster.class</string>
           <string>WEB-INF/classes/bioinfo/comaWebServer/components/ViewAutocorrection.tml</string>
           <string>WEB-INF/classes/bioinfo/comaWebServer/components/ViewProfileConstruction.class</string>
+          <string>WEB-INF/classes/bioinfo/comaWebServer/.directory</string>
           <string>WEB-INF/classes/bioinfo/comaWebServer/exceptions/TooManyJobsException.class</string>
           <string>WEB-INF/classes/bioinfo/comaWebServer/exceptions/SSHConnectioException.class</string>
           <string>WEB-INF/classes/bioinfo/comaWebServer/exceptions/NoProfilesFoundException.class</string>
@@ -190,6 +196,7 @@
           <string>WEB-INF/classes/bioinfo/comaWebServer/jobManagement/PeriodicalWorker.class</string>
           <string>WEB-INF/classes/bioinfo/comaWebServer/jobManagement/PeriodicalGarbageCollector.class</string>
           <string>WEB-INF/classes/bioinfo/comaWebServer/mixins/ControlledCheckbox.class</string>
+          <string>WEB-INF/classes/bioinfo/comaWebServer/mixins/.directory</string>
           <string>WEB-INF/classes/bioinfo/comaWebServer/entities/User.hbm.xml</string>
           <string>WEB-INF/classes/bioinfo/comaWebServer/entities/PeriodicalWorkerParams.hbm.xml</string>
           <string>WEB-INF/classes/bioinfo/comaWebServer/entities/PeriodicalWorkerParams.class</string>

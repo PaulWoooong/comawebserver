@@ -1,0 +1,15 @@
+bioinfo.comaWebServer.cache
+bioinfo.comaWebServer.comparators
+bioinfo.comaWebServer.components
+bioinfo.comaWebServer.dataServices
+bioinfo.comaWebServer.entities
+bioinfo.comaWebServer.enums
+bioinfo.comaWebServer.exceptions
+bioinfo.comaWebServer.jobManagement
+bioinfo.comaWebServer.mixins
+bioinfo.comaWebServer.pages
+bioinfo.comaWebServer.pages.add
+bioinfo.comaWebServer.pages.edit
+bioinfo.comaWebServer.pages.show
+bioinfo.comaWebServer.services
+bioinfo.comaWebServer.util
