@@ -1,0 +1,49 @@
+<t:border t:pageTitle="Show databases" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+    <head>
+
+    </head>
+    <body>
+    <t:form>
+    
+    	<table id="listDatabases">
+    		<tr>
+    			<td>
+    				<h3>All databases</h3>
+    			</td>
+    		</tr>
+    	</table>
+
+		<table id="listDatabases">
+			<tr>
+				<th>Name</th>
+				<th>Value</th>
+				<th>Type</th>
+				<th>Path</th>
+				<th>Edit</th>
+				<th>Delete</th>
+			</tr>
+			<tr t:type="loop" source="databases" value="database">
+				<td>
+					${database.name}
+				</td>
+				<td>
+                    ${database.value}
+                </td>
+				<td>
+					${database.type}
+				</td>
+				<td>
+					${database.path}
+				</td>
+				<td>
+					<a t:type="actionlink" t:id="edit" t:context="database.id">Edit</a>
+				</td>
+				<td>
+					<a t:type="actionlink" t:id="delete" t:context="database.id">Delete</a>
+				</td>
+			</tr>
+		</table>
+	</t:form>	
+		
+    </body>
+</t:border>

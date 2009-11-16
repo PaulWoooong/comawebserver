@@ -1,0 +1,28 @@
+<t:border t:pageTitle="Job ID" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+    <head>
+
+    </head>
+    <body>
+    
+        <t:form t:id="jobInfoForm">
+            <table class="stuff">
+                <tr>
+                    <td class="left">
+                        Job ID
+                    </td>
+                    <td>
+                        <t:textfield t:id="jobId" t:value="jobId" t:validate="required"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="left">
+                    </td>
+                    <td>
+                        <input type="submit" t:type="submit" t:id="jobInfoButton" value="Get results"/>
+                    </td>
+                </tr>
+            </table>
+        </t:form>
+
+    </body>
+</t:border>

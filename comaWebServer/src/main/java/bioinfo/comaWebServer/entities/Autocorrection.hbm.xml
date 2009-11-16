@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+
+	<class name="bioinfo.comaWebServer.entities.Autocorrection" table="Autocorrection">	
+		<id name="id" column="id" >
+			<generator class="increment"/>
+		</id>
+		
+		<property name="uc_K" column="uc_K" />
+		<property name="uc_M" column="uc_M" />
+		<property name="lc_k" column="lc_k" />
+		<property name="lc_m" column="lc_m" />
+		<property name="lc_a" column="lc_a" />
+		<property name="lc_p" column="lc_p" />
+	</class>
+	
+</hibernate-mapping>

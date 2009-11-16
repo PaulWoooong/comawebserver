@@ -1,0 +1,25 @@
+<t:border t:pageTitle="Info" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+    <head>
+
+    </head>
+    <body>
+    
+	   	<table class="info">
+            <tr>
+               <td class="left">
+               		<h3>${action}</h3>
+               </td>
+               <td class="right">
+               </td>
+            </tr>  
+            <tr>
+               <td class="left">
+               		<t:outputraw value="info"/>
+               </td>
+               <td class="right">
+               </td>
+            </tr> 
+        </table> 
+    	
+    </body>
+</t:border>

@@ -1,0 +1,49 @@
+<t:container xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+
+<t:if t:test="showProfileConstruction">
+	<table class="editComaParams">
+		<tr>
+			<td class="left">
+				${message:lc_t}
+			</td>
+			<td class="right">
+				<t:textfield t:id="lc_t" t:value="profileConstruction.lc_t" t:validate="required,min,max"/>
+			</td>
+		</tr>
+		<tr>
+			<td class="left">
+				${message:lc_s}
+			</td>
+			<td class="right">
+				<input type="checkbox" t:type="checkbox" t:value = "profileConstruction.lc_s"/>
+			</td>
+		</tr>
+		
+		<tr>
+            <td class="left">
+                ${message:lc_b}
+            </td>
+            <td class="right">
+                <t:textfield t:id="lc_b" t:value="profileConstruction.lc_b" t:validate="required"/>
+            </td>
+        </tr>
+        <tr>
+            <td class="left">
+                ${message:uc_Y}
+            </td>
+            <td class="right">
+                <t:textfield t:id="uc_Y" t:value="profileConstruction.uc_Y" t:validate="required,min,max"/>
+            </td>
+        </tr>
+        <tr>
+            <td class="left">
+                ${message:lc_x}
+            </td>
+            <td class="right">
+                <t:textfield t:id="lc_x" t:value="profileConstruction.lc_x" t:validate="required"/>
+            </td>
+        </tr>
+	</table>
+</t:if>
+	
+</t:container>

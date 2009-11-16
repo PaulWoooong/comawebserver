@@ -1,0 +1,56 @@
+<t:container xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+
+<t:if t:test="showAutocorrection">
+	<table class="editComaParams">
+		<tr>
+			<td class="left">
+				${message:lc_k}
+			</td>
+			<td class="right">
+				<t:textfield t:id="lc_k" t:value="autocorrection.lc_k" t:validate="required"/>
+			</td>
+		</tr>
+		<tr>
+			<td class="left">
+				${message:uc_K}
+			</td>
+			<td class="right">
+				<t:textfield t:id="uc_K" t:value="autocorrection.uc_K" t:validate="required"/>
+			</td>
+		</tr>
+		<tr>
+			<td class="left">
+				${message:lc_m}
+			</td>
+			<td class="right">
+				<t:textfield t:id="lc_m" t:value="autocorrection.lc_m" t:validate="required"/>
+			</td>
+		</tr>
+		<tr>
+			<td class="left">
+				${message:uc_M}
+			</td>
+			<td class="right">
+				<t:textfield t:id="uc_M" t:value="autocorrection.uc_M" t:validate="required"/>
+			</td>
+		</tr>
+		<tr>
+			<td class="left">
+				${message:lc_p}
+			</td>
+			<td class="right">
+				<input type="checkbox" t:type="checkbox" t:value = "autocorrection.lc_p"/>
+			</td>
+		</tr>
+		<tr>
+			<td class="left">
+				${message:lc_a}
+			</td>
+			<td class="right">
+				<input type="checkbox" t:type="checkbox" t:value = "autocorrection.lc_a"/>
+			</td>
+		</tr>
+	</table>
+</t:if>
+
+</t:container>

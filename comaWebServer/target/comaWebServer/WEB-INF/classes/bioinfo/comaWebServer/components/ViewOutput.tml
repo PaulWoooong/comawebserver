@@ -1,0 +1,40 @@
+<t:container xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+    
+<t:if t:test="showOutput">
+	<table class="editComaParams">
+		<tr>
+			<td  class="left">
+				${message:lc_e}
+			</td>
+			<td class="right">
+				<t:textfield t:id="lc_e" t:value="output.lc_e" t:validate="required"/>
+			</td>
+		</tr>
+		<tr>
+			<td  class="left">	
+				${message:uc_L}
+			</td>
+			<td class="right">
+				<t:textfield t:id="uc_L" t:value="output.uc_L" t:validate="required"/>
+			</td>
+		</tr>
+		<tr>
+			<td class="left">
+				${message:uc_N}
+			</td>
+			<td class="right">
+				<t:textfield t:id="uc_N" t:value="output.uc_N" t:validate="required"/>
+			</td>
+		</tr><!--
+		<tr>
+			<td class="left">
+				${message:lc_n}
+			</td>
+			<td class="right">
+				<input type="checkbox" t:type="checkbox" t:value = "output.lc_n"/>
+			</td>
+		</tr>
+	--></table>
+</t:if>
+	
+</t:container>

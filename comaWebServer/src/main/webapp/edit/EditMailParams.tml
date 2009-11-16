@@ -1,0 +1,31 @@
+<t:border t:pageTitle="Edit Mail Params" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+    <head>
+
+    </head>
+    <body>
+    	<t:form t:id="updateEmailNotificationForm">
+    		<t:errors/> 
+    		
+			<table class="editParams">
+				<tr>
+					<td colspan="2">
+						<h3>Email notification params</h3>
+					</td>
+				</tr>
+			</table>
+			
+    		<t:ViewEmailNotification emailNotification="emailNotification"/>
+			
+			<table class="editParams">
+				<tr>
+					<td>
+					</td>
+					<td>
+						<input type="submit" t:type="submit" t:id="updateEmailNotificationButton" value="Update"/>
+					</td>
+				</tr>
+			</table>
+			
+		</t:form>
+    </body>
+</t:border>

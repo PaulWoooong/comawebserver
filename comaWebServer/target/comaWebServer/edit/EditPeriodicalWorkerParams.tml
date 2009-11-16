@@ -1,0 +1,85 @@
+<t:border t:pageTitle="Edit Periodical Worker Params" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+    <head>
+
+    </head>
+    <body>
+        <t:form t:id="UpdatePeriodicalWorkerParamsForm" clientValidation="false">
+            <t:errors/> 
+            <table class="editParams">
+                <tr>
+                    <td colspan="2">
+                        <h3>Periodical Worker params</h3>
+                    </td>
+                </tr>
+            </table>
+            
+			<table class="editParams">
+			    <tr>
+			        <td>
+			            ${message:jobExpiration}
+			        </td>
+			        <td>
+			            <t:textfield t:id="jobExpiration" t:value="periodicalWorker.jobExpiration" t:validate="required"/>
+			        </td>
+			    </tr>
+			    <tr>
+			        <td>
+			            ${message:jobWithErrorsExpiration}
+			        </td>
+			        <td>
+			            <t:textfield t:id="jobWithErrorsExpiration" t:value="periodicalWorker.jobWithErrorsExpiration" t:validate="required"/>
+			        </td>
+			    </tr>
+                <tr>
+                    <td>
+                        ${message:numberForPictures}
+                    </td>
+                    <td>
+                        <t:textfield t:id="numberForPictures" t:value="periodicalWorker.numberForPictures" t:validate="required"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        ${message:evalueForPictures}
+                    </td>
+                    <td>
+                        <t:textfield t:id="evalueForPictures" t:value="periodicalWorker.evalueForPictures" t:validate="required"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        ${message:redThreshold}
+                    </td>
+                    <td>
+                        <t:textfield t:id="redThreshold" t:value="periodicalWorker.redThreshold" t:validate="required"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        ${message:greenThreshold}
+                    </td>
+                    <td>
+                        <t:textfield t:id="greenThreshold" t:value="periodicalWorker.greenThreshold" t:validate="required"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        ${message:blueThreshold}
+                    </td>
+                    <td></td>
+                </tr>
+			</table>
+            
+            <table class="editParams">
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                        <input type="submit" t:type="submit" t:id="updatePeriodicalWorkerButton" value="Update"/>
+                    </td>
+                </tr>
+            </table>
+            
+        </t:form>
+    </body>
+</t:border>
