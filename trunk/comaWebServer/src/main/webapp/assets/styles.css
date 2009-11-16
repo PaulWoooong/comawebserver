@@ -213,8 +213,7 @@ table.LeftMenuAdminTable a, pageLink
 
 table.LeftMenuClientTable 
 {
-    width: 135;
-    height: 25px;
+    width: 140;
     background-color: #e5e5e5;
     margin-left: 5px;
     margin-top: 5px;
@@ -233,8 +232,7 @@ table.LeftMenuClientTable a, pageLink
 
 table.LeftMenuClientTable input
 {
-    width: 135;
-    height: 25px;
+    width: 105;
 }
 
 table.editParams input
@@ -250,13 +248,11 @@ table.editParams td
 table.editComaParams input
 {
 	width: 70px;
-	height: 25px;
 }
 
 table.editComaParams input.showHide
 {
     width: 50px;
-    height: 25px;
 }
 
 table.editComaParams td.left
@@ -301,20 +297,14 @@ select
 	width: 200px;
 }
 
-table.inputParams input
+table input
 {
-    width: 250px;
-    height: 25px;
+    font-size: 100%;
 }
 
 table.inputParams td.left
 {
     width: 300px;
-}
-
-input#file
-{
-    height: 25px;
 }
 
 select#inputType
@@ -379,7 +369,11 @@ table.hits td.evalue
 	width: 75px;
 	text-align: right;
 }
-
+table.resultsQuery td
+{
+    font-family: courier, serif;
+    font-size: 14px;
+}
 table.resultsQuery td.queryLabel
 {
     width: 50px;
@@ -393,8 +387,6 @@ table.resultsQuery td.queryBegin
 
 table.resultsQuery td.query 
 {
-	font-family: courier, serif;
-	font-size: 14px;
     width: 600px;
 }
 
