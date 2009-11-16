@@ -89,43 +89,53 @@
             
         </t:if>
     
-		    <table class="hits">
-		        <tr>
-                    <td class="priority"></td>
-                    <td class="select"></td>
-                    <td class="name">
-                       <input type="submit" t:type="submit" id="newJobButton" class="button" t:id="newFastaJobButton" value="Alignments in FASTA"/>
-                    </td>
-                    <td class="score"></td>
-                    <td class="evalue"></td>
-                </tr>
-	            <tr>
-	               <td class="priority"><h3>No.</h3></td>
-	               <td class="select"><t:controlcb t:id="idController" value="prop:selectAll"/></td>
-	               <td class="name"><h3>Profiles found below the e-value threshold:</h3></td>
-	               <td class="score"><h3>Score</h3></td>
-	               <td class="evalue"><h3>E-value</h3></td>
-	            </tr>
-		        <tr t:type="loop" source="hits" value="resultsHit">
-		        	<td class="priority"> 
-		                ${resultsHit.priority}
-		            </td>
-		            <td class="select"> 
-	                    <t:checkbox t:mixins="ControlledCheckbox"  
-	                                controller="idController" 
-	                                value="selected"/> 
-	                </td>
-		            <td class="name">
-		                <a href="#${resultsHit.priority}">${resultsHit.name}</a>
-		            </td>
-		            <td class="score">
-		                ${resultsHit.score}
-		            </td>
-		            <td class="evalue">
-		                ${resultsHit.evalue}
-		            </td>
-		        </tr>
-		    </table>
+       <table>
+	 <tr>
+            <td></td>
+            <td></td>
+            <td>
+                 <input type="submit" t:type="submit" id="newJobButton" class="button" t:id="newFastaJobButton" style="width: 250px; font-size: 100%;" value="Alignments in FASTA"/>
+            </td>
+            <td></td>
+            <td></td>
+         </tr>
+	 <tr>
+	    <td>
+		<h3>No.</h3>
+            </td>
+	    <td>
+		<t:controlcb t:id="idController" value="prop:selectAll"/>
+	    </td>
+	    <td>
+		<h3>Profiles found below the e-value threshold:</h3>
+	    </td>
+	    <td style="text-align: right;">
+		<h3>Score</h3>
+	    </td>
+	    <td style="text-align: right; padding-right: 5px;">
+		<h3>E-value</h3>
+	    </td>
+        </tr>
+        <tr t:type="loop" source="hits" value="resultsHit">
+	    <td  style="width: 30px;"> 
+	       ${resultsHit.priority}
+            </td>
+            <td  style="width: 30px;"> 
+               <t:checkbox t:mixins="ControlledCheckbox"
+                               controller="idController" 
+                                value="selected"/> 
+            </td>
+            <td  style="width: 550px;">
+                <a href="#${resultsHit.priority}">${resultsHit.name}</a>
+            </td>
+            <td  style="width: 75px; text-align: right;">
+                ${resultsHit.score}
+            </td>
+            <td  style="width: 75px; text-align: right;">
+                ${resultsHit.evalue}
+            </td>
+        </tr>
+    </table>
 
 	    <p/>
 	    
