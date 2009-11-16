@@ -1,0 +1,32 @@
+<t:border t:pageTitle="Add new database" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+    <head>
+
+    </head>
+    <body>
+    	<t:form t:id="addDatabaseForm">
+    		<t:errors/>
+    		
+    		<table class="editParams">
+    			<tr>
+    				<td>
+    					<h3>Add new database</h3>
+    				</td>
+    				<td></td>
+    			</tr>
+    		</table>
+    		
+			<t:ViewDatabase database="database"/>
+			
+    		<table class="editParams">
+    			<tr>
+    				<td></td>
+    				<td>
+    					<input type="submit" t:type="submit" value="Add"/>
+    				</td>
+    			</tr>
+    		</table>
+			
+		</t:form>
+		
+    </body>
+</t:border>

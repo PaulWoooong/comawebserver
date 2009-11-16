@@ -1,0 +1,20 @@
+<t:border t:pageTitle="New Job" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+    <head>
+
+    </head>
+    <body>
+    
+        <table class="info">
+            <tr>
+               <td colspan="2" style="text-align: center; font-size: 16;">
+                    COMA Server has been developed at the<br/> 
+		            <a href="http://www.ibt.lt/bioinformatics/">
+		                Institute of Biotechnology, <br/>Laboratory of Bioinformatics
+		            </a>,<br/> 
+		            Vilnius, Lithuania.
+               </td>
+            </tr>  
+        </table> 
+
+    </body>
+</t:border>

@@ -1,0 +1,24 @@
+<t:border t:pageTitle="Edit Search params" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+    <head>
+
+    </head>
+    <body>
+		<t:form t:id="updateSearchForm">
+			<t:errors/>
+			<t:ViewSearch search="search"
+						  sequenceDB="sequenceDB"
+						  selectedSequenceDB="selectedSequenceDB"
+						  />
+						  
+            <table class="editComaParams">
+                <tr>
+                   <td class="left">
+                   </td>
+                   <td class="right">
+                      <input type="submit" t:type="submit" class="button" t:id="updateComaParamsButton" value="Save"/>
+                   </td>
+                </tr>  
+            </table> 
+		</t:form>
+    </body>
+</t:border>

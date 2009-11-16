@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+
+    <class name="bioinfo.comaWebServer.entities.ResultsQuery" table="ResultsQuery">   
+        <id name="id" column="id" >
+            <generator class="increment"/>
+        </id>
+        
+        <property name="resultsAlignmentId" column="resultsAlignmentId" />
+        <property name="priority" column="priority" />
+        <property name="query" column="query" />
+        <property name="queryBegin" column="queryBegin" />  
+        <property name="queryEnd" column="queryEnd" />
+        <property name="subject" column="subject" />
+        <property name="subjectBegin" column="subjectBegin" />  
+        <property name="subjectEnd" column="subjectEnd" />
+        <property name="info" column="info" />
+        
+    </class>
+    
+</hibernate-mapping>

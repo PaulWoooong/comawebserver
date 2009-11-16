@@ -1,0 +1,46 @@
+<t:border t:pageTitle="Login" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+    <head>
+
+    </head>
+    <body>
+    
+    	<form action="${loginCheckUrl}" method="POST">
+
+			<table class="stuff">
+				<tr>
+					<td class="left">
+						
+					</td>
+					<td>
+						<t:if test="failed"><h3>Username and/or password was wrong!</h3></t:if>
+					</td>
+				</tr>
+				<tr>
+					<td class="left">
+						Username
+					</td>
+					<td>
+						<input class="username" name="j_username" type="text" size="10" maxlength="30"/>
+					</td>
+				</tr>
+				<tr>
+					<td class="left">
+						Password
+					</td>
+					<td>
+						<input class="password" name="j_password" type="password" size="10" maxlength="30"/>
+					</td>
+				</tr>
+				<tr>
+					<td class="left">
+
+					</td>
+					<td>
+						<input type="submit" value="Login"/>
+					</td>
+				</tr>
+			</table>
+		</form>
+
+    </body>
+</t:border>

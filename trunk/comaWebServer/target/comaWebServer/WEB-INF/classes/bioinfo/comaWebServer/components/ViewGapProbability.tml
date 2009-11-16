@@ -1,0 +1,32 @@
+<t:container xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+    
+<t:if t:test="showGapProbability">
+	<table class="editComaParams">
+		<tr>
+			<td class="left">
+				${message:uc_E}
+			</td>
+			<td class="right">
+				<t:textfield t:id="uc_E" t:value="gapProbability.uc_E" t:validate="required"/>
+			</td>
+		</tr>
+		<tr>
+			<td class="left">
+				${message:uc_P}
+			</td>
+			<td class="right">
+				<t:textfield t:id="uc_P" t:value="gapProbability.uc_P" t:validate="required"/>
+			</td>
+		</tr>
+		<tr>
+			<td class="left">
+				${message:uc_R}
+			</td>
+			<td class="right">
+				<t:textfield t:id="uc_R" t:value="gapProbability.uc_R" t:validate="required"/>
+			</td>
+		</tr>
+	</table>
+</t:if>
+
+</t:container>

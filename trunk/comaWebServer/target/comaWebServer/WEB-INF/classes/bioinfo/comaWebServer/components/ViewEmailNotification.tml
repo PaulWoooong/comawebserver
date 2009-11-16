@@ -1,0 +1,30 @@
+<t:container xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+
+<table class="editParams">
+	<tr>
+		<td>
+			${message:hostname}
+		</td>
+		<td>
+			<t:textfield t:id="emailNotification_hostname" t:value="emailNotification.hostname" t:validate="required"/>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			${message:port}
+		</td>
+		<td>
+			<t:textfield t:id="emailNotification_port" t:value="emailNotification.port"/>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			${message:from}
+		</td>
+		<td>
+			<t:textfield t:id="emailNotification_sender" t:value="emailNotification.sender" t:validate="required,regexp"/>
+		</td>
+	</tr>
+</table>
+
+</t:container>

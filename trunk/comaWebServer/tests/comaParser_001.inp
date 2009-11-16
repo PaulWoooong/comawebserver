@@ -1,0 +1,35 @@
+coma 0.41
+
+
+ Query (24 positions):
+(860533855_1245149413397.ina) Q5YM28_NOCFA/8529 
+  [added]
+
+ Database:
+protest
+             27 profiles
+             8472 total positions
+
+
+ No profiles found below the e-value threshold of 10.
+
+
+
+
+Scoring method: Profile-specific vector-based
+             (Increased precision)
+
+Gap open cost, Computed (window size, 4)
+Initial gap extension cost, 1
+Deletion probability weight, 0.60
+
+Reference values of   K        Lambda
+Ungapped              0.1152   0.2598
+Gapped                0.0045   0.1412
+
+Length of query, 24
+Length of database, 8472
+Effective length of query, 24
+Effective length of database, 8472
+Effective search space, 203328
+

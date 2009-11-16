@@ -1,0 +1,107 @@
+coma 0.42
+
+
+ Query (4 positions):
+a
+
+ Database:
+propdb40
+             14098 profiles
+             3393158 total positions
+
+
+ Profiles found below the e-value threshold:                                Score E-value
+
+1dsr_A mol:protein length:17  RAMOPLANIN                                      378   1e-18
+2aoj_C mol:protein length:12  PEPTIDE INHIBITOR                               268   8e-12
+1ylx_A mol:protein length:103  hypothetical protein APC35702                    0     0.1
+1h1j_S mol:protein length:51  THO1 PROTEIN                                      0       5
+
+
+
+>1dsr_A mol:protein length:17  RAMOPLANIN
+  Query length = 4, Sbjct length = 17
+
+ Score = 378.78 (83.1 bits),  Expect = 1.336e-18, P-value = 0
+ Identities = 2/4 (50%)
+
+Query:     1 TEST 4    
+             T  T
+Sbjct:     5 TXGT 8    
+
+                           K        Lambda
+Computed  ungapped,        0.4187   0.2597
+Estimated gapped,          0.0164   0.1412
+Entropy, 2.0693; Expected, -78.1867; Min/Max, -135/8
+
+
+
+>2aoj_C mol:protein length:12  PEPTIDE INHIBITOR
+  Query length = 4, Sbjct length = 12
+
+ Score = 268.42 (60.6 bits),  Expect = 7.766e-12, P-value = 7.766e-12
+ Identities = 2/8 (25%), Gaps = 6/8 (75%)
+
+Query:     3 S------T 4    
+             S      T
+Sbjct:     2 SFNXPQIT 9    
+
+                           K        Lambda
+Computed  ungapped,        0.4270   0.2598
+Estimated gapped,          0.0167   0.1412
+Entropy, 1.8499; Expected, -86.2277; Min/Max, -136/7
+
+
+
+>1ylx_A mol:protein length:103  hypothetical protein APC35702
+  Query length = 4, Sbjct length = 103
+
+ Score = 0.97 (26.6 bits),  Expect = 0.138, P-value = 0.1289
+ Positives = 2/2 (100%)
+
+Query:     2 ES 3    
+             ++
+Sbjct:    94 QE 95   
+
+                           K        Lambda
+Computed  ungapped,        0.0000   0.2629
+Estimated gapped,          0.0000   0.1429
+Entropy, 0.0000; Expected, -0.0297; Min/Max, -1/1
+
+
+
+>1h1j_S mol:protein length:51  THO1 PROTEIN
+  Query length = 4, Sbjct length = 51
+
+ Score = 0.75 (21.3 bits),  Expect = 5.23, P-value = 0.9946
+ Positives = 1/1 (100%)
+
+Query:     2 E 2    
+             +
+Sbjct:    51 Q 51   
+
+                           K        Lambda
+Computed  ungapped,        0.0000   0.2576
+Estimated gapped,          0.0000   0.1400
+Entropy, 0.0000; Expected, -0.0565; Min/Max, -1/1
+
+
+
+
+Scoring method: Profile-specific vector-based
+             (Increased precision)
+
+Gap open cost, Computed (window size, 4)
+Initial gap extension cost, 1
+Deletion probability weight, 0.60
+
+Reference values of   K        Lambda
+Ungapped              0.1152   0.2598
+Gapped                0.0045   0.1412
+
+Length of query, 4
+Length of database, 3393158
+Effective length of query, 4
+Effective length of database, 3393158
+Effective search space, 13572632
+

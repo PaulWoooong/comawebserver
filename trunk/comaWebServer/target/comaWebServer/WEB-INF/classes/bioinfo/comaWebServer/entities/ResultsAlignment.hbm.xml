@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+
+    <class name="bioinfo.comaWebServer.entities.ResultsAlignment" table="ResultsAlignment">   
+        <id name="id" column="id" >
+            <generator class="increment"/>
+        </id>
+                
+        <property name="comaResultsId"  />
+        <property name="priority"       />
+        <property name="name"           />
+        
+        <property name="hasHeader"      />
+        
+        <property name="header" type="text" />
+        <property name="queryLength"    />    
+        <property name="subjectLength"  />
+        <property name="score"          />
+        <property name="expect"         />
+        <property name="pvalue"         />
+        <property name="identities"     />
+        <property name="positives"      />
+        <property name="gaps"           />
+        
+        <property name="nonNegativeScore"/>
+        
+        <property name="hasFooter"      />
+        
+        <property name="ungappedK"      />
+        <property name="ungappedLambda" />    
+        <property name="gappedK"        />
+        <property name="gappedLambda"   />
+        <property name="entropy"        />
+        <property name="expected"       />
+        <property name="minMax"         />
+        
+        <many-to-one name="alignmentBibliography" class="bioinfo.comaWebServer.entities.AlignmentBibliography" column="bibliographyId" lazy="false" cascade="all"/>
+        
+        <set name="queries" table="ResultsQuery" lazy="false" fetch="join" order-by="priority" cascade="save-update,delete,delete-orphan">
+            <key column="resultsAlignmentId" />
+            <one-to-many class="bioinfo.comaWebServer.entities.ResultsQuery" />
+        </set>
+        
+    </class>
+    
+</hibernate-mapping>

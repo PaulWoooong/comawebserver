@@ -1,0 +1,53 @@
+coma 0.42
+
+
+ Query (4 positions):
+a
+
+ Database:
+proastral40_1.75
+             10646 profiles
+             1859782 total positions
+
+
+ Profiles found below the e-value threshold:                                Score E-value
+
+d1vcsa1 a.47.2.1 (A:8-96) Vesicle transport v-SNARE protein Vti1-like ...       0    0.06
+
+
+
+>d1vcsa1 a.47.2.1 (A:8-96) Vesicle transport v-SNARE protein Vti1-like 2
+             {Mouse (Mus musculus) [TaxId: 10090]}
+  Query length = 4, Sbjct length = 89
+
+ Score = 0.69 (27.0 bits),  Expect = 0.05654, P-value = 0.05497
+ Identities = 1/2 (50%), Positives = 1/2 (50%)
+
+Query:     2 ES 3
+             E+
+Sbjct:     1 EG 2
+
+                           K        Lambda
+Computed  ungapped,        0.0000   0.2598
+Estimated gapped,          0.0000   0.1412
+Entropy, 0.0000; Expected, -0.0191; Min/Max, -1/1
+
+
+
+
+Scoring method: Profile-specific vector-based
+             (Increased precision)
+
+Gap open cost, Computed (window size, 4)
+Initial gap extension cost, 1
+Deletion probability weight, 0.60
+
+Reference values of   K        Lambda
+Ungapped              0.1152   0.2598
+Gapped                0.0045   0.1412
+
+Length of query, 4
+Length of database, 1859782
+Effective length of query, 4
+Effective length of database, 1859782
+Effective search space, 7439128

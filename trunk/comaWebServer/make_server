@@ -1,0 +1,4 @@
+#!/bin/bash 
+
+/home/minlag/bin/apache-maven-2.1.0/bin/./mvn -e deploy
+ 
