@@ -15,18 +15,7 @@
                    </td>
                 </tr>  
             </table> 
-            
-            <table class="editComaParams">
-               <tr>
-                    <td class="left">
-                       <b>Output options</b> 
-                    </td>                         
-               </tr>
-            </table>
-            
-            <t:ViewOutput output="comaParams.output"
-                          showOutput="true"/>
-    		
+
 			<t:ViewComaParams autocorrection="comaParams.autocorrection"
 							  alignment="comaParams.alignment"
 							  output="comaParams.output"
