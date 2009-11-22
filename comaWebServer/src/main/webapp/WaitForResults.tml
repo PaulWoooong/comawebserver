@@ -27,6 +27,16 @@
                         <h3>${jobId}</h3>
                    </td>
                 </tr> 
+                <t:if t:test="${description}">
+	                <tr>
+	                   <td class="left">
+	                        <h3>Job Description</h3>
+	                   </td>
+	                   <td class="right">
+	                        <h3>${description}</h3>
+	                   </td>
+	                </tr> 
+	            </t:if>
                 <tr>
                    <td class="left">
                         <h3>Job status</h3>
