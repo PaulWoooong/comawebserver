@@ -28,7 +28,8 @@ public class WaitForResults
 	@Persist("flash")
 	private int timeToWait;
 	private String status;
-	
+	private String description;
+
 	public void setUp(String id)
 	{
 		jobId = id;
@@ -56,16 +57,17 @@ public class WaitForResults
 		{
 			jobId = reload;
 			
-			String stat = dataSource.jobStatus(jobId);
+			Job job = dataSource.getJobByGeneratedId(jobId);
 
-			if(stat.equals(Job.FINISHED) || stat.equals(Job.ERRORS))
+			if(job.getStatus().equals(Job.FINISHED) || job.getStatus().equals(Job.ERRORS))
 			{
 				showResults.setUp(jobId);
 				
 				return showResults;
 			}
 
-			status = stat;
+			status = job.getStatus();
+			description = job.getDescription();
 			
 			timeToWait += 5;
 			if(timeToWait > 30)
@@ -104,6 +106,14 @@ public class WaitForResults
 
 	public void setStatus(String status) {
 		this.status = status;
+	}
+	
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 }
