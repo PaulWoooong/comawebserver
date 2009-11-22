@@ -78,6 +78,8 @@ public class ModellerJob
 											    dataSource,
 											    usedDB,
 											    resultsAlignment);
+			
+			recentJobs.addJob(dataSource.getJobByGeneratedId(id));
 		}
 		catch (IOException e) 
 		{
@@ -95,8 +97,6 @@ public class ModellerJob
 			infoPage.setUp("", e.getMessage());
 			return infoPage;
 		}
-		
-		recentJobs.addJob(id);
 		
 		waitForResults.setUp(id);
 		

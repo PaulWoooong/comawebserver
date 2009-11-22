@@ -1,9 +1,12 @@
 package bioinfo.comaWebServer.entities;
 
+import java.io.Serializable;
 import java.util.Set;
 
-public class ComaResults 
-{
+public class ComaResults  implements Serializable
+{	
+	private static final long serialVersionUID = 1L;
+	
 	private long id;
 	
 	private String noProfilesFound;

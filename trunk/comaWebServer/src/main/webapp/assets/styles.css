@@ -19,14 +19,14 @@ body, td, th
 #Container 
 {
     text-align: left;
-    width: 910px;
+    width: 955px;
     margin-left: auto;
     margin-right: auto;
 }
 
 #Logo {
     float: left;
-    width: 150px;
+    width: 190px;
     height: 150px;
     border: 1px solid #3333FF;
     margin-right: 5px;
@@ -98,7 +98,7 @@ h3
 #LeftMenu 
 {
     float: left;
-    width: 150px;
+    width: 190px;
     border: 1px solid #3333FF;
     line-height: 20px;
     margin-top: 10px;
@@ -213,7 +213,7 @@ table.LeftMenuAdminTable a, pageLink
 
 table.LeftMenuClientTable 
 {
-    width: 140;
+    width: 180;
     background-color: #e5e5e5;
     margin-left: 5px;
     margin-top: 5px;
@@ -232,7 +232,7 @@ table.LeftMenuClientTable a, pageLink
 
 table.LeftMenuClientTable input
 {
-    width: 105;
+    width: 145;
 }
 
 table.editParams input
