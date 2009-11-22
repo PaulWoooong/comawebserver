@@ -54,7 +54,7 @@
 		                Job description (max 20 characters)
 		            </td>
 		            <td class="right">
-		                <t:textfield t:id="description" t:value="input.description" t:validate="maxlength"/>
+		                <t:textfield t:id="description" t:value="input.description" t:validate="maxlength" maxlength="20"/>
 		            </td>
 		        </tr>
 		    </table>
