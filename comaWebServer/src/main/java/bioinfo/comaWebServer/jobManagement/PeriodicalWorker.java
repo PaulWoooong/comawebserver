@@ -421,8 +421,7 @@ public class PeriodicalWorker extends TimerTask
 				subject += " (with errors)";
 			}
 
-			String content = mailContent(job.getGeneratedId(), job.getExpirationDate(), url);
-
+			String content = mailContent(job, url);
 
 			try
 			{
@@ -432,14 +431,20 @@ public class PeriodicalWorker extends TimerTask
 		}
 	}
 
-	private String mailContent(String jobId, Date date, String url)
+	private String mailContent(Job job, String url)
 	{
 		String info =	"COMA server.\n" +
-						"Finished job: " + jobId + ".\n" +
-						"Job expiration date: " + date + ".\n";
+						"Finished job: " + job.getGeneratedId() + ".\n" +
+						"Job expiration date: " + job.getExpirationDate() + ".\n";
+		
+		if(job.getDescription() != null)
+		{
+			info += "Job description: " + job.getDescription() + ".\n";
+		}
+		
 		if(url != null)
 		{
-			info += "The results can be found here:\n" + url + jobId;
+			info += "The results can be found here:\n" + url + job.getGeneratedId();
 		}
 
 		return info;

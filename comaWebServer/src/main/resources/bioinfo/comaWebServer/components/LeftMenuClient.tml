@@ -26,8 +26,17 @@
 	    <tr>
 	       <td>Recent jobs:</td>
 	    </tr>
-		<tr t:type="loop" source="recentJobs.jobs" value="generatedId">
-		   <td>${generatedId}</td>
+		<tr t:type="loop" source="recentJobs.jobs" value="job">
+		   <td>
+		      <a href="http://bioinformatics.ibt.lt:8085/show/results/${job.generatedId}" style="font-size: 13px; font-family: Monospace;">
+			      <t:if t:test="${job.description}">
+	                  ${job.description}    
+	              <t:parameter t:name="else">
+	                  ${job.generatedId}
+	              </t:parameter>
+	              </t:if>
+              </a>
+		   </td>
 		</tr>
 	</table>
 	

@@ -14,6 +14,8 @@ IN (inn) = 1 ## system construcrs MSA with automatic inspection*/
 
 public class Search extends AbstractParameter
 {	
+	private static final long serialVersionUID = 1L;
+	
 	private long id;
 	private int lc_j = 8;
 	private double lc_h = 0.002;

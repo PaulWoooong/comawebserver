@@ -213,7 +213,7 @@ public class ShowResults
 	
 	public Object onSuccess() throws Exception 
     {  
-		if(selectedHits.size() == 0) return null;
+		if(selectedHits == null || selectedHits.size() == 0) return null;
 		
 		JobSubmitter jobSubmitter = new JobSubmitter();
 		
@@ -222,7 +222,7 @@ public class ShowResults
 		waitForResults.setUp(generatedId);
 		
 		selectedHits = null;
-		recentJobs.addJob(generatedId);
+		recentJobs.addJob(dataSource.getJobByGeneratedId(generatedId));
 		
 		return waitForResults;
     }

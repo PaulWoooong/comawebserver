@@ -163,6 +163,7 @@ public class Index
 												dataSource, 
 												search,
 												comaParams.getAlignment().getDatabaseItem());
+				recentJobs.addJob(dataSource.getJobByGeneratedId(id));
 			}
 			catch(IOException e)
 			{
@@ -191,7 +192,6 @@ public class Index
 
 			init = false;
 			
-			recentJobs.addJob(id);
 			waitForResults.setUp(id);
 			
 			return waitForResults;

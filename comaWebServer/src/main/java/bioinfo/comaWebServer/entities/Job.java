@@ -1,5 +1,6 @@
 package bioinfo.comaWebServer.entities;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.EnumType;
@@ -7,8 +8,10 @@ import javax.persistence.Enumerated;
 
 import bioinfo.comaWebServer.enums.JobType;
 
-public class Job 
+public class Job implements Serializable
 {	
+	private static final long serialVersionUID = 1L;
+	
 	public static final String REGISTERED	= "REGISTERED";
 	public static final String SUBMITTED 	= "SUBMITTED"; 
 	public static final String QUEUED 		= "QUEUED";

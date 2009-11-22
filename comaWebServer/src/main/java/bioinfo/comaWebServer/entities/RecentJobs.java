@@ -5,20 +5,20 @@ import java.util.List;
 
 public class RecentJobs 
 {
-	private List<String> jobs = null;
+	private List<Job> jobs = null;
 	
 	public RecentJobs()
 	{
-		jobs = new ArrayList<String>();
+		jobs = new ArrayList<Job>();
 	}
 
-	public List<String> getJobs() {
+	public List<Job> getJobs() {
 		return jobs;
 	}
 	
-	public void addJob(String jobId)
+	public void addJob(Job job)
 	{
-		jobs.add(jobId);
+		jobs.add(job);
 	}
 	
 }

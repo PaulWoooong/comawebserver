@@ -5,6 +5,7 @@ import org.apache.tapestry5.annotations.IncludeStylesheet;
 import org.apache.tapestry5.annotations.InjectPage;
 import org.apache.tapestry5.annotations.Persist;
 
+import bioinfo.comaWebServer.entities.Job;
 import bioinfo.comaWebServer.entities.RecentJobs;
 import bioinfo.comaWebServer.pages.WaitForResults;
 
@@ -39,8 +40,16 @@ public class LeftMenuClient
 		this.jobId = jobId;
 	}
 	
-	private String generatedId;
+	private Job job;
 	
+	public Job getJob() {
+		return job;
+	}
+
+	public void setJob(Job job) {
+		this.job = job;
+	}
+
 	@ApplicationState
 	private RecentJobs recentJobs;
 	private boolean recentJobsExists;
@@ -61,12 +70,5 @@ public class LeftMenuClient
 		this.recentJobsExists = recentJobsExists;
 	}
 
-	public String getGeneratedId() {
-		return generatedId;
-	}
-
-	public void setGeneratedId(String generatedId) {
-		this.generatedId = generatedId;
-	}
 
 }
