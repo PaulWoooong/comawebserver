@@ -3,9 +3,16 @@
     <title>COMA Web Server: ${pageTitle}</title>
   </head>
   <body>
-      	<div id="Container">
-
-			
+  
+<script type="text/javascript">
+	function openHelpWindow(url)
+	{
+	    var helpwindow = window.open(url,'helpwindow','width=950,height=700,left=0,top=0,scrollbars=yes,resizable=no');
+	    helpwindow.focus();
+	}
+</script>
+  
+      	<div id="Container">	
 			<div>
 	            <a href="http://www.ibt.lt/en/laboratories/bioinfo_en.html" id="Logo" target="_blank">
 	            	<img src="${asset:context:/assets/comalogo.jpg}" style="width:180; height:150;"/>
