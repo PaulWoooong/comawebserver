@@ -8,8 +8,9 @@
     </t:parameter>
     </t:security.ifloggedin>
     
-	<t:PageLink t:page="contacts">Help</t:PageLink>
-	<t:PageLink t:page="contacts">About</t:PageLink>
-	<t:PageLink t:page="contacts">Contacts</t:PageLink>
+        <a onclick="openHelpWindow('/static_pages/help.html');" href="#">Help</a>
+        <t:PageLink t:page="about">About</t:PageLink>
+        <t:PageLink t:page="contacts">Contacts</t:PageLink>
+
 </div>
 </t:container>
