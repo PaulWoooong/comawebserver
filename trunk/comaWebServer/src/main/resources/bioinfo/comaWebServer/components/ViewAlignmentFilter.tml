@@ -4,7 +4,9 @@
     <table class="editComaParams">
         <tr>
             <td class="left">
-                ${message:lc_u}
+                <a onclick="openHelpWindow('/static_pages/help.html#disallow_HC_filter_within_alignment_columns');" href="#">
+                    ${message:lc_u}
+                </a>
             </td>
             <td class="right">
                 <input type="checkbox" t:type="checkbox" t:value = "alignmentFilter.lc_u"/>
@@ -12,7 +14,9 @@
         </tr>
         <tr>
             <td class="left">
-                ${message:lc_w}
+                <a onclick="openHelpWindow('/static_pages/help.html#window_length');" href="#">
+                    ${message:lc_w}
+                </a>
             </td>
             <td class="right">
                 <t:textfield t:id="lc_w" t:value="alignmentFilter.lc_w" t:validate="required"/>
@@ -20,7 +24,9 @@
         </tr>
         <tr>
             <td class="left">
-                ${message:lc_f}
+                <a onclick="openHelpWindow('/static_pages/help.html#low_entropy_threshold');" href="#">
+                    ${message:lc_f}
+                </a>
             </td>
             <td class="right">
                 <t:textfield t:id="lc_f" t:value="alignmentFilter.lc_f" t:validate="required"/>
@@ -28,7 +34,9 @@
         </tr>
         <tr>
             <td class="left">
-                ${message:uc_F}
+                <a onclick="openHelpWindow('/static_pages/help.html#high_entropy_threshold');" href="#">
+                    ${message:uc_F}
+                </a>
             </td>
             <td class="right">
                 <t:textfield t:id="uc_F" t:value="alignmentFilter.uc_F" t:validate="required"/>

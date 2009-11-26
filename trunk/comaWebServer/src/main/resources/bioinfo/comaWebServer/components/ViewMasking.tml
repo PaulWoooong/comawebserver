@@ -4,7 +4,9 @@
 	<table class="editComaParams">
 		<tr>
 			<td class="left">
-				${message:uc_I}
+			    <a onclick="openHelpWindow('/static_pages/help.html#mask_positions');" href="#">
+                    ${message:uc_I}
+                </a>
 			</td>
 			<td class="right">
 				<t:textfield t:id="uc_I" t:value="masking.uc_I" t:validate="required"/>
@@ -12,7 +14,9 @@
 		</tr>
         <tr>
             <td class="left">
-                ${message:uc_A}
+                <a onclick="openHelpWindow('/static_pages/help.html#perform_masking');" href="#">
+                    ${message:uc_A}
+                </a>
             </td>
             <td class="right">
                 <input type="checkbox" t:type="checkbox" t:value = "masking.uc_A"/>
@@ -20,7 +24,9 @@
         </tr>
 		<tr>
 			<td class="left">	
-				${message:lc_r}
+				<a onclick="openHelpWindow('/static_pages/help.html#scale_down_masked_positions');" href="#">
+                    ${message:lc_r}
+                </a>
 			</td>
 			<td class="right">
 				<t:textfield t:id="lc_r" t:value="masking.lc_r" t:validate="required,min,max"/>

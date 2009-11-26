@@ -10,7 +10,7 @@
 		    <table class="inputParams">
 		       <tr>
 		            <td class="left">
-		               <h3><b>Input</b></h3> 
+		               <h3><b><a onclick="openHelpWindow('/static_pages/help.html#input');" href="#">Input</a></b></h3> 
 		            </td>                        
 		       </tr>
 		    </table>
@@ -19,7 +19,9 @@
 		    <table class="inputParams">
 		        <tr>
 		            <td class="left">
-		                Paste protein sequence or multiple alignment
+		                <a onclick="openHelpWindow('/static_pages/help.html#paste_sequence');" href="#">
+		                  Paste protein sequence or multiple alignment
+		                </a>
 		            </td>
 		            <td class="right">
 		                <t:textarea t:id="sequence" t:value="input.sequence" t:validate="maxlength"/>
@@ -27,7 +29,9 @@
 		        </tr>   
 		        <tr>
 		            <td class="left">
-		                Upload a local file
+		                <a onclick="openHelpWindow('/static_pages/help.html#upload_local');" href="#">
+                          Upload a local file
+                        </a>
 		            </td>
 		            <td class="right">
 		                <input t:type="upload" t:id="file" t:value="input.file"/>
@@ -35,7 +39,9 @@
 		        </tr>
 		        <tr>
 		            <td class="left">
-		                Input type
+                        <a onclick="openHelpWindow('/static_pages/help.html#input_type');" href="#">
+                          Input type
+                        </a>
 		            </td>
 		            <td class="right">
 		                <t:select t:model="types" t:id="inputType" t:value="input.type" t:validate="required"/>
@@ -43,7 +49,9 @@
 		        </tr>
 		        <tr>
 		            <td class="left">
-		                E-mail results to 
+                        <a onclick="openHelpWindow('/static_pages/help.html#email_results_to');" href="#">
+                          E-mail results to
+                        </a> 
 		            </td>
 		            <td class="right">
 		                <t:textfield t:id="email" t:value="input.email"/>
@@ -51,7 +59,9 @@
 		        </tr>
 		        <tr>
 		            <td class="left">
-		                Job description (max 20 characters)
+		                <a onclick="openHelpWindow('/static_pages/help.html#job_description');" href="#">
+                          Job description (max 20 characters)
+                        </a> 
 		            </td>
 		            <td class="right">
 		                <t:textfield t:id="description" t:value="input.description" t:validate="maxlength" maxlength="20"/>

@@ -3,7 +3,11 @@
     <table class="editComaParams">
        <tr>
        		<td class="left">
-               <h3><b>${message:main}</b></h3>
+               <h3><b>
+                    <a onclick="openHelpWindow('/static_pages/help.html#construction_msa');" href="#">
+                        ${message:main}
+                    </a>
+               </b></h3>
            	</td>                        
        </tr>
     </table>
@@ -12,7 +16,9 @@
 	    <t:radiogroup value="search.msaStrategy">
 		    <tr>
 	            <td class="left">
-	                ${message:nr}
+	                <a onclick="openHelpWindow('/static_pages/help.html#do_not_run_psiblast');" href="#">
+                        ${message:nr}
+                    </a>
 	            </td>
 	            <td class="right">
 	               <t:radio t:id="notRestart" id="notRestart"  onclick="disableGroup()"/>
@@ -20,7 +26,9 @@
 	        </tr>
 	        <tr>
                 <td class="left">
-                    ${message:in}
+                    <a onclick="openHelpWindow('/static_pages/help.html#let_the_server_handle');" href="#">
+                        ${message:in}
+                    </a>
                 </td>
                 <td class="right">
                    <t:radio t:id="serverHandle" id="serverHandle" onclick="disableGroup()"/>               
@@ -37,7 +45,10 @@
         </t:radiogroup>
 			<tr>
 				<td class="leftSearch">
-				     ${message:select_db}<br/>
+				    <a onclick="openHelpWindow('/static_pages/help.html#select_database');" href="#">
+                        ${message:select_db}
+                    </a>
+				    <br/>
 				</td>
 				<td class="rigth">
 				     <t:select t:model="databaseItemSelectModel"
@@ -50,7 +61,9 @@
 	        </tr>
 	        <tr>
 	            <td class="leftSearch">
-	                ${message:aa}
+	                <a onclick="openHelpWindow('/static_pages/help.html#include_alternatives');" href="#">
+                        ${message:aa}
+                    </a>
 	            </td>
 	            <td class="right">
 	                <input type="checkbox" t:id="aa" id="aa" t:type="checkbox" t:value = "search.aa"/>
@@ -58,7 +71,9 @@
 	        </tr>
 			<tr>
 				<td class="leftSearch">
-					${message:lc_h}
+				    <a onclick="openHelpWindow('/static_pages/help.html#evalue_psiblast');" href="#">
+                        ${message:lc_h}
+                    </a>
 				</td>
 				<td class="right">
 					<t:textfield t:id="lc_h" id="lc_h" t:value="search.lc_h" nulls="zero"/>
@@ -66,7 +81,9 @@
 			</tr>
 			<tr>
 				<td class="leftSearch">
-					${message:lc_j}
+				    <a onclick="openHelpWindow('/static_pages/help.html#max_iterations');" href="#">
+                        ${message:lc_j}
+                    </a>
 				</td>
 				<td class="right">
 					<t:textfield t:id="lc_j" id="lc_j" t:value="search.lc_j" nulls="zero"/>
@@ -74,7 +91,9 @@
 			</tr>
 			<tr>
 				<td colspan="2" style="text-indent: 40px;">
-					${message:lc_t} 
+					<a onclick="openHelpWindow('/static_pages/help.html#compositional_adjustments');" href="#" style="text-decoration: none; color: black;">
+                        ${message:lc_t}
+                    </a> 
 					<span style="padding-left: 45px;">
 						<t:select t:id="lc_t" 
 						          id="lc_t"

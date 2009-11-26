@@ -14,9 +14,11 @@
         </tr>-->
         <tr>
             <td class="left">
-                ${message:uc_G}<br/>
-                ${message:uc_G_0}<br/>
-                ${message:uc_G_A}
+                <a onclick="openHelpWindow('/static_pages/help.html#gap_opening_cost');" href="#">
+	                ${message:uc_G}<br/>
+	                ${message:uc_G_0}<br/>
+	                ${message:uc_G_A}
+                </a>
             </td>
             <td class="right">
                 <t:textfield t:id="uc_G" t:value="alignment.uc_G" t:validate="required"/>
@@ -24,7 +26,9 @@
         </tr>
         <tr>
             <td class="left">
-                ${message:uc_X}
+                <a onclick="openHelpWindow('/static_pages/help.html#initial_gap_extension_cost');" href="#">
+                    ${message:uc_X}
+                </a>
             </td>
             <td class="right">
                 <t:textfield t:id="uc_X" t:value="alignment.uc_X" t:validate="required"/>
@@ -32,7 +36,9 @@
         </tr>
         <tr>
             <td class="left">
-                ${message:lc_g}
+                <a onclick="openHelpWindow('/static_pages/help.html#deletion_probability_weight');" href="#">
+                    ${message:lc_g}
+                </a>
             </td>
             <td class="right">
                 <t:textfield t:id="lc_g" t:value="alignment.lc_g" t:validate="required,min,max"/>
@@ -40,9 +46,11 @@
         </tr>
         <tr>
             <td class="left">
-                ${message:uc_S_main}<br/>
-                ${message:uc_S_profile}<br/>
-                ${message:uc_S_global}
+                <a onclick="openHelpWindow('/static_pages/help.html#scoring_scheme_to_use');" href="#">
+                    ${message:uc_S_main}<br/>
+	                ${message:uc_S_profile}<br/>
+	                ${message:uc_S_global}
+                </a>
             </td>
             <td class="right">
                 <t:select t:id="uc_S" model="schemes" value="alignment.scheme" t:validate="required"/>
@@ -50,7 +58,9 @@
         </tr>
         <tr>
             <td class="left">
-                ${message:uc_C}
+                <a onclick="openHelpWindow('/static_pages/help.html#do_not_apply_composition_based_statistics');" href="#">
+                    ${message:uc_C}
+                </a>
             </td>
             <td class="right">
                 <input type="checkbox" t:type="checkbox" t:value = "alignment.uc_C"/>
@@ -58,7 +68,9 @@
         </tr>
         <tr>
             <td class="left">
-                ${message:lc_c}
+                <a onclick="openHelpWindow('/static_pages/help.html#do_not_use_probabilities_for_gap_costs');" href="#">
+                    ${message:lc_c}
+                </a>
             </td>
             <td class="right">
                 <input type="checkbox" t:type="checkbox" t:value = "alignment.lc_c"/>

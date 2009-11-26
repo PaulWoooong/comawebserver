@@ -3,7 +3,11 @@
 		<table class="editComaParams">
 			<tr>
 				<td class="left"> 
-					<h3><b>Profile search and output options</b></h3>
+					<h3><b>
+						<a onclick="openHelpWindow('/static_pages/help.html#construction_profile');" href="#">
+	                        Profile search and output options
+	                    </a>
+					</b></h3>
 				</td>
 			</tr>
 		</table>
@@ -37,7 +41,11 @@
         <table class="editComaParams">
             <tr>
                 <td class="left"> 
-                    <b>Advanced options</b> 
+                    <b>
+                        <a onclick="openHelpWindow('/static_pages/help.html#advanced_options');" href="#">
+                            Advanced options
+                        </a>
+                    </b> 
                 </td>
                 
                 <t:if t:test="showAdvanced">
@@ -60,7 +68,11 @@
 	       <table class="editComaParams">
 	          <tr>
 	               <td class="left">
-	                  <b>Alignment options</b> 
+	                  <b>
+	                  <a onclick="openHelpWindow('/static_pages/help.html#alignment_options');" href="#">
+                          Alignment options
+                      </a>
+	                  </b> 
 	               </td>
 	              <!--<t:if t:test="showAlignment">
 	                    <td class="right">
@@ -83,7 +95,11 @@
 		  <table class="editComaParams">
               <tr>
                   <td class="left"> 
-                      <b>Profile construction options</b> 
+                      <b>
+	                      <a onclick="openHelpWindow('/static_pages/help.html#profile_construction_options_options');" href="#">
+	                          Profile construction options
+	                      </a>
+                      </b> 
                   </td>
                   
                   <!--<t:if t:test="showProfileConstruction">
@@ -105,7 +121,11 @@
 		  <table class="editComaParams">
                 <tr>
                     <td class="left"> 
-                        <b>Alignment filter options</b> 
+                        <b>
+                            <a onclick="openHelpWindow('/static_pages/help.html#alignment_filter_options');" href="#">
+			                    Alignment filter options
+			                </a>
+			            </b> 
                     </td>
                     
                     <!--<t:if t:test="showAlignmentFilter">
@@ -127,7 +147,11 @@
 			<table class="editComaParams">
 				<tr>
 					<td class="left"> 
-						<b>Masking options</b> 
+						<b>
+							<a onclick="openHelpWindow('/static_pages/help.html#masking_options');" href="#">
+			                    Masking options
+			                </a>
+						</b> 
 					</td>
 					
 					<!--<t:if t:test="showMasking">
@@ -149,7 +173,11 @@
 			<table class="editComaParams">
 				<tr>
 					<td class="left"> 
-						<b>SEG options</b> 
+						<b>
+						  <a onclick="openHelpWindow('/static_pages/help.html#SEG_options');" href="#">
+                                SEG options
+                          </a>
+						</b> 
 					</td>
 					
 					<!--<t:if t:test="showSEG">
@@ -171,7 +199,11 @@
 			<table class="editComaParams">
 				<tr>
 					<td class="left"> 
-						<b>Gap probability options</b> 
+						<b>
+							<a onclick="openHelpWindow('/static_pages/help.html#gap_probability_options');" href="#">
+	                            Gap probability options
+	                        </a>
+						</b> 
 					</td>
 					
 					<!--<t:if t:test="showGapProbability">
@@ -193,7 +225,11 @@
 			<table class="editComaParams">
 				<tr>
 					<td class="left"> 
-						<b>Autocorrection options</b> 
+						<b>
+						    <a onclick="openHelpWindow('/static_pages/help.html#autocorrection_probability_options');" href="#">
+                                Autocorrection options
+                            </a>
+						</b> 
 					</td>
 					
 					<!--<t:if t:test="showAutocorrection">
@@ -215,7 +251,11 @@
 			<table class="editComaParams">
 				<tr>
 					<td class="left"> 
-						<b>Information correction options</b> 
+						<b>
+                            <a onclick="openHelpWindow('/static_pages/help.html#information_correction_options');" href="#">
+                                Information correction options
+                            </a>
+                        </b> 
 					</td>
 					
 					<!--<t:if t:test="showInformationCorrection">
