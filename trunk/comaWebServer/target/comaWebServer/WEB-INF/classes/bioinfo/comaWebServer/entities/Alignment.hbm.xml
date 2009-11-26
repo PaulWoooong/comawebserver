@@ -13,7 +13,7 @@
 		<property name="scheme"       />	
 		<property name="lc_c"         />
 		<property name="uc_C"         />
-		<property name="databaseItem" />
+        <many-to-one name="databaseItem" class="bioinfo.comaWebServer.entities.DatabaseItem" column="databaseItemId" lazy="false"/>
 	</class>
 	
 </hibernate-mapping>
