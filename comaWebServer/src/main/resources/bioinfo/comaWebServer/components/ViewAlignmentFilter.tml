@@ -4,7 +4,7 @@
     <table class="editComaParams">
         <tr>
             <td class="left">
-                <a onclick="openHelpWindow('/static_pages/help.html#disallow_HC_filter_within_alignment_columns');" href="#">
+                <a name="disallow_HC_filter_within_alignment_columns" onclick="openHelpWindow('/static_pages/help.html#disallow_HC_filter_within_alignment_columns');" href="#disallow_HC_filter_within_alignment_columns">
                     ${message:lc_u}
                 </a>
             </td>
@@ -14,7 +14,7 @@
         </tr>
         <tr>
             <td class="left">
-                <a onclick="openHelpWindow('/static_pages/help.html#window_length');" href="#">
+                <a name="window_length" onclick="openHelpWindow('/static_pages/help.html#window_length');" href="#window_length">
                     ${message:lc_w}
                 </a>
             </td>
@@ -24,7 +24,7 @@
         </tr>
         <tr>
             <td class="left">
-                <a onclick="openHelpWindow('/static_pages/help.html#low_entropy_threshold');" href="#">
+                <a name="low_entropy_threshold" onclick="openHelpWindow('/static_pages/help.html#low_entropy_threshold');" href="#low_entropy_threshold">
                     ${message:lc_f}
                 </a>
             </td>
@@ -34,7 +34,7 @@
         </tr>
         <tr>
             <td class="left">
-                <a onclick="openHelpWindow('/static_pages/help.html#high_entropy_threshold');" href="#">
+                <a name="high_entropy_threshold" onclick="openHelpWindow('/static_pages/help.html#high_entropy_threshold');" href="#high_entropy_threshold">
                     ${message:uc_F}
                 </a>
             </td>

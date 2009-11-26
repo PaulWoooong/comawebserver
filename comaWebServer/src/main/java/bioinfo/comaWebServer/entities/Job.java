@@ -27,8 +27,8 @@ public class Job implements Serializable
 	
 	private ComaResults comaResults;
 	
-	private String 	description;
-	private String 	email;
+	private String 		description;
+	private String 		email;
 	private String		status = REGISTERED;
 	private String		log;
 	private JobType 	type;
