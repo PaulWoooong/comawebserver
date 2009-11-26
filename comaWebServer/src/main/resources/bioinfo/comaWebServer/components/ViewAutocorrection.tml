@@ -4,7 +4,9 @@
 	<table class="editComaParams">
 		<tr>
 			<td class="left">
-				${message:lc_k}
+			    <a onclick="openHelpWindow('/static_pages/help.html#autocorrection_numerator_1');" href="#">
+                    ${message:lc_k}
+                </a>
 			</td>
 			<td class="right">
 				<t:textfield t:id="lc_k" t:value="autocorrection.lc_k" t:validate="required"/>
@@ -12,7 +14,9 @@
 		</tr>
 		<tr>
 			<td class="left">
-				${message:uc_K}
+				<a onclick="openHelpWindow('/static_pages/help.html#autocorrection_numerator_2');" href="#">
+                    ${message:uc_K}
+                </a>
 			</td>
 			<td class="right">
 				<t:textfield t:id="uc_K" t:value="autocorrection.uc_K" t:validate="required"/>
@@ -20,7 +24,9 @@
 		</tr>
 		<tr>
 			<td class="left">
-				${message:lc_m}
+				<a onclick="openHelpWindow('/static_pages/help.html#autocorrection_logarithmic_scale_2');" href="#">
+                    ${message:lc_m}
+                </a>
 			</td>
 			<td class="right">
 				<t:textfield t:id="lc_m" t:value="autocorrection.lc_m" t:validate="required"/>
@@ -28,7 +34,9 @@
 		</tr>
 		<tr>
 			<td class="left">
-				${message:uc_M}
+				<a onclick="openHelpWindow('/static_pages/help.html#autocorrection_denominator_2');" href="#">
+                    ${message:uc_M}
+                </a>
 			</td>
 			<td class="right">
 				<t:textfield t:id="uc_M" t:value="autocorrection.uc_M" t:validate="required"/>
@@ -36,7 +44,9 @@
 		</tr>
 		<tr>
 			<td class="left">
-				${message:lc_p}
+				<a onclick="openHelpWindow('/static_pages/help.html#autocorrection_positional_corrections');" href="#">
+                    ${message:lc_p}
+                </a>
 			</td>
 			<td class="right">
 				<input type="checkbox" t:type="checkbox" t:value = "autocorrection.lc_p"/>
@@ -44,7 +54,9 @@
 		</tr>
 		<tr>
 			<td class="left">
-				${message:lc_a}
+				<a onclick="openHelpWindow('/static_pages/help.html#autocorrection_do_not_compute_any_corrections');" href="#">
+                    ${message:lc_a}
+                </a>
 			</td>
 			<td class="right">
 				<input type="checkbox" t:type="checkbox" t:value = "autocorrection.lc_a"/>

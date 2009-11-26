@@ -4,7 +4,9 @@
 	<table class="editComaParams">
         <tr>
             <td class="left">
-                ${message:uc_U}
+                <a onclick="openHelpWindow('/static_pages/help.html#invoke_low_complexity_filtering');" href="#">
+                    ${message:uc_U}
+                </a>
             </td>
             <td class="right">
                 <input type="checkbox" t:type="checkbox" t:value = "seg.uc_U"/>
@@ -12,7 +14,9 @@
         </tr>
         <tr>
             <td class="left">
-                ${message:uc_V}
+                <a onclick="openHelpWindow('/static_pages/help.html#invoke_lc_filtering_for_each_seq');" href="#">
+                    ${message:uc_V}
+                </a>
             </td>
             <td class="right">
                 <input type="checkbox" t:type="checkbox" t:value = "seg.uc_V"/>
@@ -20,7 +24,9 @@
         </tr>
 		<tr>
 			<td class="left">
-				${message:lc_y}
+				<a onclick="openHelpWindow('/static_pages/help.html#seg_window_length');" href="#">
+                    ${message:lc_y}
+                </a>
 			</td>
 			<td class="right">
 				<t:textfield t:id="lc_y" t:value="seg.lc_y" t:validate="required"/>
@@ -28,7 +34,9 @@
 		</tr>
 		<tr>
 			<td class="left">
-				${message:lc_z}
+				<a onclick="openHelpWindow('/static_pages/help.html#seg_low_entropy_threshold');" href="#">
+                    ${message:lc_z}
+                </a>
 			</td>
 			<td class="right">
 				<t:textfield t:id="lc_z" t:value="seg.lc_z" t:validate="required"/>
@@ -36,7 +44,9 @@
 		</tr>
 		<tr>
 			<td class="left">
-				${message:uc_Z} 
+				<a onclick="openHelpWindow('/static_pages/help.html#seg_high_entropy_threshold');" href="#">
+                    ${message:uc_Z}
+                </a> 
 			</td>
 			<td class="right">
 				<t:textfield t:id="uc_Z" t:value="seg.uc_Z" t:validate="required"/>
@@ -44,7 +54,9 @@
 		</tr>
 		<tr>
 			<td class="left">
-				${message:uc_D} 
+				<a onclick="openHelpWindow('/static_pages/help.html#seg_dist_eq');" href="#">
+                    ${message:uc_D}
+                </a> 
 			</td>
 			<td class="right">
 				<t:textfield t:id="uc_D" t:value="seg.uc_D" t:validate="required"/>

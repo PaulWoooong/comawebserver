@@ -4,7 +4,9 @@
 	<table class="editComaParams">
 		<tr>
 			<td  class="left">
-				${message:lc_e}
+			    <a onclick="openHelpWindow('/static_pages/help.html#evalue_output');" href="#">
+                    ${message:lc_e}
+                </a>
 			</td>
 			<td class="right">
 				<t:textfield t:id="lc_e" t:value="output.lc_e" t:validate="required"/>
@@ -12,7 +14,9 @@
 		</tr>
 		<tr>
 			<td  class="left">	
-				${message:uc_L}
+				<a onclick="openHelpWindow('/static_pages/help.html#hits_to_show');" href="#">
+                    ${message:uc_L}
+                </a>
 			</td>
 			<td class="right">
 				<t:textfield t:id="uc_L" t:value="output.uc_L" t:validate="required"/>
@@ -20,7 +24,9 @@
 		</tr>
 		<tr>
 			<td class="left">
-				${message:uc_N}
+				<a onclick="openHelpWindow('/static_pages/help.html#alignments_to_show');" href="#">
+                    ${message:uc_N}
+                </a>
 			</td>
 			<td class="right">
 				<t:textfield t:id="uc_N" t:value="output.uc_N" t:validate="required"/>

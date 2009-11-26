@@ -260,10 +260,22 @@ table.editComaParams td.left
 	width: 500px;
 }
 
+table.editComaParams td.left a
+{
+    text-decoration: none;
+    color: black;
+}
+
 table.editComaParams td.leftSearch
 {
     width: 500px;
     text-indent: 40px;
+}
+
+table.editComaParams td.leftSearch a
+{
+    text-decoration: none;
+    color: black;
 }
 
 table.editComaParams input.button
@@ -305,6 +317,17 @@ table input
 table.inputParams td.left
 {
     width: 300px;
+}
+
+table.inputParams td.right input
+{
+    width: 200px;
+}
+
+table.inputParams td.left a
+{
+    text-decoration: none;
+    color: black;
 }
 
 select#inputType

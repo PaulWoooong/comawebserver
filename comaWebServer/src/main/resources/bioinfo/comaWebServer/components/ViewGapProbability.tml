@@ -4,7 +4,9 @@
 	<table class="editComaParams">
 		<tr>
 			<td class="left">
-				${message:uc_E}
+				 <a onclick="openHelpWindow('/static_pages/help.html#gap_evalue_threshold');" href="#">
+	                ${message:uc_E}
+	             </a>
 			</td>
 			<td class="right">
 				<t:textfield t:id="uc_E" t:value="gapProbability.uc_E" t:validate="required"/>
@@ -12,7 +14,9 @@
 		</tr>
 		<tr>
 			<td class="left">
-				${message:uc_P}
+				<a onclick="openHelpWindow('/static_pages/help.html#gap_argument_weight');" href="#">
+                    ${message:uc_P}
+                </a>
 			</td>
 			<td class="right">
 				<t:textfield t:id="uc_P" t:value="gapProbability.uc_P" t:validate="required"/>
@@ -20,7 +24,9 @@
 		</tr>
 		<tr>
 			<td class="left">
-				${message:uc_R}
+				<a onclick="openHelpWindow('/static_pages/help.html#gap_argument_shift');" href="#">
+                    ${message:uc_R}
+                </a>
 			</td>
 			<td class="right">
 				<t:textfield t:id="uc_R" t:value="gapProbability.uc_R" t:validate="required"/>

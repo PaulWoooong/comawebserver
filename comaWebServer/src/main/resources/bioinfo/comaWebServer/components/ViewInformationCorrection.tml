@@ -4,9 +4,11 @@
 	<table class="editComaParams">
 		<tr>
 			<td class="left">
-				${message:uc_J}
-				<br/>
-				${message:uc_J_0}
+			    <a onclick="openHelpWindow('/static_pages/help.html#information_uppera_bound_2');" href="#">
+                    ${message:uc_J}
+	                <br/>
+	                ${message:uc_J_0}
+                </a>
 			</td>
 			<td class="right">
 				<t:textfield t:id="uc_J" t:value="informationCorrection.uc_J" t:validate="required"/>
@@ -14,7 +16,9 @@
 		</tr>
 		<tr>
 			<td class="left">
-				${message:lc_j}
+				<a onclick="openHelpWindow('/static_pages/help.html#information_content_threshold_2');" href="#">
+                    ${message:lc_j}
+                </a>
 			</td>
 			<td class="right">
 				<t:textfield t:id="lc_j" t:value="informationCorrection.lc_j" t:validate="required"/>
@@ -22,9 +26,11 @@
 		</tr>
 		<tr>
 			<td class="left">
-				${message:lc_l}
-				<br/>
-				${message:lc_l_0}
+			    <a onclick="openHelpWindow('/static_pages/help.html#information_logarithmic_scale_2');" href="#">
+                    ${message:lc_l}
+	                <br/>
+	                ${message:lc_l_0}
+                </a>
 			</td>
 			<td class="right">
 				<t:textfield t:id="lc_l" t:value="informationCorrection.lc_l" t:validate="required"/>
@@ -32,7 +38,9 @@
 		</tr>
         <tr>
             <td class="left">   
-                ${message:lc_b}
+                <a onclick="openHelpWindow('/static_pages/help.html#information_content_threshold');" href="#">
+                    ${message:lc_b}
+                </a>
             </td>
             <td class="right">
                 <t:textfield t:id="lc_b" t:value="informationCorrection.lc_b" t:validate="required"/>
@@ -40,7 +48,9 @@
         </tr>
 		<tr>
 			<td class="left">
-				${message:uc_B}
+				<a onclick="openHelpWindow('/static_pages/help.html#information_logarithmic_content_threshold');" href="#">
+                    ${message:uc_B}
+                </a>
 			</td>
 			<td class="right">
 				<t:textfield t:id="uc_B" t:value="informationCorrection.uc_B" t:validate="required"/>

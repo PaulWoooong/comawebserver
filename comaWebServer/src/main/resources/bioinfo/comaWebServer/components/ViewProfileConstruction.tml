@@ -4,7 +4,9 @@
 	<table class="editComaParams">
 		<tr>
 			<td class="left">
-				${message:lc_t}
+		      <a onclick="openHelpWindow('/static_pages/help.html#ignore_sequences_with_sequence_identity');" href="#">
+                ${message:lc_t}
+              </a>
 			</td>
 			<td class="right">
 				<t:textfield t:id="lc_t" t:value="profileConstruction.lc_t" t:validate="required,min,max"/>
@@ -12,7 +14,9 @@
 		</tr>
 		<tr>
 			<td class="left">
-				${message:lc_s}
+				<a onclick="openHelpWindow('/static_pages/help.html#do_not_perform_delete_state');" href="#">
+                    ${message:lc_s}
+                </a>
 			</td>
 			<td class="right">
 				<input type="checkbox" t:type="checkbox" t:value = "profileConstruction.lc_s"/>
@@ -21,7 +25,9 @@
 		
 		<tr>
             <td class="left">
-                ${message:lc_b}
+                <a onclick="openHelpWindow('/static_pages/help.html#weight_for_residue_pseudocount_frequencies');" href="#">
+                    ${message:lc_b}
+                </a>
             </td>
             <td class="right">
                 <t:textfield t:id="lc_b" t:value="profileConstruction.lc_b" t:validate="required"/>
@@ -29,7 +35,9 @@
         </tr>
         <tr>
             <td class="left">
-                ${message:uc_Y}
+                <a onclick="openHelpWindow('/static_pages/help.html#minimum_fraction_of_alignment_extent');" href="#">
+                    ${message:uc_Y}
+                </a>
             </td>
             <td class="right">
                 <t:textfield t:id="uc_Y" t:value="profileConstruction.uc_Y" t:validate="required,min,max"/>
@@ -37,7 +45,9 @@
         </tr>
         <tr>
             <td class="left">
-                ${message:lc_x}
+                <a onclick="openHelpWindow('/static_pages/help.html#minimum_number_of_alignment_positions');" href="#">
+                    ${message:lc_x}
+                </a>
             </td>
             <td class="right">
                 <t:textfield t:id="lc_x" t:value="profileConstruction.lc_x" t:validate="required"/>

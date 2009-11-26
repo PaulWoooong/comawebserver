@@ -4,7 +4,10 @@
 	<table class="editComaParams">
         <tr>
             <td class="left">
-                 ${message:select_db}<br/>
+                <a onclick="openHelpWindow('/static_pages/help.html#select_profile_db');" href="#">
+                    ${message:select_db}
+                </a>
+                <br/>
             </td>
             <td class="rigth">
                  <t:select t:model="databaseItemSelectModel"
