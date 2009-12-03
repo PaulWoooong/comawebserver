@@ -93,12 +93,13 @@ public class PeriodicalWorker extends TimerTask
 						else if(job.getStatus().equals(Job.CANCELED))
 						{
 							job.setExpirationDate(getExpirationDate(0));
-							dataSource.saveOrUpdate(job);
+							dataSource.update(job);
 						}
 						else if(job.getStatus().equals(Job.SUBMITTED))
 						{
 							try
 							{
+								//periodicalWorkerLog.error("Submitting: " + job.getGeneratedId());
 								submissionJob(job, connection, workstation);
 							} 
 							catch (Exception e) 
@@ -113,7 +114,7 @@ public class PeriodicalWorker extends TimerTask
 						else
 						{
 							String pbsid = job.getPbsId();
-							String status = Job.REGISTERED;
+							String status = null;
 							
 							if(pbsid != null)
 							{
@@ -131,7 +132,7 @@ public class PeriodicalWorker extends TimerTask
 								}
 							}
 							
-							if(status.equals(Job.FINISHED))
+							if(status != null && status.equals(Job.FINISHED))
 							{
 								try
 								{
@@ -141,7 +142,7 @@ public class PeriodicalWorker extends TimerTask
 								{
 									job.setExpirationDate(getExpirationDate(expirationPeriodErr));
 									job.setStatus(Job.ERRORS);
-									dataSource.saveOrUpdate(job);
+									dataSource.update(job);
 	
 									sendEmail(mailService, job, workstation.getUrlForResults());
 	
@@ -156,10 +157,10 @@ public class PeriodicalWorker extends TimerTask
 									}
 								}
 							}
-							else
+							else if(status != null)
 							{
 								job.setStatus(status);
-								dataSource.saveOrUpdate(job);
+								dataSource.update(job);
 							}
 						}
 					}
@@ -240,7 +241,7 @@ public class PeriodicalWorker extends TimerTask
 
 		job.setExpirationDate(getExpirationDate(expirationPeriod));
 		job.setStatus(Job.FINISHED);
-		dataSource.saveOrUpdate(job);
+		dataSource.update(job);
 
 		sendEmail(mailService, job, workstation.getUrlForResults());
 	}
@@ -280,7 +281,9 @@ public class PeriodicalWorker extends TimerTask
 										 params, command, generatedId, remotePath);
 		job.setPbsId(pbsId);
 		job.setStatus(Job.QUEUED);
-		dataSource.saveOrUpdate(job);
+		//periodicalWorkerLog.error("Setting status: " + job.getGeneratedId() + " " +  job.getStatus());
+		dataSource.update(job);
+		//periodicalWorkerLog.error("Finished: " + job.getGeneratedId() + " " + job.getStatus());
 	}
 	
 	private Set<Image> setImages(Set<ResultsAlignment> alignments, 
