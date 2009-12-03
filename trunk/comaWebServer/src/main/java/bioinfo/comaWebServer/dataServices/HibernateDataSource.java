@@ -571,26 +571,6 @@ public class HibernateDataSource<IList> implements IDataSource
     		throw e;
 		}
 	}
-	
-	public void delete(ComaResults comaResults) throws Exception 
-	{
-		Transaction transaction = null;
-	    Session session = InitSessionFactory.getInstance().getCurrentSession();
-
-	    try
-	    {
-	    	transaction = session.beginTransaction();
-
-	    	session.delete(comaResults);
-
-	    	transaction.commit();
-	    }
-	    catch (HibernateException e)
-    	{
-    		if(transaction != null) transaction.rollback();
-    		throw e;
-		}
-	}
 
 	public ComaResults getComaResultsById(long id) throws Exception 
 	{
@@ -615,16 +595,16 @@ public class HibernateDataSource<IList> implements IDataSource
 	    return comaResults;
 	}
 
-	public void saveOrUpdate(ComaResults comaResults) throws Exception 
+	public void update(Job job)
 	{
-		Transaction transaction = null;
+	    Transaction transaction = null;
 	    Session session = InitSessionFactory.getInstance().getCurrentSession();
 
 	    try
 	    {
 	    	transaction = session.beginTransaction();
 
-	    	session.saveOrUpdate(comaResults);
+	    	session.update(job);
 
 	    	transaction.commit();
 	    }
@@ -634,8 +614,8 @@ public class HibernateDataSource<IList> implements IDataSource
     		throw e;
 		}
 	}
-
-	public void saveOrUpdate(Job job)
+	
+	public void save(Job job)
 	{
 	    Transaction transaction = null;
 	    Session session = InitSessionFactory.getInstance().getCurrentSession();
@@ -644,7 +624,7 @@ public class HibernateDataSource<IList> implements IDataSource
 	    {
 	    	transaction = session.beginTransaction();
 
-	    	session.saveOrUpdate(job);
+	    	session.save(job);
 
 	    	transaction.commit();
 	    }

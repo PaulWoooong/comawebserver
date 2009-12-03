@@ -42,7 +42,8 @@ public interface IDataSource
 	public void delete(User user) throws Exception;
 	
 	public Job registerJob(String prefix) throws Exception;
-	public void saveOrUpdate(Job job) throws Exception;
+	public void save(Job job) throws Exception;
+	public void update(Job job) throws Exception;
 	public void delete(Job job) throws Exception;
 	public void deleteJob(long id) throws Exception;
 	public String jobStatus(String generatedId) throws Exception;
@@ -50,9 +51,7 @@ public interface IDataSource
 	public Job getJob(long id) throws Exception;
 	public Job getJobByGeneratedId(String id) throws Exception;
 	
-	public void saveOrUpdate(ComaResults comaResults) throws Exception;
 	public ComaResults getComaResultsById(long id) throws Exception;
-	public void delete(ComaResults comaResults) throws Exception;
 	
 	public ResultsAlignment getResultsAlignment(long id) throws Exception;
 

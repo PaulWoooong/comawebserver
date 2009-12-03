@@ -109,7 +109,7 @@ public class JobSubmitter
 			job.setPbsId(null);
 			job.setStatus(Job.SUBMITTED);
 
-			dataSource.saveOrUpdate(job);
+			dataSource.update(job);
 		} 
 		catch (Exception e) 
 		{
@@ -120,7 +120,7 @@ public class JobSubmitter
 				job.setStatus(Job.ERRORS);
 				job.setLocalPath(localDataPath + job.getGeneratedId() + File.separator);
 				job.setExpirationDate(getExpirationDate(periodicalWorkerParams.getJobWithErrorsExpiration()));
-				dataSource.saveOrUpdate(job);	
+				dataSource.update(job);	
 			}
 			
 			StackTraceElement[] stack = e.getStackTrace();
@@ -180,7 +180,7 @@ public class JobSubmitter
 			job.setPbsId(null);
 			job.setStatus(Job.SUBMITTED);
 
-			dataSource.saveOrUpdate(job);
+			dataSource.update(job);
 		} 
 		catch (Exception e) 
 		{
@@ -191,7 +191,7 @@ public class JobSubmitter
 				job.setStatus(Job.ERRORS);
 				job.setLocalPath(localDataPath + job.getGeneratedId() + File.separator);
 				job.setExpirationDate(getExpirationDate(periodicalWorkerParams.getJobWithErrorsExpiration()));
-				dataSource.saveOrUpdate(job);	
+				dataSource.update(job);	
 			}
 			
 			StackTraceElement[] stack = e.getStackTrace();
@@ -262,7 +262,7 @@ public class JobSubmitter
 			job.setPbsId(null);
 			job.setStatus(Job.SUBMITTED);
 			
-			dataSource.saveOrUpdate(job);
+			dataSource.update(job);
 		} 
 		catch (Exception e) 
 		{
@@ -273,7 +273,7 @@ public class JobSubmitter
 				job.setStatus(Job.ERRORS);
 				job.setLocalPath(localDataPath + job.getGeneratedId() + File.separator);
 				job.setExpirationDate(getExpirationDate(periodicalWorkerParams.getJobWithErrorsExpiration()));
-				dataSource.saveOrUpdate(job);;	
+				dataSource.update(job);	
 			}
 		
 			StackTraceElement[] stack = e.getStackTrace();
