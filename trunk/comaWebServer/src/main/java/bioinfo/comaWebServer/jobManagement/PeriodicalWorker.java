@@ -99,7 +99,7 @@ public class PeriodicalWorker extends TimerTask
 						{
 							try
 							{
-								//periodicalWorkerLog.error("Submitting: " + job.getGeneratedId());
+								periodicalWorkerLog.error("Submitting: " + job.getGeneratedId());
 								submissionJob(job, connection, workstation);
 							} 
 							catch (Exception e) 
@@ -276,14 +276,18 @@ public class PeriodicalWorker extends TimerTask
 			data   = new File(job.getLocalFilePath(Extentions.INPUT_MSA_FA.getExtention()));
 			params = new File(job.getLocalFilePath(Extentions.INPUT_MSA_COMA.getExtention()));
 		}
-	
+		
+		//Before executing query for PBS tests if update is available (maybe DB is restarting)
+		dataSource.update(job);
+		
 		String pbsId = sshService.submit(connection, data, 
 										 params, command, generatedId, remotePath);
 		job.setPbsId(pbsId);
 		job.setStatus(Job.QUEUED);
-		//periodicalWorkerLog.error("Setting status: " + job.getGeneratedId() + " " +  job.getStatus());
+
 		dataSource.update(job);
-		//periodicalWorkerLog.error("Finished: " + job.getGeneratedId() + " " + job.getStatus());
+		
+		periodicalWorkerLog.error("Finished: " + job.getGeneratedId() + " " + job.getStatus());
 	}
 	
 	private Set<Image> setImages(Set<ResultsAlignment> alignments, 
