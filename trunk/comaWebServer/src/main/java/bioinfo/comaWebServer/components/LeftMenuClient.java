@@ -31,6 +31,16 @@ public class LeftMenuClient
 
 		return this;
 	}
+	
+	@InjectPage
+	private WaitForResults waitForResults;
+	
+	Object onActionFromShowJob(String id) throws Exception
+    {
+		waitForResults.setUp(id);
+        
+        return waitForResults;
+    }
 
 	public String getJobId() {
 		return jobId;

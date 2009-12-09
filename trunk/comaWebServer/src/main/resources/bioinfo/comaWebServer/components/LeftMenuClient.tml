@@ -28,13 +28,13 @@
 	    </tr>
 		<tr t:type="loop" source="recentJobs.jobs" value="job">
 		   <td>
-		      <a href="http://bioinformatics.ibt.lt:8085/show/results/${job.generatedId}" style="font-size: 13px; font-family: Monospace;">
-			      <t:if t:test="${job.description}">
-	                  ${job.description}    
-	              <t:parameter t:name="else">
-	                  ${job.generatedId}
-	              </t:parameter>
-	              </t:if>
+		      <a t:type="actionlink" id="showJob" t:id="showJob" t:context="${job.generatedId}" style="font-size: 13px; font-family: Monospace;">
+                  <t:if t:test="${job.description}">
+                      ${job.description}    
+                  <t:parameter t:name="else">
+                      ${job.generatedId}
+                  </t:parameter>
+                  </t:if>
               </a>
 		   </td>
 		</tr>
