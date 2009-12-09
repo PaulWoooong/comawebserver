@@ -9,14 +9,14 @@
                         <t:if t:test="resultsAlignment.alignmentBibliography.pdbId">
 	                        <div class="linkBox">
 		                        <a href="http://www.rcsb.org/pdb/explore.do?structureId=${resultsAlignment.alignmentBibliography.pdbId}" target="_blank">
-		                             <img src="/assets/pdb_logo.gif"/>
+		                             <img src="${asset:context:/assets/pdb_logo.gif}"/>
 		                        </a>
 	                        </div>
                         </t:if>
                         <t:if t:test="resultsAlignment.alignmentBibliography.scopId">
 	                        <div class="linkBox">
 	                            <a href="http://scop.mrc-lmb.cam.ac.uk/scop/search.cgi?key=${resultsAlignment.alignmentBibliography.scopId}" target="_blank">
-                                    <img src="/assets/scop_logo.gif"/>
+                                    <img src="${asset:context:/assets/scop_logo.gif}"/>
                                 </a>
 	                        </div>
 	                        <t:if t:test="resultsAlignment.alignmentBibliography.hierarchyLink"> 
@@ -28,7 +28,7 @@
                         <t:if t:test="resultsAlignment.alignmentBibliography.pubmedQuery"> 
 	                        <div class="linkBox">
 	                           <a href="http://www.ncbi.nlm.nih.gov/sites/entrez?db=pubmed&amp;term=${resultsAlignment.alignmentBibliography.pubmedQueryForHtml}&amp;cmd=search" target="_blank">
-                                    <img src="/assets/pubmed_logo.jpeg"/>
+                                    <img src="${asset:context:/assets/pubmed_logo.jpeg}"/>
                                </a>
 	                        </div>
                         </t:if>

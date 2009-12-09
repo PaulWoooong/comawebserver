@@ -45,7 +45,7 @@ body, td, th
     height: 105px;
     border: 1px solid #3333FF;
     text-align: center;
-    background-image: url('/assets/comabann_scaled.jpg');
+    background-image: url('/coma/assets/comabann_scaled.jpg');
     background-repeat: no-repeat;
 }
 
@@ -76,7 +76,7 @@ h3
     width: 750px;
     border: 1px solid #3333FF;
     float: right;
-    background-image: url('/assets/comahelp_scaled.jpg');
+    background-image: url('/coma/assets/comahelp_scaled.jpg');
     background-repeat: repeat-y;
 }
 

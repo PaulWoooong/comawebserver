@@ -32,10 +32,10 @@
                 Used search parameters
             </td>
             <td class="rigth">
-                <a type="text" id="inputFa" href="${faPath}" target="_blank">
+                <a type="text" id="inputFa" href="/coma${faPath}" target="_blank">
                     Used sequence or multiple alignment
                 </a><br/>
-                <a type="text" id="inputFa" href="${paramsPath}" target="_blank">
+                <a type="text" id="inputFa" href="/coma${paramsPath}" target="_blank">
                     Used parameters
                 </a><br/>
                 <t:if t:test="job.comaResults.profileDBName">
@@ -80,7 +80,7 @@
                 <tr t:type="loop" source="job.comaResults.images" value="image">
                     <td class="name">
                         <a href="#${image.priority}">
-                            <img src="${image.path}" style="height: 10px; width: 700px"/>
+                            <img src="/coma${image.path}" style="height: 10px; width: 700px"/>
                         </a>
                     </td>
                 </tr>

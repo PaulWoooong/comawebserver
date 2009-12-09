@@ -7,7 +7,7 @@
 <script type="text/javascript">
 	function openHelpWindow(url)
 	{
-	    var helpwindow = window.open(url,'helpwindow','width=950,height=700,left=0,top=0,scrollbars=yes,resizable=no');
+	    var helpwindow = window.open("/coma"+url,'helpwindow','width=950,height=700,left=0,top=0,scrollbars=yes,resizable=no');
 	    helpwindow.focus();
 	}
 </script>
