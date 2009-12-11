@@ -768,9 +768,10 @@ public class HibernateDataSource<IList> implements IDataSource
     	try
     	{
 			transaction = session.beginTransaction();
-			Query query = session.createQuery("from " + JOB_TABLE + " o where o.status != :finished and o.status != :error");
+			Query query = session.createQuery("from " + JOB_TABLE + " o where o.status != :finished and o.status != :error and o.status != :registered");
 			query.setString("finished", Job.FINISHED);
 			query.setString("error", Job.ERRORS);
+			query.setString("registered", Job.REGISTERED);
 			List jobList = query.list();
 
 			for(Object o : jobList)
