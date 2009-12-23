@@ -1,5 +1,11 @@
 package bioinfo.comaWebServer.comparators;
 
+/* 	$Date$
+ 	$Author$
+	$Revision$
+	$HeadURL$
+	$Id$
+*/
 import java.util.Comparator;
 
 import bioinfo.comaWebServer.entities.ResultsAlignment;
