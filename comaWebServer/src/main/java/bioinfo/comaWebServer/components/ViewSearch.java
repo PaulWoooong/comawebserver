@@ -15,6 +15,7 @@ import bioinfo.comaWebServer.dataServices.IDataSource;
 import bioinfo.comaWebServer.entities.DatabaseItem;
 import bioinfo.comaWebServer.entities.Search;
 import bioinfo.comaWebServer.enums.CompositionScore;
+import bioinfo.comaWebServer.enums.PsiBlastFilters;
 import bioinfo.comaWebServer.enums.PsiBlastRadioParams;
 import bioinfo.comaWebServer.util.DatabaseItemEncoder;
 import bioinfo.comaWebServer.util.DatabaseItemSelectModel;
@@ -37,6 +38,11 @@ public class ViewSearch
 	public SelectModel getCompositionScores()
 	{
 	  return new EnumSelectModel(CompositionScore.class, messages);
+	}
+	
+	public SelectModel getPsiBlastFilters()
+	{
+	  return new EnumSelectModel(PsiBlastFilters.class, messages);
 	}
 
 	public SelectModel getDatabaseItemSelectModel()
