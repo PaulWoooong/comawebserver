@@ -4,7 +4,7 @@
 	<table class="editComaParams">
 		<tr>
 			<td  class="left">
-			    <a name="evalue_output" onclick="openHelpWindow('/static_pages/help.html#evalue_output');" href="#evalue_output">
+			    <a name="evalue_output" onclick="openHelpWindow('${asset:context:${asset:context:/static_pages/help.html}}#evalue_output');" href="#evalue_output">
                     ${message:lc_e}
                 </a>
 			</td>
@@ -14,7 +14,7 @@
 		</tr>
 		<tr>
 			<td  class="left">	
-				<a name="hits_to_show" onclick="openHelpWindow('/static_pages/help.html#hits_to_show');" href="#hits_to_show">
+				<a name="hits_to_show" onclick="openHelpWindow('${asset:context:${asset:context:/static_pages/help.html}}#hits_to_show');" href="#hits_to_show">
                     ${message:uc_L}
                 </a>
 			</td>
@@ -24,7 +24,7 @@
 		</tr>
 		<tr>
 			<td class="left">
-				<a name="alignments_to_show" onclick="openHelpWindow('/static_pages/help.html#alignments_to_show');" href="#alignments_to_show">
+				<a name="alignments_to_show" onclick="openHelpWindow('${asset:context:${asset:context:/static_pages/help.html}}#alignments_to_show');" href="#alignments_to_show">
                     ${message:uc_N}
                 </a>
 			</td>

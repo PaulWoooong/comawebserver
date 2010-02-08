@@ -14,7 +14,7 @@
         </tr>-->
         <tr>
             <td class="left">
-                <a name="gap_opening_cost" onclick="openHelpWindow('/static_pages/help.html#gap_opening_cost');" href="#gap_opening_cost">
+                <a name="gap_opening_cost" onclick="openHelpWindow('${asset:context:/static_pages/help.html}#gap_opening_cost');" href="#gap_opening_cost">
 	                ${message:uc_G}<br/>
 	                ${message:uc_G_0}<br/>
 	                ${message:uc_G_A}
@@ -26,7 +26,7 @@
         </tr>
         <tr>
             <td class="left">
-                <a name="initial_gap_extension_cost" onclick="openHelpWindow('/static_pages/help.html#initial_gap_extension_cost');" href="#initial_gap_extension_cost">
+                <a name="initial_gap_extension_cost" onclick="openHelpWindow('${asset:context:/static_pages/help.html}#initial_gap_extension_cost');" href="#initial_gap_extension_cost">
                     ${message:uc_X}
                 </a>
             </td>
@@ -36,7 +36,7 @@
         </tr>
         <tr>
             <td class="left">
-                <a name="deletion_probability_weight" onclick="openHelpWindow('/static_pages/help.html#deletion_probability_weight');" href="#deletion_probability_weight">
+                <a name="deletion_probability_weight" onclick="openHelpWindow('${asset:context:/static_pages/help.html}#deletion_probability_weight');" href="#deletion_probability_weight">
                     ${message:lc_g}
                 </a>
             </td>
@@ -46,7 +46,7 @@
         </tr>
         <tr>
             <td class="left">
-                <a name="scoring_scheme_to_use" onclick="openHelpWindow('/static_pages/help.html#scoring_scheme_to_use');" href="#scoring_scheme_to_use">
+                <a name="scoring_scheme_to_use" onclick="openHelpWindow('${asset:context:/static_pages/help.html}#scoring_scheme_to_use');" href="#scoring_scheme_to_use">
                     ${message:uc_S_main}<br/>
 	                ${message:uc_S_profile}<br/>
 	                ${message:uc_S_global}
@@ -58,7 +58,7 @@
         </tr>
         <tr>
             <td class="left">
-                <a name="do_not_apply_composition_based_statistics" onclick="openHelpWindow('/static_pages/help.html#do_not_apply_composition_based_statistics');" href="#do_not_apply_composition_based_statistics">
+                <a name="do_not_apply_composition_based_statistics" onclick="openHelpWindow('${asset:context:/static_pages/help.html}#do_not_apply_composition_based_statistics');" href="#do_not_apply_composition_based_statistics">
                     ${message:uc_C}
                 </a>
             </td>
@@ -68,7 +68,7 @@
         </tr>
         <tr>
             <td class="left">
-                <a name="do_not_use_probabilities_for_gap_costs" onclick="openHelpWindow('/static_pages/help.html#do_not_use_probabilities_for_gap_costs');" href="#do_not_use_probabilities_for_gap_costs">
+                <a name="do_not_use_probabilities_for_gap_costs" onclick="openHelpWindow('${asset:context:/static_pages/help.html}#do_not_use_probabilities_for_gap_costs');" href="#do_not_use_probabilities_for_gap_costs">
                     ${message:lc_c}
                 </a>
             </td>

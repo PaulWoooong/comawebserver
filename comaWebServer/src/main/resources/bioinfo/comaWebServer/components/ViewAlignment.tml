@@ -4,7 +4,7 @@
 	<table class="editComaParams">
         <tr>
             <td class="left">
-                <a name="select_profile_db" onclick="openHelpWindow('/static_pages/help.html#select_profile_db');" href="#select_profile_db">
+                <a name="select_profile_db" onclick="openHelpWindow('${asset:context:/static_pages/help.html}#select_profile_db');" href="#select_profile_db">
                     ${message:select_db}
                 </a>
                 <br/>

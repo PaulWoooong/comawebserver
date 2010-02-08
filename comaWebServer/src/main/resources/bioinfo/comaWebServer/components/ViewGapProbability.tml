@@ -4,7 +4,7 @@
 	<table class="editComaParams">
 		<tr>
 			<td class="left">
-				 <a name="gap_evalue_threshold" onclick="openHelpWindow('/static_pages/help.html#gap_evalue_threshold');" href="#gap_evalue_threshold">
+				 <a name="gap_evalue_threshold" onclick="openHelpWindow('${asset:context:/static_pages/help.html}#gap_evalue_threshold');" href="#gap_evalue_threshold">
 	                ${message:uc_E}
 	             </a>
 			</td>
@@ -14,7 +14,7 @@
 		</tr>
 		<tr>
 			<td class="left">
-				<a name="gap_argument_weight" onclick="openHelpWindow('/static_pages/help.html#gap_argument_weight');" href="#gap_argument_weight">
+				<a name="gap_argument_weight" onclick="openHelpWindow('${asset:context:/static_pages/help.html}#gap_argument_weight');" href="#gap_argument_weight">
                     ${message:uc_P}
                 </a>
 			</td>
@@ -24,7 +24,7 @@
 		</tr>
 		<tr>
 			<td class="left">
-				<a name="gap_argument_shift" onclick="openHelpWindow('/static_pages/help.html#gap_argument_shift');" href="#gap_argument_shift">
+				<a name="gap_argument_shift" onclick="openHelpWindow('${asset:context:/static_pages/help.html}#gap_argument_shift');" href="#gap_argument_shift">
                     ${message:uc_R}
                 </a>
 			</td>

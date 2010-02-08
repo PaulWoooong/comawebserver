@@ -4,7 +4,7 @@
        <tr>
        		<td class="left">
                <h3><b>
-                    <a name="construction_msa" onclick="openHelpWindow('/static_pages/help.html#construction_msa');" href="#construction_msa">
+                    <a name="construction_msa" onclick="openHelpWindow('${asset:context:/static_pages/help.html}#construction_msa');" href="#construction_msa">
                         ${message:main}
                     </a>
                </b></h3>
@@ -16,7 +16,7 @@
 	    <t:radiogroup value="search.msaStrategy">
 		    <tr>
 	            <td class="left">
-	                <a name="do_not_run_psiblast" onclick="openHelpWindow('/static_pages/help.html#do_not_run_psiblast');" href="#do_not_run_psiblast">
+	                <a name="do_not_run_psiblast" onclick="openHelpWindow('${asset:context:/static_pages/help.html}#do_not_run_psiblast');" href="#do_not_run_psiblast">
                         ${message:nr}
                     </a>
 	            </td>
@@ -26,7 +26,7 @@
 	        </tr>
 	        <tr>
                 <td class="left">
-                    <a name="let_the_server_handle" onclick="openHelpWindow('/static_pages/help.html#let_the_server_handle');" href="#let_the_server_handle">
+                    <a name="let_the_server_handle" onclick="openHelpWindow('${asset:context:/static_pages/help.html}#let_the_server_handle');" href="#let_the_server_handle">
                         ${message:in}
                     </a>
                 </td>
@@ -45,7 +45,7 @@
         </t:radiogroup>
 			<tr>
 				<td class="leftSearch">
-				    <a name="select_database" onclick="openHelpWindow('/static_pages/help.html#select_database');" href="#select_database">
+				    <a name="select_database" onclick="openHelpWindow('${asset:context:/static_pages/help.html}#select_database');" href="#select_database">
                         ${message:select_db}
                     </a>
 				    <br/>
@@ -61,7 +61,7 @@
 	        </tr>
 	        <tr>
 	            <td class="leftSearch">
-	                <a name="include_alternatives" onclick="openHelpWindow('/static_pages/help.html#include_alternatives');" href="#include_alternatives">
+	                <a name="include_alternatives" onclick="openHelpWindow('${asset:context:/static_pages/help.html}#include_alternatives');" href="#include_alternatives">
                         ${message:aa}
                     </a>
 	            </td>
@@ -71,7 +71,7 @@
 	        </tr>
 			<tr>
 				<td class="leftSearch">
-				    <a name="evalue_psiblast" onclick="openHelpWindow('/static_pages/help.html#evalue_psiblast');" href="#evalue_psiblast">
+				    <a name="evalue_psiblast" onclick="openHelpWindow('${asset:context:/static_pages/help.html}#evalue_psiblast');" href="#evalue_psiblast">
                         ${message:lc_h}
                     </a>
 				</td>
@@ -81,7 +81,7 @@
 			</tr>
 			<tr>
 				<td class="leftSearch">
-				    <a name="max_iterations" onclick="openHelpWindow('/static_pages/help.html#max_iterations');" href="#max_iterations">
+				    <a name="max_iterations" onclick="openHelpWindow('${asset:context:/static_pages/help.html}#max_iterations');" href="#max_iterations">
                         ${message:lc_j}
                     </a>
 				</td>
@@ -91,7 +91,7 @@
 			</tr>
 			<tr>
 				<td colspan="2" style="text-indent: 40px;">
-					<a name="compositional_adjustments" onclick="openHelpWindow('/static_pages/help.html#compositional_adjustments');" href="#compositional_adjustments" style="text-decoration: none; color: black;">
+					<a name="compositional_adjustments" onclick="openHelpWindow('${asset:context:/static_pages/help.html}#compositional_adjustments');" href="#compositional_adjustments" style="text-decoration: none; color: black;">
                         ${message:lc_t}
                     </a> 
 					<span style="padding-left: 45px;">
