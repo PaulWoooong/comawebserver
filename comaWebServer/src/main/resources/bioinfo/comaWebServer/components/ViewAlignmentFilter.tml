@@ -14,7 +14,7 @@
         </tr>
         <tr>
             <td class="left">
-                <a name="window_length" onclick="openHelpWindow('${asset:context:/static_pages/hel${asset:context:/static_pages/help.html};" href="#window_length">
+                <a name="window_length" onclick="openHelpWindow('${asset:context:/static_pages/help.html}#window_length);" href="#window_length">
                     ${message:lc_w}
                 </a>
             </td>
