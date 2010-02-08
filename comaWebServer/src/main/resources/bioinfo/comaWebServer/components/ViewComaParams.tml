@@ -4,7 +4,7 @@
 			<tr>
 				<td class="left"> 
 					<h3><b>
-						<a name="construction_profile" onclick="openHelpWindow('/static_pages/help.html#construction_profile');" href="#construction_profile">
+						<a name="construction_profile" onclick="openHelpWindow('${asset:context:/static_pages/help.html}#construction_profile');" href="#construction_profile">
 	                        Profile search and output options
 	                    </a>
 					</b></h3>
@@ -42,7 +42,7 @@
             <tr>
                 <td class="left"> 
                     <b>
-                        <a name="advanced_options" onclick="openHelpWindow('/static_pages/help.html#advanced_options');" href="#advanced_options">
+                        <a name="advanced_options" onclick="openHelpWindow('${asset:context:/static_pages/help.html}#advanced_options');" href="#advanced_options">
                             Advanced options
                         </a>
                     </b> 
@@ -69,7 +69,7 @@
 	          <tr>
 	               <td class="left">
 	                  <b>
-	                  <a name="alignment_options" onclick="openHelpWindow('/static_pages/help.html#alignment_options');" href="#alignment_options">
+	                  <a name="alignment_options" onclick="openHelpWindow('${asset:context:/static_pages/help.html}#alignment_options');" href="#alignment_options">
                           Alignment options
                       </a>
 	                  </b> 
@@ -96,7 +96,7 @@
               <tr>
                   <td class="left"> 
                       <b>
-	                      <a name="profile_construction_options_options" onclick="openHelpWindow('/static_pages/help.html#profile_construction_options_options');" href="#profile_construction_options_options">
+	                      <a name="profile_construction_options_options" onclick="openHelpWindow('${asset:context:/static_pages/help.html}#profile_construction_options_options');" href="#profile_construction_options_options">
 	                          Profile construction options
 	                      </a>
                       </b> 
@@ -122,7 +122,7 @@
                 <tr>
                     <td class="left"> 
                         <b>
-                            <a name="alignment_filter_options" onclick="openHelpWindow('/static_pages/help.html#alignment_filter_options');" href="#alignment_filter_options">
+                            <a name="alignment_filter_options" onclick="openHelpWindow('${asset:context:/static_pages/help.html}#alignment_filter_options');" href="#alignment_filter_options">
 			                    Alignment filter options
 			                </a>
 			            </b> 
@@ -148,7 +148,7 @@
 				<tr>
 					<td class="left"> 
 						<b>
-							<a name="masking_options" onclick="openHelpWindow('/static_pages/help.html#masking_options');" href="#masking_options">
+							<a name="masking_options" onclick="openHelpWindow('${asset:context:/static_pages/help.html}#masking_options');" href="#masking_options">
 			                    Masking options
 			                </a>
 						</b> 
@@ -174,7 +174,7 @@
 				<tr>
 					<td class="left"> 
 						<b>
-						  <a name="SEG_options" onclick="openHelpWindow('/static_pages/help.html#SEG_options');" href="#SEG_options">
+						  <a name="SEG_options" onclick="openHelpWindow('${asset:context:/static_pages/help.html}#SEG_options');" href="#SEG_options">
                                 SEG options
                           </a>
 						</b> 
@@ -200,7 +200,7 @@
 				<tr>
 					<td class="left"> 
 						<b>
-							<a name="gap_probability_options" onclick="openHelpWindow('/static_pages/help.html#gap_probability_options');" href="#gap_probability_options">
+							<a name="gap_probability_options" onclick="openHelpWindow('${asset:context:/static_pages/help.html}#gap_probability_options');" href="#gap_probability_options">
 	                            Gap probability options
 	                        </a>
 						</b> 
@@ -226,7 +226,7 @@
 				<tr>
 					<td class="left"> 
 						<b>
-						    <a name="autocorrection_probability_options" onclick="openHelpWindow('/static_pages/help.html#autocorrection_probability_options');" href="#autocorrection_probability_options">
+						    <a name="autocorrection_probability_options" onclick="openHelpWindow('${asset:context:/static_pages/help.html}#autocorrection_probability_options');" href="#autocorrection_probability_options">
                                 Autocorrection options
                             </a>
 						</b> 
@@ -252,7 +252,7 @@
 				<tr>
 					<td class="left"> 
 						<b>
-                            <a name="information_correction_options" onclick="openHelpWindow('/static_pages/help.html#information_correction_options');" href="#information_correction_options">
+                            <a name="information_correction_options" onclick="openHelpWindow('${asset:context:/static_pages/help.html}#information_correction_options');" href="#information_correction_options">
                                 Information correction options
                             </a>
                         </b> 
