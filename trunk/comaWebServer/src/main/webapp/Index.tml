@@ -10,7 +10,7 @@
 		    <table class="inputParams">
 		       <tr>
 		            <td class="left">
-		               <h3><b><a name="input" onclick="openHelpWindow('/static_pages/help.html#input');" href="#input">Input</a></b></h3> 
+		               <h3><b><a name="input" onclick="openHelpWindow('${asset:context:/static_pages/help.html}#input');" href="#input">Input</a></b></h3> 
 		            </td>                        
 		       </tr>
 		    </table>
@@ -19,7 +19,7 @@
 		    <table class="inputParams">
 		        <tr>
 		            <td class="left">
-		                <a name="paste_sequence" onclick="openHelpWindow('/static_pages/help.html#paste_sequence');" href="#paste_sequence">
+		                <a name="paste_sequence" onclick="openHelpWindow('${asset:context:/static_pages/help.html}#paste_sequence');" href="#paste_sequence">
 		                  Paste protein sequence or multiple alignment
 		                </a>
 		            </td>
@@ -29,7 +29,7 @@
 		        </tr>   
 		        <tr>
 		            <td class="left">
-		                <a name="upload_local" onclick="openHelpWindow('/static_pages/help.html#upload_local');" href="#upload_local">
+		                <a name="upload_local" onclick="openHelpWindow('${asset:context:/static_pages/help.html}#upload_local');" href="#upload_local">
                           Upload a local file
                         </a>
 		            </td>
@@ -39,7 +39,7 @@
 		        </tr>
 		        <tr>
 		            <td class="left">
-                        <a name="input_type" onclick="openHelpWindow('/static_pages/help.html#input_type');" href="#input_type">
+                        <a name="input_type" onclick="openHelpWindow('${asset:context:/static_pages/help.html}#input_type');" href="#input_type">
                           Input type
                         </a>
 		            </td>
@@ -49,7 +49,7 @@
 		        </tr>
 		        <tr>
 		            <td class="left">
-                        <a name="email_results_to" onclick="openHelpWindow('/static_pages/help.html#email_results_to');" href="#email_results_to">
+                        <a name="email_results_to" onclick="openHelpWindow('${asset:context:/static_pages/help.html}#email_results_to');" href="#email_results_to">
                           E-mail results to
                         </a> 
 		            </td>
@@ -59,7 +59,7 @@
 		        </tr>
 		        <tr>
 		            <td class="left">
-		                <a name="job_description" onclick="openHelpWindow('/static_pages/help.html#job_description');" href="#job_description">
+		                <a name="job_description" onclick="openHelpWindow('${asset:context:/static_pages/help.html}l#job_description');" href="#job_description">
                           Job description (max 20 characters)
                         </a> 
 		            </td>
