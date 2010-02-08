@@ -71,18 +71,19 @@
 	        </tr>
 			-->
 			<tr>
-                <td colspan="2" style="text-indent: 40px;">
+                <td class="leftSearch">
                     <a name="psi_blast_filters" onclick="openHelpWindow('${asset:context:/static_pages/help.html}#psi_blast_filters');" href="#psi_blast_filters" style="text-decoration: none; color: black;">
-                        ${message:lc_t}
+                        ${message:psi_blast_filters}
                     </a> 
-                    <span style="padding-left: 45px;">
-                        <t:select t:id="psi_blast_filters" 
-                                  id="psi_blast_filters"
-                                  t:model="psiBlastFilters" 
-                                  value="search.filters" 
-                                  blankOption="NEVER"
-                                  style="width: 380px;"/>
-                    </span>
+                    <br/>
+                </td>
+                <td class="rigth">
+                     <t:select t:id="psi_blast_filters" 
+                               id="psi_blast_filters"
+                               t:model="psiBlastFilters" 
+                               value="search.filters" 
+                               blankOption="NEVER"
+                               style="width: 380px;"/>
                 </td>
             </tr>
 			<tr>
