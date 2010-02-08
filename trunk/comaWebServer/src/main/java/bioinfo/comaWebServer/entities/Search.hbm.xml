@@ -12,6 +12,7 @@
 		<property name="lc_t"/>
 		<property name="aa"  />
 		<property name="msaStrategy"   />
+		<property name="filters"       />
 		<many-to-one name="databaseItem" class="bioinfo.comaWebServer.entities.DatabaseItem" column="databaseItemId" lazy="false"/>
 		<property name="type"          />
 		
