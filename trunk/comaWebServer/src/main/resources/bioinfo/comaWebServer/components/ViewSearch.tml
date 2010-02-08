@@ -82,8 +82,7 @@
                                id="psi_blast_filters"
                                t:model="psiBlastFilters" 
                                value="search.filters" 
-                               blankOption="NEVER"
-                               style="width: 380px;"/>
+                               blankOption="NEVER"/>
                 </td>
             </tr>
 			<tr>
