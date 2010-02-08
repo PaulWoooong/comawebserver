@@ -4,7 +4,7 @@
 	<table class="editComaParams">
 		<tr>
 			<td class="left">
-		      <a name="ignore_sequences_with_sequence_identity" onclick="openHelpWindow('/static_pages/help.html#ignore_sequences_with_sequence_identity');" href="#ignore_sequences_with_sequence_identity">
+		      <a name="ignore_sequences_with_sequence_identity" onclick="openHelpWindow('${asset:context:/static_pages/help.html}#ignore_sequences_with_sequence_identity');" href="#ignore_sequences_with_sequence_identity">
                 ${message:lc_t}
               </a>
 			</td>
@@ -14,7 +14,7 @@
 		</tr>
 		<tr>
 			<td class="left">
-				<a name="do_not_perform_delete_state" onclick="openHelpWindow('/static_pages/help.html#do_not_perform_delete_state');" href="#do_not_perform_delete_state">
+				<a name="do_not_perform_delete_state" onclick="openHelpWindow('${asset:context:/static_pages/help.html}#do_not_perform_delete_state');" href="#do_not_perform_delete_state">
                     ${message:lc_s}
                 </a>
 			</td>
@@ -25,7 +25,7 @@
 		
 		<tr>
             <td class="left">
-                <a name="weight_for_residue_pseudocount_frequencies" onclick="openHelpWindow('/static_pages/help.html#weight_for_residue_pseudocount_frequencies');" href="#weight_for_residue_pseudocount_frequencies">
+                <a name="weight_for_residue_pseudocount_frequencies" onclick="openHelpWindow('${asset:context:/static_pages/help.html}#weight_for_residue_pseudocount_frequencies');" href="#weight_for_residue_pseudocount_frequencies">
                     ${message:lc_b}
                 </a>
             </td>
@@ -35,7 +35,7 @@
         </tr>
         <tr>
             <td class="left">
-                <a name="minimum_fraction_of_alignment_extent" onclick="openHelpWindow('/static_pages/help.html#minimum_fraction_of_alignment_extent');" href="#minimum_fraction_of_alignment_extent">
+                <a name="minimum_fraction_of_alignment_extent" onclick="openHelpWindow('${asset:context:/static_pages/help.html}#minimum_fraction_of_alignment_extent');" href="#minimum_fraction_of_alignment_extent">
                     ${message:uc_Y}
                 </a>
             </td>
@@ -45,7 +45,7 @@
         </tr>
         <tr>
             <td class="left">
-                <a name="minimum_number_of_alignment_positions" onclick="openHelpWindow('/static_pages/help.html#minimum_number_of_alignment_positions');" href="#minimum_number_of_alignment_positions">
+                <a name="minimum_number_of_alignment_positions" onclick="openHelpWindow('${asset:context:/static_pages/help.html}#minimum_number_of_alignment_positions');" href="#minimum_number_of_alignment_positions">
                     ${message:lc_x}
                 </a>
             </td>

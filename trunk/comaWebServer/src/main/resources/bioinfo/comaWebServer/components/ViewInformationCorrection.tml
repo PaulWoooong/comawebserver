@@ -4,7 +4,7 @@
 	<table class="editComaParams">
 		<tr>
 			<td class="left">
-			    <a name="information_uppera_bound_2" onclick="openHelpWindow('/static_pages/help.html#information_uppera_bound_2');" href="#information_uppera_bound_2">
+			    <a name="information_uppera_bound_2" onclick="openHelpWindow('${asset:context:/static_pages/help.html}#information_uppera_bound_2');" href="#information_uppera_bound_2">
                     ${message:uc_J}
 	                <br/>
 	                ${message:uc_J_0}
@@ -16,7 +16,7 @@
 		</tr>
 		<tr>
 			<td class="left">
-				<a name="information_content_threshold_2" onclick="openHelpWindow('/static_pages/help.html#information_content_threshold_2');" href="#information_content_threshold_2">
+				<a name="information_content_threshold_2" onclick="openHelpWindow('${asset:context:/static_pages/help.html}#information_content_threshold_2');" href="#information_content_threshold_2">
                     ${message:lc_j}
                 </a>
 			</td>
@@ -26,7 +26,7 @@
 		</tr>
 		<tr>
 			<td class="left">
-			    <a name="information_logarithmic_scale_2" onclick="openHelpWindow('/static_pages/help.html#information_logarithmic_scale_2');" href="#information_logarithmic_scale_2">
+			    <a name="information_logarithmic_scale_2" onclick="openHelpWindow('${asset:context:/static_pages/help.html}#information_logarithmic_scale_2');" href="#information_logarithmic_scale_2">
                     ${message:lc_l}
 	                <br/>
 	                ${message:lc_l_0}
@@ -38,7 +38,7 @@
 		</tr>
         <tr>
             <td class="left">   
-                <a name="information_content_threshold" onclick="openHelpWindow('/static_pages/help.html#information_content_threshold');" href="#information_content_threshold">
+                <a name="information_content_threshold" onclick="openHelpWindow('${asset:context:/static_pages/help.html}#information_content_threshold');" href="#information_content_threshold">
                     ${message:lc_b}
                 </a>
             </td>
@@ -48,7 +48,7 @@
         </tr>
 		<tr>
 			<td class="left">
-				<a name="information_logarithmic_content_threshold" onclick="openHelpWindow('/static_pages/help.html#information_logarithmic_content_threshold');" href="#information_logarithmic_content_threshold">
+				<a name="information_logarithmic_content_threshold" onclick="openHelpWindow('${asset:context:/static_pages/help.html}#information_logarithmic_content_threshold');" href="#information_logarithmic_content_threshold">
                     ${message:uc_B}
                 </a>
 			</td>
