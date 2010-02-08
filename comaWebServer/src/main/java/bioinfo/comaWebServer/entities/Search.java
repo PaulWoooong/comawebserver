@@ -5,6 +5,7 @@ import javax.persistence.Enumerated;
 
 import bioinfo.comaWebServer.enums.CompositionScore;
 import bioinfo.comaWebServer.enums.ParamType;
+import bioinfo.comaWebServer.enums.PsiBlastFilters;
 import bioinfo.comaWebServer.enums.PsiBlastRadioParams;
 
 /*RR = 1 ## restart with psi-blast anyway even if MSA is given as input
@@ -20,6 +21,7 @@ public class Search extends AbstractParameter
 	private int lc_j = 8;
 	private double lc_h = 0.002;
 	private CompositionScore lc_t = CompositionScore.TWO;
+	private PsiBlastFilters filters = PsiBlastFilters.NO_FILTERING;
 	private DatabaseItem databaseItem;
 	private String type = ParamType.USER.getType();
 	
@@ -38,6 +40,7 @@ public class Search extends AbstractParameter
 		databaseItem = search.databaseItem;
 		type = ParamType.USER.getType();
 		msaStrategy = search.msaStrategy;
+		filters = search.filters;
 	}
 	
 	public Search(String type)
@@ -87,6 +90,20 @@ public class Search extends AbstractParameter
 		else
 		{
 			values += "AA=0\n";
+		}
+		
+		values += "# PSI-BLAST filters\n";
+		if(filters == PsiBlastFilters.NO_FILTERING)
+		{
+			
+		}
+		else if(filters == PsiBlastFilters.LOW_COMPLEXITY)
+		{
+			
+		}
+		else
+		{
+			
 		}
 		
 		return values;
@@ -145,6 +162,14 @@ public class Search extends AbstractParameter
 	@Enumerated(EnumType.STRING)
 	public PsiBlastRadioParams getMsaStrategy() {
 		return msaStrategy;
+	}
+	@Enumerated(EnumType.STRING)
+	public PsiBlastFilters getFilters() {
+		return filters;
+	}
+
+	public void setFilters(PsiBlastFilters filters) {
+		this.filters = filters;
 	}
 
 
