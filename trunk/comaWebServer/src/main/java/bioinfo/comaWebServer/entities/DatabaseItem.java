@@ -4,9 +4,9 @@ import java.io.Serializable;
 
 public class DatabaseItem extends AbstractParameter implements Serializable
 {
-	private static final long serialVersionUID = 1L;
-	public static String SEQUENCE_DB 	= "SEQUENCE DATABASE";
-	public static String PROFILE_DB 		= "PROFILE  DATABASE";
+	private static final long serialVersionUID	= 1L;
+	public static String SEQUENCE_DB 			 	= "SEQUENCE DATABASE";
+	public static String PROFILE_DB 			 	= "PROFILE  DATABASE";
 	
 	private long id;
 	private String name;
@@ -14,6 +14,9 @@ public class DatabaseItem extends AbstractParameter implements Serializable
 	private String path;
 	private String value;
 	private boolean selected;
+	
+	private String partialName;
+	private boolean noModeling;
 	
 	public long getId() {
 		return id;
@@ -109,6 +112,18 @@ public class DatabaseItem extends AbstractParameter implements Serializable
 	}
 	public void setValue(String value) {
 		this.value = value;
+	}
+	public String getPartialName() {
+		return partialName;
+	}
+	public void setPartialName(String partialName) {
+		this.partialName = partialName;
+	}
+	public boolean isNoModeling() {
+		return noModeling;
+	}
+	public void setNoModeling(boolean noModeling) {
+		this.noModeling = noModeling;
 	}
 
 }

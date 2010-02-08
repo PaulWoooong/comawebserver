@@ -11,6 +11,8 @@
 		<property name="type"  />
 		<property name="path"  />	
 		<property name="value" />
+		<property name="partialName"  /> 
+        <property name="noModeling"   />
 	</class>
 	
 </hibernate-mapping>

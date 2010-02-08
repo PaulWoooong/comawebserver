@@ -11,6 +11,14 @@
 	</tr>
 	<tr>
         <td>
+            ${message:partialName}
+        </td>
+        <td>
+            <t:textfield t:id="partialName" t:value="database.partialName" t:validate="required"/>
+        </td>
+    </tr>
+	<tr>
+        <td>
             ${message:value}
         </td>
         <td>
@@ -33,6 +41,15 @@
           	<t:select t:id="type" model="${type1},${type2}" blankOption="NEVER" value="database.type"/>
 		</td>
 	</tr>
+	<tr>
+        <td>
+            ${message:noModeling}
+        </td>
+        <td class="right">
+            <input type="checkbox" t:type="checkbox" t:value = "database.noModeling"/>
+        </td>
+    </tr>
+	
 </table>
 
 </t:container>
