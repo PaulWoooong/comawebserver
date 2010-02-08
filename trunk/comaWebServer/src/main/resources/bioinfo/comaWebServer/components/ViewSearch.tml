@@ -58,7 +58,7 @@
 				      t:id="seqDB"
 				      id="seqDB"/>
 				</td>
-	        </tr>
+	        </tr><!--
 	        <tr>
 	            <td class="leftSearch">
 	                <a name="include_alternatives" onclick="openHelpWindow('${asset:context:/static_pages/help.html}#include_alternatives');" href="#include_alternatives">
@@ -69,7 +69,7 @@
 	                <input type="checkbox" t:id="aa" id="aa" t:type="checkbox" t:value = "search.aa"/>
 	            </td>
 	        </tr>
-			<tr>
+			--><tr>
 				<td class="leftSearch">
 				    <a name="evalue_psiblast" onclick="openHelpWindow('${asset:context:/static_pages/help.html}#evalue_psiblast');" href="#evalue_psiblast">
                         ${message:lc_h}
