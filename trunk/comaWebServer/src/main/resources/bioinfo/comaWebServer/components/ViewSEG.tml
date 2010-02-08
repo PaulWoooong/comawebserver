@@ -4,7 +4,7 @@
 	<table class="editComaParams">
         <tr>
             <td class="left">
-                <a name="invoke_low_complexity_filtering" onclick="openHelpWindow('${asset:context:${asset:context:/static_pages/help.html}}#invoke_low_complexity_filtering');" href="#invoke_low_complexity_filtering">
+                <a name="invoke_low_complexity_filtering" onclick="openHelpWindow('${asset:context:/static_pages/help.html}#invoke_low_complexity_filtering');" href="#invoke_low_complexity_filtering">
                     ${message:uc_U}
                 </a>
             </td>
