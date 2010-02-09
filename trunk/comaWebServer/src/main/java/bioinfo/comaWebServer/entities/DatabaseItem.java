@@ -16,7 +16,7 @@ public class DatabaseItem extends AbstractParameter implements Serializable
 	private boolean selected;
 	
 	private String partialName;
-	private boolean noModeling;
+	private Boolean noModeling;
 	
 	public long getId() {
 		return id;
