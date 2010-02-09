@@ -13,6 +13,7 @@ public class ComaResults  implements Serializable
 	
 	private String profileDBName;
 	private String profileDBValue;
+	private Boolean supportModeling;
 	
 	private String sequenceDBName;
 	private String sequenceDBValue;

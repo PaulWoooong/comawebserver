@@ -11,6 +11,7 @@
         
         <property name="profileDBName"/> 
         <property name="profileDBValue"/>
+        <property name="supportModeling"/>
         
         <property name="sequenceDBName"/> 
         <property name="sequenceDBValue"/>
