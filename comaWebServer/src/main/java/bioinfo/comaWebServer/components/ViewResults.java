@@ -155,6 +155,11 @@ public class ViewResults
 		return false;
 	}
 	
+	public String getMaPath()
+	{
+		return resultsPath() + job.getGeneratedId() + Extentions.OUTPUT_COMA_MA.getExtention();
+	}
+	
 	public String getFaPath()
 	{
 		return resultsPath() + job.getGeneratedId() + "." + getComaInpExt();
