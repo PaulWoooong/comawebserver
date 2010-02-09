@@ -139,7 +139,8 @@ public class JobSubmitter
 	public String submitModellerJob(Input input, 
 									 IDataSource dataSource, 
 									 String usedDB,
-									 ResultsAlignment alignment) throws  Exception
+									 ResultsAlignment alignment,
+									 String key) throws  Exception
 	{
 		Cluster cluster = Cache.getClusterParams();
 		if(cluster == null) throw new InitializationException("The system has not been initialized yet: workstation params!");
@@ -170,6 +171,9 @@ public class JobSubmitter
 			
 			String paramsFileName = localFilePath(localDataPath, job.getGeneratedId(), Extentions.PARAMS.getExtention());
 			databaseItem2params(paramsFileName, usedDB);
+			
+			String keyFileName = localFilePath(localDataPath, job.getGeneratedId(), Extentions.KEY_MODELLER.getExtention());
+			data2file(keyFileName, key);
 			
 			job.setType(JobType.MODELLER_JOB);
 			job.setEmail(input.getEmail());
@@ -391,6 +395,30 @@ public class JobSubmitter
 			out = new BufferedWriter(fstreamOut);
 			
 			out.write(alignment.toString());
+		} 
+		catch (IOException e) 
+		{
+			throw e;
+		}
+		finally
+		{
+			if(out != null) out.close();
+			if(fstreamOut != null) fstreamOut.close();
+		}
+	}
+	
+	private void data2file(String fileName, String data) throws IOException
+	{		
+		FileWriter fstreamOut = null;
+		BufferedWriter out = null;
+		try 
+		{
+			File outFile = new File(fileName);
+			
+			fstreamOut = new FileWriter(outFile);
+			out = new BufferedWriter(fstreamOut);
+			
+			out.write(data);
 		} 
 		catch (IOException e) 
 		{
