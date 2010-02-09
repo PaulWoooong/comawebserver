@@ -16,6 +16,9 @@ public class ViewResultsAlignment
 	@Parameter(required = true)
 	private boolean showLinks;
 	
+	@Parameter(required = true)
+	private boolean supportModeling;
+	
 	@InjectPage
 	private ModellerJob modellerJob;
 	
@@ -71,6 +74,14 @@ public class ViewResultsAlignment
 
 	public void setHierarchyLink(String hierarchyLink) {
 		this.hierarchyLink = hierarchyLink;
+	}
+
+	public boolean isSupportModeling() {
+		return supportModeling;
+	}
+
+	public void setSupportModeling(boolean supportModeling) {
+		this.supportModeling = supportModeling;
 	}
 }
 
