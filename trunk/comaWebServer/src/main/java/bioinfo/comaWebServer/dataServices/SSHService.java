@@ -150,10 +150,6 @@ public class SSHService implements ISSHService
 							String jobId,
 							String path) throws Exception
 	{
-		Session session = ((Connection) connection.getConnection()).openSession();
-		session.execCommand("mkdir -p " + path);
-		session.close();
-
 		SCPClient scp = new SCPClient((Connection) connection.getConnection());
 		if(data != null) 
 		{
@@ -179,6 +175,16 @@ public class SSHService implements ISSHService
 
 		while (stderr.read() != -1){}
 
+		session.close();
+	}
+	
+	public void createDir(IConnection connection, 
+			 					String path) throws IOException
+	{
+		Session session = ((Connection) connection.getConnection()).openSession();
+		InputStream stderr = new StreamGobbler(session.getStderr());
+		session.execCommand("mkdir -p " + path);
+		while (stderr.read() != -1){}
 		session.close();
 	}
 	
