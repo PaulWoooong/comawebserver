@@ -9,6 +9,14 @@
             <t:errors/>
             
 	        <table class="inputParams"> 
+	               <tr>
+                        <td class="left">
+                            Modeller key
+                        </td>
+                        <td class="right">
+                            <t:textfield t:id="key" t:value="key" t:validate="required"/>
+                        </td>
+                    </tr>
 	                <tr>
 	                    <td class="left">
 	                        Send notification to
