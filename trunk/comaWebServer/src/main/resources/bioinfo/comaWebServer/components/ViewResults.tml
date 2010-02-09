@@ -32,10 +32,13 @@
                 Used search parameters
             </td>
             <td class="rigth">
-                <a type="text" id="inputFa" href="/coma${faPath}" target="_blank">
+                <a type="text" href="/coma${faPath}" target="_blank">
                     Used sequence or multiple alignment
                 </a><br/>
-                <a type="text" id="inputFa" href="/coma${paramsPath}" target="_blank">
+                <a type="text" href="/coma${maPath}" target="_blank">
+                    Final multiple alignment
+                </a><br/>
+                <a type="text" href="/coma${paramsPath}" target="_blank">
                     Used parameters
                 </a><br/>
                 <t:if t:test="job.comaResults.profileDBName">
@@ -44,6 +47,8 @@
                 <t:if t:test="job.comaResults.sequenceDBName">
                     Sequence database: ${job.comaResults.sequenceDBName};<br/>
                 </t:if>
+                
+                Number of sequences in the final multiple alignment: ${job.comaResults.numberOfSequences};<br/>
                 
                 <t:if t:test="notRestart">
 			        Do not run PSI-BLAST (used your input multiple alignment);<br/>
@@ -56,6 +61,7 @@
                     Configured PSI-BLAST run;<br/>
                     E-value threshold for inclusion: ${job.comaResults.search.lc_h};<br/>
 	                Maximal number of iterations: ${job.comaResults.search.lc_j};<br/>
+	                PSI-BLAST filters: ${job.comaResults.search.filters.getFilters()};<br/>
 	                <t:if t:test="job.comaResults.search.lc_t">
 	                   Compositional adjustments: ${job.comaResults.search.lc_t.score};<br/>
 	                </t:if>
@@ -141,7 +147,8 @@
 	    
 	    <span t:type="loop" source="job.comaResults.alignments" value="resultsAlignment">
 	            <t:ViewResultsAlignment resultsAlignment="resultsAlignment"
-	                                    showLinks="true"/>
+	                                    showLinks="true"
+	                                    supportModeling="job.comaResults.supportModeling"/>
 	        <p/>
 	    </span>
 	    
