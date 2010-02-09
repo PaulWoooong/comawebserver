@@ -197,6 +197,7 @@ public class PeriodicalWorker extends TimerTask
 		{
 			files2process.add(job.getRemoteFilePath(Extentions.OUTPUT_COMA_OUT.getExtention()));
 			files2process.add(job.getRemoteFilePath(Extentions.OUTPUT_COMA_ID.getExtention()));
+			files2process.add(job.getRemoteFilePath(Extentions.OUTPUT_COMA_MA.getExtention()));
 		}
 		else if(job.getType() == JobType.MODELLER_JOB)
 		{
@@ -219,6 +220,9 @@ public class PeriodicalWorker extends TimerTask
 			ComaResults comaResults = job.getComaResults();
 			
 			parser.parse(comaResults, job.getLocalFilePath(Extentions.OUTPUT_COMA_OUT.getExtention()));
+			
+			comaResults.setNumberOfSequences(parser.numberOfSeq(job.getLocalFilePath(Extentions.OUTPUT_COMA_MA.getExtention())));
+			
 			Map<String, AlignmentBibliography> ids = parser.parseIDS(job.getLocalFilePath(Extentions.OUTPUT_COMA_ID.getExtention()));
 			setBibliography(comaResults.getAlignments(), ids);
 			
