@@ -2,7 +2,8 @@
     <head></head>
     <body>
         <t:ViewResultsAlignment resultsAlignment="resultsAlignment"
-                                showLinks="false"/>
+                                showLinks="false"
+                                supportModeling="false"/>
         
         <t:form t:id="submitModellerJobForm">
             <t:errors/>
