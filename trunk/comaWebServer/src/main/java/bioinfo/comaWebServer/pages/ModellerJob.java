@@ -33,6 +33,8 @@ public class ModellerJob
 	@Persist
 	private String email;
 	@Persist
+	private String key;
+	@Persist
 	private ResultsAlignment resultsAlignment;
 	@Persist
 	private String usedDB;
@@ -77,7 +79,8 @@ public class ModellerJob
 			id = jobSubmitter.submitModellerJob(input, 
 											    dataSource,
 											    usedDB,
-											    resultsAlignment);
+											    resultsAlignment,
+											    key);
 			
 			recentJobs.addJob(dataSource.getJobByGeneratedId(id));
 		}
@@ -148,5 +151,13 @@ public class ModellerJob
 
 	public void setRecentJobsExists(boolean recentJobsExists) {
 		this.recentJobsExists = recentJobsExists;
+	}
+
+	public String getKey() {
+		return key;
+	}
+
+	public void setKey(String key) {
+		this.key = key;
 	}
 }
