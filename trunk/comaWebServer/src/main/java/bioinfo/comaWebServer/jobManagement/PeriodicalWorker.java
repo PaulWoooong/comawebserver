@@ -271,7 +271,9 @@ public class PeriodicalWorker extends TimerTask
 			command = Cluster.getModellerCommand(workstation.getCommandModeller(), 
 												 remotePath, generatedId);
 			
-			sshService.uploadFiles(connection, job.getLocalFilePath(Extentions.KEY_MODELLER.getExtention()), remotePath);
+			File key = new File(job.getLocalFilePath(Extentions.KEY_MODELLER.getExtention()));
+			
+			sshService.uploadFiles(connection, key.getAbsolutePath(), remotePath);
 			
 			data   = new File(job.getLocalFilePath(Extentions.INPUT_MODELLER.getExtention()));
 			params = new File(job.getLocalFilePath(Extentions.PARAMS.getExtention()));
