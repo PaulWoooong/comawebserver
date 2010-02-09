@@ -51,8 +51,15 @@ public class PeriodicalDatabaseUpdater extends TimerTask
 						if(item.getValue() != null && item.getPath() != null)
 						{
 							String date = sshService.fileModificationTime(connection, item.getPath());
-							String name = item.getValue() + "_" + date;
-							item.setName(name);
+							if(item.getPartialName() != null)
+							{
+								item.setName(item.getPartialName() + "_" + date);
+							}
+							else
+							{
+								item.setName(item.getValue() + "_" + date);
+							}
+							
 							dataSource.saveOrUpdate(item);
 						}
 					}
