@@ -33,11 +33,13 @@
 	                        </div>
                         </t:if>
                         <t:if t:test="resultsAlignment.queries">
-                            <div class="modelBox">
-                               <a t:type="actionlink" id="makeModel" t:id="makeModel" t:context="resultsAlignment.id">
-                                   Generate 3D model
-                               </a>
-                            </div>
+                            <t:if t:test="supportModeling">
+	                            <div class="modelBox">
+	                               <a t:type="actionlink" id="makeModel" t:id="makeModel" t:context="resultsAlignment.id">
+	                                   Generate 3D model
+	                               </a>
+	                            </div>
+                            </t:if>
                         </t:if>
                     </div>
                 </t:if>
