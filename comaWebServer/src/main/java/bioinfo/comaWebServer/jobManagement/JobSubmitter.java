@@ -85,6 +85,7 @@ public class JobSubmitter
 			ComaResults comaResults = new ComaResults();
 			comaResults.setProfileDBName(pro.getName());
 			comaResults.setProfileDBValue(pro.getValue());
+			comaResults.setSupportModeling(!pro.isNoModeling());
 			
 			if(search.getDatabaseItem() != null)
 			{
