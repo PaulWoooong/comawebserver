@@ -8,6 +8,7 @@ public enum Extentions
 	OUTPUT_COMA_MA 		(".ina"),
 	
 	INPUT_MODELLER  	(".aln"),
+	KEY_MODELLER  		(".key"),
 	OUTPUT_MODELLER 	(".pdb"),
 	
 	INPUT_MSA_FA 		(".fa"),
