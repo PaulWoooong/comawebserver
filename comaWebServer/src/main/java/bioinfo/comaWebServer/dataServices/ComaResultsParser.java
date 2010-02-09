@@ -38,6 +38,25 @@ public class ComaResultsParser implements IParser
         comaResultsParser.parseIDS("tests/comaParser_003.ids");
 
     }
+    
+    public int numberOfSeq(String path) throws IOException
+    {
+    	ArrayList<String> data = readFile(path);
+        
+        Pattern pattern = Pattern.compile("^>.*");
+        
+        int counter = 0;
+        
+        for(String line: data)
+        {
+        	Matcher m = pattern.matcher(line);
+        	if(m.matches())
+        	{
+        		counter++;
+        	}
+        }
+        return counter;
+    }
 
     public void parse(ComaResults comaResults, String path) throws IOException
     {
