@@ -5,6 +5,7 @@ public enum Extentions
 	INPUT_COMA  		(".fa"),
 	OUTPUT_COMA_OUT 	(".out"),
 	OUTPUT_COMA_ID 		(".ids"),
+	OUTPUT_COMA_MA 		(".ina"),
 	
 	INPUT_MODELLER  	(".aln"),
 	OUTPUT_MODELLER 	(".pdb"),
