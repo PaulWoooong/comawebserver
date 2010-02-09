@@ -92,4 +92,10 @@ public class ComaResults  implements Serializable
 	public void setImages(Set<Image> images) {
 		this.images = images;
 	}
+	public Boolean getSupportModeling() {
+		return supportModeling;
+	}
+	public void setSupportModeling(Boolean supportModeling) {
+		this.supportModeling = supportModeling;
+	}
 }
