@@ -259,6 +259,8 @@ public class PeriodicalWorker extends TimerTask
 		File data = null;
 		File params = null;
 		
+		sshService.createDir(connection, remotePath);
+		
 		if(job.getType() == JobType.COMA_JOB)
 		{
 			command = Cluster.getComaCommand(workstation.getCommandComa(), 

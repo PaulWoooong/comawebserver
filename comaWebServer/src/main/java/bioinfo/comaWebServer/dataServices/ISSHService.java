@@ -29,6 +29,8 @@ public interface ISSHService
 									  String path) throws Exception;
 	public void deleteDir(IConnection connection, 
 							 String path) throws IOException;
+	public void createDir(IConnection connection, 
+			 				 String path) throws IOException;
 	
 	public String jobStatus(IConnection connection, 
 							  String command) throws IOException;
