@@ -26,6 +26,8 @@ public class ComaResults  implements Serializable
 	
 	private Search search;
 	
+	private int numberOfSequences;
+	
 	public long getId() {
 		return id;
 	}
@@ -97,5 +99,11 @@ public class ComaResults  implements Serializable
 	}
 	public void setSupportModeling(Boolean supportModeling) {
 		this.supportModeling = supportModeling;
+	}
+	public int getNumberOfSequences() {
+		return numberOfSequences;
+	}
+	public void setNumberOfSequences(int numberOfSequences) {
+		this.numberOfSequences = numberOfSequences;
 	}
 }

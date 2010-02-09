@@ -16,6 +16,8 @@
         <property name="sequenceDBName"/> 
         <property name="sequenceDBValue"/>
         
+        <property name="numberOfSequences"/>
+        
         <many-to-one name="search" class="bioinfo.comaWebServer.entities.Search" column="searchId" lazy="false" cascade="all"/>
         
         <many-to-one name="resultsFooter" class="bioinfo.comaWebServer.entities.ResultsFooter" column="resultsFooterId" lazy="false" cascade="all"/>
