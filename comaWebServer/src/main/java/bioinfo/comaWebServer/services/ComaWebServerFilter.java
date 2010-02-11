@@ -68,6 +68,7 @@ public class ComaWebServerFilter extends TapestryFilter
 	{
 		periodicalJob.setRun(false);
 		collector.setRun(false);
+		updater.setRun(false);
 		
 		timerJob.cancel();
 		timerCollector.cancel();
