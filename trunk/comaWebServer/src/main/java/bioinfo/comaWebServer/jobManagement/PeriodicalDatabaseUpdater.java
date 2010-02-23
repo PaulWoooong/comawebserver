@@ -76,7 +76,7 @@ public class PeriodicalDatabaseUpdater extends TimerTask
 			
 			try 
 			{
-				Thread.sleep(1000L * 60L * 60L * 12L * period);
+				Thread.sleep(1000L * 60L * 60L * period);
 			} 
 			catch (InterruptedException e){}
 			}	
