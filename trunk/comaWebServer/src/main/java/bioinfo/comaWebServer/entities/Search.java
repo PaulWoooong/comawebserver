@@ -95,15 +95,18 @@ public class Search extends AbstractParameter
 		values += "# PSI-BLAST filters\n";
 		if(filters == PsiBlastFilters.NO_FILTERING)
 		{
-			
+			values += "# No filtering\n";
+			values += "pF=0\n";
 		}
 		else if(filters == PsiBlastFilters.LOW_COMPLEXITY)
 		{
-			
+			values += "# Low complexity\n";
+			values += "pF=1\n";
 		}
 		else
 		{
-			
+			values += "# Mask for lookup table only\n";
+			values += "pF=2\n";
 		}
 		
 		return values;
