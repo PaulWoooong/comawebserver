@@ -6,6 +6,8 @@ import java.util.Set;
 
 import org.apache.tapestry5.annotations.IncludeStylesheet;
 import org.apache.tapestry5.annotations.Parameter;
+import org.apache.tapestry5.ioc.annotations.Inject;
+import org.apache.tapestry5.services.Request;
 
 import bioinfo.comaWebServer.cache.Cache;
 import bioinfo.comaWebServer.entities.Image;
@@ -18,6 +20,9 @@ import bioinfo.comaWebServer.enums.PsiBlastRadioParams;
 @IncludeStylesheet("context:assets/styles.css")
 public class ViewResults 
 {
+	@Inject
+	private Request request;
+	
 	@Parameter(required = true)
 	private Job job;
 	
@@ -168,5 +173,13 @@ public class ViewResults
 	public String getParamsPath()
 	{
 		return resultsPath() + job.getGeneratedId() + "." + getParamsExt();
+	}
+
+	public Request getRequest() {
+		return request;
+	}
+
+	public void setRequest(Request request) {
+		this.request = request;
 	}
 }
