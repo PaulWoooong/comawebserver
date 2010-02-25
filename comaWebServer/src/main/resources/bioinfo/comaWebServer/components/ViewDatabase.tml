@@ -1,7 +1,7 @@
 <t:container xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
 
 <table class="editParams">
-	<tr>
+	<!--<tr>
 		<td>
 			${message:name}
 		</td>
@@ -9,7 +9,7 @@
 			<t:textfield t:id="name" t:value="database.name" t:validate="required"/>
 		</td>
 	</tr>
-	<tr>
+	--><tr>
         <td>
             ${message:partialName}
         </td>
