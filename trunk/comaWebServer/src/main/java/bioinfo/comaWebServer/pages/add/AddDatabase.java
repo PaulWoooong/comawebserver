@@ -24,6 +24,18 @@ public class AddDatabase
 	@Secured("ROLE_ADMIN")
 	Object onSubmitFromAddDatabaseForm() throws Exception
 	{
+		if(database.getName() == null || database.getName().equals(""))
+		{
+			if(database.getPartialName() != null)
+			{
+				database.setName(database.getPartialName());
+			}
+			else
+			{
+				database.setName(database.getValue());
+			}
+		}
+		
 		dataSource.saveOrUpdate(database);
 		return ShowDatabases.class;
 	}
