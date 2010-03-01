@@ -78,11 +78,11 @@
                     <br/>
                 </td>
                 <td class="rigth">
-                     <t:select t:id="psi_blast_filters" 
-                               id="psi_blast_filters"
-                               t:model="psiBlastFilters" 
-                               value="search.filters" 
-                               blankOption="NEVER"/>
+                     <t:select t:model="psiBlastFilters" 
+                      t:value="search.filters"
+                      blankOption="NEVER"
+                      t:id="psi_blast_filters"
+                      id="psi_blast_filters"/>
                 </td>
             </tr>
 			<tr>
