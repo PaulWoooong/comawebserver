@@ -35,7 +35,7 @@ public class ImageProcessor
 	public ImageProcessor(int length)
 	{
 		this.length = length;
-		onePixelWeight = width / length;
+		onePixelWeight = width / (double)length;
 	}
 	
 	public void draw(String name, Color color, String text,
