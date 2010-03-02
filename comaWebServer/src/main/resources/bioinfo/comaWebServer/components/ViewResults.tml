@@ -29,17 +29,17 @@
         </tr>
 	    <tr>
             <td class="left" style="vertical-align: top;">
-                Used search parameters
+                Job details
             </td>
             <td class="rigth">
                 <a type="text" href="${request.contextPath}${faPath}" target="_blank">
-                    Used sequence or multiple alignment
+                    Input sequence or multiple alignment
                 </a><br/>
                 <a type="text" href="${request.contextPath}${maPath}" target="_blank">
-                    Final multiple alignment
+                    Final multiple alignment used for profile construction
                 </a><br/>
                 <a type="text" href="${request.contextPath}${paramsPath}" target="_blank">
-                    Used parameters
+                    Complete list of parameter settings
                 </a><br/>
                 <t:if t:test="job.comaResults.profileDBName">
                     Profile database: ${job.comaResults.profileDBName};<br/>
