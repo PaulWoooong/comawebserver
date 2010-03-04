@@ -22,7 +22,7 @@
         
         <set name="dataFiles" table="DataFile" lazy="false" cascade="all">
             <key column="jobId" />
-            <one-to-many class="PDEXKsvm.entities.DataFile" />
+            <one-to-many class="bioinfo.comaWebServer.entities.DataFile" />
         </set>
           
 	</class>
