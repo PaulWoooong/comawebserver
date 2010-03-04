@@ -18,7 +18,13 @@
 		<property name="status"/>
 		<property name="type"/>
         
-        <many-to-one name="comaResults" class="bioinfo.comaWebServer.entities.ComaResults" column="comaResultsId" lazy="false" cascade="all"/>  
+        <many-to-one name="comaResults" class="bioinfo.comaWebServer.entities.ComaResults" column="comaResultsId" lazy="false" cascade="all"/>
+        
+        <set name="dataFiles" table="DataFile" lazy="false" cascade="all">
+            <key column="jobId" />
+            <one-to-many class="PDEXKsvm.entities.DataFile" />
+        </set>
+          
 	</class>
 	
 </hibernate-mapping>
