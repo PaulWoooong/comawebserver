@@ -64,7 +64,7 @@ public class JobSubmitter
 			throw new TooManyJobsException("There are too many submitted jobs: " + runningJobs + "!");
 		}
 		
-		String localDataPath = cluster.getTmpLocalFileStoragePath();
+		String localDataPath = cluster.getGlobalFilePath();
 		
 		Job job = null;
 		
@@ -105,7 +105,7 @@ public class JobSubmitter
 			job.setDescription(input.getDescription());
 			
 			job.setLocalPath(localDataPath + generatedId + File.separator);
-			job.setRemotePath(cluster.getTmpFileStoragePath() + generatedId + "/");
+			job.setRemotePath(cluster.getRemoteFilePath() + generatedId + "/");
 			
 			job.setPbsId(null);
 			job.setStatus(Job.SUBMITTED);
@@ -156,7 +156,7 @@ public class JobSubmitter
 		
 		Job job = null;
 
-		String localDataPath = cluster.getTmpLocalFileStoragePath();
+		String localDataPath = cluster.getGlobalFilePath();
 		
 		try 
 		{
@@ -180,7 +180,7 @@ public class JobSubmitter
 			job.setDescription(input.getDescription());
 			
 			job.setLocalPath(localDataPath + generatedId + File.separator);
-			job.setRemotePath(cluster.getTmpFileStoragePath() + generatedId + "/");
+			job.setRemotePath(cluster.getRemoteFilePath() + generatedId + "/");
 			
 			job.setPbsId(null);
 			job.setStatus(Job.SUBMITTED);
@@ -232,7 +232,7 @@ public class JobSubmitter
 		
 		Job job = null;
 		
-		String localDataPath = cluster.getTmpLocalFileStoragePath();
+		String localDataPath = cluster.getGlobalFilePath();
 		
 		try 
 		{
@@ -262,7 +262,7 @@ public class JobSubmitter
 			job.setType(JobType.MSA_JOB);
 			
 			job.setLocalPath(localDataPath + generatedId + File.separator);
-			job.setRemotePath(cluster.getTmpFileStoragePath() + generatedId + "/");
+			job.setRemotePath(cluster.getRemoteFilePath() + generatedId + "/");
 			
 			job.setPbsId(null);
 			job.setStatus(Job.SUBMITTED);
