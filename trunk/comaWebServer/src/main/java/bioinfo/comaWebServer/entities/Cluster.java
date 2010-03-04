@@ -5,18 +5,21 @@ import bioinfo.comaWebServer.enums.Commands;
 public class Cluster 
 {
 	private long id;
-	private String hostname;
-	private int port = 22;
+	
 	private String username;
-	private String privateKeyPath;
-	private String passphrase;
+	private String globalFilePath;
+	private String localFilePath;
 	private String commandComa;
 	private String commandModeller;
 	private String commandMsa;
-	private String tmpFileStoragePath;
-	private String tmpLocalFileStoragePath = "webapps/comaWebServer/user_data/";
-	private String tmpLocalFileStoragePathForImg = "/user_data/";
 	private String urlForResults;
+	private boolean local;
+	
+	private String hostname;
+	private int port = 22;
+	private String privateKeyPath;
+	private String passphrase;
+	private String remoteFilePath;
 	
 	public String getComaCommand()
 	{
@@ -122,17 +125,17 @@ public class Cluster
 	public void setPassphrase(String passphrase) {
 		this.passphrase = passphrase;
 	}
-	public String getTmpFileStoragePath() 
+	public String getRemoteFilePath() 
 	{
-		if(tmpFileStoragePath != null && 
-				tmpFileStoragePath.charAt(tmpFileStoragePath.length() - 1) != '/')
+		if(remoteFilePath != null && 
+				remoteFilePath.charAt(remoteFilePath.length() - 1) != '/')
 		{
-			tmpFileStoragePath += "/";
+			remoteFilePath += "/";
 		}
-		return tmpFileStoragePath;
+		return remoteFilePath;
 	}
-	public void setTmpFileStoragePath(String tmpFileStoragePath) {
-		this.tmpFileStoragePath = tmpFileStoragePath;
+	public void setRemoteFilePath(String remoteFilePath) {
+		this.remoteFilePath = remoteFilePath;
 	}
 	public String getCommandComa() 
 	{
@@ -161,20 +164,6 @@ public class Cluster
 		this.urlForResults = urlForResults;
 	}
 
-	public String getTmpLocalFileStoragePath() 
-	{
-		if(tmpLocalFileStoragePath != null && 
-				tmpLocalFileStoragePath.charAt(tmpLocalFileStoragePath.length() - 1) != '/')
-		{
-			tmpLocalFileStoragePath += "/";
-		}
-		return tmpLocalFileStoragePath;
-	}
-
-	public void setTmpLocalFileStoragePath(String tmpLocalFileStoragePath) {
-		this.tmpLocalFileStoragePath = tmpLocalFileStoragePath;
-	}
-
 	public String getCommandMsa() {
 		return commandMsa;
 	}
@@ -183,19 +172,28 @@ public class Cluster
 		this.commandMsa = commandMsa;
 	}
 
-	public String getTmpLocalFileStoragePathForImg() 
-	{
-		if(tmpLocalFileStoragePathForImg != null && 
-				tmpLocalFileStoragePathForImg.charAt(tmpLocalFileStoragePathForImg.length() - 1) != '/')
-		{
-			tmpLocalFileStoragePathForImg += "/";
-		}
-		return tmpLocalFileStoragePathForImg;
+	public boolean isLocal() {
+		return local;
 	}
 
-	public void setTmpLocalFileStoragePathForImg(
-			String tmpLocalFileStoragePathForImg) {
-		this.tmpLocalFileStoragePathForImg = tmpLocalFileStoragePathForImg;
+	public void setLocal(boolean local) {
+		this.local = local;
+	}
+
+	public String getGlobalFilePath() {
+		return globalFilePath;
+	}
+
+	public void setGlobalFilePath(String globalFilePath) {
+		this.globalFilePath = globalFilePath;
+	}
+
+	public String getLocalFilePath() {
+		return localFilePath;
+	}
+
+	public void setLocalFilePath(String localFilePath) {
+		this.localFilePath = localFilePath;
 	}
 
 }

@@ -233,8 +233,8 @@ public class PeriodicalWorker extends TimerTask
 				length = Integer.parseInt(comaResults.getResultsFooter().getQueryLength());
 				
 				ImageProcessor imageProcessor = new ImageProcessor(length);
-				String localPath = workstation.getTmpLocalFileStoragePath() + job.getGeneratedId() + "/";
-				String imgpath = workstation.getTmpLocalFileStoragePathForImg() + job.getGeneratedId() + "/";
+				String localPath = workstation.getGlobalFilePath() + job.getGeneratedId() + "/";
+				String imgpath = workstation.getLocalFilePath() + job.getGeneratedId() + "/";
 				comaResults.setImages(setImages(comaResults.getAlignments(), periodicalWorkerParams,
 						imageProcessor, localPath, imgpath));
 			} 

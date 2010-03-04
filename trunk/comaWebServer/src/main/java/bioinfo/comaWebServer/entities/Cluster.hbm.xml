@@ -9,12 +9,13 @@
 
 		<property name="hostname"/>
 		<property name="port"/>
+		<property name="local"/>
 		<property name="username"/>
 		<property name="privateKeyPath"/>
 		<property name="passphrase"/>
-		<property name="tmpFileStoragePath"/>
-		<property name="tmpLocalFileStoragePath"/>
-		<property name="tmpLocalFileStoragePathForImg"/>
+		<property name="remoteFilePath"/>
+		<property name="globalFilePath"/>
+		<property name="localFilePath"/>
 		<property name="commandComa"/>
 		<property name="commandModeller"/>
 		<property name="commandMsa"/>
