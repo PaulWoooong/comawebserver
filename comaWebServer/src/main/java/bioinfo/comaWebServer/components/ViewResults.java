@@ -53,7 +53,7 @@ public class ViewResults
 	
 	private String resultsPath()
 	{
-		return Cache.getClusterParams().getTmpLocalFileStoragePathForImg() + job.getGeneratedId() + File.separator;
+		return Cache.getClusterParams().getLocalFilePath() + job.getGeneratedId() + File.separator;
 	}
 	
 	public Job getJob() 
