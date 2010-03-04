@@ -2,6 +2,7 @@ package bioinfo.comaWebServer.entities;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.Set;
 
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -33,6 +34,8 @@ public class Job implements Serializable
 	private String		log;
 	private JobType 	type;
 	private Date 		expirationDate;
+	
+	private Set<DataFile> dataFiles;
 	
 	private String 	localPath;
 	private String 	remotePath;
@@ -126,5 +129,13 @@ public class Job implements Serializable
 
 	public void setPbsId(String pbsId) {
 		this.pbsId = pbsId;
+	}
+
+	public Set<DataFile> getDataFiles() {
+		return dataFiles;
+	}
+
+	public void setDataFiles(Set<DataFile> dataFiles) {
+		this.dataFiles = dataFiles;
 	}
 }
