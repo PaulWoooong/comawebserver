@@ -64,6 +64,7 @@
 		
 		<mapping resource="bioinfo/comaWebServer/entities/Job.hbm.xml"                    />
 		<mapping resource="bioinfo/comaWebServer/entities/DatabaseItem.hbm.xml"           />
+        <mapping resource="bioinfo/comaWebServer/entities/DataFile.hbm.xml"           />
 
 		<mapping resource="bioinfo/comaWebServer/entities/ComaResults.hbm.xml"            />
 		<mapping resource="bioinfo/comaWebServer/entities/Image.hbm.xml"                  />
