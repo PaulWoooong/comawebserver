@@ -16,7 +16,7 @@
                         <t:if t:test="resultsAlignment.alignmentBibliography.pfamId">
                             <div class="linkBox">
                                 <a href="http://pfam.janelia.org/family/${resultsAlignment.alignmentBibliography.pfamId}" target="_blank">
-                                     <img src="${asset:context:/assets/pfam_logo.gif}"/>
+                                     <img src="${asset:context:/assets/pfam_logo.jpg}"/>
                                 </a>
                             </div>
                         </t:if>
