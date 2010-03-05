@@ -113,21 +113,26 @@ public class PeriodicalCOMAWorker extends AbstractPeriodicalWorker
 	protected void resultsExtraction(IDataManager dataManager, Job job,
 			String remotePath, String localPath) throws Exception 
 	{
-		List<String> files = new ArrayList<String>();
+		Cluster cluster = Cache.getClusterParams();
 		
-		for(DataFile file: job.getDataFiles())
+		if(!cluster.isLocal())
 		{
-			if(file.getType().equals(DataFile.OUTPUT))
+			List<String> files = new ArrayList<String>();
+			
+			for(DataFile file: job.getDataFiles())
 			{
-				String filePath = remotePath + job.getGeneratedId() + "/" + file.getPath();
-				if(dataManager.fileExists(filePath))
+				if(file.getType().equals(DataFile.OUTPUT))
 				{
-					files.add(filePath);	
-				}					
+					String filePath = remotePath + job.getGeneratedId() + "/" + file.getPath();
+					if(dataManager.fileExists(filePath))
+					{
+						files.add(filePath);	
+					}					
+				}
 			}
+			
+			dataManager.retieveData(files, localPath + job.getGeneratedId());
 		}
-		
-		dataManager.retieveData(files, localPath + job.getGeneratedId());
 		
 		String errorMsg = getErrorInfo(localPath + job.getGeneratedId() + File.separator + job.getGeneratedId() + Extentions.ERR.getExtention());
 		if(!errorMsg.equals(""))
@@ -153,8 +158,6 @@ public class PeriodicalCOMAWorker extends AbstractPeriodicalWorker
 				length = Integer.parseInt(comaResults.getResultsFooter().getQueryLength());
 				
 				ImageProcessor imageProcessor = new ImageProcessor(length);
-
-				Cluster cluster = Cache.getClusterParams();
 				
 				String imgpath = cluster.getLocalFilePath() + job.getGeneratedId() + "/";
 				
