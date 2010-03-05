@@ -13,7 +13,7 @@ public class Cluster
 	private String commandModeller;
 	private String commandMsa;
 	private String urlForResults;
-	private boolean local;
+	private boolean local = false;
 	
 	private String hostname;
 	private int port = 22;
