@@ -19,10 +19,12 @@ import org.apache.tapestry5.upload.services.UploadedFile;
 
 import bioinfo.comaWebServer.cache.Cache;
 import bioinfo.comaWebServer.comparators.ResultsAlignmentComparator;
+import bioinfo.comaWebServer.dataManagement.JobRegister;
 import bioinfo.comaWebServer.dataServices.IDataSource;
 import bioinfo.comaWebServer.entities.AbstractParameter;
 import bioinfo.comaWebServer.entities.Cluster;
 import bioinfo.comaWebServer.entities.ComaResults;
+import bioinfo.comaWebServer.entities.DataFile;
 import bioinfo.comaWebServer.entities.DatabaseItem;
 import bioinfo.comaWebServer.entities.EmailNotification;
 import bioinfo.comaWebServer.entities.Input;
@@ -43,7 +45,7 @@ public class JobSubmitter
 {
 	private static final Logger jobSubmitterLog = Logger.getLogger("jobSubmitter");
 	
-	private static final long MAX_RUNNING_JOBS = 1000;
+	private static final int MAX_RUNNING_JOBS = 1000;
 	
 	public String submitComaJob(Input input, 
 								 List<AbstractParameter> params,
@@ -221,27 +223,26 @@ public class JobSubmitter
 		EmailNotification emailNotification = Cache.getEmailNotificationParams();
 		if(emailNotification == null) throw new InitializationException("The system has not been initialized yet: mail service params!");
 		
-		long runningJobs = dataSource.runningJobsNumber();
-		if(MAX_RUNNING_JOBS <= runningJobs)
-		{
-			throw new TooManyJobsException("There are too many submitted jobs: " + runningJobs + "!");
-		}
-		
 		final Job fatherJob = dataSource.getJobByGeneratedId(fatherGeneratedId);
 		if(fatherJob == null) throw new JobNotFoundException(fatherGeneratedId);
 		
-		Job job = null;
-		
 		String localDataPath = cluster.getGlobalFilePath();
+		
+		Job job = null;
 		
 		try 
 		{
-			job = dataSource.registerJob("a_");
+			job = JobRegister.registerJob(dataSource, null, null, MAX_RUNNING_JOBS, localDataPath);
 			
 			String generatedId = job.getGeneratedId();
 
-			makeLocalDir(localDataPath, generatedId);
+			//makeLocalDir(localDataPath, generatedId);
+			job.setLocalPath(localDataPath + generatedId + File.separator);
+			job.setRemotePath(cluster.getRemoteFilePath() + generatedId + "/");
 			
+			/*
+			 *Job specific task 
+			 */
 			String dataFileName = localFilePath(localDataPath, job.getGeneratedId(), Extentions.INPUT_MSA_FA.getExtention());
 			String inputFileName = fatherJob.getLocalFilePath(Extentions.INPUT_COMA.getExtention());
 			copyfile(inputFileName, dataFileName);
@@ -260,12 +261,20 @@ public class JobSubmitter
 			alignments2file(paramsFileName, wantedAlignments);
 			
 			job.setType(JobType.MSA_JOB);
-			
-			job.setLocalPath(localDataPath + generatedId + File.separator);
-			job.setRemotePath(cluster.getRemoteFilePath() + generatedId + "/");
-			
-			job.setPbsId(null);
 			job.setStatus(Job.SUBMITTED);
+			
+			/*
+			 * File handling
+			 */ 
+			//files to send to workstation
+			job.getDataFiles().add(new DataFile(job.getGeneratedId() + Extentions.INPUT_MSA_FA.getExtention(), DataFile.INPUT));
+			job.getDataFiles().add(new DataFile(job.getGeneratedId() + Extentions.INPUT_MSA_COMA.getExtention(), DataFile.INPUT));
+			//files to download from workstation
+			//logs
+			job.getDataFiles().add(new DataFile(job.getGeneratedId() + Extentions.ERR.getExtention(), DataFile.OUTPUT));
+			job.getDataFiles().add(new DataFile(job.getGeneratedId() + Extentions.LOG.getExtention(), DataFile.OUTPUT));
+			//output
+			job.getDataFiles().add(new DataFile(job.getGeneratedId() + Extentions.OUTPUT_MSA.getExtention(), DataFile.OUTPUT));
 			
 			dataSource.update(job);
 		} 
