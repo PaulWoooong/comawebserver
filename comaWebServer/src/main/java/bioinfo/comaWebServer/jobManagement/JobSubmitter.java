@@ -145,29 +145,23 @@ public class JobSubmitter
 									 String key) throws  Exception
 	{
 		Cluster cluster = Cache.getClusterParams();
-		if(cluster == null) throw new InitializationException("The system has not been initialized yet: workstation params!");
-	
-		EmailNotification emailNotification = Cache.getEmailNotificationParams();
-		if(emailNotification == null) throw new InitializationException("The system has not been initialized yet: mail service params!");
-		
-		long runningJobs = dataSource.runningJobsNumber();
-		if(MAX_RUNNING_JOBS <= runningJobs)
-		{
-			throw new TooManyJobsException("There are too many submitted jobs: " + runningJobs + "!");
-		}
+		String localDataPath = cluster.getGlobalFilePath();
 		
 		Job job = null;
-
-		String localDataPath = cluster.getGlobalFilePath();
 		
 		try 
 		{
-			job = dataSource.registerJob("m_");
+			job = JobRegister.registerJob(dataSource, input.getDescription(), input.getEmail(), MAX_RUNNING_JOBS, localDataPath);
 			
 			String generatedId = job.getGeneratedId();
 
-			makeLocalDir(localDataPath, generatedId);
+			//makeLocalDir(localDataPath, generatedId);
+			job.setLocalPath(localDataPath + generatedId + File.separator);
+			job.setRemotePath(cluster.getRemoteFilePath() + generatedId + "/");
 
+			/*
+			 *Job specific task 
+			 */
 			String dataFileName = localFilePath(localDataPath, job.getGeneratedId(), Extentions.INPUT_MODELLER.getExtention());
 			alignment2file(dataFileName, alignment);
 			
@@ -176,15 +170,21 @@ public class JobSubmitter
 			
 			String keyFileName = localFilePath(localDataPath, job.getGeneratedId(), Extentions.KEY_MODELLER.getExtention());
 			data2file(keyFileName, key);
+
+			/*
+			 * File handling
+			 */ 
+			//files to send to workstation
+			job.getDataFiles().add(new DataFile(job.getGeneratedId() + Extentions.INPUT_MODELLER.getExtention(), DataFile.INPUT));
+			job.getDataFiles().add(new DataFile(job.getGeneratedId() + Extentions.PARAMS.getExtention(), DataFile.INPUT));
+			job.getDataFiles().add(new DataFile(job.getGeneratedId() + Extentions.KEY_MODELLER.getExtention(), DataFile.INPUT));
+			//files to download from workstation
+			job.getDataFiles().add(new DataFile(job.getGeneratedId() + Extentions.OUTPUT_MODELLER.getExtention(), DataFile.OUTPUT));
 			
+			/*
+			 * Changing status
+			 */
 			job.setType(JobType.MODELLER_JOB);
-			job.setEmail(input.getEmail());
-			job.setDescription(input.getDescription());
-			
-			job.setLocalPath(localDataPath + generatedId + File.separator);
-			job.setRemotePath(cluster.getRemoteFilePath() + generatedId + "/");
-			
-			job.setPbsId(null);
 			job.setStatus(Job.SUBMITTED);
 
 			dataSource.update(job);
@@ -217,15 +217,10 @@ public class JobSubmitter
 			 					IDataSource dataSource, 
 								String fatherGeneratedId) throws  Exception
 	{
-		Cluster cluster = Cache.getClusterParams();
-		if(cluster == null) throw new InitializationException("The system has not been initialized yet: workstation params!");
-		
-		EmailNotification emailNotification = Cache.getEmailNotificationParams();
-		if(emailNotification == null) throw new InitializationException("The system has not been initialized yet: mail service params!");
-		
 		final Job fatherJob = dataSource.getJobByGeneratedId(fatherGeneratedId);
 		if(fatherJob == null) throw new JobNotFoundException(fatherGeneratedId);
 		
+		Cluster cluster = Cache.getClusterParams();
 		String localDataPath = cluster.getGlobalFilePath();
 		
 		Job job = null;
@@ -260,9 +255,6 @@ public class JobSubmitter
 			Collections.sort(wantedAlignments, new ResultsAlignmentComparator());
 			alignments2file(paramsFileName, wantedAlignments);
 			
-			job.setType(JobType.MSA_JOB);
-			job.setStatus(Job.SUBMITTED);
-			
 			/*
 			 * File handling
 			 */ 
@@ -270,11 +262,13 @@ public class JobSubmitter
 			job.getDataFiles().add(new DataFile(job.getGeneratedId() + Extentions.INPUT_MSA_FA.getExtention(), DataFile.INPUT));
 			job.getDataFiles().add(new DataFile(job.getGeneratedId() + Extentions.INPUT_MSA_COMA.getExtention(), DataFile.INPUT));
 			//files to download from workstation
-			//logs
-			job.getDataFiles().add(new DataFile(job.getGeneratedId() + Extentions.ERR.getExtention(), DataFile.OUTPUT));
-			job.getDataFiles().add(new DataFile(job.getGeneratedId() + Extentions.LOG.getExtention(), DataFile.OUTPUT));
-			//output
 			job.getDataFiles().add(new DataFile(job.getGeneratedId() + Extentions.OUTPUT_MSA.getExtention(), DataFile.OUTPUT));
+			
+			/*
+			 * Changing status
+			 */
+			job.setType(JobType.MSA_JOB);
+			job.setStatus(Job.SUBMITTED);
 			
 			dataSource.update(job);
 		} 
