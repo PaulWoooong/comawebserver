@@ -86,7 +86,7 @@
                 <tr t:type="loop" source="job.comaResults.images" value="image">
                     <td class="name">
                         <a href="#${image.priority}">
-                            <img src="${request.contextPath}${image.path}" style="height: 10px; width: 700px"/>
+                            <img src="${resultsPath()}${image.path}" style="height: 10px; width: 700px"/>
                         </a>
                     </td>
                 </tr>
