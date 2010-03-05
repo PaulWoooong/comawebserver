@@ -75,7 +75,7 @@
 		<td>
 			<t:textfield t:id="cluster_hostname" t:value="cluster.hostname"/>
 		</td>
-	</tr>
+	</tr><!--
 	<tr>
 		<td>
 			${message:port}
@@ -84,7 +84,7 @@
 			<t:textfield t:id="cluster_port" t:value="cluster.port"/>
 		</td>
 	</tr>
-	<tr>
+	--><tr>
 		<td>
 			${message:private_key} 
 		</td>
