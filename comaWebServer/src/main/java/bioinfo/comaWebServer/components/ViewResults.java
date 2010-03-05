@@ -51,11 +51,6 @@ public class ViewResults
 		return Extentions.PARAMS.getExtention().replaceAll("^\\.", "");
 	}
 	
-	private String resultsPath()
-	{
-		return Cache.getClusterParams().getLocalFilePath() + job.getGeneratedId() + File.separator;
-	}
-	
 	public Job getJob() 
 	{
 		return job;
@@ -173,6 +168,15 @@ public class ViewResults
 	public String getParamsPath()
 	{
 		return resultsPath() + job.getGeneratedId() + "." + getParamsExt();
+	}
+	
+	private String resultsPath()
+	{
+		if(Cache.getClusterParams().getLocalFilePath() == null)
+		{
+			return "";
+		}
+		return Cache.getClusterParams().getLocalFilePath() + job.getGeneratedId() + File.separator;
 	}
 
 	public Request getRequest() {
