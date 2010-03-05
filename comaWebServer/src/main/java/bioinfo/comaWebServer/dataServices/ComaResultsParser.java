@@ -449,7 +449,7 @@ public class ComaResultsParser
         
         Map<String,AlignmentBibliography> info = new HashMap<String, AlignmentBibliography>();
         
-        Pattern pattern = Pattern.compile("^\\s*(.*)pdb:(\\S+)\\s+scop:(\\S+)\\s+(.*)pubmed:\\s*(.*)\\s*$");
+        Pattern pattern = Pattern.compile("^\\s*(.*)pdb:(\\S+)\\s+pfam:(\\S+)\\s+scop:(\\S+)\\s+(.*)pubmed:\\s*(.*)\\s*$");
         
         for(String line: data)
         {
@@ -461,20 +461,27 @@ public class ComaResultsParser
         		{
         			pdb = null;
         		}
-        		String scop = m.group(3);
+        		
+        		String pfam = m.group(3);
+        		if(pfam.matches("^.*n/a.*$"))
+        		{
+        			pfam = null;
+        		}
+        		
+        		String scop = m.group(4);
         		if(scop.matches("^.*n/a.*$"))
         		{
         			scop = null;
         		}
         		
-        		String scopinfo = m.group(4);
+        		String scopinfo = m.group(5);
         		
-        		String pubmed = m.group(5);
+        		String pubmed = m.group(6);
         		if(pubmed.matches("^.*n/a.*$"))
         		{
         			pubmed = null;
         		}
-        		AlignmentBibliography ids = new AlignmentBibliography(pdb, scop, scopinfo, pubmed);
+        		AlignmentBibliography ids = new AlignmentBibliography(pdb, scop, scopinfo, pubmed, pfam);
         		String biblioName = m.group(1).replaceAll("\\s+$", "");
         		
                 info.put(biblioName, ids);
