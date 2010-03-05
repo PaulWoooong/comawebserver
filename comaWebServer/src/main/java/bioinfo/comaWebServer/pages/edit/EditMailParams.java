@@ -10,8 +10,8 @@ import org.apache.tapestry5.ioc.annotations.Inject;
 
 
 import bioinfo.comaWebServer.cache.Cache;
+import bioinfo.comaWebServer.dataManagement.SMTPMailService;
 import bioinfo.comaWebServer.dataServices.IDataSource;
-import bioinfo.comaWebServer.dataServices.SMTPMailService;
 import bioinfo.comaWebServer.entities.EmailNotification;
 import bioinfo.comaWebServer.entities.User;
 import bioinfo.comaWebServer.pages.show.ShowInfo;
@@ -42,14 +42,12 @@ public class EditMailParams
 		Cache.refreshEmailNotificationParams();
 		
 		User currentUser = (User)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-		
-		SMTPMailService mailService = new SMTPMailService();
-		
 		String info = "Congratulation message sent!";
 		
 		try 
 		{
-			mailService.send(currentUser.getEmail(), "Test email", "coma server");
+			SMTPMailService.send(Cache.getEmailNotificationParams().getSender(), currentUser.getEmail(), 
+					"Test email", "coma server", Cache.getEmailNotificationParams().getHostname());
 		} 
 		catch (Exception e) 
 		{
