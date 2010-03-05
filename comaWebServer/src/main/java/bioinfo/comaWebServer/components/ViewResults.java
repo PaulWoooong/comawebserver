@@ -1,6 +1,5 @@
 package bioinfo.comaWebServer.components;
 
-import java.io.File;
 import java.util.List;
 import java.util.Set;
 
@@ -170,13 +169,15 @@ public class ViewResults
 		return resultsPath() + job.getGeneratedId() + "." + getParamsExt();
 	}
 	
-	private String resultsPath()
+	public String resultsPath()
 	{
 		if(Cache.getClusterParams().getLocalFilePath() == null)
 		{
 			return "";
 		}
-		return Cache.getClusterParams().getLocalFilePath() + job.getGeneratedId() + File.separator;
+		return request.getContextPath() +  
+				Cache.getClusterParams().getLocalFilePath() + 
+				job.getGeneratedId() + "/";
 	}
 
 	public Request getRequest() {

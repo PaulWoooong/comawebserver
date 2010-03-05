@@ -32,13 +32,13 @@
                 Job details
             </td>
             <td class="rigth">
-                <a type="text" href="${request.contextPath}${faPath}" target="_blank">
+                <a type="text" href="${faPath}" target="_blank">
                     Input sequence or multiple alignment
                 </a><br/>
-                <a type="text" href="${request.contextPath}${maPath}" target="_blank">
+                <a type="text" href="${maPath}" target="_blank">
                     Final multiple alignment used for profile construction
                 </a><br/>
-                <a type="text" href="${request.contextPath}${paramsPath}" target="_blank">
+                <a type="text" href="${paramsPath}" target="_blank">
                     Complete list of parameter settings
                 </a><br/>
                 <t:if t:test="job.comaResults.profileDBName">
