@@ -2,8 +2,14 @@ package bioinfo.comaWebServer.dataManagement;
 
 import java.io.File;
 
+import bioinfo.comaWebServer.cache.Cache;
 import bioinfo.comaWebServer.dataServices.IDataSource;
+import bioinfo.comaWebServer.entities.Cluster;
+import bioinfo.comaWebServer.entities.DataFile;
+import bioinfo.comaWebServer.entities.EmailNotification;
 import bioinfo.comaWebServer.entities.Job;
+import bioinfo.comaWebServer.enums.Extentions;
+import bioinfo.comaWebServer.exceptions.InitializationException;
 
 public class JobRegister
 {
@@ -15,6 +21,12 @@ public class JobRegister
 													int maxSubmittedJobs,
 													String globalFilePath) throws  Exception
 	{
+		Cluster cluster = Cache.getClusterParams();
+		if(cluster == null) throw new InitializationException("The system has not been initialized yet: workstation params!");
+		
+		EmailNotification emailNotification = Cache.getEmailNotificationParams();
+		if(emailNotification == null) throw new InitializationException("The system has not been initialized yet: mail service params!");
+		
 		long activeJobs = dataSource.runningJobsNumber();
 		if(maxSubmittedJobs <= activeJobs)
 		{
@@ -32,6 +44,10 @@ public class JobRegister
 		job.setGeneratedId(generatedId);
 	
 		makeLocalDir(globalFilePath + generatedId);
+		
+		//logs
+		job.getDataFiles().add(new DataFile(job.getGeneratedId() + Extentions.ERR.getExtention(), DataFile.OUTPUT));
+		job.getDataFiles().add(new DataFile(job.getGeneratedId() + Extentions.LOG.getExtention(), DataFile.OUTPUT));
 	
 		dataSource.update(job);
 
