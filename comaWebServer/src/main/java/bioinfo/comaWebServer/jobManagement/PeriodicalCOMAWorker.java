@@ -158,13 +158,11 @@ public class PeriodicalCOMAWorker extends AbstractPeriodicalWorker
 				length = Integer.parseInt(comaResults.getResultsFooter().getQueryLength());
 				
 				ImageProcessor imageProcessor = new ImageProcessor(length);
-				
-				String imgpath = cluster.getLocalFilePath() + job.getGeneratedId() + "/";
-				
+
 				PeriodicalWorkerParams periodicalWorkerParams = Cache.getPeriodicalWorkerParams();
 				
 				comaResults.setImages(setImages(comaResults.getAlignments(), periodicalWorkerParams,
-						imageProcessor, localPath + job.getGeneratedId(), imgpath));
+						imageProcessor, localPath + job.getGeneratedId()));
 			} 
 			catch (Exception e){}
 			
@@ -174,7 +172,7 @@ public class PeriodicalCOMAWorker extends AbstractPeriodicalWorker
 	
 	private static Set<Image> setImages(Set<ResultsAlignment> alignments, 
 			PeriodicalWorkerParams periodicalWorkerParams, ImageProcessor imageProcessor, 
-			String localPath, String imgPath) throws IOException
+			String localPath) throws IOException
 	{
 		Set<Image> images = new HashSet<Image>();
 		
@@ -252,8 +250,8 @@ public class PeriodicalCOMAWorker extends AbstractPeriodicalWorker
 						}
 					}
 					
-					imageProcessor.draw(localPath + counter + "." + ImageProcessor.extention, color, header, mainBegin - 1, mainEnd - 1);
-					images.add(new Image(imgPath + counter + "." + ImageProcessor.extention, alignment.getPriority()));
+					imageProcessor.draw(localPath + File.separator + counter + "." + ImageProcessor.extention, color, header, mainBegin - 1, mainEnd - 1);
+					images.add(new Image(counter + "." + ImageProcessor.extention, alignment.getPriority()));
 					
 					counter++;
 				}
