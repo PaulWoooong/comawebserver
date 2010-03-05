@@ -8,16 +8,12 @@ import org.apache.tapestry5.TapestryFilter;
 import org.apache.tapestry5.ioc.Registry;
 
 import bioinfo.comaWebServer.dataManagement.periodical.PeriodicalGarbageCollector;
-import bioinfo.comaWebServer.dataServices.ComaResultsParser;
+import bioinfo.comaWebServer.dataManagement.transfer.PublicKeyAuthentication;
 import bioinfo.comaWebServer.dataServices.HibernateDataSource;
 import bioinfo.comaWebServer.dataServices.IDataSource;
-import bioinfo.comaWebServer.dataServices.IMailService;
-import bioinfo.comaWebServer.dataServices.ISSHService;
-import bioinfo.comaWebServer.dataServices.SMTPMailService;
-import bioinfo.comaWebServer.dataServices.SSHService;
 
+import bioinfo.comaWebServer.jobManagement.PeriodicalCOMAWorker;
 import bioinfo.comaWebServer.jobManagement.PeriodicalDatabaseUpdater;
-import bioinfo.comaWebServer.jobManagement.PeriodicalWorker;
 
 public class ComaWebServerFilter extends TapestryFilter
 {
@@ -26,30 +22,20 @@ public class ComaWebServerFilter extends TapestryFilter
 	private Timer timerJob 							= null;
 	private Timer timerCollector 				   	= null;
 	private Timer timerUpdater 				   		= null;
-	private PeriodicalWorker periodicalJob 	 		= null;
+	private PeriodicalCOMAWorker periodicalJob 	 		= null;
 	private PeriodicalDatabaseUpdater	updater		= null;
 	private PeriodicalGarbageCollector collector 	= null;
-	
-	private ISSHService sshService 	= null;
-	private IMailService mailService 	= null;
-	
+
 	public ComaWebServerFilter()
 	{
 		dataSource 		 = new HibernateDataSource();
-		sshService		 = new SSHService();
-		mailService		 = new SMTPMailService();
-		
+
 		timerJob 		 = new Timer();
 		timerCollector   = new Timer();
 		timerUpdater	 = new Timer();
 		
-		periodicalJob    = new PeriodicalWorker(dataSource, 
-												 sshService, 
-												 mailService, 
-												 new ComaResultsParser());
-		
+		periodicalJob    = new PeriodicalCOMAWorker(dataSource);
 		collector 		 = new PeriodicalGarbageCollector(dataSource);
-		
 		updater			 = new PeriodicalDatabaseUpdater(dataSource);
 	}
 	
@@ -73,6 +59,8 @@ public class ComaWebServerFilter extends TapestryFilter
 		timerJob.cancel();
 		timerCollector.cancel();
 		timerUpdater.cancel();
+		
+		PublicKeyAuthentication.disconnect();
 		
 		super.destroy(registry);
 	}
