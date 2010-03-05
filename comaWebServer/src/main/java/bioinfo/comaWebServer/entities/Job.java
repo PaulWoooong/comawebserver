@@ -51,6 +51,24 @@ public class Job implements Serializable
 		return getRemotePath() + getGeneratedId() + ext;
 	}
 	
+	public String showName()
+	{
+		if(description != null)
+		{
+			if(description.length() > 15)
+			{
+				return description.substring(0, 12) + "..."; 
+			}
+			return description;
+		}
+		
+		if(generatedId.length() > 15)
+		{
+			return generatedId.substring(0, 12) + "..."; 
+		}
+		return generatedId;
+	}
+	
 	public long getId() {
 		return id;
 	}
