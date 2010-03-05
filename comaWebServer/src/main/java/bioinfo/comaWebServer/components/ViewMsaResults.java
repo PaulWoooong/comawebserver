@@ -100,6 +100,7 @@ public class ViewMsaResults
 	private String resultsPath()
 	{
 		return Cache.getClusterParams().getGlobalFilePath() + job.getGeneratedId() + 
+							File.separator + job.getGeneratedId() +
 									Extentions.OUTPUT_MSA.getExtention();
 	}
 }
