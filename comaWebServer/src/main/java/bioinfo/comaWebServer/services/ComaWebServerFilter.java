@@ -7,6 +7,7 @@ import javax.servlet.ServletException;
 import org.apache.tapestry5.TapestryFilter;
 import org.apache.tapestry5.ioc.Registry;
 
+import bioinfo.comaWebServer.dataManagement.periodical.PeriodicalGarbageCollector;
 import bioinfo.comaWebServer.dataServices.ComaResultsParser;
 import bioinfo.comaWebServer.dataServices.HibernateDataSource;
 import bioinfo.comaWebServer.dataServices.IDataSource;
@@ -16,19 +17,18 @@ import bioinfo.comaWebServer.dataServices.SMTPMailService;
 import bioinfo.comaWebServer.dataServices.SSHService;
 
 import bioinfo.comaWebServer.jobManagement.PeriodicalDatabaseUpdater;
-import bioinfo.comaWebServer.jobManagement.PeriodicalGarbageCollector;
 import bioinfo.comaWebServer.jobManagement.PeriodicalWorker;
 
 public class ComaWebServerFilter extends TapestryFilter
 {
 	private IDataSource dataSource = null;
 	
-	private Timer timerJob 						= null;
+	private Timer timerJob 							= null;
 	private Timer timerCollector 				   	= null;
-	private Timer timerUpdater 				   	= null;
-	private PeriodicalWorker periodicalJob 	 	= null;
-	private PeriodicalGarbageCollector collector	= null;
+	private Timer timerUpdater 				   		= null;
+	private PeriodicalWorker periodicalJob 	 		= null;
 	private PeriodicalDatabaseUpdater	updater		= null;
+	private PeriodicalGarbageCollector collector 	= null;
 	
 	private ISSHService sshService 	= null;
 	private IMailService mailService 	= null;
@@ -48,7 +48,7 @@ public class ComaWebServerFilter extends TapestryFilter
 												 mailService, 
 												 new ComaResultsParser());
 		
-		collector 		 = new PeriodicalGarbageCollector(dataSource, sshService);
+		collector 		 = new PeriodicalGarbageCollector(dataSource);
 		
 		updater			 = new PeriodicalDatabaseUpdater(dataSource, sshService);
 	}
