@@ -100,7 +100,7 @@ public class ViewModellerResults
 	
 	private String resultsPath()
 	{
-		return Cache.getClusterParams().getGlobalFilePath() + job.getGeneratedId() + 
-									Extentions.OUTPUT_MODELLER.getExtention();
+		return Cache.getClusterParams().getGlobalFilePath() + job.getGeneratedId() + File.separator + 
+									job.getGeneratedId() + Extentions.OUTPUT_MODELLER.getExtention();
 	}
 }
