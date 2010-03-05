@@ -36,10 +36,6 @@ import org.slf4j.Logger;
 
 import bioinfo.comaWebServer.dataServices.IDataSource;
 import bioinfo.comaWebServer.dataServices.HibernateDataSource;
-import bioinfo.comaWebServer.dataServices.IMailService;
-import bioinfo.comaWebServer.dataServices.ISSHService;
-import bioinfo.comaWebServer.dataServices.SMTPMailService;
-import bioinfo.comaWebServer.dataServices.SSHService;
 import bioinfo.comaWebServer.exceptions.RedirectException;
 
 /**
@@ -51,8 +47,6 @@ public class AppModule
     public static void bind(ServiceBinder binder)
     {
     	binder.bind(IDataSource.class, 	HibernateDataSource.class);
-    	binder.bind(IMailService.class, 	SMTPMailService.class);
-    	binder.bind(ISSHService.class, 	SSHService.class);
     	
     	binder.bind(SaltSourceService.class, SaltSourceImpl.class).withId("MySaltSource");
 
