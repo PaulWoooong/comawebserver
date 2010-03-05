@@ -50,7 +50,7 @@ public class ComaWebServerFilter extends TapestryFilter
 		
 		collector 		 = new PeriodicalGarbageCollector(dataSource);
 		
-		updater			 = new PeriodicalDatabaseUpdater(dataSource, sshService);
+		updater			 = new PeriodicalDatabaseUpdater(dataSource);
 	}
 	
 	protected void init(Registry registry) throws ServletException

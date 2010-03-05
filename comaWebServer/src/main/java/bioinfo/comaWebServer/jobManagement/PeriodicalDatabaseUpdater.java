@@ -6,9 +6,13 @@ import java.util.TimerTask;
 
 import org.apache.log4j.Logger;
 
-import bioinfo.comaWebServer.dataServices.IConnection;
+import bioinfo.comaWebServer.cache.Cache;
+import bioinfo.comaWebServer.dataManagement.transfer.IDataManager;
+import bioinfo.comaWebServer.dataManagement.transfer.LocalPBSDataManager;
+import bioinfo.comaWebServer.dataManagement.transfer.PublicKeyAuthentication;
+import bioinfo.comaWebServer.dataManagement.transfer.RemotePBSDataManager;
 import bioinfo.comaWebServer.dataServices.IDataSource;
-import bioinfo.comaWebServer.dataServices.ISSHService;
+import bioinfo.comaWebServer.entities.Cluster;
 import bioinfo.comaWebServer.entities.DatabaseItem;
 
 public class PeriodicalDatabaseUpdater extends TimerTask
@@ -19,25 +23,32 @@ public class PeriodicalDatabaseUpdater extends TimerTask
 
 	private IDataSource dataSource;
 	private long period = 1;
-	private ISSHService sshService = null;
 
-	public PeriodicalDatabaseUpdater(IDataSource dataSource, ISSHService sshService)
+	public PeriodicalDatabaseUpdater(IDataSource dataSource)
 	{
 		this.dataSource = dataSource;
-		this.sshService = sshService;
 	}
 	
 	public void run() 
 	{
 		while(run)
 		{
-			IConnection connection 	= null;
-			
 			try 
 			{
-				connection = sshService.connect();
-			
-			
+				Cluster workstation = Cache.getClusterParams();
+				
+				IDataManager dataManager = null;
+				
+				if(workstation.isLocal())
+				{
+					dataManager = new LocalPBSDataManager();
+				}
+				else
+				{
+					dataManager = new RemotePBSDataManager(PublicKeyAuthentication.connect(workstation.getUsername(), 
+							workstation.getHostname(), workstation.getPrivateKeyPath(), workstation.getPassphrase()));
+				}
+
 				List<String> types = new ArrayList<String>();
 				types.add(DatabaseItem.SEQUENCE_DB);
 				types.add(DatabaseItem.PROFILE_DB);
@@ -50,7 +61,7 @@ public class PeriodicalDatabaseUpdater extends TimerTask
 					{
 						if(item.getValue() != null && item.getPath() != null)
 						{
-							String date = sshService.fileModificationTime(connection, item.getPath());
+							String date = dataManager.fileLastModified(item.getPath());
 							if(item.getPartialName() != null)
 							{
 								item.setName(item.getPartialName() + "_" + date);
