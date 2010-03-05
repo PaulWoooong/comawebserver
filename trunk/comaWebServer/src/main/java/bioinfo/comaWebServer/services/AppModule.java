@@ -34,11 +34,9 @@ import org.apache.tapestry5.upload.services.UploadSymbols;
 import org.hibernate.Session;
 import org.slf4j.Logger;
 
-import bioinfo.comaWebServer.dataServices.ComaResultsParser;
 import bioinfo.comaWebServer.dataServices.IDataSource;
 import bioinfo.comaWebServer.dataServices.HibernateDataSource;
 import bioinfo.comaWebServer.dataServices.IMailService;
-import bioinfo.comaWebServer.dataServices.IParser;
 import bioinfo.comaWebServer.dataServices.ISSHService;
 import bioinfo.comaWebServer.dataServices.SMTPMailService;
 import bioinfo.comaWebServer.dataServices.SSHService;
@@ -55,7 +53,6 @@ public class AppModule
     	binder.bind(IDataSource.class, 	HibernateDataSource.class);
     	binder.bind(IMailService.class, 	SMTPMailService.class);
     	binder.bind(ISSHService.class, 	SSHService.class);
-    	binder.bind(IParser.class, 		ComaResultsParser.class);
     	
     	binder.bind(SaltSourceService.class, SaltSourceImpl.class).withId("MySaltSource");
 
