@@ -6,11 +6,11 @@ import org.apache.tapestry5.annotations.InjectPage;
 import org.apache.tapestry5.annotations.OnEvent;
 import org.apache.tapestry5.ioc.annotations.Inject;
 
+import ch.ethz.ssh2.Connection;
 
 import bioinfo.comaWebServer.cache.Cache;
-import bioinfo.comaWebServer.dataServices.IConnection;
+import bioinfo.comaWebServer.dataManagement.transfer.PublicKeyAuthentication;
 import bioinfo.comaWebServer.dataServices.IDataSource;
-import bioinfo.comaWebServer.dataServices.ISSHService;
 import bioinfo.comaWebServer.entities.Cluster;
 import bioinfo.comaWebServer.pages.show.ShowInfo;
 
@@ -20,9 +20,7 @@ public class EditClusterParams
 {
 	@Inject
 	private IDataSource dataSource;
-	@Inject
-	private ISSHService sshService;
-	
+
 	private Cluster cluster;
 	
 	public void onActivate()
@@ -37,25 +35,28 @@ public class EditClusterParams
 	@Secured("ROLE_ADMIN")
 	Object onUpdateClusterParamsForm()
 	{
-		String info = "Connection: Ok<br/>";
+		String info = "Update: Ok<br/>";
 		info += dataSource.updateParams(cluster);
 		Cache.refreshClusterParams();
 		
-		IConnection connection = null;
-		
-		try 
+		if(!cluster.isLocal())
 		{
-			connection = sshService.connect();
-		} 
-		catch (Exception e) 
-		{
-			info = e.getMessage();
+			try 
+			{
+				Connection conn = PublicKeyAuthentication.connect(cluster.getUsername(), 
+						cluster.getHostname(), cluster.getPrivateKeyPath(), cluster.getPassphrase());
+				if(conn != null)
+				{
+					conn.close();	
+				}
+			} 
+			catch (Exception e) 
+			{
+				info = e.getMessage();
+				e.printStackTrace();
+			}
 		}
-		finally
-		{
-			if(connection != null) connection.disconnect();
-		}
-		
+
 		infoPage.setUp(info, "Updating cluster params:");
 		
 		return infoPage;
