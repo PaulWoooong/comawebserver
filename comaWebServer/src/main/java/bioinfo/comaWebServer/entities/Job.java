@@ -55,16 +55,16 @@ public class Job implements Serializable
 	{
 		if(description != null)
 		{
-			if(description.length() > 15)
+			if(description.length() > 20)
 			{
-				return description.substring(0, 12) + "..."; 
+				return description.substring(0, 17) + "..."; 
 			}
 			return description;
 		}
 		
-		if(generatedId.length() > 15)
+		if(generatedId.length() > 20)
 		{
-			return generatedId.substring(0, 12) + "..."; 
+			return generatedId.substring(0, 17) + "..."; 
 		}
 		return generatedId;
 	}
