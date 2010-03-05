@@ -35,33 +35,36 @@ public class AlignmentBibliography implements Serializable
 		this.scopId = scopId;
 		this.pubmedQuery = pubmedQuery;
 		
-		Pattern pattern = Pattern.compile("^\\s*$");
-		Matcher matcher = pattern.matcher(scopInfo);
-		if(matcher.matches())
-		{
-			scopInfo = null;
-		}
-		else
-		{
-			scopInfo = scopInfo.replaceAll("^\\s+", "");
-			scopInfo = scopInfo.replaceAll("\\s+$", "");
-		}
-		
 		Set<ScopBibliography> scopBibliography = null;
 		
 		if(scopInfo != null)
-		{	
-			String[] info = scopInfo.split("\\s+");
-			
-			if(info.length > 0 && info.length % 2 == 0)
+		{
+			Pattern pattern = Pattern.compile("^\\s*$");
+			Matcher matcher = pattern.matcher(scopInfo);
+			if(matcher.matches())
 			{
-				scopBibliography = new HashSet<ScopBibliography>();
+				scopInfo = null;
+			}
+			else
+			{
+				scopInfo = scopInfo.replaceAll("^\\s+", "");
+				scopInfo = scopInfo.replaceAll("\\s+$", "");
+			}
+			
+			if(scopInfo != null)
+			{	
+				String[] info = scopInfo.split("\\s+");
 				
-				for(int i = 0; i < info.length; i += 2)
+				if(info.length > 0 && info.length % 2 == 0)
 				{
-					ScopBibliography sb = new ScopBibliography(info[i], info[i + 1]);
+					scopBibliography = new HashSet<ScopBibliography>();
 					
-					scopBibliography.add(sb);
+					for(int i = 0; i < info.length; i += 2)
+					{
+						ScopBibliography sb = new ScopBibliography(info[i], info[i + 1]);
+						
+						scopBibliography.add(sb);
+					}
 				}
 			}
 		}
