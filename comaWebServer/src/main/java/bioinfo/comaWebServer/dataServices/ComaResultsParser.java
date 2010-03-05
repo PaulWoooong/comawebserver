@@ -23,7 +23,7 @@ import bioinfo.comaWebServer.entities.ResultsFooter;
 import bioinfo.comaWebServer.entities.ResultsHit;
 import bioinfo.comaWebServer.entities.ResultsQuery;
 
-public class ComaResultsParser implements IParser
+public class ComaResultsParser
 {
     private static final String ALIGNMENT_BEGIN = "^>.*";
     private static final String END_OF_ALIGNMENTS = "^Scoring method:.+";
@@ -34,12 +34,10 @@ public class ComaResultsParser implements IParser
     
     public static void main(String[] args) throws IOException
     {
-        ComaResultsParser comaResultsParser = new ComaResultsParser();
-        comaResultsParser.parseIDS("tests/comaParser_003.ids");
-
+        ComaResultsParser.parseIDS("tests/comaParser_003.ids");
     }
     
-    public int numberOfSeq(String path) throws IOException
+    public static int numberOfSeq(String path) throws IOException
     {
     	ArrayList<String> data = readFile(path);
         
@@ -58,7 +56,7 @@ public class ComaResultsParser implements IParser
         return counter;
     }
 
-    public void parse(ComaResults comaResults, String path) throws IOException
+    public static void parse(ComaResults comaResults, String path) throws IOException
     {
 
         ArrayList<String> data = readFile(path);
@@ -82,7 +80,7 @@ public class ComaResultsParser implements IParser
         comaResults.setResultsFooter(parseFooter(data));
     }
     
-    private Set<ResultsAlignment> parseAlignment(ArrayList<String> data)
+    private static Set<ResultsAlignment> parseAlignment(ArrayList<String> data)
     {
         Set<ResultsAlignment> alignments = new HashSet<ResultsAlignment>();
         
@@ -120,7 +118,7 @@ public class ComaResultsParser implements IParser
         return alignments;
     }
     
-    private List<String> getRawAlignment(List<String> data)
+    private static List<String> getRawAlignment(List<String> data)
     {
     	List<String> rawAlignment = new ArrayList<String>();
 
@@ -143,7 +141,7 @@ public class ComaResultsParser implements IParser
     	return rawAlignment;
     }
     
-    private Set<ResultsQuery> parseResultsQuery(List<String> rawAlignment)
+    private static Set<ResultsQuery> parseResultsQuery(List<String> rawAlignment)
     {
         Set<ResultsQuery> list = new HashSet<ResultsQuery>();
         int priority = PRIORITY_BEGIN;
@@ -167,7 +165,7 @@ public class ComaResultsParser implements IParser
         return list;
     }
     
-    private ResultsQuery parseQuery(List<String> rawAlignment)
+    private static ResultsQuery parseQuery(List<String> rawAlignment)
     {
         ResultsQuery resultsQuery = null;
         
@@ -209,7 +207,7 @@ public class ComaResultsParser implements IParser
         return resultsQuery;
     }
     
-    private RAlignmentFooter parseAlignmentFooter(List<String> rawAlignment)
+    private static RAlignmentFooter parseAlignmentFooter(List<String> rawAlignment)
     {
     	boolean found = false;
     	
@@ -253,7 +251,7 @@ public class ComaResultsParser implements IParser
         return rfooter;
     }
     
-    private RAlignmentHeader parseAlignmentHeader(List<String> rawAlignment)
+    private static RAlignmentHeader parseAlignmentHeader(List<String> rawAlignment)
     {  
         RAlignmentHeader rheader = null;
         
@@ -299,7 +297,7 @@ public class ComaResultsParser implements IParser
         return rheader;
     }
     
-    private String getValue(List<String> rawAlignment, Pattern pattern)
+    private static String getValue(List<String> rawAlignment, Pattern pattern)
     {
     	String value = null;
     	
@@ -315,7 +313,7 @@ public class ComaResultsParser implements IParser
     	return value;
     }
     
-    private Set<ResultsHit> parseHits(ArrayList<String> data)
+    private static Set<ResultsHit> parseHits(ArrayList<String> data)
     {
     	Set<ResultsHit> hits = new HashSet<ResultsHit>();
 
@@ -340,7 +338,7 @@ public class ComaResultsParser implements IParser
         return hits;
     }
     
-    private void parseHeader(ArrayList<String> data)
+    private static void parseHeader(ArrayList<String> data)
     {
     	while(data.size() > 0 && !data.get(0).matches(HITS_BEGIN) &&
     							  !data.get(0).matches(NO_PROFILES_FOUND))
@@ -353,7 +351,7 @@ public class ComaResultsParser implements IParser
     	}
     }
     
-    private ResultsFooter parseFooter(ArrayList<String> data)
+    private static ResultsFooter parseFooter(ArrayList<String> data)
     {
     	ResultsFooter resultsFooter = null;
     	
@@ -419,7 +417,7 @@ public class ComaResultsParser implements IParser
         return resultsFooter;
     }
     
-    public ArrayList<String> readFile(String path) throws IOException
+    public static ArrayList<String> readFile(String path) throws IOException
     {
         ArrayList<String> data = new ArrayList<String>();
         
@@ -445,7 +443,7 @@ public class ComaResultsParser implements IParser
         return data;
     }
     
-    public Map<String,AlignmentBibliography> parseIDS(String path) throws IOException
+    public static Map<String,AlignmentBibliography> parseIDS(String path) throws IOException
     {
         ArrayList<String> data = readFile(path);
         
