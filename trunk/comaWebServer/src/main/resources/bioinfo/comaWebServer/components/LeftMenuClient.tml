@@ -29,12 +29,7 @@
 		<tr t:type="loop" source="recentJobs.jobs" value="job">
 		   <td>
 		      <a t:type="actionlink" id="showJob" t:id="showJob" t:context="${job.generatedId}" style="font-size: 13px; font-family: Monospace;">
-                  <t:if t:test="${job.description}">
-                      ${job.description}    
-                  <t:parameter t:name="else">
-                      ${job.generatedId}
-                  </t:parameter>
-                  </t:if>
+                ${job.showName()}    
               </a>
 		   </td>
 		</tr>
