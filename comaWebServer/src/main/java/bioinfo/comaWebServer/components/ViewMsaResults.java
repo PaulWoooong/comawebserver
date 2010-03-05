@@ -99,7 +99,7 @@ public class ViewMsaResults
 	
 	private String resultsPath()
 	{
-		return Cache.getClusterParams().getLocalFilePath() + job.getGeneratedId() + 
+		return Cache.getClusterParams().getGlobalFilePath() + job.getGeneratedId() + 
 									Extentions.OUTPUT_MSA.getExtention();
 	}
 }
