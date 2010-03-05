@@ -449,44 +449,85 @@ public class ComaResultsParser
         
         Map<String,AlignmentBibliography> info = new HashMap<String, AlignmentBibliography>();
         
-        Pattern pattern = Pattern.compile("^\\s*(.*)pdb:(\\S+)\\s+pfam:(\\S+)\\s+scop:(\\S+)\\s+(.*)pubmed:\\s*(.*)\\s*$");
+        String delimiter = "\\s*GETIDS_EOID\\s*";
+        
+        Pattern descPattern = Pattern.compile("^\\s*desc:(.*)");
+        Pattern pdbPattern = Pattern.compile("^\\s*pdb:(.*)");
+        Pattern pfamPattern = Pattern.compile("^\\s*pfam:(.*)");
+        Pattern scopPattern = Pattern.compile("^\\s*scop:(\\S+)\\s+(.*)");
+        Pattern pubmedPattern = Pattern.compile("^\\s*pubmed:(.*)");
         
         for(String line: data)
         {
-        	Matcher m = pattern.matcher(line);
-        	if(m.matches())
+        	String pdb = null;
+        	String scop = null;
+        	String pfam = null;
+        	String scopinfo = null;
+        	String pubmed = null;
+        	String description = null;
+        	
+        	String[] ids = line.split(delimiter);
+
+        	Matcher m = null;
+        	
+        	for(String id: ids)
         	{
-        		String pdb = m.group(2);
-        		if(pdb.matches("^.*n/a.*$"))
+        		m = descPattern.matcher(id);
+        		if(m.matches())
         		{
-        			pdb = null;
+        			if(!isEmpty(m.group(1)))
+        			{
+        				description = m.group(1);
+        			}
         		}
-        		
-        		String pfam = m.group(3);
-        		if(pfam.matches("^.*n/a.*$"))
+        		m = pdbPattern.matcher(id);
+        		if(m.matches())
         		{
-        			pfam = null;
+        			if(!isEmpty(m.group(1)))
+        			{
+        				pdb = m.group(1);
+        			}
         		}
-        		
-        		String scop = m.group(4);
-        		if(scop.matches("^.*n/a.*$"))
+        		m = pfamPattern.matcher(id);
+        		if(m.matches())
         		{
-        			scop = null;
+        			if(!isEmpty(m.group(1)))
+        			{
+        				pfam = m.group(1);
+        			}
         		}
-        		
-        		String scopinfo = m.group(5);
-        		
-        		String pubmed = m.group(6);
-        		if(pubmed.matches("^.*n/a.*$"))
+        		m = scopPattern.matcher(id);
+        		if(m.matches())
         		{
-        			pubmed = null;
+        			if(!isEmpty(m.group(1)))
+        			{
+        				scop = m.group(1);
+        			}
+        			
+        			scopinfo = m.group(2);
         		}
-        		AlignmentBibliography ids = new AlignmentBibliography(pdb, scop, scopinfo, pubmed, pfam);
-        		String biblioName = m.group(1).replaceAll("\\s+$", "");
-        		
-                info.put(biblioName, ids);
+        		m = pubmedPattern.matcher(id);
+        		if(m.matches())
+        		{
+        			if(!isEmpty(m.group(1)))
+        			{
+        				pubmed = m.group(1);
+        			}
+        		}
         	}
+
+            info.put(description, new AlignmentBibliography(pdb, scop, scopinfo, pubmed, pfam));
         }
         return info;
     }
+    
+    private static boolean isEmpty(String line)
+    {
+    	if(line.matches("^.*n/a.*$"))
+    	{
+    		return true;
+    	}
+    	return false;
+    }
 }
+
