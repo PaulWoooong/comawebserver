@@ -14,6 +14,7 @@ public class AlignmentBibliography implements Serializable
 	
 	private long id;
 	private String pdbId;
+	private String pfamId;
 	private String scopId;
 	private String pubmedQuery;
 	private String pubmedQueryForHtml;
@@ -21,6 +22,12 @@ public class AlignmentBibliography implements Serializable
 	private Set<ScopBibliography> scopBibliography;
 	
 	public AlignmentBibliography(){}
+	
+	public AlignmentBibliography(String pdbId, String scopId, String scopInfo, String pubmedQuery, String pfamId)
+	{
+		this(pdbId, scopId, scopInfo, pubmedQuery);
+		this.pfamId = pfamId;
+	}
 	
 	public AlignmentBibliography(String pdbId, String scopId, String scopInfo, String pubmedQuery)
 	{
@@ -171,5 +178,13 @@ public class AlignmentBibliography implements Serializable
 
 	public void setScopBibliography(Set<ScopBibliography> scopBibliography) {
 		this.scopBibliography = scopBibliography;
+	}
+
+	public String getPfamId() {
+		return pfamId;
+	}
+
+	public void setPfamId(String pfamId) {
+		this.pfamId = pfamId;
 	}
 }

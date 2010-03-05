@@ -8,6 +8,7 @@
         </id>
         
         <property name="pdbId"                      />
+        <property name="pfamId"                     />
         <property name="scopId"                     />
         <property name="pubmedQuery" type="text"    />
         
