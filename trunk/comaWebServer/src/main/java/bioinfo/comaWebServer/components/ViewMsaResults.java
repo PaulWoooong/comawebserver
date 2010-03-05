@@ -16,6 +16,7 @@ import org.apache.tapestry5.annotations.InjectPage;
 import org.apache.tapestry5.annotations.Parameter;
 import org.apache.tapestry5.annotations.Persist;
 
+import bioinfo.comaWebServer.cache.Cache;
 import bioinfo.comaWebServer.entities.Job;
 import bioinfo.comaWebServer.enums.Extentions;
 import bioinfo.comaWebServer.pages.show.ShowInfo;
@@ -98,7 +99,7 @@ public class ViewMsaResults
 	
 	private String resultsPath()
 	{
-		return job.getLocalPath() + job.getGeneratedId() + 
+		return Cache.getClusterParams().getLocalFilePath() + job.getGeneratedId() + 
 									Extentions.OUTPUT_MSA.getExtention();
 	}
 }
