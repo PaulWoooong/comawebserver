@@ -1,7 +1,10 @@
 package bioinfo.comaWebServer.entities;
 
-public class DataFile 
+import java.io.Serializable;
+
+public class DataFile implements Serializable
 {
+	private static final long serialVersionUID = 1L;
 	public static final String INPUT = "input";
 	public static final String OUTPUT = "output";
 	

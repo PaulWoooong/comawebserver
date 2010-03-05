@@ -3,6 +3,7 @@ package bioinfo.comaWebServer.entities;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.Set;
+import java.util.HashSet;
 
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -131,7 +132,12 @@ public class Job implements Serializable
 		this.pbsId = pbsId;
 	}
 
-	public Set<DataFile> getDataFiles() {
+	public Set<DataFile> getDataFiles() 
+	{
+		if(dataFiles == null)
+		{
+			dataFiles = new HashSet<DataFile>();
+		}
 		return dataFiles;
 	}
 
