@@ -697,6 +697,30 @@ public class HibernateDataSource<IList> implements IDataSource
 
 	    return job;
 	}
+	
+	public Job getJobByGeneratedIdORDescription(String info) throws Exception 
+	{
+		Job job = null;
+	    Transaction transaction = null;
+	    Session session = InitSessionFactory.getInstance().getCurrentSession();
+
+    	try
+    	{
+			transaction = session.beginTransaction();
+			Query query = session.createQuery("from " + JOB_TABLE + " o " +
+					"where o.id =:info OR o.description =:info");
+			query.setString("info", info);
+			job = (Job) query.uniqueResult();
+			transaction.commit();
+		}
+    	catch (HibernateException e)
+    	{
+    		if(transaction != null) transaction.rollback();
+    		throw e;
+		}
+
+	    return job;
+	}
 
 	public Job getJobByGeneratedId(String id)
 	{
