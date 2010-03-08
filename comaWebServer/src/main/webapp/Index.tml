@@ -39,7 +39,7 @@
 		        </tr>
 		        <tr>
 		            <td class="left">
-                        <a name="input_type" onclick="openHelpWindow('${asset:context:/static_pages/help.html}#input_type');" href="#input_type">
+                        <a name="input_type" t:id="inputType" onclick="openHelpWindow('${asset:context:/static_pages/help.html}#input_type');" href="#input_type">
                           Input type
                         </a>
 		            </td>
