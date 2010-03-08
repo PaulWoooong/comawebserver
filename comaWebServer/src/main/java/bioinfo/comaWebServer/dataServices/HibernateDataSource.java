@@ -708,7 +708,7 @@ public class HibernateDataSource<IList> implements IDataSource
     	{
 			transaction = session.beginTransaction();
 			Query query = session.createQuery("from " + JOB_TABLE + " o " +
-					"where o.id =:info OR o.description =:info");
+					"where o.generatedId =:info OR o.description =:info");
 			query.setString("info", info);
 			job = (Job) query.uniqueResult();
 			transaction.commit();
