@@ -39,7 +39,7 @@ public class JobGridDataSource implements GridDataSource
 		
 		transaction.commit();
 
-		return (Integer)list.get(0);
+		return ((Long)list.get(0)).intValue();
 	}
 
 	@Override
