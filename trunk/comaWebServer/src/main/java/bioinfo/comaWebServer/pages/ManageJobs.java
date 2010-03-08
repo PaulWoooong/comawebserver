@@ -4,17 +4,25 @@ import java.util.List;
 
 import org.acegisecurity.annotation.Secured;
 import org.apache.tapestry5.annotations.InjectPage;
+import org.apache.tapestry5.grid.GridDataSource;
 import org.apache.tapestry5.ioc.annotations.Inject;
 
 import bioinfo.comaWebServer.dataServices.IDataSource;
 import bioinfo.comaWebServer.entities.Job;
 import bioinfo.comaWebServer.pages.show.ShowResults;
+import bioinfo.comaWebServer.util.JobGridDataSource;
 
 @Secured("ROLE_ADMIN")
 public class ManageJobs 
 {
 	@Inject
 	private IDataSource dataSource;
+	
+	public GridDataSource getJobGridDataSource()
+	{
+		return new JobGridDataSource(dataSource);
+	}
+
 
 	private Job job;
 	

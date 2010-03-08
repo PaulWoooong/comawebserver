@@ -3,7 +3,7 @@
 
     </head>
     <body>
-		<t:grid source="jobs" row="job">
+		<t:grid source="jobGridDataSource" row="job">
 		    <t:parameter name="generatedIdCell">
 		        <t:actionlink t:id="view" context="job.generatedId">View</t:actionlink>
 		    </t:parameter>
