@@ -8,6 +8,8 @@ import java.util.HashSet;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 
+import org.apache.tapestry5.beaneditor.NonVisual;
+
 import bioinfo.comaWebServer.dataManagement.JobStatus;
 import bioinfo.comaWebServer.enums.JobType;
 
@@ -15,22 +17,27 @@ public class Job implements Serializable
 {	
 	private static final long serialVersionUID = 1L;
 	
+	@NonVisual
 	private long 		id;
+	@NonVisual
 	private String		generatedId;
+	@NonVisual
 	private String		pbsId;
-	
+	@NonVisual
 	private ComaResults comaResults;
 	
 	private String 		description;
 	private String 		email;
 	private String		status = JobStatus.REGISTERED.getStatus();
+	@NonVisual
 	private String		log;
 	private JobType 	type;
 	private Date 		expirationDate;
-	
+	@NonVisual
 	private Set<DataFile> dataFiles;
-	
+	@NonVisual
 	private String 	localPath;
+	@NonVisual
 	private String 	remotePath;
 	
 	public String getLocalFilePath(String ext)
