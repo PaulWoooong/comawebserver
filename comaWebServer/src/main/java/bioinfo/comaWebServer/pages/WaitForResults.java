@@ -58,7 +58,7 @@ public class WaitForResults
 		{
 			jobId = reload;
 			
-			Job job = dataSource.getJobByGeneratedId(jobId);
+			Job job = dataSource.getJobByGeneratedIdORDescription(jobId);
 
 			if(job.getStatus().equals(JobStatus.FINISHED.getStatus()) || job.getStatus().equals(JobStatus.ERRORS.getStatus()))
 			{
