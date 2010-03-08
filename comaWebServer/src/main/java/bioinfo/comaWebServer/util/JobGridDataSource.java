@@ -17,7 +17,8 @@ public class JobGridDataSource implements GridDataSource
 {
 	private static final String JOB_TABLE = " Job ";
 	private List<Job> selectedJobs = null;
-	private int from = 0;
+	private int start = 0;
+	private int end = 0;
 	private IDataSource dataSource = null;
 	
 	
@@ -26,20 +27,21 @@ public class JobGridDataSource implements GridDataSource
 		this.dataSource = dataSource;
 	}
 	
-	@Override
 	public int getAvailableRows() 
 	{
-		String queryStr = "select count(*) from " + JOB_TABLE;
-		
-		Session session = InitSessionFactory.getInstance().getCurrentSession();
-	    Transaction transaction = session.beginTransaction();
+		int jobNumber = 0;
+			
+		try 
+		{
+			Long tmp = dataSource.jobNumber();
+			jobNumber = tmp.intValue();
+		} 
+		catch (Exception e) 
+		{
+			e.printStackTrace();
+		}
 
-		Query query = session.createQuery(queryStr);
-		List list = query.list();
-		
-		transaction.commit();
-
-		return ((Long)list.get(0)).intValue();
+		return jobNumber;
 	}
 
 	@Override
@@ -65,7 +67,8 @@ public class JobGridDataSource implements GridDataSource
 			transaction = session.beginTransaction();
 			Query query = session.createQuery("from " + JOB_TABLE + " o ");
 			selectedJobs = query.list();
-			from = startIndex;
+			start = startIndex;
+			end = endIndex;
 			transaction.commit();
 		}
     	catch (HibernateException e)

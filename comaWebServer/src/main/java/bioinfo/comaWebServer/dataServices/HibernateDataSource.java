@@ -1024,6 +1024,33 @@ public class HibernateDataSource<IList> implements IDataSource
 
 		return set.size();
 	}
+	
+	public Long jobNumber() throws Exception
+	{
+		Long jobNumber = new Long(0);
+		
+		Transaction transaction = null;
+		Session session = InitSessionFactory.getInstance().getCurrentSession();
+
+		try
+		{
+			transaction = session.beginTransaction();
+			jobNumber = getObjectNumber(session, JOB_TABLE);
+			transaction.commit();
+		}
+		catch (RuntimeException e)
+		{
+			if (transaction != null && transaction.isActive())
+			{
+				try
+				{
+					transaction.rollback();
+				}
+				catch(HibernateException e1){}
+			}
+		}
+		return jobNumber;
+	}
 
 	private Long getObjectNumber(Session session, String tableName)
 	{
