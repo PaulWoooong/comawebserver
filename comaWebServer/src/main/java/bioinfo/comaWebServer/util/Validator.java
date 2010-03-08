@@ -1,86 +1,93 @@
 package bioinfo.comaWebServer.util;
 
-import java.io.BufferedInputStream;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.util.List;
 
 import bioinfo.comaWebServer.enums.InputType;
-import bioinfo.comaWebServer.exceptions.FormatException;
 
 public class Validator 
 {
 	
-	public static void check(File file, InputType format) throws Exception
+	public static boolean check(List<String> lines, InputType format) throws Exception
 	{
 		if(format == InputType.FASTA)
 		{
-			checkFasta(file);
+			return checkFasta(lines);
 		}
-		checkFasta(file);
+		else
+		{
+			throw new Exception("Unknown input format: " + format);
+		}
 	}
 	
-	private static void checkFasta(File file) throws Exception
+	private static boolean checkFasta(List<String> lines)
 	{
-	    FileInputStream fis = null;
-		BufferedInputStream bis = null;
-		BufferedReader br = null;
+		String fastaHeader  = "^>\\w+.*";
+		String fastaData = "[ABCDEFGHIKLMNOPQRSTUVWYZXabcdefghiklmnopqrstuvwyzx*-]+";
 		
-		try 
+		if(lines.size() == 0)
 		{
-			fis = new FileInputStream(file);
-
-			bis = new BufferedInputStream(fis);
-			br = new BufferedReader(new InputStreamReader(bis));
-
-			String fastaHeader  = "^>\\w+.*";
-			String fastaData = "[ABCDEFGHIKLMNOPQRSTUVWYZXabcdefghiklmnopqrstuvwyzx*-]+";
-			
-			String line = br.readLine();
-			if(line == null)
-			{
-				throw new FormatException("Incorrect input format: FASTA!");
-			}
-			
-			while (line != null) 
-			{
-				if(!line.matches(fastaHeader))
-				{
-					throw new FormatException("Incorrect input format: FASTA!");
-				}
-				
-				line = br.readLine();
-				if(line == null || !line.matches(fastaData))
-				{
-					throw new FormatException("Incorrect input format: FASTA!");
-				}
-				
-				boolean data = true;
-				while(line != null && !line.equals("") && data && (line = br.readLine()) != null)
-				{
-					if(!line.matches(fastaData))
-					{
-						data = false;
-					}
-				}
-				
-				while(line != null && line.equals("") && (line = br.readLine()) != null){}
-			}
-		} 
-		catch (IOException e) 
-		{
-			e = new IOException("Validator: failed to process an input sequence!");
-			throw e;
+			return false;
 		}
 		
-		finally
+		for(int i = 0; i < lines.size();)
 		{
-			if(fis != null) fis.close();
-			if(bis != null) bis.close();
-			if(br  != null) br.close();	
+			String currLine = lines.get(i);
+			
+			if(!currLine.matches(fastaHeader))
+			{
+				return false;
+			}
+			
+			i++;
+			
+			if(i < lines.size())
+			{
+				currLine = lines.get(i);
+				
+				if(!currLine.matches(fastaData))
+				{
+					return false;	
+				}
+			}
+			else
+			{
+				return false;
+			}
+			
+			boolean data = true;
+			
+			while(i < lines.size() && data)
+			{
+				currLine = lines.get(i);
+				
+				if(!currLine.matches(fastaData))
+				{
+					data = false;
+				}
+				else
+				{
+					i++;	
+				}
+			}
+			
+			boolean emptyLines = true;
+			
+			while(i < lines.size() && emptyLines)
+			{
+				currLine = lines.get(i);
+				
+				if(!currLine.equals(""))
+				{
+					emptyLines = false;
+				}
+				else
+				{
+					i++;	
+				}
+			}
 		}
+		
+		return true;
 	}
 	
 	public static boolean checkAlignment_G(String value)
