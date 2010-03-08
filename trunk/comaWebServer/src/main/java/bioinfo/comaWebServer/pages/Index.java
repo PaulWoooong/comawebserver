@@ -30,6 +30,7 @@ import bioinfo.comaWebServer.entities.AbstractParameter;
 import bioinfo.comaWebServer.entities.ComaParams;
 import bioinfo.comaWebServer.entities.Input;
 import bioinfo.comaWebServer.entities.DatabaseItem;
+import bioinfo.comaWebServer.entities.Job;
 import bioinfo.comaWebServer.entities.RecentJobs;
 import bioinfo.comaWebServer.entities.Search;
 import bioinfo.comaWebServer.enums.InputType;
@@ -157,6 +158,25 @@ public class Index
 				if(search.getLc_j() == 0)
 				{
 					submitJobForm.recordError("Maximal number of iterations  must be provided!");
+					return null;
+				}
+			}
+			
+			if(input.getDescription() != null)
+			{
+				try 
+				{
+					Job job = dataSource.getJobByGeneratedIdORDescription(input.getDescription());
+					if(job != null)
+					{
+						submitJobForm.recordError("The following job description is not available at the moment: " + input.getDescription());
+						return null;
+					}
+				} 
+				catch (Exception e) 
+				{
+					e.printStackTrace();
+					submitJobForm.recordError(e.getMessage());
 					return null;
 				}
 			}
