@@ -1,5 +1,6 @@
 package bioinfo.comaWebServer.dataServices;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Random;
@@ -840,6 +841,37 @@ public class HibernateDataSource<IList> implements IDataSource
 		return jobs;
 	}
 	
+	public List<Job> getJobs(int start, int end) throws Exception
+	{
+		List<Job> jobs = new ArrayList<Job>();
+		if(end <= start)
+		{
+			return jobs;
+		}
+		
+		Transaction transaction = null;
+	    Session session 		= InitSessionFactory.getInstance().getCurrentSession();
+
+    	try
+    	{
+			transaction = session.beginTransaction();
+			Query query = session.createQuery("from " + JOB_TABLE + " o " +
+					"offset =:start limit =:diff");
+			
+			query.setInteger("start", start);
+			query.setInteger("diff", end - start);
+
+			jobs = (List<Job>)query.list();
+			
+			transaction.commit();
+		}
+    	catch (HibernateException e)
+    	{
+    		if(transaction != null) transaction.rollback();
+    		throw e;
+		}
+		return jobs;
+	}
 
 	public Set<Job> getExpiredJobs()
 	{
