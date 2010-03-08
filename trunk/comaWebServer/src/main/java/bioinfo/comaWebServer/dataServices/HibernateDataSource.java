@@ -1,7 +1,5 @@
 package bioinfo.comaWebServer.dataServices;
 
-import java.util.Date;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Random;
 import java.util.Set;
@@ -17,6 +15,7 @@ import org.hibernate.Transaction;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import bioinfo.comaWebServer.dataManagement.JobStatus;
 import bioinfo.comaWebServer.entities.Alignment;
 import bioinfo.comaWebServer.entities.AlignmentFilter;
 import bioinfo.comaWebServer.entities.Autocorrection;
@@ -761,23 +760,23 @@ public class HibernateDataSource<IList> implements IDataSource
 	
 	public Set<Job> getNotFinishedJobs()
 	{
-		Set<Job> jobs = new HashSet<Job>();
-	    Transaction transaction = null;
-	    Session session = InitSessionFactory.getInstance().getCurrentSession();
+		Set<Job> jobs = null;
+		Transaction transaction = null;
+	    Session session 		= InitSessionFactory.getInstance().getCurrentSession();
 
     	try
     	{
 			transaction = session.beginTransaction();
-			Query query = session.createQuery("from " + JOB_TABLE + " o where o.status != :finished and o.status != :error and o.status != :registered");
-			query.setString("finished", Job.FINISHED);
-			query.setString("error", Job.ERRORS);
-			query.setString("registered", Job.REGISTERED);
-			List jobList = query.list();
+			Query query = session.createQuery("from " + JOB_TABLE + " o where " +
+					"o.status != :finished AND " +
+					"o.status != :errors AND " +
+					"o.status != :canceled");
+			
+			query.setString("finished", JobStatus.FINISHED.getStatus());
+			query.setString("errors", JobStatus.ERRORS.getStatus());
+			query.setString("canceled", JobStatus.CANCELED.getStatus());
 
-			for(Object o : jobList)
-			{
-				jobs.add((Job)o);
-			}
+			jobs = (Set<Job>)query.list();
 
 			transaction.commit();
 		}
@@ -786,7 +785,34 @@ public class HibernateDataSource<IList> implements IDataSource
     		if(transaction != null) transaction.rollback();
     		throw e;
 		}
+		return jobs;
+	}
+	
 
+	public Set<Job> getExpiredJobs()
+	{
+		Set<Job> jobs = null;
+		Transaction transaction = null;
+	    Session session 		= InitSessionFactory.getInstance().getCurrentSession();
+
+    	try
+    	{
+			transaction = session.beginTransaction();
+			Query query = session.createQuery("from " + JOB_TABLE + " o where " +
+					"o.expirationDate <= NOW() OR " +
+					"o.status = :canceled");
+
+			query.setString("canceled", JobStatus.CANCELED.getStatus());
+
+			jobs = (Set<Job>)query.list();
+
+			transaction.commit();
+		}
+    	catch (HibernateException e)
+    	{
+    		if(transaction != null) transaction.rollback();
+    		throw e;
+		}
 		return jobs;
 	}
 	
@@ -844,38 +870,6 @@ public class HibernateDataSource<IList> implements IDataSource
 
 		return resultsAlignment;
 	}
-
-	public Set<Job> getExpiredJobs()
-	{
-		Set<Job> jobs 			= new HashSet<Job>();
-		Date date 				= new Date();
-	    Transaction transaction = null;
-	    Session session 		= InitSessionFactory.getInstance().getCurrentSession();
-
-    	try
-    	{
-			transaction = session.beginTransaction();
-			Query query = session.createQuery("from " + JOB_TABLE + " o where o.expirationDate < :date");
-			query.setDate("date", date);
-
-			List jobList = query.list();
-
-			for(Object o : jobList)
-			{
-				jobs.add((Job)o);
-			}
-
-			transaction.commit();
-		}
-    	catch (HibernateException e)
-    	{
-    		if(transaction != null) transaction.rollback();
-    		throw e;
-		}
-
-		return jobs;
-	}
-
 
 	public void initializeSystem()
 	{
