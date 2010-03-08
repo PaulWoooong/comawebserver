@@ -8,6 +8,7 @@ import org.apache.tapestry5.annotations.ApplicationState;
 import org.apache.tapestry5.annotations.InjectPage;
 import org.apache.tapestry5.annotations.Persist;
 import org.apache.tapestry5.ioc.annotations.Inject;
+import org.apache.tapestry5.services.Cookies;
 
 import bioinfo.comaWebServer.dataServices.IDataSource;
 import bioinfo.comaWebServer.entities.ComaResults;
@@ -16,6 +17,7 @@ import bioinfo.comaWebServer.entities.RecentJobs;
 import bioinfo.comaWebServer.entities.ResultsAlignment;
 import bioinfo.comaWebServer.jobManagement.JobSubmitter;
 import bioinfo.comaWebServer.pages.show.ShowInfo;
+import bioinfo.comaWebServer.util.CookieManager;
 
 public class ModellerJob 
 {
@@ -83,6 +85,7 @@ public class ModellerJob
 											    key);
 			
 			recentJobs.addJob(dataSource.getJobByGeneratedId(id));
+			CookieManager.registerJob(id, cookies);
 		}
 		catch (IOException e) 
 		{
@@ -160,4 +163,7 @@ public class ModellerJob
 	public void setKey(String key) {
 		this.key = key;
 	}
+	
+	@Inject
+	private Cookies cookies;
 }

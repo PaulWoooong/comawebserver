@@ -17,6 +17,7 @@ import org.apache.tapestry5.annotations.IncludeStylesheet;
 import org.apache.tapestry5.annotations.InjectPage;
 import org.apache.tapestry5.annotations.Persist;
 import org.apache.tapestry5.ioc.annotations.Inject;
+import org.apache.tapestry5.services.Cookies;
 
 import bioinfo.comaWebServer.comparators.ResultsHitComparator;
 import bioinfo.comaWebServer.dataManagement.JobStatus;
@@ -28,6 +29,7 @@ import bioinfo.comaWebServer.enums.Extentions;
 import bioinfo.comaWebServer.enums.JobType;
 import bioinfo.comaWebServer.jobManagement.JobSubmitter;
 import bioinfo.comaWebServer.pages.WaitForResults;
+import bioinfo.comaWebServer.util.CookieManager;
 
 @IncludeStylesheet("context:assets/styles.css")
 public class ShowResults
@@ -212,6 +214,9 @@ public class ShowResults
 	private RecentJobs recentJobs;
 	private boolean recentJobsExists;
 	
+	@Inject
+	private Cookies cookies;
+	
 	public Object onSuccess() throws Exception 
     {  
 		if(selectedHits == null || selectedHits.size() == 0) return null;
@@ -224,6 +229,7 @@ public class ShowResults
 		
 		selectedHits = null;
 		recentJobs.addJob(dataSource.getJobByGeneratedId(generatedId));
+		CookieManager.registerJob(generatedId, cookies);
 		
 		return waitForResults;
     }

@@ -1,13 +1,19 @@
 package bioinfo.comaWebServer.components;
 
+import java.util.List;
+
 import org.apache.tapestry5.annotations.ApplicationState;
 import org.apache.tapestry5.annotations.IncludeStylesheet;
 import org.apache.tapestry5.annotations.InjectPage;
 import org.apache.tapestry5.annotations.Persist;
+import org.apache.tapestry5.ioc.annotations.Inject;
+import org.apache.tapestry5.services.Cookies;
 
+import bioinfo.comaWebServer.dataServices.IDataSource;
 import bioinfo.comaWebServer.entities.Job;
 import bioinfo.comaWebServer.entities.RecentJobs;
 import bioinfo.comaWebServer.pages.WaitForResults;
+import bioinfo.comaWebServer.util.CookieManager;
 
 
 @IncludeStylesheet("context:assets/styles.css")
@@ -63,8 +69,22 @@ public class LeftMenuClient
 	@ApplicationState
 	private RecentJobs recentJobs;
 	private boolean recentJobsExists;
+	
+	@Inject
+	private IDataSource dataSource;
+	@Inject
+	private Cookies cookies;
 
-	public RecentJobs getRecentJobs() {
+	public RecentJobs getRecentJobs() 
+	{
+		if(!recentJobsExists)
+		{
+			List<Job> jobs = CookieManager.getJobs(dataSource, cookies);
+			for(Job job: jobs)
+			{
+				recentJobs.addJob(job);
+			}
+		}
 		return recentJobs;
 	}
 
