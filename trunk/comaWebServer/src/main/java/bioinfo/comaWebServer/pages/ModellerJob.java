@@ -1,12 +1,11 @@
 package bioinfo.comaWebServer.pages;
 
-
-import java.io.IOException;
-
 import org.apache.log4j.Logger;
 import org.apache.tapestry5.annotations.ApplicationState;
+import org.apache.tapestry5.annotations.Component;
 import org.apache.tapestry5.annotations.InjectPage;
 import org.apache.tapestry5.annotations.Persist;
+import org.apache.tapestry5.corelib.components.Form;
 import org.apache.tapestry5.ioc.annotations.Inject;
 import org.apache.tapestry5.services.Cookies;
 
@@ -16,7 +15,6 @@ import bioinfo.comaWebServer.entities.Input;
 import bioinfo.comaWebServer.entities.RecentJobs;
 import bioinfo.comaWebServer.entities.ResultsAlignment;
 import bioinfo.comaWebServer.jobManagement.JobSubmitter;
-import bioinfo.comaWebServer.pages.show.ShowInfo;
 import bioinfo.comaWebServer.util.CookieManager;
 
 public class ModellerJob 
@@ -26,6 +24,9 @@ public class ModellerJob
 	@ApplicationState
 	private RecentJobs recentJobs;
 	private boolean recentJobsExists;
+	
+	@Component
+	private Form submitModellerJobForm;
 	
 	@Inject
 	private IDataSource dataSource;
@@ -56,16 +57,16 @@ public class ModellerJob
 		} 
 		catch (Exception e) 
 		{
-			throw new Exception();
-		}
-		if(resultsAlignment == null)
-		{
-			throw new Exception();
+			StackTraceElement[] stack = e.getStackTrace();
+			for(int i = 0; stack != null && i < stack.length; i++)
+			{
+				modellerJobLog.error(stack[i].toString());
+			}
+			
+			submitModellerJobForm.recordError(e.getMessage());
 		}
 	}
-	
-	@InjectPage
-	private ShowInfo infoPage;
+
 	@InjectPage
 	private WaitForResults waitForResults;
 	
@@ -87,7 +88,7 @@ public class ModellerJob
 			recentJobs.addJob(dataSource.getJobByGeneratedId(id));
 			CookieManager.registerJob(id, cookies);
 		}
-		catch (IOException e) 
+		catch (Exception e) 
 		{
 			StackTraceElement[] stack = e.getStackTrace();
 			for(int i = 0; stack != null && i < stack.length; i++)
@@ -95,13 +96,8 @@ public class ModellerJob
 				modellerJobLog.error(stack[i].toString());
 			}
 			
-			infoPage.setUp("", "IOException: system is unavailable for the moment!");
-			return infoPage;
-		} 
-		catch (Exception e) 
-		{
-			infoPage.setUp("", e.getMessage());
-			return infoPage;
+			submitModellerJobForm.recordError(e.getMessage());
+			return null;
 		}
 		
 		waitForResults.setUp(id);
@@ -133,12 +129,10 @@ public class ModellerJob
 		this.resultsAlignment = resultsAlignment;
 	}
 	
-	Object onException(Throwable cause)
+	void onException(Throwable cause)
     {
-
-    	infoPage.setUp("", "We are sorry but the service is temporary unavailable.");
-
-        return infoPage;
+		cause.printStackTrace();
+		submitModellerJobForm.recordError(cause.getMessage());
     }
 	public RecentJobs getRecentJobs() {
 		return recentJobs;
