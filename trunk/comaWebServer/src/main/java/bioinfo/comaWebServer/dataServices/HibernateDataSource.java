@@ -698,6 +698,28 @@ public class HibernateDataSource<IList> implements IDataSource
 	    return job;
 	}
 	
+	public List<Job> getJobs()
+	{
+		List<Job> jobs = null;
+	    Transaction transaction = null;
+	    Session session = InitSessionFactory.getInstance().getCurrentSession();
+
+    	try
+    	{
+			transaction = session.beginTransaction();
+			Query query = session.createQuery("from " + JOB_TABLE + " o ");
+			jobs = query.list();
+			transaction.commit();
+		}
+    	catch (HibernateException e)
+    	{
+    		if(transaction != null) transaction.rollback();
+    		throw e;
+		}
+
+	    return jobs;
+	}
+	
 	public Job getJobByGeneratedIdORDescription(String info) throws Exception 
 	{
 		Job job = null;
