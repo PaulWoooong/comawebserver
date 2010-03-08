@@ -1,6 +1,11 @@
 <t:container xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
 
 <table class="LeftMenuAdminTable">
+    <tr>
+        <th>
+             Administrator
+        </th>
+    </tr>
 	<tr>
 		<td>
 		     <a href="#" t:type="ActionLink" t:id="logout">Log out</a>
