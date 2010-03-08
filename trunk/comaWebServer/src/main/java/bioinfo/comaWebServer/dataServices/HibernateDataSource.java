@@ -855,11 +855,10 @@ public class HibernateDataSource<IList> implements IDataSource
     	try
     	{
 			transaction = session.beginTransaction();
-			Query query = session.createQuery("from " + JOB_TABLE + " o " +
-					"offset =:start limit =:diff");
+			Query query = session.createQuery("from " + JOB_TABLE + " o ");
 			
-			query.setInteger("start", start);
-			query.setInteger("diff", end - start);
+			query.setFirstResult(start);
+			query.setMaxResults(end - start); 
 
 			jobs = (List<Job>)query.list();
 			
