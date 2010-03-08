@@ -36,7 +36,6 @@ import bioinfo.comaWebServer.enums.Extentions;
 import bioinfo.comaWebServer.enums.InputType;
 import bioinfo.comaWebServer.enums.JobType;
 import bioinfo.comaWebServer.exceptions.JobNotFoundException;
-import bioinfo.comaWebServer.util.Validator;
 
 public class JobSubmitter
 {
@@ -472,8 +471,6 @@ public class JobSubmitter
 		{
 			if(fop != null) fop.close();
 		}
-		
-		Validator.check(f, format);
 	}
 	
 	private Date getExpirationDate(long days)

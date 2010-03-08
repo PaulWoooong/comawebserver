@@ -1,6 +1,9 @@
 package bioinfo.comaWebServer.pages;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.commons.fileupload.FileUploadException;
@@ -14,10 +17,12 @@ import org.apache.tapestry5.annotations.OnEvent;
 import org.apache.tapestry5.annotations.Persist;
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.corelib.components.Form;
+import org.apache.tapestry5.corelib.components.Select;
 import org.apache.tapestry5.corelib.components.TextArea;
 import org.apache.tapestry5.ioc.Messages;
 import org.apache.tapestry5.ioc.annotations.Inject;
 import org.apache.tapestry5.services.Cookies;
+import org.apache.tapestry5.upload.services.UploadedFile;
 import org.apache.tapestry5.util.EnumSelectModel;
 
 import bioinfo.comaWebServer.dataServices.IDataSource;
@@ -49,6 +54,9 @@ public class Index
 	
 	@Inject
 	private IDataSource dataSource;
+	
+	@Component(id = "inputType")
+	private Select selectInputType;
 	
 	@Property
 	@Persist
@@ -153,6 +161,34 @@ public class Index
 				}
 			}
 			
+			List<String> lines = null;
+			
+			try 
+			{
+				lines = input2list(input.getSequence(), input.getFile());
+			} 
+			catch (IOException e1) 
+			{
+				e1.printStackTrace();
+				submitJobForm.recordError(txtAreaSeq, "File upload failed! Try to paste Your sequence or multiple alignment!");
+				return null;
+			}
+			
+			try 
+			{
+				boolean goodFormat = Validator.check(lines, input.getType());
+				if(!goodFormat)
+				{
+					submitJobForm.recordError(selectInputType, "Incorrect input format!");
+					return null;
+				}
+			} 
+			catch (Exception e) 
+			{
+				submitJobForm.recordError(selectInputType, e.getMessage());
+				return null;
+			}
+			
 			String id = "";
 			
 			try
@@ -252,5 +288,31 @@ public class Index
 	
 	@Inject
 	private Cookies cookies;
+	
+	private static List<String> input2list(String sequence, UploadedFile file) throws IOException
+	{
+		List<String> lines = new ArrayList<String>();
+		
+		if(sequence != null)
+		{
+			String[] data = sequence.split("\n");
+			for(int i = 0; i < data.length; i++)
+			{
+				lines.add(data[i].replaceAll("\\s+$", ""));
+			}
+		}
+		else
+		{
+			BufferedReader input = new BufferedReader(new InputStreamReader(file.getStream()));
+			String line = null;
+
+			while((line = input.readLine()) != null)
+			{
+				lines.add(line);
+			}
+		}
+		
+		return lines;
+	}
 
 }
