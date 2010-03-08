@@ -16,6 +16,23 @@ body, td, th
     color: #000000;
 }
 
+div.t-data-grid-pager 
+{
+    margin:8px 0 0 10px;
+}
+
+table.t-data-grid thead tr th img
+{
+	width: 15px;
+    height: 15px;
+}
+
+div.t-error 
+{
+    border:1px solid red;
+    margin:10px 10px 0px 10px;
+}
+
 #Container 
 {
     text-align: left;
