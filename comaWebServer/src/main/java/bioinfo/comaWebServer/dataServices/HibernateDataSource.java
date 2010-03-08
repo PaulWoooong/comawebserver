@@ -844,7 +844,7 @@ public class HibernateDataSource<IList> implements IDataSource
 	public List<Job> getJobs(int start, int end) throws Exception
 	{
 		List<Job> jobs = new ArrayList<Job>();
-		if(end <= start)
+		if(end < start)
 		{
 			return jobs;
 		}
@@ -858,7 +858,7 @@ public class HibernateDataSource<IList> implements IDataSource
 			Query query = session.createQuery("from " + JOB_TABLE + " o ");
 			
 			query.setFirstResult(start);
-			query.setMaxResults(end - start); 
+			query.setMaxResults(end - start + 1); 
 
 			jobs = (List<Job>)query.list();
 			
