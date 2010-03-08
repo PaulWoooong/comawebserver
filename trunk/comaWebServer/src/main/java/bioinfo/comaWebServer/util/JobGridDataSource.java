@@ -46,7 +46,6 @@ public class JobGridDataSource implements GridDataSource
 	@Override
 	public Object getRowValue(int arg0) 
 	{
-		System.out.println((arg0 - start) + " diff");
 		return selectedJobs.get(arg0 - start);
 	}
 
@@ -56,8 +55,6 @@ public class JobGridDataSource implements GridDataSource
     	try
     	{
     		selectedJobs = dataSource.getJobs(startIndex, endIndex);
-    		System.out.println(selectedJobs.size() + " size");
-    		System.out.println(getAvailableRows() + " all" );
 			start = startIndex;
 		}
     	catch (Exception e)
