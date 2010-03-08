@@ -50,6 +50,7 @@ public interface IDataSource
 	
 	public Job getJob(long id) throws Exception;
 	public Job getJobByGeneratedId(String id) throws Exception;
+	public Job getJobByGeneratedIdORDescription(String info) throws Exception;
 	
 	public ComaResults getComaResultsById(long id) throws Exception;
 	
