@@ -26,13 +26,13 @@
             <div class="clear"></div>
 
             <div id="LeftMenu">
+            
+                <t:LeftMenuClient/>
+                
             	<t:security.ifloggedin>
 	                <t:security.ifrole role="ROLE_ADMIN">
                            <t:LeftMenuAdmin/>
 	                </t:security.ifrole>
-                <t:parameter name="else">
-                    <t:LeftMenuClient/>
-                </t:parameter>
                 </t:security.ifloggedin>
             </div>
 
