@@ -19,7 +19,6 @@ public class Job implements Serializable
 	
 	@NonVisual
 	private long 		id;
-	@NonVisual
 	private String		generatedId;
 	@NonVisual
 	private String		pbsId;
