@@ -1,5 +1,6 @@
 package bioinfo.comaWebServer.dataServices;
 
+import java.util.HashSet;
 import java.util.List;
 import java.util.Random;
 import java.util.Set;
@@ -760,7 +761,7 @@ public class HibernateDataSource<IList> implements IDataSource
 	
 	public Set<Job> getNotFinishedJobs()
 	{
-		Set<Job> jobs = null;
+		Set<Job> jobs = new HashSet<Job>();
 		Transaction transaction = null;
 	    Session session 		= InitSessionFactory.getInstance().getCurrentSession();
 
@@ -776,7 +777,12 @@ public class HibernateDataSource<IList> implements IDataSource
 			query.setString("errors", JobStatus.ERRORS.getStatus());
 			query.setString("canceled", JobStatus.CANCELED.getStatus());
 
-			jobs = (Set<Job>)query.list();
+			List jobList = query.list();
+			
+			for(Object o : jobList)
+			{
+				jobs.add((Job)o);
+			}
 
 			transaction.commit();
 		}
@@ -791,7 +797,7 @@ public class HibernateDataSource<IList> implements IDataSource
 
 	public Set<Job> getExpiredJobs()
 	{
-		Set<Job> jobs = null;
+		Set<Job> jobs = new HashSet<Job>();
 		Transaction transaction = null;
 	    Session session 		= InitSessionFactory.getInstance().getCurrentSession();
 
@@ -804,8 +810,13 @@ public class HibernateDataSource<IList> implements IDataSource
 
 			query.setString("canceled", JobStatus.CANCELED.getStatus());
 
-			jobs = (Set<Job>)query.list();
+			List jobList = query.list();
 
+			for(Object o : jobList)
+			{
+				jobs.add((Job)o);
+			}
+			
 			transaction.commit();
 		}
     	catch (HibernateException e)
