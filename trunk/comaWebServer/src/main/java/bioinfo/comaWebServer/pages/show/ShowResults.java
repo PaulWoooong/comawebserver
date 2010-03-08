@@ -75,7 +75,7 @@ public class ShowResults
 		
 		try
 		{
-			job = dataSource.getJobByGeneratedId(jobId);
+			job = dataSource.getJobByGeneratedIdORDescription(jobId);
 
 			if(!job.getStatus().equals(JobStatus.FINISHED.getStatus()) && !job.getStatus().equals(JobStatus.ERRORS.getStatus()))
 			{
