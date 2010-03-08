@@ -1,0 +1,22 @@
+<t:border t:pageTitle="Manage jobs" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+    <head>
+
+    </head>
+    <body>
+        <table id="jobList">
+            <tr>
+                Manage jobs
+            </tr>
+            <tr>
+			    <t:grid source="jobs" row="job" add="view">
+			        <p:viewcell>
+			            <t:actionlink t:id="view" context="job.generatedId">View</t:actionlink>
+			        </p:viewcell>
+			        <p:empty>
+			            <p>There are no jobs to display</p>
+			        </p:empty>
+			    </t:grid>
+	       </tr>
+        </table>
+    </body>
+</t:border>

@@ -46,6 +46,11 @@
 			<t:pageLink t:page="add/AddDatabase">Add new database</t:pageLink>
 		</td>
 	</tr>
+	<tr>
+        <td>
+            <t:pageLink t:page="ManageJobs">Manage jobs</t:pageLink>
+        </td>
+    </tr>
 </table>
 
 </t:container>
