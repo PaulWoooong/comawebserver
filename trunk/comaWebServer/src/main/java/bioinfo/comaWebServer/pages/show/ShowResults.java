@@ -13,9 +13,11 @@ import java.util.List;
 import java.util.Set;
 
 import org.apache.tapestry5.annotations.ApplicationState;
+import org.apache.tapestry5.annotations.Component;
 import org.apache.tapestry5.annotations.IncludeStylesheet;
 import org.apache.tapestry5.annotations.InjectPage;
 import org.apache.tapestry5.annotations.Persist;
+import org.apache.tapestry5.corelib.components.Form;
 import org.apache.tapestry5.ioc.annotations.Inject;
 import org.apache.tapestry5.services.Cookies;
 
@@ -44,14 +46,10 @@ public class ShowResults
 	private List<String> errNotes;
 	private String errNote;
 	
-	@InjectPage
-	private ShowInfo infoPage;
-	
-	Object onException(Throwable cause)
+	void onException(Throwable cause)
     {
-    	infoPage.setUp("", "We are sorry but there was a fatal error when handling query.");
-
-        return infoPage;
+		cause.printStackTrace();
+		submitMSAForm.recordError(cause.getMessage());
     }
 
 	public void setUp(String id)
@@ -102,8 +100,8 @@ public class ShowResults
 		}
 		catch (Exception e)
 		{
-			infoPage.setUp("", "A job was not found. It may have been expired. Job ID: " + jobId + "!");
-			return infoPage;
+			submitMSAForm.recordError("A job was not found. It may have been expired. Job ID: " + jobId + "!");
+			e.printStackTrace();
 		}
 		return null;
 	}
@@ -217,19 +215,36 @@ public class ShowResults
 	@Inject
 	private Cookies cookies;
 	
-	public Object onSuccess() throws Exception 
+	@Component
+	private Form submitMSAForm;
+	
+	public Object onSuccess()
     {  
-		if(selectedHits == null || selectedHits.size() == 0) return null;
+		if(selectedHits == null || selectedHits.size() == 0)
+		{
+			submitMSAForm.recordError("No hits were selected!");
+			return null;
+		}
 		
 		JobSubmitter jobSubmitter = new JobSubmitter();
 		
-		String generatedId = jobSubmitter.submitMsaJob(selectedHits, dataSource, job.getGeneratedId());
+		String generatedId;
+		try 
+		{
+			generatedId = jobSubmitter.submitMsaJob(selectedHits, dataSource, job.getGeneratedId());
+			recentJobs.addJob(dataSource.getJobByGeneratedId(generatedId));
+			CookieManager.registerJob(generatedId, cookies);
+		} 
+		catch (Exception e) 
+		{
+			submitMSAForm.recordError(e.getMessage());
+			e.printStackTrace();
+			return null;
+		}
 		
 		waitForResults.setUp(generatedId);
 		
 		selectedHits = null;
-		recentJobs.addJob(dataSource.getJobByGeneratedId(generatedId));
-		CookieManager.registerJob(generatedId, cookies);
 		
 		return waitForResults;
     }
