@@ -48,7 +48,7 @@ public interface IDataSource
 	public void deleteJob(long id) throws Exception;
 	public String jobStatus(String generatedId) throws Exception;
 	public Long jobNumber() throws Exception;
-	
+	public List<Job> getJobs(int start, int end) throws Exception;
 	public List<Job> getJobs() throws Exception;
 	public Job getJob(long id) throws Exception;
 	public Job getJobByGeneratedId(String id) throws Exception;
