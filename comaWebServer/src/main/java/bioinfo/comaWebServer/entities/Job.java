@@ -8,20 +8,12 @@ import java.util.HashSet;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 
+import bioinfo.comaWebServer.dataManagement.JobStatus;
 import bioinfo.comaWebServer.enums.JobType;
 
 public class Job implements Serializable
 {	
 	private static final long serialVersionUID = 1L;
-	
-	public static final String REGISTERED	= "REGISTERED";
-	public static final String SUBMITTED 	= "SUBMITTED"; 
-	public static final String QUEUED 		= "QUEUED";
-	public static final String WAITING 		= "WAITING";
-	public static final String RUNNING 		= "RUNNING";
-	public static final String FINISHED 	= "FINISHED";
-	public static final String ERRORS 		= "ERRORS";
-	public static final String CANCELED 	= "CANCELED";
 	
 	private long 		id;
 	private String		generatedId;
@@ -31,7 +23,7 @@ public class Job implements Serializable
 	
 	private String 		description;
 	private String 		email;
-	private String		status = REGISTERED;
+	private String		status = JobStatus.REGISTERED.getStatus();
 	private String		log;
 	private JobType 	type;
 	private Date 		expirationDate;

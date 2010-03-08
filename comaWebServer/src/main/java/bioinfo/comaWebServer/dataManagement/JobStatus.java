@@ -4,6 +4,7 @@ package bioinfo.comaWebServer.dataManagement;
 
 public enum JobStatus 
 {
+	REGISTERED			("REGISTERED"),
 	SUBMITTED			("SUBMITTED"),
 	QUEUED				("QUEUED"),
 	RUNNING				("RUNNING"),
