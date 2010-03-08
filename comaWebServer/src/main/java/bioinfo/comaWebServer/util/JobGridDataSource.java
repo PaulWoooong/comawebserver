@@ -9,6 +9,7 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
+import bioinfo.comaWebServer.dataServices.IDataSource;
 import bioinfo.comaWebServer.entities.Job;
 import bioinfo.comaWebServer.services.InitSessionFactory;
 
@@ -17,6 +18,13 @@ public class JobGridDataSource implements GridDataSource
 	private static final String JOB_TABLE = " Job ";
 	private List<Job> selectedJobs = null;
 	private int from = 0;
+	private IDataSource dataSource = null;
+	
+	
+	public JobGridDataSource(IDataSource dataSource)
+	{
+		this.dataSource = dataSource;
+	}
 	
 	@Override
 	public int getAvailableRows() 
