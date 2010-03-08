@@ -17,6 +17,7 @@ import org.apache.tapestry5.corelib.components.Form;
 import org.apache.tapestry5.corelib.components.TextArea;
 import org.apache.tapestry5.ioc.Messages;
 import org.apache.tapestry5.ioc.annotations.Inject;
+import org.apache.tapestry5.services.Cookies;
 import org.apache.tapestry5.util.EnumSelectModel;
 
 import bioinfo.comaWebServer.dataServices.IDataSource;
@@ -30,6 +31,7 @@ import bioinfo.comaWebServer.enums.InputType;
 import bioinfo.comaWebServer.enums.PsiBlastRadioParams;
 import bioinfo.comaWebServer.jobManagement.JobSubmitter;
 import bioinfo.comaWebServer.pages.show.ShowInfo;
+import bioinfo.comaWebServer.util.CookieManager;
 import bioinfo.comaWebServer.util.Validator;
 
 /**
@@ -164,6 +166,7 @@ public class Index
 												search,
 												comaParams.getAlignment().getDatabaseItem());
 				recentJobs.addJob(dataSource.getJobByGeneratedId(id));
+				CookieManager.registerJob(id, cookies);
 			}
 			catch(IOException e)
 			{
@@ -246,5 +249,8 @@ public class Index
 	public void setRecentJobsExists(boolean recentJobsExists) {
 		this.recentJobsExists = recentJobsExists;
 	}
+	
+	@Inject
+	private Cookies cookies;
 
 }
