@@ -49,6 +49,8 @@ public class JobRegister
 		job.getDataFiles().add(new DataFile(job.getGeneratedId() + Extentions.ERR.getExtention(), DataFile.OUTPUT));
 		job.getDataFiles().add(new DataFile(job.getGeneratedId() + Extentions.LOG.getExtention(), DataFile.OUTPUT));
 	
+		job.setStatus(JobStatus.REGISTERED.getStatus());
+		
 		dataSource.update(job);
 
 		return job;
