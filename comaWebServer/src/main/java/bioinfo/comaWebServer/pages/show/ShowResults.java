@@ -19,6 +19,7 @@ import org.apache.tapestry5.annotations.Persist;
 import org.apache.tapestry5.ioc.annotations.Inject;
 
 import bioinfo.comaWebServer.comparators.ResultsHitComparator;
+import bioinfo.comaWebServer.dataManagement.JobStatus;
 import bioinfo.comaWebServer.dataServices.IDataSource;
 import bioinfo.comaWebServer.entities.Job;
 import bioinfo.comaWebServer.entities.RecentJobs;
@@ -76,7 +77,7 @@ public class ShowResults
 		{
 			job = dataSource.getJobByGeneratedId(jobId);
 
-			if(!job.getStatus().equals(Job.FINISHED) && !job.getStatus().equals(Job.ERRORS))
+			if(!job.getStatus().equals(JobStatus.FINISHED.getStatus()) && !job.getStatus().equals(JobStatus.ERRORS.getStatus()))
 			{
 				waitForResults.setUp(jobId);
 				
@@ -153,7 +154,7 @@ public class ShowResults
 
 	public List<String> getErrNotes()
 	{
-		if(job == null || !job.getStatus().equals(Job.ERRORS))
+		if(job == null || !job.getStatus().equals(JobStatus.ERRORS.getStatus()))
 		{
 			return null;
 		}

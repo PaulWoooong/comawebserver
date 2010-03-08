@@ -20,6 +20,7 @@ import org.apache.tapestry5.upload.services.UploadedFile;
 import bioinfo.comaWebServer.cache.Cache;
 import bioinfo.comaWebServer.comparators.ResultsAlignmentComparator;
 import bioinfo.comaWebServer.dataManagement.JobRegister;
+import bioinfo.comaWebServer.dataManagement.JobStatus;
 import bioinfo.comaWebServer.dataServices.IDataSource;
 import bioinfo.comaWebServer.entities.AbstractParameter;
 import bioinfo.comaWebServer.entities.Cluster;
@@ -106,7 +107,7 @@ public class JobSubmitter
 			 * Changing status
 			 */
 			job.setType(JobType.COMA_JOB);
-			job.setStatus(Job.SUBMITTED);
+			job.setStatus(JobStatus.SUBMITTED.getStatus());
 
 			dataSource.update(job);
 		} 
@@ -116,7 +117,7 @@ public class JobSubmitter
 			{
 				PeriodicalWorkerParams periodicalWorkerParams = Cache.getPeriodicalWorkerParams();
 				
-				job.setStatus(Job.ERRORS);
+				job.setStatus(JobStatus.ERRORS.getStatus());
 				job.setLocalPath(localDataPath + job.getGeneratedId() + File.separator);
 				job.setExpirationDate(getExpirationDate(periodicalWorkerParams.getJobWithErrorsExpiration()));
 				dataSource.update(job);	
@@ -180,7 +181,7 @@ public class JobSubmitter
 			 * Changing status
 			 */
 			job.setType(JobType.MODELLER_JOB);
-			job.setStatus(Job.SUBMITTED);
+			job.setStatus(JobStatus.SUBMITTED.getStatus());
 
 			dataSource.update(job);
 		} 
@@ -190,7 +191,7 @@ public class JobSubmitter
 			{
 				PeriodicalWorkerParams periodicalWorkerParams = Cache.getPeriodicalWorkerParams();
 				
-				job.setStatus(Job.ERRORS);
+				job.setStatus(JobStatus.ERRORS.getStatus());
 				job.setLocalPath(localDataPath + job.getGeneratedId() + File.separator);
 				job.setExpirationDate(getExpirationDate(periodicalWorkerParams.getJobWithErrorsExpiration()));
 				dataSource.update(job);	
@@ -262,7 +263,7 @@ public class JobSubmitter
 			 * Changing status
 			 */
 			job.setType(JobType.MSA_JOB);
-			job.setStatus(Job.SUBMITTED);
+			job.setStatus(JobStatus.SUBMITTED.getStatus());
 			
 			dataSource.update(job);
 		} 
@@ -272,7 +273,7 @@ public class JobSubmitter
 			{
 				PeriodicalWorkerParams periodicalWorkerParams = Cache.getPeriodicalWorkerParams();
 				
-				job.setStatus(Job.ERRORS);
+				job.setStatus(JobStatus.ERRORS.getStatus());
 				job.setLocalPath(localDataPath + job.getGeneratedId() + File.separator);
 				job.setExpirationDate(getExpirationDate(periodicalWorkerParams.getJobWithErrorsExpiration()));
 				dataSource.update(job);	

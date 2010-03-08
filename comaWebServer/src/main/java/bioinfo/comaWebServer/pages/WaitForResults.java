@@ -6,6 +6,7 @@ import org.apache.tapestry5.annotations.Persist;
 import org.apache.tapestry5.ioc.annotations.Inject;
 import org.hibernate.annotations.Immutable;
 
+import bioinfo.comaWebServer.dataManagement.JobStatus;
 import bioinfo.comaWebServer.dataServices.IDataSource;
 import bioinfo.comaWebServer.entities.Job;
 import bioinfo.comaWebServer.pages.show.ShowInfo;
@@ -59,7 +60,7 @@ public class WaitForResults
 			
 			Job job = dataSource.getJobByGeneratedId(jobId);
 
-			if(job.getStatus().equals(Job.FINISHED) || job.getStatus().equals(Job.ERRORS))
+			if(job.getStatus().equals(JobStatus.FINISHED.getStatus()) || job.getStatus().equals(JobStatus.ERRORS.getStatus()))
 			{
 				showResults.setUp(jobId);
 				
