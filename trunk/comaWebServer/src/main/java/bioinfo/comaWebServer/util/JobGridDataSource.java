@@ -54,7 +54,7 @@ public class JobGridDataSource implements GridDataSource
 	{
     	try
     	{
-    		selectedJobs = dataSource.getJobs(startIndex, endIndex);
+    		selectedJobs = dataSource.getJobs(startIndex, endIndex, sortConstraints);
 			start = startIndex;
 		}
     	catch (Exception e)

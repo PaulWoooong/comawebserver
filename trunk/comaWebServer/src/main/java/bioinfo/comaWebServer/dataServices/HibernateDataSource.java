@@ -10,6 +10,8 @@ import nu.localhost.tapestry.acegi.services.SaltSourceService;
 
 import org.acegisecurity.providers.encoding.Md5PasswordEncoder;
 import org.acegisecurity.providers.encoding.PasswordEncoder;
+import org.apache.tapestry5.grid.ColumnSort;
+import org.apache.tapestry5.grid.SortConstraint;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -841,12 +843,31 @@ public class HibernateDataSource<IList> implements IDataSource
 		return jobs;
 	}
 	
-	public List<Job> getJobs(int start, int end) throws Exception
+	public List<Job> getJobs(int start, int end,  List<SortConstraint> sortConstraints) throws Exception
 	{
 		List<Job> jobs = new ArrayList<Job>();
 		if(end < start)
 		{
 			return jobs;
+		}
+		
+		StringBuffer buffer = new StringBuffer("from " + JOB_TABLE + " as o ");
+		if(sortConstraints.size() > 0)
+		{
+			buffer.append(" order by ");
+		}
+		
+		for(SortConstraint c : sortConstraints)
+		{
+			buffer.append(" o." + c.getPropertyModel().getPropertyName());
+			if(c.getColumnSort() == ColumnSort.ASCENDING)
+			{
+				buffer.append(" asc ");
+			}
+			else
+			{
+				buffer.append(" desc ");
+			}
 		}
 		
 		Transaction transaction = null;
@@ -855,11 +876,11 @@ public class HibernateDataSource<IList> implements IDataSource
     	try
     	{
 			transaction = session.beginTransaction();
-			Query query = session.createQuery("from " + JOB_TABLE + " o ");
+			Query query = session.createQuery(buffer.toString());
 			
 			query.setFirstResult(start);
 			query.setMaxResults(end - start + 1); 
-
+			
 			jobs = (List<Job>)query.list();
 			
 			transaction.commit();
@@ -871,6 +892,7 @@ public class HibernateDataSource<IList> implements IDataSource
 		}
 		return jobs;
 	}
+
 
 	public Set<Job> getExpiredJobs()
 	{
