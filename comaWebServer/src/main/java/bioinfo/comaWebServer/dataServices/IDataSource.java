@@ -3,6 +3,8 @@ package bioinfo.comaWebServer.dataServices;
 import java.util.List;
 import java.util.Set;
 
+import org.apache.tapestry5.grid.SortConstraint;
+
 import bioinfo.comaWebServer.entities.Cluster;
 import bioinfo.comaWebServer.entities.ComaParams;
 import bioinfo.comaWebServer.entities.ComaResults;
@@ -48,7 +50,7 @@ public interface IDataSource
 	public void deleteJob(long id) throws Exception;
 	public String jobStatus(String generatedId) throws Exception;
 	public Long jobNumber() throws Exception;
-	public List<Job> getJobs(int start, int end) throws Exception;
+	public List<Job> getJobs(int start, int end,  List<SortConstraint> sortConstraints) throws Exception;
 	public List<Job> getJobs() throws Exception;
 	public Job getJob(long id) throws Exception;
 	public Job getJobByGeneratedId(String id) throws Exception;
