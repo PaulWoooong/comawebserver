@@ -1,11 +1,9 @@
 package bioinfo.comaWebServer.dataManagement.periodical;
 
-import java.io.File;
 import java.util.Map;
 import java.util.Set;
 import java.util.TimerTask;
 
-import org.apache.commons.io.FileUtils;
 import org.apache.log4j.Logger;
 
 import bioinfo.comaWebServer.cache.Cache;
