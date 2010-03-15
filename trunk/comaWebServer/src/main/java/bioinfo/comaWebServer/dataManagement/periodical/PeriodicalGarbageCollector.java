@@ -1,9 +1,11 @@
 package bioinfo.comaWebServer.dataManagement.periodical;
 
+import java.io.File;
 import java.util.Map;
 import java.util.Set;
 import java.util.TimerTask;
 
+import org.apache.commons.io.FileUtils;
 import org.apache.log4j.Logger;
 
 import bioinfo.comaWebServer.cache.Cache;
@@ -85,13 +87,16 @@ public class PeriodicalGarbageCollector  extends TimerTask
 						{
 							if(!jobStatus.containsKey(job.getPbsId()))
 							{
-								if(workstation.isLocal())
-								{
-									dataManager.deleteDir(workstation.getGlobalFilePath() + job.getGeneratedId());
-								}
-								else
+								if(!workstation.isLocal())
 								{
 									dataManager.deleteDir(workstation.getRemoteFilePath() + job.getGeneratedId());
+								}
+								
+								File file = new File(workstation.getGlobalFilePath() + job.getGeneratedId());
+								
+								if(file.exists())
+								{
+									FileUtils.forceDelete(file);	
 								}
 
 								dataSource.delete(job);
