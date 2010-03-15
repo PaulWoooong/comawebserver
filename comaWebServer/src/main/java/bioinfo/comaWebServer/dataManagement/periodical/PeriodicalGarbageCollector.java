@@ -62,7 +62,7 @@ public class PeriodicalGarbageCollector  extends TimerTask
 						{
 							if(job.getStatus().equals(JobStatus.CANCELED.getStatus()))
 							{
-								dataManager.cancelJob(job.getGeneratedId());
+								dataManager.cancelJob(job.getPbsId());
 							}
 						} 
 						catch (Exception e) 
