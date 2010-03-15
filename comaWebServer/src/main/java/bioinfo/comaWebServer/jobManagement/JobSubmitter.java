@@ -19,14 +19,15 @@ import org.apache.tapestry5.upload.services.UploadedFile;
 
 import bioinfo.comaWebServer.cache.Cache;
 import bioinfo.comaWebServer.comparators.ResultsAlignmentComparator;
-import bioinfo.comaWebServer.dataManagement.JobRegister;
 import bioinfo.comaWebServer.dataManagement.JobStatus;
+import bioinfo.comaWebServer.dataManagement.PasswordManager;
 import bioinfo.comaWebServer.dataServices.IDataSource;
 import bioinfo.comaWebServer.entities.AbstractParameter;
 import bioinfo.comaWebServer.entities.Cluster;
 import bioinfo.comaWebServer.entities.ComaResults;
 import bioinfo.comaWebServer.entities.DataFile;
 import bioinfo.comaWebServer.entities.DatabaseItem;
+import bioinfo.comaWebServer.entities.EmailNotification;
 import bioinfo.comaWebServer.entities.Input;
 import bioinfo.comaWebServer.entities.Job;
 import bioinfo.comaWebServer.entities.PeriodicalWorkerParams;
@@ -35,6 +36,7 @@ import bioinfo.comaWebServer.entities.Search;
 import bioinfo.comaWebServer.enums.Extentions;
 import bioinfo.comaWebServer.enums.InputType;
 import bioinfo.comaWebServer.enums.JobType;
+import bioinfo.comaWebServer.exceptions.InitializationException;
 import bioinfo.comaWebServer.exceptions.JobNotFoundException;
 
 public class JobSubmitter
@@ -57,13 +59,10 @@ public class JobSubmitter
 		
 		try 
 		{
-			job = JobRegister.registerJob(dataSource, input.getDescription(), input.getEmail(), MAX_RUNNING_JOBS, localDataPath);
+			job = registerJob(dataSource, input.getDescription(), input.getEmail(), MAX_RUNNING_JOBS);
 			
-			String generatedId = job.getGeneratedId();
+			commonTasks(dataSource, job, localDataPath, cluster.getRemoteFilePath());
 			
-			job.setLocalPath(localDataPath + generatedId + File.separator);
-			job.setRemotePath(cluster.getRemoteFilePath() + generatedId + "/");
-
 			/*
 			 *Job specific task 
 			 */
@@ -147,12 +146,9 @@ public class JobSubmitter
 		
 		try 
 		{
-			job = JobRegister.registerJob(dataSource, input.getDescription(), input.getEmail(), MAX_RUNNING_JOBS, localDataPath);
+			job = registerJob(dataSource, input.getDescription(), input.getEmail(), MAX_RUNNING_JOBS);
 			
-			String generatedId = job.getGeneratedId();
-
-			job.setLocalPath(localDataPath + generatedId + File.separator);
-			job.setRemotePath(cluster.getRemoteFilePath() + generatedId + "/");
+			commonTasks(dataSource, job, localDataPath, cluster.getRemoteFilePath());
 
 			/*
 			 *Job specific task 
@@ -222,12 +218,9 @@ public class JobSubmitter
 		
 		try 
 		{
-			job = JobRegister.registerJob(dataSource, null, null, MAX_RUNNING_JOBS, localDataPath);
+			job = registerJob(dataSource, null, null, MAX_RUNNING_JOBS);
 			
-			String generatedId = job.getGeneratedId();
-
-			job.setLocalPath(localDataPath + generatedId + File.separator);
-			job.setRemotePath(cluster.getRemoteFilePath() + generatedId + "/");
+			commonTasks(dataSource, job, localDataPath, cluster.getRemoteFilePath());
 			
 			/*
 			 *Job specific task 
@@ -480,5 +473,72 @@ public class JobSubmitter
 		date.setTime(date.getTime() + (1000L * 60L) * 60L * 24L * days);
 
 		return date;
+	}
+	
+	private static synchronized Job registerJob(	IDataSource dataSource, 
+													String description, 
+													String email,
+													int maxSubmittedJobs) throws  Exception
+	{
+		Cluster cluster = Cache.getClusterParams();
+		if(cluster == null) throw new InitializationException("The system has not been initialized yet: workstation params!");
+		
+		EmailNotification emailNotification = Cache.getEmailNotificationParams();
+		if(emailNotification == null) throw new InitializationException("The system has not been initialized yet: mail service params!");
+		
+		long activeJobs = dataSource.runningJobsNumber();
+		if(maxSubmittedJobs <= activeJobs)
+		{
+			throw new Exception("There are too many submitted jobs: " + activeJobs + "!");
+		}
+		
+		Job job = new Job();
+		
+		job.setDescription(description);
+		job.setEmail(email);
+		
+		dataSource.save(job);
+		
+		return job;
+	}
+
+	private static synchronized void makeLocalDir(String path) throws Exception
+	{
+		File file = new File(path);
+		
+		if(!file.exists())
+		{
+			boolean success = file.mkdirs();
+		
+			if(!success)
+			{
+				throw new Exception("ERR: failed creating directory: " + path);
+			}
+		}
+		else
+		{
+			throw new Exception("ERR: the directory was created before: " + path);
+		}
+	}
+
+	private static synchronized void commonTasks(IDataSource dataSource, Job job, 
+							String globalFilePath, String remoteFilePath) throws Exception
+	{
+	
+		String generatedId = PasswordManager.encrypt(String.valueOf(job.getId()));
+		job.setGeneratedId(generatedId);
+		
+		job.setLocalPath(globalFilePath + generatedId + File.separator);
+		job.setRemotePath(remoteFilePath + generatedId + "/");
+		
+		//logs
+		job.getDataFiles().add(new DataFile(job.getGeneratedId() + Extentions.ERR.getExtention(), DataFile.OUTPUT));
+		job.getDataFiles().add(new DataFile(job.getGeneratedId() + Extentions.LOG.getExtention(), DataFile.OUTPUT));
+		
+		job.setStatus(JobStatus.REGISTERED.getStatus());
+		
+		dataSource.update(job);
+		
+		makeLocalDir(globalFilePath + generatedId);
 	}
 }
