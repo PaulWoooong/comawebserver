@@ -94,8 +94,6 @@ public class PeriodicalGarbageCollector  extends TimerTask
 								else
 								{
 									dataManager.deleteDir(workstation.getRemoteFilePath() + job.getGeneratedId());
-
-									FileUtils.forceDelete(new File(workstation.getGlobalFilePath() + job.getGeneratedId()));
 								}
 
 								dataSource.delete(job);
