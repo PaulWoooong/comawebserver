@@ -1,5 +1,6 @@
 package bioinfo.comaWebServer.util;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import bioinfo.comaWebServer.enums.InputType;
@@ -21,72 +22,62 @@ public class Validator
 	
 	private static boolean checkFasta(List<String> lines)
 	{
-		String fastaHeader  = "^>\\w+.*";
-		String fastaData = "[ABCDEFGHIKLMNOPQRSTUVWYZXabcdefghiklmnopqrstuvwyzx*-]+";
-		
 		if(lines.size() == 0)
 		{
 			return false;
 		}
 		
+		String fastaHeader  = "^>\\w+.*";
+		String fastaData = "[ABCDEFGHIKLMNOPQRSTUVWYZXabcdefghiklmnopqrstuvwyzx*-]+";	
+		
+		List<String> fasta = new ArrayList<String>();
 		for(int i = 0; i < lines.size();)
 		{
-			String currLine = lines.get(i);
-			
-			if(!currLine.matches(fastaHeader))
+			String line = lines.get(i);
+			if(line.matches(fastaHeader))
 			{
-				return false;
-			}
-			
-			i++;
-			
-			if(i < lines.size())
-			{
-				currLine = lines.get(i);
-				
-				if(!currLine.matches(fastaData))
-				{
-					return false;	
-				}
+				fasta.add(line);
+				i++;
 			}
 			else
 			{
-				return false;
-			}
-			
-			boolean data = true;
-			
-			while(i < lines.size() && data)
-			{
-				currLine = lines.get(i);
-				
-				if(!currLine.matches(fastaData))
+				StringBuffer buffer = new StringBuffer();
+				for(; i < lines.size() && !lines.get(i).matches(fastaHeader); i++)
 				{
-					data = false;
+					buffer.append(lines.get(i));
 				}
-				else
-				{
-					i++;	
-				}
-			}
-			
-			boolean emptyLines = true;
-			
-			while(i < lines.size() && emptyLines)
-			{
-				currLine = lines.get(i);
-				
-				if(!currLine.equals(""))
-				{
-					emptyLines = false;
-				}
-				else
-				{
-					i++;	
-				}
+				fasta.add(buffer.toString());
 			}
 		}
 		
+		if(fasta.size() % 2 != 0)
+		{
+			return false;
+		}
+		
+		int lineLength = fasta.get(1).length();
+		
+		for(int i = 0; i < fasta.size();)
+		{
+			String header = fasta.get(i);
+			if(!header.matches(fastaHeader))
+			{
+				return false;
+			}
+			
+			String data = fasta.get(i + 1);
+			if(data.length() != lineLength)
+			{
+				return false;
+			}
+			if(!data.matches(fastaData))
+			{
+				return false;	
+			}
+			
+			i += 2;
+		}
+
 		return true;
 	}
 	
