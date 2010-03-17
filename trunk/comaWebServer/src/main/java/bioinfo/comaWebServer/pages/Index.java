@@ -19,6 +19,7 @@ import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.corelib.components.Form;
 import org.apache.tapestry5.corelib.components.Select;
 import org.apache.tapestry5.corelib.components.TextArea;
+import org.apache.tapestry5.corelib.components.TextField;
 import org.apache.tapestry5.ioc.Messages;
 import org.apache.tapestry5.ioc.annotations.Inject;
 import org.apache.tapestry5.services.Cookies;
@@ -120,6 +121,9 @@ public class Index
 	@Component(id = "sequence")
 	private TextArea txtAreaSeq;
 	
+	@Component(id = "description")
+	private TextField descriptionTxt;
+	
 	@InjectPage
 	private WaitForResults waitForResults;
 	
@@ -169,7 +173,7 @@ public class Index
 					Job job = dataSource.getJobByGeneratedIdORDescription(input.getDescription());
 					if(job != null)
 					{
-						submitJobForm.recordError("The following job description is not available at the moment: " + input.getDescription());
+						submitJobForm.recordError(descriptionTxt, "The following job description is in use at the moment: " + input.getDescription());
 						return null;
 					}
 				} 
