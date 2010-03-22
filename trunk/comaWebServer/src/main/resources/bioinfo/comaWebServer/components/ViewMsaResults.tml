@@ -39,7 +39,7 @@
 	    <table class="results">
 	        <tr>
 	            <td colspan="2" class="left">
-	                <t:textarea t:id="faContent" t:value="faContent"/>
+	                <t:textarea t:id="faContent" t:value="faContent"  wrap="off"/>
 	            </td>
 	        </tr>
 	    </table>
