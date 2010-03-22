@@ -24,7 +24,7 @@
 		                </a>
 		            </td>
 		            <td class="right">
-		                <t:textarea t:id="sequence" t:value="input.sequence" t:validate="maxlength"/>
+		                <t:textarea t:id="sequence" t:value="input.sequence" t:validate="maxlength" wrap="off"/>
 		            </td> 
 		        </tr>   
 		        <tr>
