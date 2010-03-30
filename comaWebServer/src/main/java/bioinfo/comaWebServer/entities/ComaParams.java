@@ -76,15 +76,15 @@ public class ComaParams
 	{
 		params = new ArrayList<AbstractParameter>();
 		
-		params.add(autocorrection);
-		params.add(alignment);
 		params.add(output);
+		params.add(alignment);
 		params.add(profileConstruction);
+		params.add(alignmentFilter);
 		params.add(masking);
 		params.add(seg);
 		params.add(gapProbability);
+		params.add(autocorrection);
 		params.add(informationCorrection);
-		params.add(alignmentFilter);
 		
 		return params;
 	}
