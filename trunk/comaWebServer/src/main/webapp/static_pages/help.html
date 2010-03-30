@@ -3,9 +3,18 @@
     <title>COMA Web Server: Help</title>
   <body>
     <div id="container">
-        <span style="font-weight: bold; font-size: 25px;">COMA HELP</span><br/><br/>
-        COMA (Comparison Of Multiple Alignments) is a method for detection of distant evolutionary relationship (homology) through comparison of multiple protein sequence alignments. It has a number of control options the short descriptions of which are provided below.<br/>
+        <span style="font-weight: bold; font-size: 25px;">COMA HELP</span>
         <br/>
+        <br/>
+        COMA (Comparison Of Multiple Alignments) is a method for detection of distant evolutionary relationship (homology) through comparison of multiple protein sequence alignments. A short description of the input form fields and options, results output, and hints of how to interpret the results are provided below.<br/>
+        <br/>
+        <span class="menu">
+        Input form fields and options
+        <br/>
+        Output of results and their interpretation
+        <br/>
+        <br/>
+        </span>
 		<!--Input-->
 		<a name="input" class="group">
 		Input
@@ -15,9 +24,7 @@
 		Paste protein sequence or multiple alignment
 		</a><br/>
 		<span class="description">
-		Paste a single protein sequence or multiple alignment in the format defined by the 'Input type'.
-		Currently, only the FASTA format is accepted. If a multiple sequence alignment is provided, 
-		the length of aligned sequences must be the same.
+		Paste a single protein sequence or multiple alignment in the format defined by the ‘Input type’. Currently, only the FASTA format is accepted. If a multiple sequence alignment is provided, the length of aligned sequences must be the same.
 		</span><br/><br/>
 		
 		<!--Upload a local file-->
@@ -25,8 +32,7 @@
 		Upload a local file
 		</a><br/>
 		<span class="description">
-		Optionally, user may upload a local file containing a single protein sequence or multiple sequence alignment in the format defined by the 'Input type'.
-		</span><br/><br/>
+        Optionally, user may upload a local file containing a single protein sequence or multiple sequence alignment in the format defined by the ‘Input type’.		</span><br/><br/>
 		
 		<!--Input type-->
 		<a name="input_type" class="anchor">
@@ -43,16 +49,14 @@
 		E-mail results to
 		</a><br/>
 		<span class="description">
-		Once the job is finished, the results will be sent to the E-mail address provided in this field. It is strongly recommended to provide E-mail address, as the E-mail message contains the link to the results of the finished job. 
-		</span><br/><br/>
+        Once the job is finished, the results will be sent to the E-mail address provided in this field. It is strongly recommended to provide E-mail address, as the E-mail message contains the link to the results of the finished job. 		</span><br/><br/>
 		
 		<!--Job description (max 20 characters)-->
 		<a name="job_description" class="anchor">
 		Job description (max 20 characters)
 		</a><br/>
 		<span class="description">
-		A user may provide an optional job identifier of maximum length of 20 characters; the identifier can then be used to retrieve the results for that particular job.
-		</span><br/><br/>
+        A user may provide an optional job identifier of maximum length of 20 characters; the identifier can then be used to retrieve the results for that particular job.		</span><br/><br/>
 		
 		<!--Construction of query-based multiple alignment using PSI-BLAS-->
 		<a name="construction_msa" class="group">
@@ -64,24 +68,29 @@
 		Do not run PSI-BLAST (use my input multiple alignment)
 		</a><br/>
 		<span class="description">
-		Providing a custom multiple sequence alignment as an input and checking this option disallows PSI-BLAST run using the provided multiple sequence alignment for jumpstart; the input alignment is used directly to construct query profile.
-		</span><br/><br/>
+        Providing a custom multiple sequence alignment as an input and checking this option disallows PSI-BLAST run using the provided multiple sequence alignment for jumpstart; the input alignment is used directly to construct query profile.		</span><br/><br/>
 		
 		<!--Let the server handle PSI-BLAST run-->
 		<a name="let_the_server_handle" class="anchor">
 		Let the server handle PSI-BLAST run
 		</a><br/>
 		<span class="description">
-		Selecting this option means that the server will take control of the process of profile construction. Server will run PSI-BLAST search with the sequence provided by the user until either the search converges, the maximum number of iterations is reached, or a large number of sequences found are too distant for the search to continue reliably. The final PSI-BLAST output is then converted into the multiple sequence alignment, which is transformed into the query profile.
-		</span><br/><br/>
+        Selecting this option means that the server will take control of the process of profile construction. Server will run PSI-BLAST search with the sequence provided by the user until either the search converges, the maximum number of iterations is reached, or a large number of sequences found are too distant for the search to continue reliably. The final PSI-BLAST output is then converted into the multiple sequence alignment, which is transformed into the query profile.		</span><br/><br/>
 		
 		<!--Select database-->
 		<a name="select_database" class="anchor">
 		Select database
 		</a><br/>
 		<span class="description">
-		Select one of the available sequence databases, against which PSI-BLAST search will be run. Several versions of non-redundant protein sequence database (nr) filtered to certain percentage of sequence identity (e.g. nr90 corresponds to nr filtered to 90% sequence identity) are available. In addition a database of sequences from metagenomics projects (env_nr) and a combined nr and env_nr database (nr_env_nr) are provided. Sequence databases are regularly updated.
-		</span><br/><br/><!--
+        Select one of the available sequence databases, against which PSI-BLAST search will be run. Several versions of non-redundant protein sequence database (nr) filtered to certain percentage of sequence identity (e.g. nr90 corresponds to nr filtered to 90% sequence identity) are available. In addition a database of sequences from metagenomics projects (env_nr) and a combined nr and env_nr database (nr_env_nr) are provided. Sequence databases are regularly updated (the date is included in the database name).		</span><br/><br/><!--
+        
+        PSI-BLAST filters
+        --><a name="psi_blast_filters" class="anchor">
+        PSI-BLAST filters
+        </a><br/>
+        <span class="description">
+        There are three possible choices of filtering out the regions of low compositional complexity within the query sequence that may cause spurious or misleading results. “No filtering” means that no filtering will be used, “low complexity” means that the low complexity regions will be masked with Xs before searching the selected sequence database, and “Mask for lookup table only” masks low complexity regions while producing seeds used to scan database, but not for extensions. More detailed information can be found at the NCBI BLAST website (http://blast.ncbi.nlm.nih.gov/)        </span><br/><br/>
+        <!--
 		
 		Include PSI-BLAST alternative alignments of subjects
 		<a name="include_alternatives" class="anchor">
@@ -126,8 +135,7 @@
 		Select profile database
 		</a><br/>
 		<span class="description">
-		Select one of the available profile databases against which COMA's search will be performed. Currently, two databases of profiles are available: one is constructed for ASTRAL sequences (corresponding to SCOP domains) and the second is for PDB sequences. Both are filtered at 40% of sequence identity. One extra profile database, 'test', is for testing purposes only. 
-		</span><br/><br/>
+        Select one of the available profile databases against which COMA will search the query profile constructed for the input sequence (alignment). Currently, the following sequence profile databases are available: SCOP domains, PDB sequences, and the Pfam families. PDB and SCOP profile databases are based on a representative set of sequences that share no more than 40% sequence identity. 		</span><br/><br/>
 		
 		<!--E-value threshold-->
 		<a name="evalue_output" class="anchor">
@@ -515,6 +523,21 @@
 		<span class="description">
 		Alternatively, information content threshold in the second stage (after initially computed E-value E is estimated) can be reevaluated as &minus b/(log(E)+B), where b is the numerator given by the preceding option's value, and B is this option's value.
 		</span><br/><br/>
+
+		<span class="menu">
+        Output of results and their interpretation
+        <br/><br/>
+        </span>
+        <span class="description">
+		The output is structured into three logical sections: job summary, results summary, and the detailed information for each of the hits. <br/><br/>
+		Job summary includes job description and job id that can be used to retrieve results of the specified job until the job expiration date. Job details provide some of the basic information regarding the job: a choice of sequence and profile databases and some of the parameters used to obtain the job results. Links to the original input sequence (alignment), the alignment used for query profile construction and complete list of parameter settings are also available. <br/><br/>
+		Results summary provides both graphical representation and the list of hits found by COMA. Hits are sorted by the decreasing order of statistical significance, expressed as E-value. E-value is the expected number of alignment scores greater than or equal to that of a particular alignment, per database search. Thus, the lower is E‑value, the higher is the significance level of a particular alignment. The exhaustive test of COMA’s performance showed that E-values up to 0.01 can still be considered statistically significant. <br/><br/>
+		Graphical representation of alignments indicates both their significance level and the aligned region of the query. Alignments in red are most significant (E-value from 0 to 0.001), green color corresponds to the intermediate level of significance (E-value from 0.001 to 0.1), and blue indicates remaining matches (E-value above 0.1).<br/><br/>
+		The hit list includes a short description of the hit, its COMA score and the corresponding E-value. There is a possibility to extract the alignment between the query and any number of the hits for additional analysis. For this, user needs to check corresponding boxes in the result list and press “Alignments in FASTA”.<br/><br/>
+		Following the summary, detailed information for each alignment is provided. <br/><br/>
+		
+		Above each pairwise alignment there is a toolbar of buttons. Depending on a choice of profile database, buttons may point to the PDB, SCOP, or Pfam database entries corresponding to the aligned hit. In addition, each alignment has a link to Pubmed search using the annotation of the hit. If the search was performed against PDB or SCOP, the “Generate 3D model” link provides user with a possibility to make a structural model of the query sequence according to the corresponding alignment. Models are constructed using MODELLER (http://www.salilab.org/modeller/). However, because of the licensing policy the user is required to provide a MODELLER license key, which can be obtained from the MODELLER site (http://www.salilab.org/modeller/registration.html).<br/><br/> 
+        </span>
 
     </div>
   </body>
