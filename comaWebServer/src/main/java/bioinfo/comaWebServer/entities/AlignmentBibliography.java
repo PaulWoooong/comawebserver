@@ -163,7 +163,9 @@ public class AlignmentBibliography implements Serializable
 	{
 		if(pubmedQueryForHtml == null && pubmedQuery != null)
 		{
-			pubmedQueryForHtml = pubmedQuery.replaceAll("\\s+", "+AND+");
+			String noWhitespacesInBegining = pubmedQuery.replaceAll("^\\s+", "");
+			String noWhitespacesInBeginingAndEnd = noWhitespacesInBegining.replaceAll("\\s+$", "");
+			pubmedQueryForHtml = noWhitespacesInBeginingAndEnd.replaceAll("\\s+", "+AND+");
 		}
 		return pubmedQueryForHtml;
 	}
