@@ -28,7 +28,7 @@ public class Validator
 		}
 		
 		String fastaHeader  = "^>\\w+.*";
-		String fastaData = "[ABCDEFGHIKLMNOPQRSTUVWYZXabcdefghiklmnopqrstuvwyzx*-]+";	
+		String fastaData = "[ABCDEFGHIKLMNOPQRSTUVWYZXabcdefghiklmnopqrstuvwyzx*\\-\\s]+";	
 		
 		List<String> fasta = new ArrayList<String>();
 		for(int i = 0; i < lines.size();)
