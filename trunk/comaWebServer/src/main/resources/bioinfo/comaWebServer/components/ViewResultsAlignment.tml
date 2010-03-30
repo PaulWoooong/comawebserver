@@ -52,7 +52,7 @@
                 </t:if>
                 <div class="clear"></div>
                 <div>
-                    <b>${resultsAlignment.header}</b>
+                    <b>${resultsAlignment.filteredHeader}</b>
                 </div>
             </td>
         </tr>
