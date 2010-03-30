@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Set;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import bioinfo.comaWebServer.comparators.ResultsQueryComparator;
 
@@ -41,6 +43,21 @@ public class ResultsAlignment implements Serializable
 
 	private boolean hasHeader;
 	private boolean hasFooter;
+	
+	public String getFilteredHeader() 
+	{
+		if(header != null)
+		{
+			Pattern p = Pattern.compile(".*(PF\\d+\\).\\d+.*");
+			Matcher m = p.matcher(header);
+			if(m.matches())
+			{
+				String pfamID = m.group(1);
+				return header.replaceFirst("PF\\d+\\.\\d+", pfamID);
+			}
+		}
+		return header;
+	}
 	
 /*	>1dsr_A mol:protein length:17  RAMOPLANIN
 	  Query length = 4, Sbjct length = 17
@@ -261,6 +278,7 @@ public class ResultsAlignment implements Serializable
 	public void setMinMax(String minMax) {
 		this.minMax = minMax;
 	}
+	
 	public String getHeader() {
 		return header;
 	}
