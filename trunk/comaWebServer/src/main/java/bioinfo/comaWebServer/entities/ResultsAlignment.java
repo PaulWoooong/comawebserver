@@ -48,7 +48,7 @@ public class ResultsAlignment implements Serializable
 	{
 		if(header != null)
 		{
-			Pattern p = Pattern.compile(".*(PF\\d+\\).\\d+.*");
+			Pattern p = Pattern.compile(".*(PF\\d+)\\.\\d+.*");
 			Matcher m = p.matcher(header);
 			if(m.matches())
 			{
