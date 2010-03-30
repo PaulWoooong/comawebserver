@@ -217,8 +217,10 @@ public class Index
 			
 			try
 			{
-				List<AbstractParameter> params = comaParams.getParams();
+				List<AbstractParameter> params = new ArrayList<AbstractParameter>();
 				params.add(search);
+				params.addAll(comaParams.getParams());
+				
 				JobSubmitter jobSubmitter = new JobSubmitter();
 				id = jobSubmitter.submitComaJob(input, 
 												params, 
