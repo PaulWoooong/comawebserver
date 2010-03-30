@@ -1,6 +1,8 @@
 package bioinfo.comaWebServer.entities;
 
 import java.io.Serializable;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class ResultsHit implements Serializable
 {
@@ -21,6 +23,21 @@ public class ResultsHit implements Serializable
 					  " evalue " + evalue;
 		
 		return info;
+	}
+	
+	public String getFilteredName() 
+	{
+		if(name != null)
+		{
+			Pattern p = Pattern.compile(".*(PF\\d+\\).\\d+.*");
+			Matcher m = p.matcher(name);
+			if(m.matches())
+			{
+				String pfamID = m.group(1);
+				return name.replaceFirst("PF\\d+\\.\\d+", pfamID);
+			}
+		}
+		return name;
 	}
 	
 	public String getName() {
