@@ -11,6 +11,7 @@ import org.apache.log4j.Logger;
 import org.apache.tapestry5.SelectModel;
 import org.apache.tapestry5.annotations.ApplicationState;
 import org.apache.tapestry5.annotations.Component;
+import org.apache.tapestry5.annotations.IncludeJavaScriptLibrary;
 import org.apache.tapestry5.annotations.IncludeStylesheet;
 import org.apache.tapestry5.annotations.InjectPage;
 import org.apache.tapestry5.annotations.OnEvent;
@@ -44,6 +45,7 @@ import bioinfo.comaWebServer.util.Validator;
 /**
  * Start page of application comaWebServer.
  */
+@IncludeJavaScriptLibrary("Index.js")
 @IncludeStylesheet("context:assets/styles.css")
 public class Index
 {
