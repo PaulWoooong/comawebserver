@@ -19,12 +19,12 @@
 		    <table class="inputParams">
 		        <tr>
 		            <td class="left">
-		                <a name="paste_sequence" onclick="openHelpWindow('${asset:context:/static_pages/help.html}#paste_sequence');" onkeydown="return dotab();" href="#paste_sequence">
+		                <a name="paste_sequence" onclick="openHelpWindow('${asset:context:/static_pages/help.html}#paste_sequence');" href="#paste_sequence">
 		                  Paste protein sequence or multiple alignment
 		                </a>
 		            </td>
 		            <td class="right">
-		                <t:textarea t:id="sequence" t:value="input.sequence" t:validate="maxlength" wrap="off"/>
+		                <t:textarea t:id="sequence" t:value="input.sequence" t:validate="maxlength" wrap="off" onkeydown="return dotab();"/>
 		            </td> 
 		        </tr>   
 		        <tr>
