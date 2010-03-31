@@ -105,7 +105,9 @@ public abstract class AbstractPeriodicalWorker extends TimerTask
 					//sets new status of not finished jobs
 					for(Job job: notFinishedJobs)
 					{
-						if(!job.getStatus().equals(JobStatus.SUBMITTED.getStatus()))
+						if( job.getStatus() != null && 
+							!job.getStatus().equals(JobStatus.SUBMITTED.getStatus()) &&
+							!job.getStatus().equals(JobStatus.REGISTERED.getStatus()))
 						{
 							if(jobStatus.containsKey(job.getPbsId()))
 							{
