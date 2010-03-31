@@ -10,10 +10,11 @@
     background-color:  #e5e5e5;
 }
 
-.menu
+.menu a
 {
-    font-size: 16px;
+    font-size: 18px;
     font-weight: bolder;
+    color: black;
     text-decoration: underline;
 }
 

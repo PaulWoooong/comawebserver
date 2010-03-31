@@ -9,9 +9,13 @@
         COMA (Comparison Of Multiple Alignments) is a method for detection of distant evolutionary relationship (homology) through comparison of multiple protein sequence alignments. A short description of the input form fields and options, results output, and hints of how to interpret the results are provided below.<br/>
         <br/>
         <span class="menu">
-        Input form fields and options
+        <a href="#input">
+          Input form fields and options
+        </a>
         <br/>
-        Output of results and their interpretation
+        <a href="#output_results">
+          Output of results and their interpretation
+        </a>
         <br/>
         <br/>
         </span>
@@ -24,7 +28,7 @@
 		Paste protein sequence or multiple alignment
 		</a><br/>
 		<span class="description">
-		Paste a single protein sequence or multiple alignment in the format defined by the ‘Input type’. Currently, only the FASTA format is accepted. If a multiple sequence alignment is provided, the length of aligned sequences must be the same.
+		Paste a single protein sequence or multiple alignment in the format defined by the 'Input type'. Currently, only the FASTA format is accepted. If a multiple sequence alignment is provided, the length of aligned sequences must be the same.
 		</span><br/><br/>
 		
 		<!--Upload a local file-->
@@ -32,7 +36,7 @@
 		Upload a local file
 		</a><br/>
 		<span class="description">
-        Optionally, user may upload a local file containing a single protein sequence or multiple sequence alignment in the format defined by the ‘Input type’.		</span><br/><br/>
+        Optionally, user may upload a local file containing a single protein sequence or multiple sequence alignment in the format defined by the 'Input type'.		</span><br/><br/>
 		
 		<!--Input type-->
 		<a name="input_type" class="anchor">
@@ -89,7 +93,7 @@
         PSI-BLAST filters
         </a><br/>
         <span class="description">
-        There are three possible choices of filtering out the regions of low compositional complexity within the query sequence that may cause spurious or misleading results. “No filtering” means that no filtering will be used, “low complexity” means that the low complexity regions will be masked with Xs before searching the selected sequence database, and “Mask for lookup table only” masks low complexity regions while producing seeds used to scan database, but not for extensions. More detailed information can be found at the NCBI BLAST website (http://blast.ncbi.nlm.nih.gov/)        </span><br/><br/>
+        There are three possible choices of filtering out the regions of low compositional complexity within the query sequence that may cause spurious or misleading results. "No filtering" means that no filtering will be used, "low complexity" means that the low complexity regions will be masked with Xs before searching the selected sequence database, and "Mask for lookup table only" masks low complexity regions while producing seeds used to scan database, but not for extensions. More detailed information can be found at the NCBI BLAST website (http://blast.ncbi.nlm.nih.gov/)        </span><br/><br/>
         <!--
 		
 		Include PSI-BLAST alternative alignments of subjects
@@ -525,18 +529,20 @@
 		</span><br/><br/>
 
 		<span class="menu">
+		<a name="output_results">
         Output of results and their interpretation
+        </a>
         <br/><br/>
         </span>
         <span class="description">
 		The output is structured into three logical sections: job summary, results summary, and the detailed information for each of the hits. <br/><br/>
 		Job summary includes job description and job id that can be used to retrieve results of the specified job until the job expiration date. Job details provide some of the basic information regarding the job: a choice of sequence and profile databases and some of the parameters used to obtain the job results. Links to the original input sequence (alignment), the alignment used for query profile construction and complete list of parameter settings are also available. <br/><br/>
-		Results summary provides both graphical representation and the list of hits found by COMA. Hits are sorted by the decreasing order of statistical significance, expressed as E-value. E-value is the expected number of alignment scores greater than or equal to that of a particular alignment, per database search. Thus, the lower is E‑value, the higher is the significance level of a particular alignment. The exhaustive test of COMA’s performance showed that E-values up to 0.01 can still be considered statistically significant. <br/><br/>
+		Results summary provides both graphical representation and the list of hits found by COMA. Hits are sorted by the decreasing order of statistical significance, expressed as E-value. E-value is the expected number of alignment scores greater than or equal to that of a particular alignment, per database search. Thus, the lower is E‑value, the higher is the significance level of a particular alignment. The exhaustive test of COMA's performance showed that E-values up to 0.01 can still be considered statistically significant. <br/><br/>
 		Graphical representation of alignments indicates both their significance level and the aligned region of the query. Alignments in red are most significant (E-value from 0 to 0.001), green color corresponds to the intermediate level of significance (E-value from 0.001 to 0.1), and blue indicates remaining matches (E-value above 0.1).<br/><br/>
-		The hit list includes a short description of the hit, its COMA score and the corresponding E-value. There is a possibility to extract the alignment between the query and any number of the hits for additional analysis. For this, user needs to check corresponding boxes in the result list and press “Alignments in FASTA”.<br/><br/>
+		The hit list includes a short description of the hit, its COMA score and the corresponding E-value. There is a possibility to extract the alignment between the query and any number of the hits for additional analysis. For this, user needs to check corresponding boxes in the result list and press "Alignments in FASTA".<br/><br/>
 		Following the summary, detailed information for each alignment is provided. <br/><br/>
 		
-		Above each pairwise alignment there is a toolbar of buttons. Depending on a choice of profile database, buttons may point to the PDB, SCOP, or Pfam database entries corresponding to the aligned hit. In addition, each alignment has a link to Pubmed search using the annotation of the hit. If the search was performed against PDB or SCOP, the “Generate 3D model” link provides user with a possibility to make a structural model of the query sequence according to the corresponding alignment. Models are constructed using MODELLER (http://www.salilab.org/modeller/). However, because of the licensing policy the user is required to provide a MODELLER license key, which can be obtained from the MODELLER site (http://www.salilab.org/modeller/registration.html).<br/><br/> 
+		Above each pairwise alignment there is a toolbar of buttons. Depending on a choice of profile database, buttons may point to the PDB, SCOP, or Pfam database entries corresponding to the aligned hit. In addition, each alignment has a link to Pubmed search using the annotation of the hit. If the search was performed against PDB or SCOP, the "Generate 3D model" link provides user with a possibility to make a structural model of the query sequence according to the corresponding alignment. Models are constructed using MODELLER (http://www.salilab.org/modeller/). However, because of the licensing policy the user is required to provide a MODELLER license key, which can be obtained from the MODELLER site (http://www.salilab.org/modeller/registration.html).<br/><br/> 
         </span>
 
     </div>
