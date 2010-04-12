@@ -1,38 +1,46 @@
 package bioinfo.comaWebServer.entities;
 
-/*Output options:
-	-e <e_value>    [Real]      E-value threashold.       (10.0)
-	-L <no_hits>    [Integer]   Maximal number of hits to show.      (500)
-	-N <no_alns>    [Integer]   Maximal number of alignments to show.     (500)
-	-n                          Do not show statistical parameters below
-	                            alignments.*/
+/*
+## Output options:
+##
+#   Print hits with e-value below this value            [Real]
+EVAL = 10.0
+#   Number of hits to show in the result list           [Integer]
+NOHITS = 500
+#   Number of alignments to show in the output          [Integer]
+NOALNS = 500
+#   Show statistical parameters below alignments        (0|1)
+SHOW = 1
+*/
+
 public class Output extends AbstractParameter
 {
 	private long id;
 	
 	private double lc_e = 10.0;
-	private int uc_L = 500;
-	private int uc_N = 500;
-	private boolean lc_n = false;
+	private int uc_L = 100;
+	private int uc_N = 100;
+	private boolean lc_n = true;
 
 	public String getValues()
 	{
-		String info = "#\n# Output options:\n#\n" +
-					  "# E-value threashold\n" +
-					  "e=" + getLc_e() + "\n" +
-					  "# Maximal number of hits to show\n" +
-					  "L=" + getUc_L() + "\n" +
-					  "# Maximal number of alignments to show\n" +
-					  "N=" + getUc_N() + "\n";
+		String info = 	"## Output options:" +
+						"##\n" +
+						"# Print hits with e-value below this value\n" +
+						"EVAL=" + getLc_e() + "\n" +
+						"# Number of hits to show in the result list \n" +
+						"NOHITS=" + getUc_L() + "\n" +
+						"# Number of alignments to show in the output\n" +
+						"NOALNS=" + getUc_N() + "\n";
 		
-		info += "# Do not show statistical parameters below alignments\n";
+		info += "# Show statistical parameters below alignments\n";
 		if(isLc_n())
 		{
-			info += "n=1\n";
+			info += "SHOW=1\n";
 		}
 		else
 		{
-			info += "n=0\n";
+			info += "SHOW=0\n";
 		}
 		
 		return info;
