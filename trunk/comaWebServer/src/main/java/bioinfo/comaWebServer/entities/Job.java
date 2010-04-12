@@ -17,7 +17,6 @@ public class Job implements Serializable
 {	
 	private static final long serialVersionUID = 1L;
 	
-	@NonVisual
 	private long 		id;
 	private String		generatedId;
 	@NonVisual
@@ -67,12 +66,6 @@ public class Job implements Serializable
 		return generatedId;
 	}
 	
-	public long getId() {
-		return id;
-	}
-	public void setId(long id) {
-		this.id = id;
-	}
 	public String getGeneratedId() {
 		return generatedId;
 	}
@@ -159,5 +152,12 @@ public class Job implements Serializable
 
 	public void setDataFiles(Set<DataFile> dataFiles) {
 		this.dataFiles = dataFiles;
+	}
+	
+	public long getId() {
+		return id;
+	}
+	public void setId(long id) {
+		this.id = id;
 	}
 }

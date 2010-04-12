@@ -7,6 +7,7 @@ import org.apache.tapestry5.annotations.InjectPage;
 import org.apache.tapestry5.grid.GridDataSource;
 import org.apache.tapestry5.ioc.annotations.Inject;
 
+import bioinfo.comaWebServer.dataManagement.JobStatus;
 import bioinfo.comaWebServer.dataServices.IDataSource;
 import bioinfo.comaWebServer.entities.Job;
 import bioinfo.comaWebServer.pages.show.ShowResults;
@@ -47,4 +48,21 @@ public class ManageJobs
 		resultsPage.setUp(id);
         return resultsPage;
     } 
+	
+	@Secured("ROLE_ADMIN")
+	void onActionFromDelete(String idStr) throws Exception
+    {
+		
+		try
+		{
+			long id = Long.parseLong(idStr);
+			Job job = dataSource.getJob(id);
+			if(job != null)
+			{
+				job.setStatus(JobStatus.CANCELED.getStatus());
+				dataSource.update(job);
+			}
+		}
+		catch (NumberFormatException e) {}
+    }
 }
