@@ -14,6 +14,7 @@ public class ComaParams
 	private GapProbability gapProbability = null;
 	private InformationCorrection informationCorrection = null;
 	private AlignmentFilter alignmentFilter = null;
+	private HSSegmentPairs segmentPairs = null;
 	
 	private List<AbstractParameter> params = null;
 	 
@@ -71,6 +72,12 @@ public class ComaParams
 	public void setAlignmentFilter(AlignmentFilter alignmentFilter) {
 		this.alignmentFilter = alignmentFilter;
 	}
+	public HSSegmentPairs getSegmentPairs() {
+		return segmentPairs;
+	}
+	public void setSegmentPairs(HSSegmentPairs segmentPairs) {
+		this.segmentPairs = segmentPairs;
+	}
 
 	public List<AbstractParameter> getParams() 
 	{
@@ -85,7 +92,9 @@ public class ComaParams
 		params.add(gapProbability);
 		params.add(autocorrection);
 		params.add(informationCorrection);
+		params.add(segmentPairs);
 		
 		return params;
 	}
+
 }

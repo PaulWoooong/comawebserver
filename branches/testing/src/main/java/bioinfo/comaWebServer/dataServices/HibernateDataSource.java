@@ -28,6 +28,7 @@ import bioinfo.comaWebServer.entities.ComaParams;
 import bioinfo.comaWebServer.entities.ComaResults;
 import bioinfo.comaWebServer.entities.EmailNotification;
 import bioinfo.comaWebServer.entities.GapProbability;
+import bioinfo.comaWebServer.entities.HSSegmentPairs;
 import bioinfo.comaWebServer.entities.InformationCorrection;
 import bioinfo.comaWebServer.entities.Job;
 import bioinfo.comaWebServer.entities.Masking;
@@ -82,7 +83,8 @@ public class HibernateDataSource<IList> implements IDataSource
 	private static final String SELECT_CLUSTER = "select o from Cluster as o";
 	private static final String SELECT_EMAIL_NOTIFICATION = "select o from EmailNotification as o";
 	private static final String SELECT_ALIGNMENT_FILTER= "select o from AlignmentFilter as o";
-
+	private static final String SELECT_HS_SEGMENT_PAIRS= "select o from HSSegmentPairs as o";
+	
 	private final PasswordEncoder passwordEncoder;
 	private final SaltSourceService saltSource;
 
@@ -152,6 +154,12 @@ public class HibernateDataSource<IList> implements IDataSource
     	{
     		comaParams.setProfileConstruction(profileConstructionList.get(0));
     	}
+    	
+    	List<HSSegmentPairs> segmentPairsList = session.createQuery(SELECT_HS_SEGMENT_PAIRS).list();
+    	if(segmentPairsList.size() > 0)
+    	{
+    		comaParams.setSegmentPairs(segmentPairsList.get(0));
+    	}
 
 	    transaction.commit();
 
@@ -172,6 +180,7 @@ public class HibernateDataSource<IList> implements IDataSource
 	    session.update(comaParams.getProfileConstruction());
 	    session.update(comaParams.getInformationCorrection());
 	    session.update(comaParams.getAutocorrection());
+	    session.update(comaParams.getSegmentPairs());
 
 	    transaction.commit();
 	}
