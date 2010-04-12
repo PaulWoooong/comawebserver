@@ -50,19 +50,13 @@ public class ManageJobs
     } 
 	
 	@Secured("ROLE_ADMIN")
-	void onActionFromDelete(String idStr) throws Exception
+	void onActionFromDelete(String id) throws Exception
     {
-		
-		try
+		Job job = dataSource.getJobByGeneratedId(id);
+		if(job != null)
 		{
-			long id = Long.parseLong(idStr);
-			Job job = dataSource.getJob(id);
-			if(job != null)
-			{
-				job.setStatus(JobStatus.CANCELED.getStatus());
-				dataSource.update(job);
-			}
+			job.setStatus(JobStatus.CANCELED.getStatus());
+			dataSource.update(job);
 		}
-		catch (NumberFormatException e) {}
     }
 }
