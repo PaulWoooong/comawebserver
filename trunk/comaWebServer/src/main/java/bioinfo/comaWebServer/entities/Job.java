@@ -17,7 +17,6 @@ public class Job implements Serializable
 {	
 	private static final long serialVersionUID = 1L;
 	
-	@NonVisual
 	private long 		id;
 	private String		generatedId;
 	@NonVisual
