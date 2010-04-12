@@ -1,18 +1,15 @@
 package bioinfo.comaWebServer.entities;
 
-/*Profile construction options:
-	-t <identity>   [1-100]     Ignore sequences in alignment file with          (94)
-	                            this level of sequence identity.
-	-s                          Do not perform delete state (gaps in the
-	                            first sequence) computations.*/
-
-/* OPtions from makepro
- * 
- * -b <weight>     [Integer]   Weight for residue pseudocount frequencies.       (7)
--Y <percentage> [1-100]     Minimum fraction of alignment an extent must      (5)
-                            cover.                                               
--x <window>     [Integer]   Minimum number of alignment positions an          (7)
-                            extent must consist of (safeguard to -Y). */
+/*
+## Profile construction options:
+##
+#   Ignore sequences in alignment file with this or     [1-100]
+#   higher level of sequence identity
+IDENTITY = 94
+#   Perform delete state (gaps in first sequence)       (0|1)
+#   computations
+DELSTATE = 1
+*/
 
 public class ProfileConstruction extends AbstractParameter
 {
@@ -27,19 +24,19 @@ public class ProfileConstruction extends AbstractParameter
 	
 	public String getValues()
 	{
-		String info = "#\n# Profile construction options:\n#\n";
-		
-		info += "# Ignore sequences in alignment file with this level of sequence identity\n";
-		info += "t=" + getLc_t() + "\n";
+		String info = "## Profile construction options:\n";
+		info += "##\n";
+		info += "# Ignore sequences in alignment file with this or higher level of sequence identity\n";
+		info += "IDENTITY=" + getLc_t() + "\n";
 		
 		info += "# Do not perform delete state (gaps in the first sequence) computations\n";
-		if(isLc_s())
+		if(!isLc_s())
 		{
-			info += "s=1\n";
+			info += "DELSTATE=1\n";
 		}
 		else
 		{
-			info += "s=0\n";
+			info += "DELSTATE=0\n";
 		}
 		
 		info += "# Weight for residue pseudocount frequencies\n";
