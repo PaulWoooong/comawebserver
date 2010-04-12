@@ -66,6 +66,12 @@ public class WaitForResults
 				
 				return showResults;
 			}
+			
+			if(job.getStatus().equals(JobStatus.CANCELED.getStatus()))
+			{
+				infoPage.setUp("", "A job was not found. It may have been expired. Job ID: " + jobId + "!");
+				return infoPage;
+			}
 
 			status = job.getStatus();
 			description = job.getDescription();
