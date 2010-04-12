@@ -59,7 +59,7 @@
 		        </tr>
 		        <tr>
 		            <td class="left">
-		                <a name="job_description" onclick="openHelpWindow('${asset:context:/static_pages/help.html}l#job_description');" href="#job_description">
+		                <a name="job_description" onclick="openHelpWindow('${asset:context:/static_pages/help.html}#job_description');" href="#job_description">
                           Job description (max 20 characters)
                         </a> 
 		            </td>

@@ -5,6 +5,9 @@
     <body>
 		<t:grid source="jobGridDataSource" row="job">
 		    <t:parameter name="generatedIdCell">
+                <t:actionlink t:id="delete" context="job.generatedId">Delete</t:actionlink>
+            </t:parameter>
+		    <t:parameter name="generatedIdCell">
 		        <t:actionlink t:id="view" context="job.generatedId">View</t:actionlink>
 		    </t:parameter>
 		</t:grid>
