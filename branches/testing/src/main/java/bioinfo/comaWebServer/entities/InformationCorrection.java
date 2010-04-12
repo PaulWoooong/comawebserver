@@ -28,15 +28,15 @@ public class InformationCorrection extends AbstractParameter
 	{
 		String info = "#\n# Information correction options:\n#\n" +
 					  "# Upper bound of information content threshold used in 2nd-pass computations\n" +
-					  "J=" + getUc_J() + "\n" +
+					  "INFCON2UB=" + getUc_J() + "\n" +
 					  "# Numerator of expression to compute 2nd-pass inf. content threshold (J+j/(log(E)-l))\n" +
-					  "j=" + getLc_j() + "\n" +
+					  "INFCON2NUMER=" + getLc_j() + "\n" +
 					  "# Logarithmic scale to compute 2nd-pass inf. content threshold (J+j/(log(E)-l))\n" +
-					  "l=" + getLc_l() + "\n" +
+					  "INFCON2LOGSCALE=" + getLc_l() + "\n" +
 					  "# Numerator of alternative expression to compute nf. content threshold (-b/(log(E)+B))\n" +
-					  "b=" + getLc_b() + "\n" +
+					  "INFCONALTNUMER=" + getLc_b() + "\n" +
 					  "# Logarithmic scale to alternatively compute inf. content threshold (-b/(log(E)+B))\n" +
-					  "B=" + getUc_B() + "\n";
+					  "INFCONALTLOGSCALE=" + getUc_B() + "\n";
 		return info;
 	}
 
