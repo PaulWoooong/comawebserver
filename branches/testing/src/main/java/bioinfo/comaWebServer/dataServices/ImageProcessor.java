@@ -45,9 +45,6 @@ public class ImageProcessor
 		BufferedImage image = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
 		Graphics2D g2 = image.createGraphics();
 		
-		g2.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING,
-                RenderingHints.VALUE_TEXT_ANTIALIAS_GASP);
-		
 		int recBegin = (int) (subbegin * onePixelWeight);
 		int recWidth = (int) ((subend - subbegin + 1) * onePixelWeight);
 		
