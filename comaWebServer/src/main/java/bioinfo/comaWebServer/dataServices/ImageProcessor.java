@@ -3,6 +3,7 @@ package bioinfo.comaWebServer.dataServices;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics2D;
+import java.awt.RenderingHints;
 import java.awt.font.FontRenderContext;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -24,7 +25,7 @@ public class ImageProcessor
 		ImageProcessor imageProcessor = new ImageProcessor(5);
 		try 
 		{
-			imageProcessor.draw("tmp.jpg", Color.BLUE, "testrrrrrrrrruuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu", 2, 3);
+			imageProcessor.draw("tmp.jpg", Color.BLUE, "PF01939", 2, 3);
 		} 
 		catch (IOException e) 
 		{
@@ -44,6 +45,8 @@ public class ImageProcessor
 		BufferedImage image = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
 		Graphics2D g2 = image.createGraphics();
 		
+		g2.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
+		
 		int recBegin = (int) (subbegin * onePixelWeight);
 		int recWidth = (int) ((subend - subbegin + 1) * onePixelWeight);
 		
@@ -52,7 +55,7 @@ public class ImageProcessor
 		g2.setColor(color);
 		g2.fillRect(recBegin, 0, recWidth, height);
 		
-		Font font = new Font(Font.DIALOG, Font.BOLD, 10);
+		Font font = new Font(Font.DIALOG, Font.BOLD, 9);
 		g2.setFont(font);
 		FontRenderContext frc = g2.getFontRenderContext();
 		
