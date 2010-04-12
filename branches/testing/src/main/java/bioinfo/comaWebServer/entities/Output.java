@@ -33,8 +33,8 @@ public class Output extends AbstractParameter
 						"# Number of alignments to show in the output\n" +
 						"NOALNS=" + getUc_N() + "\n";
 		
-		info += "# Show statistical parameters below alignments\n";
-		if(isLc_n())
+		info += "# Do not how statistical parameters below alignments\n";
+		if(!isLc_n())
 		{
 			info += "SHOW=1\n";
 		}
