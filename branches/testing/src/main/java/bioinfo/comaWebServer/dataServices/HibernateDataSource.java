@@ -1044,17 +1044,6 @@ public class HibernateDataSource<IList> implements IDataSource
 				ud.addRole("ROLE_ADMIN");
 				session.save(ud);
 			}
-			if(getObjectNumber(session, DATABASE_ITEM_TABLE) == 0)
-			{
-				session.save(new DatabaseItem("nr80", DatabaseItem.SEQUENCE_DB, "nr80"));
-				session.save(new DatabaseItem("nr70", DatabaseItem.SEQUENCE_DB, "nr70"));
-				session.save(new DatabaseItem("nr90", DatabaseItem.SEQUENCE_DB, "nr90"));
-				session.save(new DatabaseItem("nr_80_env_nr80", DatabaseItem.SEQUENCE_DB,
-																	"nr_80_env_nr80"));
-				session.save(new DatabaseItem("env_nr80", DatabaseItem.SEQUENCE_DB, "env_nr80"));
-
-				session.save(new DatabaseItem("propdb40", DatabaseItem.PROFILE_DB, "propdb40"));
-			}
 
 			transaction.commit();
 		}
