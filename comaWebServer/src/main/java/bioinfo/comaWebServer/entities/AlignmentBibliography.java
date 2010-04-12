@@ -72,6 +72,26 @@ public class AlignmentBibliography implements Serializable
 		setScopBibliography(scopBibliography);
 	}
 	
+	public String getTextForImages()
+	{
+		String text = null;
+		
+		if(getPdbId() != null)
+		{
+			text = getPdbId();
+			if(getHierarchies() != null)
+			{
+				text += " (" + getHierarchies() + ")";
+			}
+		}
+		else if(getPfamId() != null)
+		{
+			text = getPfamId();
+		}
+		
+		return text;
+	}
+	
 	public String getHierarchies()
 	{
 		String hierarchies = null;
