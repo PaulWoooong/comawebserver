@@ -82,10 +82,13 @@ public abstract class AbstractPeriodicalWorker extends TimerTask
 																	 job.getGeneratedId(), 
 																	 job.getDataFiles(), job.getType().getType());
 								//Sets workstation ID and status to QUEUED
-								job.setPbsId(workstationId);
-								job.setStatus(JobStatus.QUEUED.getStatus());
-								dataSource.update(job);	
-								periodicalWorkerLog.error("Finished: " + job.getGeneratedId() + " " + job.getStatus());
+								if(workstationId != null)
+								{
+									job.setPbsId(workstationId);
+									job.setStatus(JobStatus.QUEUED.getStatus());
+									dataSource.update(job);	
+									periodicalWorkerLog.error("Finished: " + job.getGeneratedId() + " " + job.getStatus());									
+								}
 							} 
 							catch (Exception e) 
 							{
