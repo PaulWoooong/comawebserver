@@ -9,7 +9,6 @@
     </t:security.ifloggedin>
     
         <a onclick="openHelpWindow('${asset:context:/static_pages/help.html}');" href="#">Help</a>
-        <t:PageLink t:page="about">About</t:PageLink>
         <t:PageLink t:page="contacts">Contacts</t:PageLink>
 
 </div>

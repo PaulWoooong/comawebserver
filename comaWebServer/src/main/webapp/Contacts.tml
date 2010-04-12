@@ -6,12 +6,15 @@
     
         <table class="info">
             <tr>
-               <td colspan="2" style="text-align: center; font-size: 16;">
-                    COMA Server has been developed at the<br/> 
+               <td colspan="2" style="text-align: center; font-size: 14;">
+                    COMA (Comparison Of Multiple Alignments) is a method for detection of distant evolutionary relationship (homology) through comparison of multiple protein sequence alignments.<br/><br/> 
+                          
+                    The COMA server has been developed at the
 		            <a href="http://www.ibt.lt/bioinformatics/">
 		                Institute of Biotechnology, <br/>Laboratory of Bioinformatics
-		            </a>,<br/> 
-		            Vilnius, Lithuania.
+		            </a>, 
+		            Vilnius, Lithuania.<br/><br/>
+		            If you have any problems of using the server, please, send your comments to <b>minlag at ibt.lt</b>.
                </td>
             </tr>  
         </table> 
