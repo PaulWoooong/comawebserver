@@ -35,6 +35,11 @@ of testing facilities designed for use with TestNG (http://testng.org/), so it's
         	<version>5.1.6</version>
         </dependency>
         <dependency>
+            <groupId>hsqldb</groupId>
+            <artifactId>hsqldb</artifactId>
+            <version>1.8.0.7</version>
+        </dependency>
+        <dependency>
         	<groupId>commons-beanutils</groupId>
         	<artifactId>commons-beanutils</artifactId>
         	<version>1.7.0</version>
