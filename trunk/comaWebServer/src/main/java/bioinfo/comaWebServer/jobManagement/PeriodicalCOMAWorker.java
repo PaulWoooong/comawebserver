@@ -240,13 +240,9 @@ public class PeriodicalCOMAWorker extends AbstractPeriodicalWorker
 					
 					if(alignment.getAlignmentBibliography() != null)
 					{
-						if(alignment.getAlignmentBibliography().getPdbId() != null)
+						if(alignment.getAlignmentBibliography().getTextForImages() != null)
 						{
-							header = alignment.getAlignmentBibliography().getPdbId();
-							if(alignment.getAlignmentBibliography().getHierarchies() != null)
-							{
-								header += "(" + alignment.getAlignmentBibliography().getHierarchies() + ")";
-							}
+							header = alignment.getAlignmentBibliography().getTextForImages();
 						}
 					}
 					
