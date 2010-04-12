@@ -1,0 +1,48 @@
+<t:container xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+
+<t:if t:test="showAlignmentFilter">
+    <table class="editComaParams">
+        <tr>
+            <td class="left">
+                <a name="disallow_HC_filter_within_alignment_columns" onclick="openHelpWindow('${asset:context:/static_pages/help.html}#disallow_HC_filter_within_alignment_columns');" href="#disallow_HC_filter_within_alignment_columns">
+                    ${message:lc_u}
+                </a>
+            </td>
+            <td class="right">
+                <input type="checkbox" t:type="checkbox" t:value = "alignmentFilter.lc_u"/>
+            </td>
+        </tr>
+        <tr>
+            <td class="left">
+                <a name="window_length" onclick="openHelpWindow('${asset:context:/static_pages/help.html}#window_length);" href="#window_length">
+                    ${message:lc_w}
+                </a>
+            </td>
+            <td class="right">
+                <t:textfield t:id="lc_w" t:value="alignmentFilter.lc_w" t:validate="required"/>
+            </td>
+        </tr>
+        <tr>
+            <td class="left">
+                <a name="low_entropy_threshold" onclick="openHelpWindow('${asset:context:/static_pages/help.html}#low_entropy_threshold');" href="#low_entropy_threshold">
+                    ${message:lc_f}
+                </a>
+            </td>
+            <td class="right">
+                <t:textfield t:id="lc_f" t:value="alignmentFilter.lc_f" t:validate="required"/>
+            </td>
+        </tr>
+        <tr>
+            <td class="left">
+                <a name="high_entropy_threshold" onclick="openHelpWindow('${asset:context:/static_pages/help.html}#high_entropy_threshold');" href="#high_entropy_threshold">
+                    ${message:uc_F}
+                </a>
+            </td>
+            <td class="right">
+                <t:textfield t:id="uc_F" t:value="alignmentFilter.uc_F" t:validate="required"/>
+            </td>
+        </tr>
+    </table>
+</t:if>
+
+</t:container>

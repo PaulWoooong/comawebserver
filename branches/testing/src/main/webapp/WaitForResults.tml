@@ -1,0 +1,51 @@
+<t:border t:pageTitle="Results" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+    <head>
+        <META HTTP-EQUIV="REFRESH" CONTENT="${timeToWait}"/>
+    </head>
+    <body>
+        <t:form>
+	        <table class="wait">
+               <tr>
+                   <td colspan="2">
+                        <h3>Your job is currently being processed, it may take some time. 
+                            The results of your job will appear in this browser window! </h3>
+                   </td>
+               </tr>
+               <tr>
+                   <td class="left">
+                        <h3>Next check after</h3>
+                   </td>
+                   <td class="right">
+                        <h3>${timeToWait} seconds</h3>
+                   </td>
+                </tr>
+                <tr>
+                   <td class="left">
+                        <h3>Job Id</h3>
+                   </td>
+                   <td class="right">
+                        <h3>${jobId}</h3>
+                   </td>
+                </tr> 
+                <t:if t:test="${description}">
+	                <tr>
+	                   <td class="left">
+	                        <h3>Job Description</h3>
+	                   </td>
+	                   <td class="right">
+	                        <h3>${description}</h3>
+	                   </td>
+	                </tr> 
+	            </t:if>
+                <tr>
+                   <td class="left">
+                        <h3>Job status</h3>
+                   </td>
+                   <td class="right">
+                        <h3>${status}</h3>
+                   </td>
+                </tr> 
+	        </table> 
+	    </t:form>
+    </body>
+</t:border>

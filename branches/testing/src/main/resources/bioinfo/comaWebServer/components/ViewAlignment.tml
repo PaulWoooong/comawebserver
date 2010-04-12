@@ -1,0 +1,73 @@
+<t:container xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+
+<t:if t:test="showAlignment">
+	<table class="editComaParams">
+        <tr>
+            <td class="left">
+                <a name="select_profile_db" onclick="openHelpWindow('${asset:context:/static_pages/help.html}#select_profile_db');" href="#select_profile_db">
+                    ${message:select_db}
+                </a>
+                <br/>
+            </td>
+            <td class="rigth">
+                 <t:select t:model="databaseItemSelectModel"
+                  t:value="alignment.databaseItem"
+                  t:encoder="databaseItemValueEncoder" t:validate="required"/>
+            </td>
+        </tr>
+		<!--<tr>
+			<td class="left">
+				${message:uc_G}<br/>
+				${message:uc_G_0}<br/>
+				${message:uc_G_A}
+			</td>
+			<td class="right">
+				<t:textfield t:id="uc_G" t:value="alignment.uc_G" t:validate="required"/>
+			</td>
+		</tr>
+		<tr>
+			<td class="left">
+				${message:uc_X}
+			</td>
+			<td class="right">
+				<t:textfield t:id="uc_X" t:value="alignment.uc_X" t:validate="required"/>
+			</td>
+		</tr>
+		<tr>
+			<td class="left">
+				${message:lc_g}
+			</td>
+			<td class="right">
+				<t:textfield t:id="lc_g" t:value="alignment.lc_g" t:validate="required,min,max"/>
+			</td>
+		</tr>
+		<tr>
+			<td class="left">
+				${message:uc_S_main}<br/>
+				${message:uc_S_profile}<br/>
+				${message:uc_S_global}
+			</td>
+			<td class="right">
+           		<t:select t:id="uc_S" model="schemes" value="alignment.scheme" t:validate="required"/>
+			</td>
+		</tr>
+		<tr>
+			<td class="left">
+				${message:uc_C}
+			</td>
+			<td class="right">
+				<input type="checkbox" t:type="checkbox" t:value = "alignment.uc_C"/>
+			</td>
+		</tr>
+		<tr>
+			<td class="left">
+				${message:lc_c}
+			</td>
+			<td class="right">
+				<input type="checkbox" t:type="checkbox" t:value = "alignment.lc_c"/>
+			</td>
+		</tr>
+	--></table>
+</t:if>
+
+</t:container>

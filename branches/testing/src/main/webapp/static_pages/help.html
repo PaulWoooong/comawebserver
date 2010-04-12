@@ -1,0 +1,550 @@
+<html>
+    <link href="styles.css" rel="stylesheet" type="text/css" />
+    <title>COMA Web Server: Help</title>
+  <body>
+    <div id="container">
+        <span style="font-weight: bold; font-size: 25px;">COMA HELP</span>
+        <br/>
+        <br/>
+        COMA (Comparison Of Multiple Alignments) is a method for detection of distant evolutionary relationship (homology) through comparison of multiple protein sequence alignments. A short description of the input form fields and options, results output, and hints of how to interpret the results are provided below.<br/>
+        <br/>
+        <span class="menu">
+        <a href="#input">
+          Input form fields and options
+        </a>
+        <br/>
+        <a href="#output_results">
+          Output of results and their interpretation
+        </a>
+        <br/>
+        <br/>
+        </span>
+		<!--Input-->
+		<a name="input" class="group">
+		Input
+		</a><br/><br/>
+		
+		<a name="paste_sequence" class="anchor">
+		Paste protein sequence or multiple alignment
+		</a><br/>
+		<span class="description">
+		Paste a single protein sequence or multiple alignment in the format defined by the 'Input type'. Currently, only the FASTA format is accepted. If a multiple sequence alignment is provided, the length of aligned sequences must be the same.
+		</span><br/><br/>
+		
+		<!--Upload a local file-->
+		<a name="upload_local" class="anchor">
+		Upload a local file
+		</a><br/>
+		<span class="description">
+        Optionally, user may upload a local file containing a single protein sequence or multiple sequence alignment in the format defined by the 'Input type'.		</span><br/><br/>
+		
+		<!--Input type-->
+		<a name="input_type" class="anchor">
+		Input type
+		</a><br/>
+		<span class="description">
+		Describes the format of input protein sequence(s). Currently, The FASTA format is available. Each sequence in this format has a description line starting with symbol '>', e.g.:<br/>
+		>3i1m_R mol:protein length:75  30S ribosomal protein S18<br/>
+		MARYFRRRKFCRFTAEGVQEIDYKDIATLKNYITESGKIVPSRITGTRAKYQRQLARAIKRARYLSLLPYTDRHQ
+		</span><br/><br/>
+		
+		<!--E-mail results to-->
+		<a name="email_results_to" class="anchor">
+		E-mail results to
+		</a><br/>
+		<span class="description">
+        Once the job is finished, the results will be sent to the E-mail address provided in this field. It is strongly recommended to provide E-mail address, as the E-mail message contains the link to the results of the finished job. 		</span><br/><br/>
+		
+		<!--Job description (max 20 characters)-->
+		<a name="job_description" class="anchor">
+		Job description (max 20 characters)
+		</a><br/>
+		<span class="description">
+        A user may provide an optional job identifier of maximum length of 20 characters; the identifier can then be used to retrieve the results for that particular job.		</span><br/><br/>
+		
+		<!--Construction of query-based multiple alignment using PSI-BLAS-->
+		<a name="construction_msa" class="group">
+		Construction of query-based multiple alignment using PSI-BLAST
+		</a><br/><br/>
+		
+		<!--Do not run PSI-BLAST (use my input multiple alignment)-->
+		<a name="do_not_run_psiblast" class="anchor">
+		Do not run PSI-BLAST (use my input multiple alignment)
+		</a><br/>
+		<span class="description">
+        Providing a custom multiple sequence alignment as an input and checking this option disallows PSI-BLAST run using the provided multiple sequence alignment for jumpstart; the input alignment is used directly to construct query profile.		</span><br/><br/>
+		
+		<!--Let the server handle PSI-BLAST run-->
+		<a name="let_the_server_handle" class="anchor">
+		Let the server handle PSI-BLAST run
+		</a><br/>
+		<span class="description">
+        Selecting this option means that the server will take control of the process of profile construction. Server will run PSI-BLAST search with the sequence provided by the user until either the search converges, the maximum number of iterations is reached, or a large number of sequences found are too distant for the search to continue reliably. The final PSI-BLAST output is then converted into the multiple sequence alignment, which is transformed into the query profile.		</span><br/><br/>
+		
+		<!--Select database-->
+		<a name="select_database" class="anchor">
+		Select database
+		</a><br/>
+		<span class="description">
+        Select one of the available sequence databases, against which PSI-BLAST search will be run. Several versions of non-redundant protein sequence database (nr) filtered to certain percentage of sequence identity (e.g. nr90 corresponds to nr filtered to 90% sequence identity) are available. In addition a database of sequences from metagenomics projects (env_nr) and a combined nr and env_nr database (nr_env_nr) are provided. Sequence databases are regularly updated (the date is included in the database name).		</span><br/><br/><!--
+        
+        PSI-BLAST filters
+        --><a name="psi_blast_filters" class="anchor">
+        PSI-BLAST filters
+        </a><br/>
+        <span class="description">
+        There are three possible choices of filtering out the regions of low compositional complexity within the query sequence that may cause spurious or misleading results. "No filtering" means that no filtering will be used, "low complexity" means that the low complexity regions will be masked with Xs before searching the selected sequence database, and "Mask for lookup table only" masks low complexity regions while producing seeds used to scan database, but not for extensions. More detailed information can be found at the NCBI BLAST website (<a href="http://blast.ncbi.nlm.nih.gov/" target="_blank">http://blast.ncbi.nlm.nih.gov/</a>)        </span><br/><br/>
+        <!--
+		
+		Include PSI-BLAST alternative alignments of subjects
+		<a name="include_alternatives" class="anchor">
+		Include PSI-BLAST alternative alignments of subjects
+		</a><br/>
+		<span class="description">
+		PSI-BLAST by default generates alternative alignments for query sequence if corresponding alignment scores are considered to be statistically significant. Inclusion of the alternative alignments may increase a number of aligned sequences as well as change the exact statistics of residues in the final profile.
+		</span><br/><br/>
+		
+		--><!--E-value threshold for inclusion-->
+		<a name="evalue_psiblast" class="anchor">
+		E-value threshold for inclusions
+		</a><br/>
+		<span class="description">
+		This is E-value used as a threshold for inclusion of sequences into the PSI-BLAST profile during each PSI-BLAST iteration.
+		</span><br/><br/>
+		
+		<!--Maximal number of iterations-->
+		<a name="max_iterations" class="anchor">
+		Maximal number of iterations
+		</a><br/>
+		<span class="description">
+		Maximum number of PSI-BLAST iterations to be executed before the final construction of multiple sequence alignment and a profile.
+		</span><br/><br/>
+		
+		<!--Compositional adjustments (4 choices)-->
+		<a name="compositional_adjustments" class="anchor">
+		Compositional adjustments (4 choices)
+		</a><br/>
+		<span class="description">
+		This option is related to the composition-based statistics used in PSI-BLAST searches. More detailed information regarding these choices can be found at the NCBI BLAST website (<a href="http://blast.ncbi.nlm.nih.gov/" target="_blank">http://blast.ncbi.nlm.nih.gov/</a>)
+		</span><br/><br/>
+		
+		
+		<!--Profile search and output options-->
+		<a name="construction_profile" class="group">
+		Profile search and output options
+		</a><br/><br/>
+		
+		<!--Select profile database-->
+		<a name="select_profile_db" class="anchor">
+		Select profile database
+		</a><br/>
+		<span class="description">
+        Select one of the available profile databases against which COMA will search the query profile constructed for the input sequence (alignment). Currently, the following sequence profile databases are available: SCOP domains, PDB sequences, and the Pfam families. PDB and SCOP profile databases are based on a representative set of sequences that share no more than 40% sequence identity. 		</span><br/><br/>
+		
+		<!--E-value threshold-->
+		<a name="evalue_output" class="anchor">
+		E-value threshold
+		</a><br/>
+		<span class="description">
+		The hits detected by COMA are included into the output up to this statistical significance limit expressed as E-value.
+		</span><br/><br/>
+		
+		<!--Maximal number of hits to show-->
+		<a name="hits_to_show" class="anchor">
+		Maximal number of hits to show
+		</a><br/>
+		<span class="description">
+		Maximum number of hits to show in the output.
+		</span><br/><br/>
+		
+		<!--Maximal number of alignments to show-->
+		<a name="alignments_to_show" class="anchor">
+		Maximal number of alignments to show
+		</a><br/>
+		<span class="description">
+		Maximum number of alignments to show in the output.
+		</span><br/><br/>
+		
+		
+		<!--Advanced options -->
+		<a name="advanced_options" class="group">
+		ADVANCED OPTIONS 
+		</a><br/><br/>
+		
+		
+		<!--Alignment options -->
+		<a name="alignment_options" class="group">
+		Alignment options
+		</a><br/><br/>
+		
+		<!--Gap opening cost-->
+		<a name="gap_opening_cost" class="anchor">
+		Gap opening cost
+		</a><br/>
+		<span class="description">
+		A cost to open a gap in the alignment. The accepted format is an integer number or an integer number in interval [1 &ndash 50] following (without spaces) the symbol 'A' (e.g. A6). The symbol 'A' means that gap costs are derived using the information of profiles. A number following 'A' determines a number of positions that affect the gap cost calculation at each profile position. Since each gap cost configuration (gap opening and gap extension costs) requires a set of estimated statistical parameters, currently only automatically computed costs can be used.
+		</span><br/><br/>
+		
+		<!--Initial gap extension cost-->
+		<a name="initial_gap_extension_cost" class="anchor">
+		Initial gap extension cost
+		</a><br/>
+		<span class="description">
+		Initial cost to extend a gap in the alignment. If fixed gap costs are used, the extension cost serves as a limit for deriving position-dependent extension costs. Currently, the option value may be 1 or 2.
+		</span><br/><br/>
+		
+		<!--Deletion probability weight-->
+		<a name="deletion_probability_weight" class="anchor">
+		Deletion probability weight
+		</a><br/>
+		<span class="description">
+		Deletion probability weight, a real number in the interval (0 &ndash 1]. This option is used when the gap costs are automatically computed.
+		</span><br/><br/>
+		
+		<!--Scoring scheme to use-->
+		<a name="scoring_scheme_to_use" class="anchor">
+		Scoring scheme to use
+		</a><br/>
+		<span class="description">
+		Currently, 'Profile' is the only available scoring scheme, according to which the score systems are constructed for each pair of profiles. 
+		</span><br/><br/>
+		
+		<!--Do not apply composition-based statistics-->
+		<a name="do_not_apply_composition_based_statistics" class="anchor">
+		Do not apply composition-based statistics
+		</a><br/>
+		<span class="description">
+		Selecting this option, disables calculation used in composition-based statistics. This significantly reduces running time at the cost in performance.
+		</span><br/><br/>
+		
+		<!--Do not use probabilities for gap costs-->
+		<a name="do_not_use_probabilities_for_gap_costs" class="anchor">
+		Do not use probabilities for gap costs
+		</a><br/>
+		<span class="description">
+		If the option is checked, gap probabilities are not computed. Instead, position-dependent gap cost limits are used.
+		</span><br/><br/>
+		
+		
+		<!--Profile construction options-->
+		<a name="profile_construction_options_options" class="group">
+		Profile construction options
+		</a><br/><br/>
+		
+		
+		<!--Ignore sequences in the alignment file with this level of sequence identity-->
+		<a name="ignore_sequences_with_sequence_identity" class="anchor">
+		Ignore sequences in the alignment file with this level of sequence identity
+		</a><br/>
+		<span class="description">
+		The option determines a sequence identity threshold (in percents) above which sequences are removed from the multiple sequence alignment.
+		</span><br/><br/>
+		
+		<!--Do not perform delete state (gaps in the first sequence) computations-->
+		<a name="do_not_perform_delete_state" class="anchor">
+		Do not perform delete state (gaps in the first sequence) computations
+		</a><br/>
+		<span class="description">
+		Positions corresponding to gaps in the first sequence of the multiple sequence alignment are ignored.
+		</span><br/><br/>
+		
+		<!--Weight for residue pseudocount frequencies-->
+		<a name="weight_for_residue_pseudocount_frequencies" class="anchor">
+		Weight for residue pseudocount frequencies
+		</a><br/>
+		<span class="description">
+		A factor used to weight pseudocounts when calculating profile target probabilities.
+		</span><br/><br/>
+		
+		<!--Minimum fraction of alignment an extent must cover (percentage)-->
+		<a name="minimum_fraction_of_alignment_extent" class="anchor">
+		Minimum fraction of alignment an extent must cover (percentage)
+		</a><br/>
+		<span class="description">
+		For each profile position, the reduced multiple sequence alignment is contructed. The inclusion of the sequences into the reduced multiple alignment is controlled by the value of the option. If the reduced multiple alignment covers the fraction of a sequence larger than the value of the option, then the sequence is included into the reduced multiple alignment.
+		</span><br/><br/>
+		
+		<!--Minimum number of alignment positions an extent must consist of-->
+		<a name="minimum_number_of_alignment_positions" class="anchor">
+		Minimum number of alignment positions an extent must consist of
+		</a><br/>
+		<span class="description">
+		For each profile position, the reduced multiple sequence alignment is contructed. The inclusion of the sequences into the reduced multiple alignment is controlled by the value of the option. If a sequence condensed the length of the reduced multiple alignment so that its size would become smaller than the value of the option, then the sequence is not included into the reduced multiple alignment.
+		</span><br/><br/>
+		
+		
+		<!--Alignment filter options-->
+		<a name="alignment_filter_options" class="group">
+		Alignment filter options
+		</a><br/><br/>
+		
+		<!--Disallow HC filter within alignment columns-->
+		<a name="disallow_HC_filter_within_alignment_columns" class="anchor">
+		Disallow HC filter within alignment columns
+		</a><br/>
+		<span class="description">
+		If selected, the option disables the high-complexity filtering within the columns of the multiple sequence alignment.
+		</span><br/><br/>
+		
+		<!--Window length-->
+		<a name="window_length" class="anchor">
+		Window length
+		</a><br/>
+		<span class="description">
+		A window size of the SEG algorithm used to determine high-complexity regions within the columns of the multiple sequence alignment.
+		</span><br/><br/>
+		
+		
+		<!--Low entropy threshold-->
+		<a name="low_entropy_threshold" class="anchor">
+		Low entropy threshold
+		</a><br/>
+		<span class="description">
+		The low entropy threshold of the SEG algorithm used to delineate boundaries of high-complexity regions.
+		</span><br/><br/>
+		
+		<!--High entropy threshold-->
+		<a name="high_entropy_threshold" class="anchor">
+		High entropy threshold
+		</a><br/>
+		<span class="description">
+		The high entropy threshold of the SEG algorithm used to trigger the extension of high-complexity regions.
+		</span><br/><br/>
+		
+		<!--Masking options-->
+		<a name="masking_options" class="group">
+		Masking options
+		</a><br/><br/>
+		
+		
+		<!--Mask positions of profiles with the information content less than the specified value-->
+		<a name="mask_positions" class="anchor">
+		Mask positions of profiles with the information content less than the specified value
+		</a><br/>
+		<span class="description">
+		Profile positions with the information content less than the specified value are masked. The scores of the masked positions will be scaled down.
+		</span><br/><br/>
+		
+		<!--Perform masking of profile positions after statistical parameters are computed-->
+		<a name="perform_masking" class="anchor">
+		Perform masking of profile positions after statistical parameters are computed
+		</a><br/>
+		<span class="description">
+		Use scaled down scores of masked positions while aligning a pair of profiles; masked positions do not affect the calculation of statistical parameters.
+		</span><br/><br/>
+		
+		<!--Scale down masked positions by the percentage specified-->
+		<a name="scale_down_masked_positions" class="anchor">
+		Scale down masked positions by the percentage specified
+		</a><br/>
+		<span class="description">
+		The value (percentage) indicating to what level the masked positions should be scaled down.
+		</span><br/><br/>
+		
+		
+		<!--SEG options-->
+		<a name="SEG_options" class="group">
+		SEG options
+		</a><br/><br/>
+		
+		
+		<!--Invoke low-complexity filtering of query-->
+		<a name="invoke_low_complexity_filtering" class="anchor">
+		Invoke low-complexity filtering of query
+		</a><br/>
+		<span class="description">
+		Invoke horizontal low complexity filtering of query profile.
+		</span><br/><br/>
+		
+		<!--Invoke LC filtering for each sequence in the alignment using parameters below-->
+		<a name="invoke_lc_filtering_for_each_seq" class="anchor">
+		Invoke LC filtering for each sequence in the alignment using parameters below
+		</a><br/>
+		<span class="description">
+		This option invokes low complexity filtering of each sequence in the multiple sequence alignment.
+		</span><br/><br/>
+		
+		<!--Window length-->
+		<a name="seg_window_length" class="anchor">
+		Window length
+		</a><br/>
+		<span class="description">
+		The window length of the SEG algorithm used to determine low-complexity regions.
+		</span><br/><br/>
+		
+		<!--Low entropy threshold-->
+		<a name="seg_low_entropy_threshold" class="anchor">
+		Low entropy threshold
+		</a><br/>
+		<span class="description">
+		The low entropy threshold of the SEG algorithm used to trigger the extension of low-complexity regions.
+		</span><br/><br/>
+		
+		<!--High entropy threshold-->
+		<a name="seg_high_entropy_threshold" class="anchor">
+		High entropy threshold
+		</a><br/>
+		<span class="description">
+		The high entropy threshold of the SEG algorithm used to delineate boundaries of low-complexity regions.
+		</span><br/><br/>
+		
+		<!--Distance of equivalence between profile vectors-->
+		<a name="seg_dist_eq" class="anchor">
+		Distance of equivalence between profile vectors
+		</a><br/>
+		<span class="description">
+		A distance between profile vectors (a collection of values at certain profile position) to consider those vectors to be equivalent.
+		</span><br/><br/>
+		
+		
+		<!--Gap probability options-->
+		<a name="gap_probability_options" class="group">
+		Gap probability options
+		</a><br/><br/>
+		
+		<!--E-value threshold for a pair of profiles above which gap prob. factor takes effect-->
+		<a name="gap_evalue_threshold" class="anchor">
+		E-value threshold for a pair of profiles above which gap prob. factor takes effect
+		</a><br/>
+		<span class="description">
+		E-value initially computed for a pair of profiles above which gap probability factors are computed and applied.
+		</span><br/><br/>
+		
+		<!--Argument weight in the expression of computing gap prob. factor-->
+		<a name="gap_argument_weight" class="anchor">
+		Argument weight in the expression of computing gap prob. factor
+		</a><br/>
+		<span class="description">
+		Gap probability factor is dependent on the effective thickness of the multiple sequence alignment according to the expression as follows: 1/(1+exp(&minus P*thickness+R)). P is the value of the option, thickness is the effective thickness, and R is the argument shift value given by the next option.
+		</span><br/><br/>
+		
+		<!--Argument shift in the expression of computing gap prob. factor-->
+		<a name="gap_argument_shift" class="anchor">
+		Argument shift in the expression of computing gap prob. factor
+		</a><br/>
+		<span class="description">
+		Gap probability factor is dependent on the effective thickness of the multiple sequence alignment according to the expression as follows: 1/(1+exp(&minus P*thickness+R)). R is the value of the option, P is the argument weight value given by the preceding option, thickness is the effective thickness.
+		</span><br/><br/>
+		
+		
+		<!--Autocorrection options-->
+		<a name="autocorrection_probability_options" class="group">
+		Autocorrection options
+		</a><br/><br/>
+		
+		
+		<!--Numerator of expression to compute 1st-pass autocorrection-->
+		<a name="autocorrection_numerator_1" class="anchor">
+		Numerator of expression to compute 1st-pass autocorrection
+		</a><br/>
+		<span class="description">
+		Autocorrection is introduced twice during the computation of position dependent gap cost limits. The value of this option corresponds to the numerator in the expression k/sqrt(H), where H is a statistical parameter of relative entropy of scores for a pair of profiles.
+		</span><br/><br/>
+		
+		<!--Numerator of expression to compute 2nd-pass upper bound for autocorrection-->
+		<a name="autocorrection_numerator_2" class="anchor">
+		Numerator of expression to compute 2nd-pass upper bound for autocorrection
+		</a><br/>
+		<span class="description">
+		Autocorrection is introduced twice during the computation of position dependent gap cost limits. This value correspond to the numerator of the expression K/sqrt(H) to compute the upper bound of the autocorrection parameter at the second stage. H is a statistical parameter of relative entropy.
+		</span><br/><br/>
+		
+		<!--Logarithmic scale to compute 2nd-pass autocorrection-->
+		<a name="autocorrection_logarithmic_scale_2" class="anchor">
+		Logarithmic scale to compute 2nd-pass autocorrection
+		</a><br/>
+		<span class="description">
+		Autocorrection is introduced twice during the computation of position dependent gap cost limits. In the second stage, the autocorrection parameter is calculated as &minus 1/((log(E)+m)M), where E is the initial E-value for a pair of profiles, m is this option's value, and M is the denominator scale given by the next option's value.
+		</span><br/><br/>
+		
+		<!--Denominator scale to compute 2nd-pass autocorrection-->
+		<a name="autocorrection_denominator_2" class="anchor">
+		Denominator scale to compute 2nd-pass autocorrection
+		</a><br/>
+		<span class="description">
+		Autocorrection is introduced twice during the computation of position dependent gap cost limits. In the second stage, the autocorrection parameter is calculated as &minus 1/((log(E)+m)M), where E is the initial E-value for a pair of profiles, m is the logarithmic scale given by the preceding option's value, and M is this option's value.
+		</span><br/><br/>
+		
+		<!--Analytically computed positional corrections-->
+		<a name="autocorrection_positional_corrections" class="anchor">
+		Analytically computed positional corrections
+		</a><br/>
+		<span class="description">
+		This option turns on analytical computation of position dependent corrections, which are calculated using the relative entropy parameter solved at each profile position.
+		</span><br/><br/>
+		
+		<!--Do not compute any corrections-->
+		<a name="autocorrection_do_not_compute_any_corrections" class="anchor">
+		Do not compute any corrections
+		</a><br/>
+		<span class="description">
+		This option disables computations of any corrections introduced in position dependent gap cost calculations.
+		</span><br/><br/>
+		
+		
+		<!--Information correction options-->
+		<a name="information_correction_options" class="group">
+		Information correction options
+		</a><br/><br/>
+		
+		
+		<!--Upper bound of the information content threshold used in 2nd-pass computations-->
+		<a name="information_uppera_bound_2" class="anchor">
+		Upper bound of the information content threshold used in 2nd-pass computations
+		</a><br/>
+		<span class="description">
+		This option determines the maximum value of position dependent information content up to which the information corrections are still computed.
+		</span><br/><br/>
+		
+		<!--Numerator of expression to compute 2nd-pass inf. content threshold-->
+		<a name="information_content_threshold_2" class="anchor">
+		Numerator of expression to compute 2nd-pass inf. content threshold
+		</a><br/>
+		<span class="description">
+		Information content threshold in the second stage (after initially computed E-value E is estimated) is determined using the expression: J+j/(log(E) &minus l), where J is the upper bound of information content given by the preceding option, j is this option's value, and l is the logarithmic scale given by the next option's value.
+		</span><br/><br/>
+		
+		<!--Logarithmic scale to compute 2nd-pass inf. content threshold-->
+		<a name="information_logarithmic_scale_2" class="anchor">
+		Logarithmic scale to compute 2nd-pass inf. content threshold
+		</a><br/>
+		<span class="description">
+		Information content threshold in the second stage (after initially computed E-value E is estimated) is determined using the expression: J+j/(log(E) &minus l), where J is the upper bound of information content given by one of the preceding options, j is the numerator value given by the preceding option's value, and l is this option's value.
+		</span><br/><br/>
+		
+		<!--Numerator of alternative expression to compute inf. content threshold-->
+		<a name="information_content_threshold" class="anchor">
+		Numerator of alternative expression to compute inf. content threshold
+		</a><br/>
+		<span class="description">
+		Alternatively, information content threshold in the second stage (after initially computed E-value E is estimated) can be reevaluated as &minus b/(log(E)+B), where b is this option's value, and B is the logarithmic scale given by the next option's value.
+		</span><br/><br/>
+		
+		<!--Logarithmic scale to alternatively compute inf. content threshold-->
+		<a name="information_logarithmic_content_threshold" class="anchor">
+		Logarithmic scale to alternatively compute inf. content threshold
+		</a><br/>
+		<span class="description">
+		Alternatively, information content threshold in the second stage (after initially computed E-value E is estimated) can be reevaluated as &minus b/(log(E)+B), where b is the numerator given by the preceding option's value, and B is this option's value.
+		</span><br/><br/>
+
+		<span class="menu">
+		<a name="output_results">
+        Output of results and their interpretation
+        </a>
+        <br/><br/>
+        </span>
+        <span class="description">
+		The output is structured into three logical sections: job summary, results summary, and the detailed information for each of the hits. <br/><br/>
+		Job summary includes job description and job id that can be used to retrieve results of the specified job until the job expiration date. Job details provide some of the basic information regarding the job: a choice of sequence and profile databases and some of the parameters used to obtain the job results. Links to the original input sequence (alignment), the alignment used for query profile construction and complete list of parameter settings are also available. <br/><br/>
+		Results summary provides both graphical representation and the list of hits found by COMA. Hits are sorted by the decreasing order of statistical significance, expressed as E-value. E-value is the expected number of alignment scores greater than or equal to that of a particular alignment, per database search. Thus, the lower is E‑value, the higher is the significance level of a particular alignment. The exhaustive test of COMA's performance showed that E-values up to 0.01 can still be considered statistically significant. <br/><br/>
+		Graphical representation of alignments indicates both their significance level and the aligned region of the query. Alignments in red are most significant (E-value from 0 to 0.001), green color corresponds to the intermediate level of significance (E-value from 0.001 to 0.1), and blue indicates remaining matches (E-value above 0.1).<br/><br/>
+		The hit list includes a short description of the hit, its COMA score and the corresponding E-value. There is a possibility to extract the alignment between the query and any number of the hits for additional analysis. For this, user needs to check corresponding boxes in the result list and press "Alignments in FASTA".<br/><br/>
+		Following the summary, detailed information for each alignment is provided. <br/><br/>
+		
+		Above each pairwise alignment there is a toolbar of buttons. Depending on a choice of profile database, buttons may point to the PDB, SCOP, or Pfam database entries corresponding to the aligned hit. In addition, each alignment has a link to Pubmed search using the annotation of the hit. If the search was performed against PDB or SCOP, the "Generate 3D model" link provides user with a possibility to make a structural model of the query sequence according to the corresponding alignment. Models are constructed using MODELLER (<a href="http://www.salilab.org/modeller/" target="_blank">http://www.salilab.org/modeller/</a>). However, because of the licensing policy the user is required to provide a MODELLER license key, which can be obtained from the MODELLER site (<a href="http://www.salilab.org/modeller/registration.html" target="_blank">http://www.salilab.org/modeller/registration.html</a>).<br/><br/> 
+        </span>
+
+    </div>
+  </body>
+</html>

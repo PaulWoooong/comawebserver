@@ -1,0 +1,18 @@
+<t:border t:pageTitle="About" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+    <head>
+
+    </head>
+    <body>
+    
+        <table class="info">
+            <tr>
+               <td colspan="2" style="text-align: center; font-size: 16;">
+                    COMA (Comparison Of Multiple Alignments) is a method for<br/> 
+                    detection of distant evolutionary relationship (homology)<br/> 
+                    through comparison of multiple protein sequence alignments.
+               </td>
+            </tr>  
+        </table> 
+
+    </body>
+</t:border>

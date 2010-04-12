@@ -1,0 +1,51 @@
+<t:border t:pageTitle="Results" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+    <head></head>
+    <body>
+        <t:ViewResultsAlignment resultsAlignment="resultsAlignment"
+                                showLinks="false"
+                                supportModeling="false"/>
+        
+        <t:form t:id="submitModellerJobForm">
+            <t:errors/>
+            
+	        <table class="inputParams"> 
+	               <tr>
+                        <td class="left">
+                            Modeller key
+                        </td>
+                        <td class="right">
+                            <t:textfield t:id="key" t:value="key" t:validate="required"/>
+                        </td>
+                    </tr>
+	                <tr>
+	                    <td class="left">
+	                        Send notification to
+	                    </td>
+	                    <td class="right">
+	                        <t:textfield t:id="email" t:value="email"/>
+	                    </td>
+	                </tr>
+	                <tr>
+	                    <td class="left">
+	                        Job description (max 20 characters)
+	                    </td>
+	                    <td class="right">
+	                        <t:textfield t:id="description" t:value="description" t:validate="maxlength"/>
+	                    </td>
+	                </tr>
+	        </table>
+	        
+	        <table class="inputParams">
+                <tr>
+                   <td class="left">
+                   </td>
+                   <td class="right">
+                        <input type="submit" t:type="submit" id="newModellerJobButton" class="button" t:id="newModellerJobButton" value="Submit Job"/>
+                   </td>
+                </tr>  
+            </table> 
+	        
+        </t:form>  
+          
+    </body>
+</t:border>

@@ -1,0 +1,67 @@
+<t:border t:pageTitle="Edit Personal Params" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+    <head>
+
+    </head>
+    <body>
+    	<t:form t:id="personalParamsForm">
+    		<t:errors/> 
+            <table class="editParams">
+               <tr>
+                   <td colspan="2">
+                      <h3>Edit personal info</h3>
+                   </td>
+                </tr>
+               <tr>
+                   <td colspan="2">
+                      <h3>${info}</h3>
+                   </td>
+                </tr>
+            </table>
+            
+            <table class="editParams">
+            	<tr>
+                   <td>
+                      Administrator
+                   </td>
+                   <td>
+                      <t:textfield t:value="user.username" t:validate="required" />
+                   </td>
+                </tr>
+                <tr>
+                   <td>
+                      E-mail
+                   </td>
+                   <td>
+                      <t:textfield t:value="user.email" t:validate="required" />
+                   </td>
+                </tr>  
+                <tr>
+                   <td>
+                      New password
+                   </td>
+                   <td>
+                      <input type = "text" t:type = "PasswordField" t:id="newPassword" t:value="newPassword" t:validate="required"/>
+                   </td>
+                </tr>  
+                <tr>
+                   <td>
+                      Retype password
+                   </td>
+                   <td>
+                      <input type = "text" t:type = "PasswordField" t:id="retypedPassword" t:value="retypedPassword" t:validate="required"/>
+                   </td>
+                </tr>  
+            </table>
+            
+            <table class="editParams">
+                <tr>
+                   <td>
+                   </td>
+                   <td>
+                      <input type="submit" t:type="submit" t:id="updatePersonalInfoButton" value="Save"/>
+                   </td>
+                </tr>  
+            </table>  
+		</t:form>
+    </body>
+</t:border>

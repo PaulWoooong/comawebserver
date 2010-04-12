@@ -1,0 +1,59 @@
+<t:container xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+
+<t:if t:test="showProfileConstruction">
+	<table class="editComaParams">
+		<tr>
+			<td class="left">
+		      <a name="ignore_sequences_with_sequence_identity" onclick="openHelpWindow('${asset:context:/static_pages/help.html}#ignore_sequences_with_sequence_identity');" href="#ignore_sequences_with_sequence_identity">
+                ${message:lc_t}
+              </a>
+			</td>
+			<td class="right">
+				<t:textfield t:id="lc_t" t:value="profileConstruction.lc_t" t:validate="required,min,max"/>
+			</td>
+		</tr>
+		<tr>
+			<td class="left">
+				<a name="do_not_perform_delete_state" onclick="openHelpWindow('${asset:context:/static_pages/help.html}#do_not_perform_delete_state');" href="#do_not_perform_delete_state">
+                    ${message:lc_s}
+                </a>
+			</td>
+			<td class="right">
+				<input type="checkbox" t:type="checkbox" t:value = "profileConstruction.lc_s"/>
+			</td>
+		</tr>
+		
+		<tr>
+            <td class="left">
+                <a name="weight_for_residue_pseudocount_frequencies" onclick="openHelpWindow('${asset:context:/static_pages/help.html}#weight_for_residue_pseudocount_frequencies');" href="#weight_for_residue_pseudocount_frequencies">
+                    ${message:lc_b}
+                </a>
+            </td>
+            <td class="right">
+                <t:textfield t:id="lc_b" t:value="profileConstruction.lc_b" t:validate="required"/>
+            </td>
+        </tr>
+        <tr>
+            <td class="left">
+                <a name="minimum_fraction_of_alignment_extent" onclick="openHelpWindow('${asset:context:/static_pages/help.html}#minimum_fraction_of_alignment_extent');" href="#minimum_fraction_of_alignment_extent">
+                    ${message:uc_Y}
+                </a>
+            </td>
+            <td class="right">
+                <t:textfield t:id="uc_Y" t:value="profileConstruction.uc_Y" t:validate="required,min,max"/>
+            </td>
+        </tr>
+        <tr>
+            <td class="left">
+                <a name="minimum_number_of_alignment_positions" onclick="openHelpWindow('${asset:context:/static_pages/help.html}#minimum_number_of_alignment_positions');" href="#minimum_number_of_alignment_positions">
+                    ${message:lc_x}
+                </a>
+            </td>
+            <td class="right">
+                <t:textfield t:id="lc_x" t:value="profileConstruction.lc_x" t:validate="required"/>
+            </td>
+        </tr>
+	</table>
+</t:if>
+	
+</t:container>

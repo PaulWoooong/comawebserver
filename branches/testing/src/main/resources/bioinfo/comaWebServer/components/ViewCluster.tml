@@ -1,0 +1,113 @@
+<t:container xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+
+<table class="editParams">
+    <tr>
+        <td>
+            ${message:username}
+        </td>
+        <td>
+            <t:textfield t:id="cluster_username" t:value="cluster.username" t:validate="required"/>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            ${message:global_path}
+        </td>
+        <td>
+            <t:textfield t:id="cluster_globalFilePath" t:value="cluster.globalFilePath" t:validate="required"/>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            ${message:local_path}
+        </td>
+        <td>
+            <t:textfield t:id="cluster_localFilePath" t:value="cluster.localFilePath" t:validate="required"/>
+        </td>
+    </tr>
+        <tr>
+        <td>
+            ${message:coma_command}<br/>
+            ${cluster.comaCommand} 
+        </td>
+        <td>
+            <t:textfield t:id="coma_command" t:value="cluster.commandComa" t:validate="required"/>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            ${message:modeller_command}<br/>
+            ${cluster.modellerCommand} 
+        </td>
+        <td>
+            <t:textfield t:id="modeller_command" t:value="cluster.commandModeller" t:validate="required"/>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            ${message:msa_command}<br/>
+            ${cluster.msaCommand} 
+        </td>
+        <td>
+            <t:textfield t:id="msa_command" t:value="cluster.commandMsa" t:validate="required"/>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            ${message:url}
+        </td>
+        <td>
+            <t:textfield t:id="url" t:value="cluster.urlForResults" t:validate="required"/>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            ${message:local}
+        </td>
+        <td>
+            <t:checkbox t:id="local" t:value="cluster.local"/>
+        </td>
+    </tr>
+	<tr>
+		<td>
+			${message:hostname}
+		</td>
+		<td>
+			<t:textfield t:id="cluster_hostname" t:value="cluster.hostname"/>
+		</td>
+	</tr><!--
+	<tr>
+		<td>
+			${message:port}
+		</td>
+		<td>
+			<t:textfield t:id="cluster_port" t:value="cluster.port"/>
+		</td>
+	</tr>
+	--><tr>
+		<td>
+			${message:private_key} 
+		</td>
+		<td>
+			<t:textfield t:id="cluster_privateKeyPath" t:value="cluster.privateKeyPath"/>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			${message:passphrase}
+		</td>
+		<td>
+		    <input type = "text" t:type = "PasswordField" t:id="cluster_passphrase" t:value="cluster.passphrase"/>
+		</td>
+	</tr>
+	<tr>
+        <td>
+            ${message:remote_path}
+        </td>
+        <td>
+            <t:textfield t:id="cluster_remoteFilePath" t:value="cluster.remoteFilePath"/>
+        </td>
+    </tr>
+</table>
+
+</t:container>

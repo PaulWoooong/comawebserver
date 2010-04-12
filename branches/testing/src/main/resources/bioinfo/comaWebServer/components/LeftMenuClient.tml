@@ -1,0 +1,40 @@
+<t:container xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+
+<t:form id="LeftMenuForm">
+
+	<table class="LeftMenuClientTable">
+       <tr>
+            <td>
+                <t:pageLink t:page="index">New Job</t:pageLink>
+            </td>
+        </tr>
+	    <tr>
+	        <td>
+	            Show results of job with id or description:
+	        </td>
+	    </tr>
+	    <tr>
+	        <td>
+	            <t:textfield t:id="jobId" t:value="jobId" t:validate="required"/>
+	        </td>
+	    </tr>
+	    <tr>
+	        <td>
+	            <input type="submit" t:type="submit" t:id="jobInfoButton" value="Show results"/>
+	        </td>
+	    </tr>
+	    <tr>
+	       <td>Recent jobs:</td>
+	    </tr>
+		<tr t:type="loop" source="recentJobs.jobs" value="job">
+		   <td>
+		      <a t:type="actionlink" id="showJob" t:id="showJob" t:context="${job.generatedId}" style="font-size: 13px; font-family: Monospace;">
+                ${job.showName()}    
+              </a>
+		   </td>
+		</tr>
+	</table>
+	
+</t:form>
+
+</t:container>

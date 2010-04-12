@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+
+	<class name="bioinfo.comaWebServer.entities.Cluster" table="Cluster">	
+		<id name="id" column="id" >
+			<generator class="increment"/>
+		</id>
+
+		<property name="hostname"/>
+		<property name="port"/>
+		<property name="local"/>
+		<property name="username"/>
+		<property name="privateKeyPath"/>
+		<property name="passphrase"/>
+		<property name="remoteFilePath"/>
+		<property name="globalFilePath"/>
+		<property name="localFilePath"/>
+		<property name="commandComa"/>
+		<property name="commandModeller"/>
+		<property name="commandMsa"/>
+		<property name="urlForResults"/>
+	</class>
+	
+</hibernate-mapping>

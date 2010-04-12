@@ -1,0 +1,38 @@
+#container
+{
+	margin-left:auto;
+	margin-right:auto;
+	text-align:left;
+	width:700px;
+    font-family: "Trebuchet MS",Arial,sans-serif;
+    border:1px solid grey;
+    padding: 5px;
+    background-color:  #e5e5e5;
+}
+
+.menu a
+{
+    font-size: 18px;
+    font-weight: bolder;
+    color: black;
+    text-decoration: underline;
+}
+
+.group
+{
+    font-size: 15px;
+    font-weight: bolder;
+    text-decoration: underline;
+}
+
+.anchor
+{
+    font-size: 13px;
+    font-weight: bolder;
+}
+
+.description
+{
+    font-size: 12px;
+    font-weight: normal;
+}

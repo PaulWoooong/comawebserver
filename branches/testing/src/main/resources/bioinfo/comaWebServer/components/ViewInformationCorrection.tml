@@ -1,0 +1,62 @@
+<t:container xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">    
+
+<t:if t:test="showInformationCorrection">
+	<table class="editComaParams">
+		<tr>
+			<td class="left">
+			    <a name="information_uppera_bound_2" onclick="openHelpWindow('${asset:context:/static_pages/help.html}#information_uppera_bound_2');" href="#information_uppera_bound_2">
+                    ${message:uc_J}
+	                <br/>
+	                ${message:uc_J_0}
+                </a>
+			</td>
+			<td class="right">
+				<t:textfield t:id="uc_J" t:value="informationCorrection.uc_J" t:validate="required"/>
+			</td>
+		</tr>
+		<tr>
+			<td class="left">
+				<a name="information_content_threshold_2" onclick="openHelpWindow('${asset:context:/static_pages/help.html}#information_content_threshold_2');" href="#information_content_threshold_2">
+                    ${message:lc_j}
+                </a>
+			</td>
+			<td class="right">
+				<t:textfield t:id="lc_j" t:value="informationCorrection.lc_j" t:validate="required"/>
+			</td>
+		</tr>
+		<tr>
+			<td class="left">
+			    <a name="information_logarithmic_scale_2" onclick="openHelpWindow('${asset:context:/static_pages/help.html}#information_logarithmic_scale_2');" href="#information_logarithmic_scale_2">
+                    ${message:lc_l}
+	                <br/>
+	                ${message:lc_l_0}
+                </a>
+			</td>
+			<td class="right">
+				<t:textfield t:id="lc_l" t:value="informationCorrection.lc_l" t:validate="required"/>
+			</td>
+		</tr>
+        <tr>
+            <td class="left">   
+                <a name="information_content_threshold" onclick="openHelpWindow('${asset:context:/static_pages/help.html}#information_content_threshold');" href="#information_content_threshold">
+                    ${message:lc_b}
+                </a>
+            </td>
+            <td class="right">
+                <t:textfield t:id="lc_b" t:value="informationCorrection.lc_b" t:validate="required"/>
+            </td>
+        </tr>
+		<tr>
+			<td class="left">
+				<a name="information_logarithmic_content_threshold" onclick="openHelpWindow('${asset:context:/static_pages/help.html}#information_logarithmic_content_threshold');" href="#information_logarithmic_content_threshold">
+                    ${message:uc_B}
+                </a>
+			</td>
+			<td class="right">
+				<t:textfield t:id="uc_B" t:value="informationCorrection.uc_B" t:validate="required"/>
+			</td>
+		</tr>
+	</table>
+</t:if>
+
+</t:container>

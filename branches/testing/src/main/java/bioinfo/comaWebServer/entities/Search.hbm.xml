@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+
+	<class name="bioinfo.comaWebServer.entities.Search" table="Search">	
+		<id name="id" column="id" >
+			<generator class="increment"/>
+		</id>
+		
+		<property name="lc_j"/>
+		<property name="lc_h"/>
+		<property name="lc_t"/>
+		<property name="aa"  />
+		<property name="msaStrategy"   />
+		<property name="filters"       />
+		<many-to-one name="databaseItem" class="bioinfo.comaWebServer.entities.DatabaseItem" column="databaseItemId" lazy="false"/>
+		<property name="type"          />
+		
+	</class>
+	
+</hibernate-mapping>

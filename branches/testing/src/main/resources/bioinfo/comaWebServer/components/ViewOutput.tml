@@ -1,0 +1,46 @@
+<t:container xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+    
+<t:if t:test="showOutput">
+	<table class="editComaParams">
+		<tr>
+			<td  class="left">
+			    <a name="evalue_output" onclick="openHelpWindow('${asset:context:/static_pages/help.html}#evalue_output');" href="#evalue_output">
+                    ${message:lc_e}
+                </a>
+			</td>
+			<td class="right">
+				<t:textfield t:id="lc_e" t:value="output.lc_e" t:validate="required"/>
+			</td>
+		</tr>
+		<tr>
+			<td  class="left">	
+				<a name="hits_to_show" onclick="openHelpWindow('${asset:context:/static_pages/help.html}#hits_to_show');" href="#hits_to_show">
+                    ${message:uc_L}
+                </a>
+			</td>
+			<td class="right">
+				<t:textfield t:id="uc_L" t:value="output.uc_L" t:validate="required"/>
+			</td>
+		</tr>
+		<tr>
+			<td class="left">
+				<a name="alignments_to_show" onclick="openHelpWindow('${asset:context:/static_pages/help.html}#alignments_to_show');" href="#alignments_to_show">
+                    ${message:uc_N}
+                </a>
+			</td>
+			<td class="right">
+				<t:textfield t:id="uc_N" t:value="output.uc_N" t:validate="required"/>
+			</td>
+		</tr><!--
+		<tr>
+			<td class="left">
+				${message:lc_n}
+			</td>
+			<td class="right">
+				<input type="checkbox" t:type="checkbox" t:value = "output.lc_n"/>
+			</td>
+		</tr>
+	--></table>
+</t:if>
+	
+</t:container>

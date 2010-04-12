@@ -1,0 +1,61 @@
+<t:container xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+
+<table class="LeftMenuAdminTable">
+    <tr>
+        <th>
+             Administrator
+        </th>
+    </tr>
+	<tr>
+		<td>
+		     <a href="#" t:type="ActionLink" t:id="logout">Log out</a>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<t:pageLink t:page="edit/EditComaParams">Edit COMA params</t:pageLink>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<t:pageLink t:page="edit/EditSearchParams">Edit Search params of MMA</t:pageLink>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<t:pageLink t:page="edit/EditMailParams">Edit Mail params</t:pageLink>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<t:pageLink t:page="edit/EditClusterParams">Edit Cluster params</t:pageLink>
+		</td>
+	</tr>
+    <tr>
+        <td>
+            <t:pageLink t:page="edit/EditPeriodicalWorkerParams">Edit Periodical Worker params</t:pageLink>
+        </td>
+    </tr>
+	<tr>
+		<td>
+			<t:pageLink t:page="edit/EditPersonalParams">Edit Personal params</t:pageLink>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<t:pageLink t:page="show/ShowDatabases">Show databases</t:pageLink>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<t:pageLink t:page="add/AddDatabase">Add new database</t:pageLink>
+		</td>
+	</tr>
+	<tr>
+        <td>
+            <t:pageLink t:page="ManageJobs">Manage jobs</t:pageLink>
+        </td>
+    </tr>
+</table>
+
+</t:container>

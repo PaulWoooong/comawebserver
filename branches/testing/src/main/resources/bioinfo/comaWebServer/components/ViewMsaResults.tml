@@ -1,0 +1,47 @@
+<t:container xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+    
+	    <table class="results">
+	        <tr>
+	            <t:if t:test="job.description">
+	                <td class="left">
+	                    Job description
+	                </td>
+	                <td class="rigth">
+	                    ${job.description}
+	                </td>
+	            </t:if>
+	        </tr>
+	        <tr>
+	            <td class="left">
+	                Job ID
+	            </td>
+	            <td class="rigth">
+	                ${job.generatedId}
+	            </td>
+	        </tr>
+	        <tr>
+	            <td class="left">
+	                Job expiration date
+	            </td>
+	            <td class="rigth">
+	                ${job.expirationDate}
+	            </td>
+	        </tr>
+	        <tr>
+	            <td class="left">
+	                Download MSA file
+	            </td>
+	            <td class="rigth">
+	                <a t:type="actionlink" t:id="msaResults" t:context="${job.generatedId}">${job.generatedId}.fa</a>
+	            </td>
+	        </tr>
+	    </table>
+	    <table class="results">
+	        <tr>
+	            <td colspan="2" class="left">
+	                <t:textarea t:id="faContent" t:value="faContent"  wrap="off"/>
+	            </td>
+	        </tr>
+	    </table>
+    
+</t:container>
