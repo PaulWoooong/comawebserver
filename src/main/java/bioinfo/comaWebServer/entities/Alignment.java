@@ -35,31 +35,31 @@ public class Alignment extends AbstractParameter
 		values += "# Profile database\n";
 		values += "d=" + databaseItem.getValues() + "\n";
 		values += "# Gap opening cost\n";
-		values += "G=" + uc_G + "\n";
+		values += "OPENCOST=" + uc_G + "\n";
 		values += "# Initial gap extension cost\n";
-		values += "X=" + String.valueOf(uc_X) + "\n";
+		values += "EXTCOST=" + String.valueOf(uc_X) + "\n";
 		values += "# Deletion probability weight\n";
-		values += "g=" + String.valueOf(lc_g) + "\n";
+		values += "DELPROBWEIGHT=" + String.valueOf(lc_g) + "\n";
 		values += "# Scoring scheme to use\n";
-		values += "S=" + scheme.getScheme() + "\n";
+		values += "SCHEME=" + scheme.getScheme() + "\n";
 		
 		values += "# Do not apply composition-based statistics\n";
-		if(uc_C)
+		if(!uc_C)
 		{
-			values += "C=1\n";
+			values += "COMPSTATS=1\n";
 		}
 		else
 		{
-			values += "C=0\n";
+			values += "COMPSTATS=0\n";
 		}
 		values += "# Do not use probabilities for gap costs\n";
-		if(lc_c)
+		if(!lc_c)
 		{
-			values += "c=1\n";
+			values += "USEGCPROBS=1\n";
 		}
 		else
 		{
-			values += "c=0\n";
+			values += "USEGCPROBS=0\n";
 		}
 		
 		return values;
