@@ -20,18 +20,18 @@ public class Masking extends AbstractParameter
 	{
 		String info = "#\n# Masking options:\n#\n" +
 					  "# Mask positions of profiles with information content less than specified value\n" +
-					  "I=" + getUc_I() + "\n" +
+					  "INFCON=" + getUc_I() + "\n" +
 					  "# Scale down masked positions by percentage specified\n" +
-					  "r=" + getLc_r() + "\n";
+					  "SCALEDOWN=" + getLc_r() + "\n";
 		
 		info += "# Perform any masking of profile positions after statistical parameters are computed\n";
 		if(isUc_A())
 		{
-			info += "A=1\n";
+			info += "MASKAFTER=1\n";
 		}
 		else
 		{
-			info += "A=0\n";
+			info += "MASKAFTER=0\n";
 		}
 		
 		return info;
