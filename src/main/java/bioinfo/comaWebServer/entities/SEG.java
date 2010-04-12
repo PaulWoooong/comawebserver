@@ -30,31 +30,31 @@ public class SEG extends AbstractParameter
 		info += "# Invoke low-complexity filtering of query\n";
 		if(isUc_U())
 		{
-			info += "U=1" + "\n";
+			info += "INVLCFILTER=1" + "\n";
 		}
 		else
 		{
-			info += "U=0" + "\n";
+			info += "INVLCFILTER=0" + "\n";
 		}
 		
 		info += "# Invoke LC filtering for each sequence in alignment using same parameters below\n";
 		if(isUc_V())
 		{
-			info += "V=1" + "\n";
+			info += "LCFILTEREACH=1" + "\n";
 		}
 		else
 		{
-			info += "V=0" + "\n";
+			info += "LCFILTEREACH=0" + "\n";
 		}
 		
 	   info = "# Window length\n" +
-			  "y=" + getLc_y()  + "\n" +
+			  "LCWINDOW=" + getLc_y()  + "\n" +
 			  "# Low entropy threshold\n" +
-			  "z=" + getLc_z()  + "\n" +
+			  "LCLOWENT=" + getLc_z()  + "\n" +
 			  "# High entropy threshold\n" +
-			  "Z=" + getUc_Z()  + "\n" +
+			  "LCHIGHENT=" + getUc_Z()  + "\n" +
 			  "# Distance of equivalence between profile vectors\n" +
-			  "D=" + getUc_D()  + "\n";
+			  "DISTANCE=" + getUc_D()  + "\n";
 			   
 		return info;
 	}
