@@ -15,7 +15,7 @@ public class ImageProcessor
 {
 	public static String extention = "jpg";
 	private int width = 700;
-	private int height = 10;
+	private int height = 12;
 	private int length;
 	
 	private double onePixelWeight;
@@ -56,7 +56,7 @@ public class ImageProcessor
 		g2.setColor(color);
 		g2.fillRect(recBegin, 0, recWidth, height);
 		
-		Font font = new Font(Font.DIALOG, Font.BOLD, 9);
+		Font font = new Font(Font.DIALOG, Font.BOLD, height - 1);
 		g2.setFont(font);
 		FontRenderContext frc = g2.getFontRenderContext();
 		
