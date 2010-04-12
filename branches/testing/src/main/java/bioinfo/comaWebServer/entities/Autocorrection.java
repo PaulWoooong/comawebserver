@@ -28,32 +28,32 @@ public class Autocorrection extends AbstractParameter
 	{
 		String info = "#\n# Autocorrection options:\n#\n" +
 					  "# Numerator of expression to compute 1st-pass autocorrection (k/sqrt(H))\n" +
-					  "k=" + getLc_k() + "\n" +
+					  "AC1NUMER=" + getLc_k() + "\n" +
 					  "# Numerator of expression to compute 2nd-pass upper bound for autocorrection (K/sqrt(H))\n" +
-					  "K=" + getUc_K() + "\n" + 
+					  "AC2UBNUMER=" + getUc_K() + "\n" + 
 					  "# Logarithmic scale to compute 2nd-pass autocorrection (-1/((log(E)+m)M))\n" +
-					  "m=" + getLc_m() + "\n" +
+					  "AC2LOGSCALE=" + getLc_m() + "\n" +
 					  "# Denominator scale to compute 2nd-pass autocorrection (-1/((log(E)+m)M))\n" +
-					  "M=" + getUc_M() + "\n";
+					  "AC2DENOMSCALE=" + getUc_M() + "\n";
 		
 		info += "# Do not compute any corrections\n";
 		if(isLc_a())
 		{
-			info += "a=1\n";
+			info += "PROHIBITCOR=1\n";
 		}
 		else
 		{
-			info += "a=0\n";
+			info += "PROHIBITCOR=0\n";
 		}
 		
 		info += "# Analitically computed positional corrections\n";
 		if(isLc_p())
 		{
-			info += "p=1\n";
+			info += "ANPOSCOR=1\n";
 		}
 		else
 		{
-			info += "p=0\n";
+			info += "ANPOSCOR=0\n";
 		}
 		
 		return info;
