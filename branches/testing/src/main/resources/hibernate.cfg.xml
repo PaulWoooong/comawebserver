@@ -59,6 +59,7 @@
 		<mapping resource="bioinfo/comaWebServer/entities/ScopBibliography.hbm.xml"       />
 		<mapping resource="bioinfo/comaWebServer/entities/ResultsQuery.hbm.xml"           />
 		<mapping resource="bioinfo/comaWebServer/entities/ResultsFooter.hbm.xml"          />
+        <mapping resource="bioinfo/comaWebServer/entities/HSSegmentPairs"                 />
 	
 	</session-factory>
 </hibernate-configuration>
