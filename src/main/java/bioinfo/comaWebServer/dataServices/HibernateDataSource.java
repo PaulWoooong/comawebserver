@@ -67,6 +67,7 @@ public class HibernateDataSource<IList> implements IDataSource
 	private static final String PERIODICAL_WORKER_TABLE = " PeriodicalWorkerParams ";
 	private static final String EMAIL_NOTIFICATION_TABLE = " EmailNotification ";
 	private static final String ALIGNMENT_FILTER_TABLE = " AlignmentFilter ";
+	private static final String HS_SEGMENT_PAIRS_TABLE = " HSSegmentPairs ";
 
 	private static final String RESULTS_ALIGNMENT_TABLE = " ResultsAlignment ";
 	private static final String COMA_RESULTS_TABLE = " ComaResults ";
@@ -1052,6 +1053,10 @@ public class HibernateDataSource<IList> implements IDataSource
 				ud.addRole("ROLE_USER");
 				ud.addRole("ROLE_ADMIN");
 				session.save(ud);
+			}
+			if(getObjectNumber(session, HS_SEGMENT_PAIRS_TABLE) == 0)
+			{
+				session.save(new HSSegmentPairs());
 			}
 
 			transaction.commit();
