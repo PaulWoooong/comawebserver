@@ -419,6 +419,10 @@ public class JobSubmitter
 			fstream = new FileWriter(file);
 			out = new BufferedWriter(fstream);
 			
+			out.write("## COMA/CONDOR options\n");
+			out.write("##\n\n");
+			out.write("[OPTIONS]\n\n");
+			
 			for(AbstractParameter param: params)
 			{
 				out.write(param.getValues());
