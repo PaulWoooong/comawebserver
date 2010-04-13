@@ -1,0 +1,46 @@
+<t:container xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+    
+    <table class="editComaParams">
+        <tr>
+            <td  class="left">
+                <a onclick="openHelpWindow('${asset:context:/static_pages/help.html}#hsplen');" href="#hsplen">
+                    ${message:hsplen_msg}
+                </a>
+            </td>
+            <td class="right">
+                <t:textfield t:id="hsplen" t:value="segmentPairs.hsplen" t:validate="required,min,max"/>
+            </td>
+        </tr>
+        <tr>
+            <td  class="left">  
+                <a onclick="openHelpWindow('${asset:context:/static_pages/help.html}#hsminscore');" href="#hsminscore">
+                    ${message:hsminscore_msg}
+                </a>
+            </td>
+            <td class="right">
+                <t:textfield t:id="hsminscore" t:value="segmentPairs.hsminscore" t:validate="required"/>
+            </td>
+        </tr>
+        <tr>
+            <td class="left">
+                <a onclick="openHelpWindow('${asset:context:/static_pages/help.html}#hsmaxdist');" href="#hsmaxdist">
+                    ${message:hsmaxdist_msg}
+                </a>
+            </td>
+            <td class="right">
+                <t:textfield t:id="hsmaxdist" t:value="segmentPairs.hsmaxdist" t:validate="required"/>
+            </td>
+        </tr>
+        <tr>
+            <td  class="left">
+                <a onclick="openHelpWindow('${asset:context:/static_pages/help.html}#nohsps');" href="#nohsps">
+                    ${message:nohsps_msg}
+                </a>
+            </td>
+            <td class="right">
+                <t:textfield t:id="nohsps" t:value="segmentPairs.nohsps" t:validate="required,min,max"/>
+            </td>
+        </tr>
+    </table>
+    
+</t:container>
