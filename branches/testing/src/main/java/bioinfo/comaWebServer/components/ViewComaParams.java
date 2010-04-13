@@ -11,6 +11,7 @@ import bioinfo.comaWebServer.entities.AlignmentFilter;
 import bioinfo.comaWebServer.entities.Autocorrection;
 import bioinfo.comaWebServer.entities.DatabaseItem;
 import bioinfo.comaWebServer.entities.GapProbability;
+import bioinfo.comaWebServer.entities.HSSegmentPairs;
 import bioinfo.comaWebServer.entities.InformationCorrection;
 import bioinfo.comaWebServer.entities.Masking;
 import bioinfo.comaWebServer.entities.Output;
@@ -207,6 +208,9 @@ public class ViewComaParams
 	{
 		showSEG = false;
 	}
+	
+	@Parameter(required = true)
+	private HSSegmentPairs segmentPairs;
 
 	public Autocorrection getAutocorrection() {
 		return autocorrection;
@@ -358,5 +362,13 @@ public class ViewComaParams
 
 	public void setShowAlignmentFilter(boolean showAlignmentFilter) {
 		this.showAlignmentFilter = showAlignmentFilter;
+	}
+
+	public void setSegmentPairs(HSSegmentPairs segmentPairs) {
+		this.segmentPairs = segmentPairs;
+	}
+
+	public HSSegmentPairs getSegmentPairs() {
+		return segmentPairs;
 	}
 }

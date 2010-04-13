@@ -273,5 +273,19 @@
 	
 			<t:ViewInformationCorrection informationCorrection="informationCorrection"
 								  		 showInformationCorrection="showInformationCorrection"/>
+								  		 
+            <table class="editComaParams">
+                <tr>
+                    <td class="left"> 
+                        <b>
+                            <a name="HSSegmentPairs" onclick="openHelpWindow('${asset:context:/static_pages/help.html}#HSSegmentPairs');" href="#HSSegmentPairs">
+                                High-scoring segment pairs
+                            </a>
+                        </b> 
+                    </td>
+                </tr>
+            </table>
+    
+            <t:HSSegmentPairs segmentPairs="segmentPairs"/>
 		</t:if>			 
 </t:container>
