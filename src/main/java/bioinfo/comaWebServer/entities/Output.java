@@ -20,7 +20,7 @@ public class Output extends AbstractParameter
 	private double lc_e = 10.0;
 	private int uc_L = 100;
 	private int uc_N = 100;
-	private boolean lc_n = true;
+	private boolean lc_n = false;
 
 	public String getValues()
 	{
