@@ -26,7 +26,8 @@
 							  informationCorrection="comaParams.informationCorrection"
 							  alignmentDB="alignmentDB"
                               selectedAlignmentDB="selectedAlignmentDB"
-                              alignmentFilter="comaParams.alignmentFilter"/>
+                              alignmentFilter="comaParams.alignmentFilter"
+                              segmentPairs="comaParams.segmentPairs"/>
 							  
             <table class="editComaParams">
                 <tr>
