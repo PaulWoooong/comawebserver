@@ -24,7 +24,7 @@ public class Masking extends AbstractParameter
 					  "# Scale down masked positions by percentage specified\n" +
 					  "SCALEDOWN=" + getLc_r() + "\n";
 		
-		info += "# Perform any masking of profile positions after statistical parameters are computed\n";
+		info += "# Perform masking of profile positions after statistical parameters are computed\n";
 		if(isUc_A())
 		{
 			info += "MASKAFTER=1\n";
