@@ -28,8 +28,6 @@
 			<td class="left">
 			    <a name="information_logarithmic_scale_2" onclick="openHelpWindow('${asset:context:/static_pages/help.html}#information_logarithmic_scale_2');" href="#information_logarithmic_scale_2">
                     ${message:lc_l}
-	                <br/>
-	                ${message:lc_l_0}
                 </a>
 			</td>
 			<td class="right">
