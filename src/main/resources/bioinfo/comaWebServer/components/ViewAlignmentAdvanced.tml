@@ -48,9 +48,9 @@
             <td class="left">
                 <a name="scoring_scheme_to_use" onclick="openHelpWindow('${asset:context:/static_pages/help.html}#scoring_scheme_to_use');" href="#scoring_scheme_to_use">
                     ${message:uc_S_main}<br/>
-	                ${message:uc_S_profile}<br/>
+	                ${message:uc_S_profile}<br/><!--
 	                ${message:uc_S_global}
-                </a>
+                --></a>
             </td>
             <td class="right">
                 <t:select t:id="uc_S" model="schemes" value="alignment.scheme" t:validate="required"/>
