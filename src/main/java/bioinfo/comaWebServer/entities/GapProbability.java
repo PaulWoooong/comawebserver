@@ -21,9 +21,9 @@ public class GapProbability extends AbstractParameter
 		String info = "#\n# Gap probability options:\n#\n" +
 					  "# Evalue threshold for pair of profiles above which gap prob. factor takes effect\n" +
 					  "GPROBEVAL=" + getUc_E() + "\n" +
-					  "# Argument weight in expression of computing gap prob. factor: 1/(1+exp(-P*thickness+R))\n" +
+					  "# Argument weight (P) in expression of computing gap prob. factor: 1/(1+exp(-P*thickness+R))\n" +
 					  "GPFARGWEIGHT=" + getUc_P() + "\n" +
-					  "# Argument shift in expression of computing gap prob. factor: 1/(1+exp(-P*thickness+R))\n" +
+					  "# Argument shift (R) in expression of computing gap prob. factor: 1/(1+exp(-P*thickness+R))\n" +
 					  "GPFARGSHIFT=" + getUc_R() + "\n";
 		
 		return info;
