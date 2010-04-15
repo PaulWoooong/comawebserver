@@ -132,7 +132,7 @@
                                 value="selected"/> 
             </td>
             <td  style="width: 550px;">
-                <a href="#${resultsHit.priority}">${resultsHit.filteredName}</a>
+                <a href="#${resultsHit.priority}">${resultsHit.name}</a>
             </td>
             <td  style="width: 75px; text-align: right;">
                 ${resultsHit.score}
