@@ -121,6 +121,21 @@
 				</td>
 			</tr>
 	</table>
+        <script type="text/javascript" language="JavaScript">
+                function disableGroup()
+                {
+                    document.getElementById('seqDB').disabled=true;
+                    document.getElementById('lc_t').disabled=true;
+                    //document.getElementById('aa').disabled=true;
+                    document.getElementById('lc_h').disabled=true;
+                    document.getElementById('lc_j').disabled=true;
+                    document.getElementById('psi_blast_filters').disabled=true;
+                }
+                if(document.getElementById("notRestart").checked || document.getElementById("serverHandle").checked)
+                {
+                        disableGroup();
+                }
+        </script>
 
 
 </t:container>
