@@ -33,9 +33,9 @@ public class InformationCorrection extends AbstractParameter
 					  "INFCON2NUMER=" + getLc_j() + "\n" +
 					  "# Logarithmic scale (l) to compute 2nd-pass information content threshold (J+j/(log(E)-l))\n" +
 					  "INFCON2LOGSCALE=" + getLc_l() + "\n" +
-					  "# Numerator of alternative expression to compute nf. content threshold (-b/(log(E)+B))\n" +
+					  "# Numerator (b) of alternative expression to compute inf. content threshold (-b/(log(E)+B))\n" +
 					  "INFCONALTNUMER=" + getLc_b() + "\n" +
-					  "# Logarithmic scale to alternatively compute inf. content threshold (-b/(log(E)+B))\n" +
+					  "# Logarithmic scale (B) to alternatively compute inf. content threshold (-b/(log(E)+B))\n" +
 					  "INFCONALTLOGSCALE=" + getUc_B() + "\n";
 		return info;
 	}
