@@ -25,8 +25,8 @@ public class Alignment extends AbstractParameter
 	private int uc_X = 1;
 	private double lc_g = 0.6;
 	private Scheme scheme = Scheme.PROFILE;
-	private boolean uc_C = false;
-	private boolean lc_c = false;
+	private boolean uc_C = true;
+	private boolean lc_c = true;
 	private DatabaseItem databaseItem;
 	
 	public String getValues()
@@ -43,8 +43,8 @@ public class Alignment extends AbstractParameter
 		values += "# Scoring scheme to use\n";
 		values += "SCHEME=" + scheme.getScheme() + "\n";
 		
-		values += "# Do not apply composition-based statistics\n";
-		if(!uc_C)
+		values += "# Apply composition-based statistics\n";
+		if(uc_C)
 		{
 			values += "COMPSTATS=1\n";
 		}
@@ -52,8 +52,8 @@ public class Alignment extends AbstractParameter
 		{
 			values += "COMPSTATS=0\n";
 		}
-		values += "# Do not use probabilities for gap costs\n";
-		if(!lc_c)
+		values += "# Use probabilities for gap costs\n";
+		if(lc_c)
 		{
 			values += "USEGCPROBS=1\n";
 		}
