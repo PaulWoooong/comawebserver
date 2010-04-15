@@ -16,7 +16,7 @@ public class ProfileConstruction extends AbstractParameter
 	private long id;
 	
 	private int lc_t = 94;
-	private boolean lc_s;
+	private boolean lc_s = true;
 	
 	private int lc_b = 7;
 	private int uc_Y = 5;
@@ -29,8 +29,8 @@ public class ProfileConstruction extends AbstractParameter
 		info += "# Ignore sequences in alignment file with this or higher level of sequence identity\n";
 		info += "IDENTITY=" + getLc_t() + "\n";
 		
-		info += "# Do not perform delete state (gaps in the first sequence) computations\n";
-		if(!isLc_s())
+		info += "# Perform delete state (gaps in the first sequence) computations\n";
+		if(isLc_s())
 		{
 			info += "DELSTATE=1\n";
 		}
