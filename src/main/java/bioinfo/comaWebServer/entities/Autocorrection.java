@@ -27,13 +27,13 @@ public class Autocorrection extends AbstractParameter
 	public String getValues()
 	{
 		String info = "#\n# Autocorrection options:\n#\n" +
-					  "# Numerator of expression to compute 1st-pass autocorrection (k/sqrt(H))\n" +
+					  "# Numerator (k) of expression to compute 1st-pass autocorrection (k/sqrt(H))\n" +
 					  "AC1NUMER=" + getLc_k() + "\n" +
-					  "# Numerator of expression to compute 2nd-pass upper bound for autocorrection (K/sqrt(H))\n" +
+					  "# Numerator (K) of expression to compute 2nd-pass upper bound for autocorrection (K/sqrt(H))\n" +
 					  "AC2UBNUMER=" + getUc_K() + "\n" + 
-					  "# Logarithmic scale to compute 2nd-pass autocorrection (-1/((log(E)+m)M))\n" +
+					  "# Logarithmic scale (m) to compute 2nd-pass autocorrection (-1/((log(E)+m)M))\n" +
 					  "AC2LOGSCALE=" + getLc_m() + "\n" +
-					  "# Denominator scale to compute 2nd-pass autocorrection (-1/((log(E)+m)M))\n" +
+					  "# Denominator scale (M) to compute 2nd-pass autocorrection (-1/((log(E)+m)M))\n" +
 					  "AC2DENOMSCALE=" + getUc_M() + "\n";
 		
 		info += "# Do not compute any corrections\n";
@@ -46,7 +46,7 @@ public class Autocorrection extends AbstractParameter
 			info += "PROHIBITCOR=0\n";
 		}
 		
-		info += "# Analitically computed positional corrections\n";
+		info += "# Compute analitically positional corrections\n";
 		if(isLc_p())
 		{
 			info += "ANPOSCOR=1\n";
