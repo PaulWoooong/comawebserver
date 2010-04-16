@@ -61,17 +61,29 @@ public class PeriodicalDatabaseUpdater extends TimerTask
 					{
 						if(item.getValue() != null && item.getPath() != null)
 						{
-							String date = dataManager.fileLastModified(item.getPath());
-							if(item.getPartialName() != null)
+							try 
 							{
-								item.setName(item.getPartialName() + "_" + date);
+								String date = dataManager.fileLastModified(item.getPath());
+								if(item.getPartialName() != null)
+								{
+									item.setName(item.getPartialName() + "_" + date);
+								}
+								else
+								{
+									item.setName(item.getValue() + "_" + date);
+								}
+								
+								dataSource.saveOrUpdate(item);
 							}
-							else
+							catch (Exception e) 
 							{
-								item.setName(item.getValue() + "_" + date);
+								periodicalDatabaseUpdaterLog.error(e.getMessage());
+								StackTraceElement[] stack = e.getStackTrace();
+								for(int i = 0; stack != null && i < stack.length; i++)
+								{
+									periodicalDatabaseUpdaterLog.error(stack[i].toString());
+								}
 							}
-							
-							dataSource.saveOrUpdate(item);
 						}
 					}
 				}
