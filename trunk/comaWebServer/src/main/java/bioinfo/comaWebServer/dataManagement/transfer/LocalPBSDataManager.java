@@ -99,7 +99,7 @@ public class LocalPBSDataManager extends AbstractPBSDataManager
 
 		if(!file.exists())
 		{
-			throw new Exception("File not found: " + path);
+			throw new Exception("File not found: '" + path + "'");
 		}
 		
 		Date d = new Date(file.lastModified());
