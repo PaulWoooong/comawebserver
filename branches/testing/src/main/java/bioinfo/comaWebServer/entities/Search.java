@@ -65,6 +65,23 @@ public class Search extends AbstractParameter
 			values += "pj=" + String.valueOf(lc_j) + "\n";
 			values += "# Compositional adjustments (4 choices)\n";
 			values += "pt=" + String.valueOf(lc_t.getScore()) + "\n";
+			
+			values += "# PSI-BLAST filters\n";
+			if(filters == PsiBlastFilters.NO_FILTERING)
+			{
+				values += "# No filtering\n";
+				values += "pF=0\n";
+			}
+			else if(filters == PsiBlastFilters.LOW_COMPLEXITY)
+			{
+				values += "# Low complexity\n";
+				values += "pF=1\n";
+			}
+			else
+			{
+				values += "# Mask for lookup table only\n";
+				values += "pF=2\n";
+			}
 		}
 		else if(msaStrategy == PsiBlastRadioParams.NR)
 		{
@@ -90,23 +107,6 @@ public class Search extends AbstractParameter
 		else
 		{
 			values += "AA=0\n";
-		}
-		
-		values += "# PSI-BLAST filters\n";
-		if(filters == PsiBlastFilters.NO_FILTERING)
-		{
-			values += "# No filtering\n";
-			values += "pF=0\n";
-		}
-		else if(filters == PsiBlastFilters.LOW_COMPLEXITY)
-		{
-			values += "# Low complexity\n";
-			values += "pF=1\n";
-		}
-		else
-		{
-			values += "# Mask for lookup table only\n";
-			values += "pF=2\n";
 		}
 		
 		return values;
