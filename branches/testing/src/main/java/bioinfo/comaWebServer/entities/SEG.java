@@ -47,7 +47,7 @@ public class SEG extends AbstractParameter
 			info += "LCFILTEREACH=0" + "\n";
 		}
 		
-	   info = "# Window length\n" +
+	   info += "# Window length\n" +
 			  "LCWINDOW=" + getLc_y()  + "\n" +
 			  "# Low entropy threshold\n" +
 			  "LCLOWENT=" + getLc_z()  + "\n" +
