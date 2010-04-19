@@ -1,0 +1,502 @@
+body 
+{
+    text-align: center;
+}
+
+img
+{
+    width: 60px;
+    height: 30px;
+}
+
+body, td, th 
+{
+    font-size: 12px;
+    font-family: Tahoma;
+    color: #000000;
+}
+
+div.t-data-grid-pager 
+{
+    margin:8px 0 0 10px;
+}
+
+table.t-data-grid thead tr th img
+{
+	width: 15px;
+    height: 15px;
+}
+
+table.t-data-grid 
+{
+    border-collapse:collapse;
+    border-left:1px solid silver;
+    margin-bottom:10px;
+}
+
+div.t-error 
+{
+    border:1px solid red;
+    margin:10px 10px 0px 10px;
+}
+
+#Container 
+{
+    text-align: left;
+    width: 940px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#Logo {
+    float: left;
+    width: 180px;
+    height: 150px;
+    border: 1px solid #3333FF;
+    margin-right: 5px;
+    display: block;
+}
+
+#Logo img
+{
+    align: center;
+}
+
+#Banner 
+{
+    float: right;
+    width: 750px;
+    height: 105px;
+    border: 1px solid #3333FF;
+    text-align: center;
+    background-image: url('/coma/assets/comabann_scaled.jpg');
+    background-repeat: no-repeat;
+}
+
+#Footer 
+{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width: auto;
+    border: 1px solid #3333FF;
+}
+
+h3
+{
+	font-size: 14px;
+}
+
+#Footer div 
+{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+}
+
+#TopMenu 
+{
+    margin-top: 5px;
+    height: 40px;
+    width: 750px;
+    border: 1px solid #3333FF;
+    float: right;
+    background-image: url('/coma/assets/comahelp_scaled.jpg');
+    background-repeat: repeat-y;
+}
+
+#TopMenu div 
+{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    text-align: right;
+}
+
+#TopMenu div a 
+{
+    padding-right: 10px;
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
+#LeftMenu 
+{
+    float: left;
+    width: 180px;
+    border: 1px solid #3333FF;
+    line-height: 20px;
+    margin-top: 5px;
+}
+
+#LeftMenu div 
+{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+}
+
+#Body 
+{
+    float: right;
+    width: 750px;
+    border: 1px solid #3333FF;
+    margin-top: 5px;
+}
+
+#Body div 
+{
+    padding: 0px;
+}
+
+#Body table
+{
+	width: 730px;
+    margin-left: 10px;
+    margin-top: 10px;
+    margin-right: 10px;
+    background-color: #e5e5e5
+}
+
+.developInfo 
+{
+	font-family: arial; 
+	font-style: italic; 
+	font-variant: small-caps; 
+	font-weight: normal;
+	font-size: 12px; 
+	line-height: normal; 
+	font-size-adjust: none; 
+	font-stretch: normal; 
+	color: white; 
+}
+
+a.ibtMainLink
+{
+	font-family: arial; 
+	font-style: italic; 
+	font-variant: small-caps; 
+	font-weight: normal;
+	font-size: 12px; 
+	line-height: normal; 
+	font-size-adjust: none; 
+	font-stretch: normal; 
+	color: white; 
+	text-decoration: none;
+	white-space:nowrap;
+}
+
+a.ibtMainLink:hover
+{
+   text-decoration: underline;   
+}
+
+.clear 
+{
+    float: none;
+    display: block;
+    clear: both;
+}
+
+a.active 
+{
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.comaMainLink
+{ 
+	font-size: 20px; 
+	text-decoration: none;
+	color: #FFFFFF;
+	text-align: center;
+}   
+
+.comaMainLink span#header
+{ 
+    font-size: 25px; 
+    font-weight: 700;
+    text-decoration: none;
+    color: #FFFFFF;
+    text-align: center;
+}
+
+table.LeftMenuAdminTable td
+{
+    padding-left: 5px;
+}
+
+table.LeftMenuAdminTable td a
+{
+    font-size: 14px;
+    text-decoration: none;
+}
+
+table.LeftMenuClientTable 
+{
+    width: 170;
+    background-color: #e5e5e5;
+    margin-left: 5px;
+    margin-top: 5px;
+    margin-right: 5px;
+}
+
+table.LeftMenuClientTable td
+{
+    font-size: 14px;
+}
+
+table.LeftMenuClientTable a, pageLink
+{
+    font-size: 18px;
+}
+
+table.LeftMenuClientTable input
+{
+    width: 140;
+}
+
+table.editParams input
+{
+	width: 250px;
+}
+
+table.editParams td
+{
+	width: 300px;
+}
+
+table.editComaParams input
+{
+	width: 70px;
+}
+
+table.editComaParams input.showHide
+{
+    width: 50px;
+}
+
+table.editComaParams td.left
+{
+	width: 500px;
+}
+
+table.editComaParams td.left a
+{
+    text-decoration: none;
+    color: black;
+}
+
+table.editComaParams td.leftSearch
+{
+    width: 500px;
+    text-indent: 40px;
+}
+
+table.editComaParams td.leftSearch a
+{
+    text-decoration: none;
+    color: black;
+}
+
+table.editComaParams input.button
+{
+	width: 100px;
+}
+
+table.editComaParams #newJobButton
+{
+    margin-right: 10px;
+    font-family: Charcoal;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: bold;
+	font-size: 14px;
+	line-height: normal;
+}
+
+#listDatabases th
+{
+	text-align: left;
+}
+
+table.info
+{
+	margin-bottom: 10px;
+}
+
+select
+{
+	width: 200px;
+}
+
+table input
+{
+    font-size: 100%;
+}
+
+table.inputParams td.left
+{
+    width: 300px;
+}
+
+table.inputParams td.right input
+{
+    width: 200px;
+}
+
+table.inputParams td.left a
+{
+    text-decoration: none;
+    color: black;
+}
+
+select#inputType
+{
+    width: 100px;
+}
+
+table.inputParams textarea
+{
+    width: 400px;
+    height: 100px;
+}
+
+table.results td
+{
+    font-weight: bold;
+}
+
+table.results td.left
+{
+    width: 200px;
+}
+
+table.stuff td.left
+{
+    width: 200px;
+}
+
+table.stuff input
+{
+    width: 200px;
+}
+
+table.wait td.left
+{
+    width: 200px;
+}
+
+table.hits td.name
+{
+	width: 550px;
+}
+
+table.hits td.priority
+{
+	width: 30px;
+}
+
+table.hits td.select
+{
+    width: 30px;
+}
+
+table.hits td.score
+{
+	width: 75px;
+	text-align: right;
+}
+
+table.hits td.evalue
+{
+	width: 75px;
+	text-align: right;
+}
+table.resultsQuery td
+{
+    font-family: courier, serif;
+    font-size: 14px;
+}
+table.resultsQuery td.queryLabel
+{
+    width: 50px;
+}
+
+table.resultsQuery td.queryBegin
+{
+    width: 30px;
+    text-align: right;
+}
+
+table.resultsQuery td.query 
+{
+    width: 600px;
+}
+
+table.resultsQuery span.queryEnd
+{
+	text-align: left;
+	padding-left: 0px;
+}
+
+#alignmentHeader div
+{
+	padding-top: 5px;
+}
+
+#alignmentFooter div
+{
+    padding-top: 5px;
+}
+
+#alignmentFooter td.left
+{
+    width: 150px;
+}
+
+#alignmentFooter td.middle
+{
+    width: 150px;
+}
+
+#linkList .linkBox 
+{
+    position: relative;
+    width: 80px;
+    height: 35px;
+    float: left;
+    font-weight: bold;
+}
+
+#linkList .modelBox 
+{
+    position: relative;
+    width: 150px;
+    height: 35px;
+    float: right;
+    font-weight: bold;
+}
+
+div#alnHeader
+{
+
+}
+
+#alignmentHeader td#linksAndHeader
+{
+    background-color: E0FFFF;
+    padding: 5px;
+}
+
+table#alignmentFooter a 
+{
+    text-decoration: none;
+    color: #736AFF;
+}
+
+table.results textarea
+{
+    width: 720px;
+    height: 600px;
+}
+

@@ -1,0 +1,19 @@
+<t:container xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+<div>
+    <div style="position: relative; float: left; color: white; font-size: 14px;">
+        <a href="http://www.ibt.lt/en/laboratories/bioinfo_en/software/coma.html" target="_blank">Downloads</a>
+    </div>
+    
+    <div style="position: relative; float: right; color: white; font-size: 14px;">
+	   <t:security.ifloggedin>
+	       <t:security.ifrole role="ROLE_ADMIN">
+	       </t:security.ifrole>
+	   <t:parameter name="else">
+	       <t:PageLink t:page="show/showLogin">Administrator</t:PageLink>
+	   </t:parameter>
+	   </t:security.ifloggedin>
+       <a onclick="openHelpWindow('${asset:context:/static_pages/help.html}');" href="#">Help</a>
+       <t:PageLink t:page="contacts">Contacts</t:PageLink>
+    </div>
+</div>
+</t:container>

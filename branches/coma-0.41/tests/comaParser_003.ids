@@ -1,0 +1,4 @@
+desc:1dsr_A mol:protein length:17  GETIDS_EOID pdb:1dsr GETIDS_EOID scop:n/a  GETIDS_EOID pubmed: RAMOPLANIN 
+desc:2aoj_C mol:protein length:12  GETIDS_EOID pdb:2aoj GETIDS_EOID scop:2aoj GETIDS_EOID pubmed: PEPTIDE INHIBITOR 
+desc:1ylx_A mol:protein length:103 GETIDS_EOID pdb:1ylx GETIDS_EOID scop:1ylx  d1ylxa1 d.82.5.1 GETIDS_EOID pubmed: hypothetical protein APC35702 
+desc:1h1j_S mol:protein length:51  GETIDS_EOID pdb:1h1j GETIDS_EOID scop:1h1j  d1h1js_ a.140.2.1 d1h1js_ a.140.2.1 d1h1js_ a.140.2.1 d1h1js_ a.140.2.1 d1h1js_ a.140.2.1 d1h1js_ a.140.2.1 d1h1js_ a.140.2.1 d1h1js_ a.140.2.1 GETIDS_EOID pubmed: THO1 PROTEIN

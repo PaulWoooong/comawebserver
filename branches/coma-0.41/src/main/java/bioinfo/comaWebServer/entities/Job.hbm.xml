@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+
+	<class name="bioinfo.comaWebServer.entities.Job" table="Job">	
+		<id name="id" column="id" >
+			<generator class="increment"/>
+		</id>
+		
+		<property name="generatedId" unique="true"/>
+		<property name="pbsId"/>
+		
+		<property name="description"/>
+		<property name="email"/>	
+		<property name="localPath"/>
+		<property name="remotePath"/>
+		<property name="expirationDate" type="date"/>
+		<property name="status"/>
+		<property name="type"/>
+        
+        <many-to-one name="comaResults" class="bioinfo.comaWebServer.entities.ComaResults" column="comaResultsId" lazy="false" cascade="all"/>
+        
+        <set name="dataFiles" table="DataFile" lazy="false" cascade="all">
+            <key column="jobId" />
+            <one-to-many class="bioinfo.comaWebServer.entities.DataFile" />
+        </set>
+          
+	</class>
+	
+</hibernate-mapping>

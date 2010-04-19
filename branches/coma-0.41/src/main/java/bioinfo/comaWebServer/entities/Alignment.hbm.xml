@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+
+	<class name="bioinfo.comaWebServer.entities.Alignment" table="Alignment">	
+		<id name="id" column="id" >
+			<generator class="increment"/>
+		</id>
+		
+		<property name="uc_G"         />
+		<property name="uc_X"         />
+		<property name="lc_g"         />
+		<property name="scheme"       />	
+		<property name="lc_c"         />
+		<property name="uc_C"         />
+        <many-to-one name="databaseItem" class="bioinfo.comaWebServer.entities.DatabaseItem" column="databaseItemId" lazy="false"/>
+	</class>
+	
+</hibernate-mapping>

@@ -1,0 +1,65 @@
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+  <head>
+    <title>COMA Web Server: ${pageTitle}</title>
+    <link href="${asset:context:comaicon.ico}" rel="SHORTCUT ICON"/>
+  </head>
+  <body>
+  
+<script type="text/javascript">
+	function openHelpWindow(url)
+	{
+	    var helpwindow = window.open(url,'helpwindow','width=950,height=700,left=0,top=0,scrollbars=yes,resizable=no');
+	    helpwindow.focus();
+	}
+</script>
+  
+      	<div id="Container">	
+			<div>
+	            <a href="http://www.ibt.lt/en/laboratories/bioinfo_en.html" id="Logo" target="_blank">
+	            	<img src="${asset:context:/assets/comalogo.jpg}" style="width:180; height:150;"/>
+	            </a>
+	            <div id="Banner"><t:Banner/></div>
+	            
+	            <div id="TopMenu"><t:TopMenuClient/></div>
+			</div>
+			
+            <div class="clear"></div>
+
+            <div id="LeftMenu">
+            
+                <t:LeftMenuClient/>
+                
+            	<t:security.ifloggedin>
+	                <t:security.ifrole role="ROLE_ADMIN">
+                           <t:LeftMenuAdmin/>
+	                </t:security.ifrole>
+                </t:security.ifloggedin>
+            </div>
+
+            <div id="Body">
+                <t:body/>
+            </div>
+
+            <div class="clear"></div><!--
+
+            <div id="Footer">
+				Footer
+            </div>
+
+        --></div>
+        
+        <script type="text/javascript">
+			var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+			document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+		</script>
+		<script type="text/javascript">
+			try 
+			{
+				var pageTracker = _gat._getTracker("UA-11620176-1");
+				pageTracker._trackPageview();
+			} 
+			catch(err) {}
+	   </script>
+        
+  </body>
+</html>

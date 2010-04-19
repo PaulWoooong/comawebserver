@@ -1,0 +1,56 @@
+<t:container xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+
+       <tr>
+           <td class="queryLabel">
+               Query:<br/><br/>
+               Subject:<br/><br/>
+           </td>
+           <td class="queryBegin">
+               ${resultsQuery.queryBegin}<br/><br/>
+               ${resultsQuery.subjectBegin}<br/><br/>
+           </td>
+           <td class="query">
+               ${resultsQuery.query} <span class="queryEnd"> ${resultsQuery.queryEnd} </span><br/>
+               <t:outputraw value="${resultsQuery.infoHtml}"/> <br/>
+               ${resultsQuery.subject} <span class="queryEnd"> ${resultsQuery.subjectEnd} </span><br/><br/> 
+           </td> 
+       </tr>
+
+<!--
+	   <tr>
+	       <td class="queryLabel">
+	           Query:
+	       </td>
+	       <td class="queryBegin">
+	           ${resultsQuery.queryBegin}
+	       </td>
+	       <td class="query">
+	           ${resultsQuery.query}
+	           <span class="queryEnd"> ${resultsQuery.queryEnd} </span><br/>
+               <t:outputraw value="${resultsQuery.infoHtml}"/>   
+	       </td> 
+	   </tr>
+	   <tr>
+	       <td class="queryLabel">
+	       </td>
+	       <td class="queryBegin">
+	       </td>
+	       <td class="query"  style="padding-top:-5px;"><t:outputraw value="${resultsQuery.infoHtml}"/>
+	       </td>  
+	   </tr>
+
+	   <tr>
+	       <td class="queryLabel">
+	           Subject:<br/><br/>
+	       </td>
+	       <td class="queryBegin">
+	           ${resultsQuery.subjectBegin}<br/><br/>
+	       </td>
+	       <td class="query">
+	           ${resultsQuery.subject}
+	           <span class="queryEnd"> ${resultsQuery.subjectEnd} </span><br/><br/>
+	       </td>
+	   </tr> 
+-->
+	   
+</t:container>

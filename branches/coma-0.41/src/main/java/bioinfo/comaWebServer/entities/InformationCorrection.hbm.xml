@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+
+	<class name="bioinfo.comaWebServer.entities.InformationCorrection" table="InformationCorrection">	
+		<id name="id" column="id" >
+			<generator class="increment"/>
+		</id>
+		
+		<property name="uc_J" column="uc_J" />
+		<property name="uc_B" column="uc_B" />
+		<property name="lc_j" column="lc_j" />	
+		<property name="lc_b" column="lc_b" />
+		<property name="lc_l" column="lc_l" />
+	</class>
+	
+</hibernate-mapping>

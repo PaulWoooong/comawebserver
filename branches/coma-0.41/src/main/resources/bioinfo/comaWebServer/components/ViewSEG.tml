@@ -1,0 +1,68 @@
+<t:container xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+    
+<t:if t:test="showSEG">
+	<table class="editComaParams">
+        <tr>
+            <td class="left">
+                <a name="invoke_low_complexity_filtering" onclick="openHelpWindow('${asset:context:/static_pages/help.html}#invoke_low_complexity_filtering');" href="#invoke_low_complexity_filtering">
+                    ${message:uc_U}
+                </a>
+            </td>
+            <td class="right">
+                <input type="checkbox" t:type="checkbox" t:value = "seg.uc_U"/>
+            </td>
+        </tr>
+        <tr>
+            <td class="left">
+                <a name="invoke_lc_filtering_for_each_seq" onclick="openHelpWindow('${asset:context:/static_pages/help.html}#invoke_lc_filtering_for_each_seq');" href="#invoke_lc_filtering_for_each_seq">
+                    ${message:uc_V}
+                </a>
+            </td>
+            <td class="right">
+                <input type="checkbox" t:type="checkbox" t:value = "seg.uc_V"/>
+            </td>
+        </tr>
+		<tr>
+			<td class="left">
+				<a name="seg_window_length" onclick="openHelpWindow('${asset:context:/static_pages/help.html}#seg_window_length');" href="#seg_window_length">
+                    ${message:lc_y}
+                </a>
+			</td>
+			<td class="right">
+				<t:textfield t:id="lc_y" t:value="seg.lc_y" t:validate="required"/>
+			</td>
+		</tr>
+		<tr>
+			<td class="left">
+				<a name="seg_low_entropy_threshold" onclick="openHelpWindow('${asset:context:/static_pages/help.html}#seg_low_entropy_threshold');" href="#seg_low_entropy_threshold">
+                    ${message:lc_z}
+                </a>
+			</td>
+			<td class="right">
+				<t:textfield t:id="lc_z" t:value="seg.lc_z" t:validate="required"/>
+			</td>
+		</tr>
+		<tr>
+			<td class="left">
+				<a name="seg_high_entropy_threshold" onclick="openHelpWindow('${asset:context:/static_pages/help.html}#seg_high_entropy_threshold');" href="#seg_high_entropy_threshold">
+                    ${message:uc_Z}
+                </a> 
+			</td>
+			<td class="right">
+				<t:textfield t:id="uc_Z" t:value="seg.uc_Z" t:validate="required"/>
+			</td>
+		</tr>
+		<tr>
+			<td class="left">
+				<a name="seg_dist_eq" onclick="openHelpWindow('${asset:context:/static_pages/help.html}#seg_dist_eq');" href="#seg_dist_eq">
+                    ${message:uc_D}
+                </a> 
+			</td>
+			<td class="right">
+				<t:textfield t:id="uc_D" t:value="seg.uc_D" t:validate="required"/>
+			</td>
+		</tr>
+	</table>
+</t:if>
+
+</t:container>

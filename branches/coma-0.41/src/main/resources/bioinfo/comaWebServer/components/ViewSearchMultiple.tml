@@ -1,0 +1,53 @@
+<t:container xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+
+    <table class="editComaParams">
+       <tr>
+       		<td class="left">
+               <h3><b>${message:main}</b></h3>
+           	</td>                        
+       </tr>
+    </table>
+
+	<table class="editComaParams">
+		<tr>
+			<td class="left">
+			     ${message:select_db}<br/>
+			     ${message:hold}
+			</td>
+			<td class="rigth">
+				<t:selectmultiple class="selectmultiple" values="sequenceDB" 
+				  selected="selectedSequenceDB" 
+                  model="DatabaseSelectModel" 
+                  encoder="DatabaseValueEncoder"/>
+			</td>
+		</tr>
+		<tr>
+			<td class="left">
+				${message:lc_h}
+			</td>
+			<td class="right">
+				<t:textfield t:id="lc_h" t:value="search.lc_h" t:validate="required"/>
+			</td>
+		</tr>
+		<tr>
+			<td class="left">
+				${message:lc_j}
+			</td>
+			<td class="right">
+				<t:textfield t:id="lc_j" t:value="search.lc_j" t:validate="required,min"/>
+			</td>
+		</tr>
+		<tr>
+			<td class="left">
+				${message:lc_t}<br/>
+				${message:lc_t_0}<br/>
+				${message:lc_t_1_3}
+			</td>
+			<td class="right">
+				<t:select t:id="lc_t" model="compositionScores" value="search.lc_t" t:validate="required"/>
+			</td>
+		</tr>
+	</table>
+
+
+</t:container>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+
+	<class name="bioinfo.comaWebServer.entities.SEG" table="SEG">	
+		<id name="id" column="id" >
+			<generator class="increment"/>
+		</id>
+		
+		<property name="uc_U" column="uc_U" />
+		<property name="uc_V" column="uc_V" />
+		<property name="lc_y" column="lc_y" />
+		<property name="lc_z" column="lc_z" />
+		<property name="uc_Z" column="uc_Z" />
+		<property name="uc_D" column="uc_D" />	
+	</class>
+	
+</hibernate-mapping>

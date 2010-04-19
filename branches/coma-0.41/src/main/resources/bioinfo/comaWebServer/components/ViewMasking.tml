@@ -1,0 +1,38 @@
+<t:container xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+  
+<t:if t:test="showMasking">
+	<table class="editComaParams">
+		<tr>
+			<td class="left">
+			    <a name="mask_positions" onclick="openHelpWindow('${asset:context:/static_pages/help.html}#mask_positions');" href="#mask_positions">
+                    ${message:uc_I}
+                </a>
+			</td>
+			<td class="right">
+				<t:textfield t:id="uc_I" t:value="masking.uc_I" t:validate="required"/>
+			</td>
+		</tr>
+        <tr>
+            <td class="left">
+                <a name="perform_masking" onclick="openHelpWindow('${asset:context:/static_pages/help.html}#perform_masking');" href="#perform_masking">
+                    ${message:uc_A}
+                </a>
+            </td>
+            <td class="right">
+                <input type="checkbox" t:type="checkbox" t:value = "masking.uc_A"/>
+            </td>
+        </tr>
+		<tr>
+			<td class="left">	
+				<a name="scale_down_masked_positions" onclick="openHelpWindow('${asset:context:/static_pages/help.html}#scale_down_masked_positions');" href="#scale_down_masked_positions">
+                    ${message:lc_r}
+                </a>
+			</td>
+			<td class="right">
+				<t:textfield t:id="lc_r" t:value="masking.lc_r" t:validate="required,min,max"/>
+			</td>
+		</tr>
+	</table>
+</t:if>
+
+</t:container>

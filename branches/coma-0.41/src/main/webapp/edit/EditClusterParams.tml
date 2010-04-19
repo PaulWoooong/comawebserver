@@ -1,0 +1,36 @@
+<t:border t:pageTitle="Edit Cluster Params" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+    <head>
+
+    </head>
+    <body>
+    	<t:form t:id="UpdateClusterParamsForm">
+    		<t:errors/> 
+    		<table class="editParams">
+				<tr>
+					<td colspan="2">
+						<h3>Cluster params</h3>
+					</td>
+				</tr>
+			</table>
+			
+    		<t:if t:test="cluster">
+				<t:ViewCluster cluster="cluster"/>
+				<t:parameter t:name="else">
+					<h3>There was an error when initializing database!<br/>
+						The default cluster params was not created!</h3>
+				</t:parameter>
+			</t:if>
+			
+    		<table class="editParams">
+				<tr>
+					<td>
+					</td>
+					<td>
+						<input type="submit" t:type="submit" t:id="updateClusterButton" value="Update"/>
+					</td>
+				</tr>
+			</table>
+			
+		</t:form>
+    </body>
+</t:border>

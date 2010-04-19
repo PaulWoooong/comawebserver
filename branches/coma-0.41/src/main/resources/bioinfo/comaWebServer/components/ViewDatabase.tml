@@ -1,0 +1,55 @@
+<t:container xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+
+<table class="editParams">
+	<!--<tr>
+		<td>
+			${message:name}
+		</td>
+		<td>
+			<t:textfield t:id="name" t:value="database.name" t:validate="required"/>
+		</td>
+	</tr>
+	--><tr>
+        <td>
+            ${message:partialName}
+        </td>
+        <td>
+            <t:textfield t:id="partialName" t:value="database.partialName" t:validate="required"/>
+        </td>
+    </tr>
+	<tr>
+        <td>
+            ${message:value}
+        </td>
+        <td>
+            <t:textfield t:id="value" t:value="database.value" t:validate="required"/>
+        </td>
+    </tr>
+	<tr>
+		<td>
+			${message:path}
+		</td>
+		<td>
+			<t:textfield t:id="path" t:value="database.path" t:validate="required"/>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			${message:type}
+		</td>
+		<td>
+          	<t:select t:id="type" model="${type1},${type2}" blankOption="NEVER" value="database.type"/>
+		</td>
+	</tr>
+	<tr>
+        <td>
+            ${message:noModeling}
+        </td>
+        <td class="right">
+            <input type="checkbox" t:type="checkbox" t:value = "database.noModeling"/>
+        </td>
+    </tr>
+	
+</table>
+
+</t:container>

@@ -1,0 +1,38 @@
+<t:container xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+    
+<t:if t:test="showGapProbability">
+	<table class="editComaParams">
+		<tr>
+			<td class="left">
+				 <a name="gap_evalue_threshold" onclick="openHelpWindow('${asset:context:/static_pages/help.html}#gap_evalue_threshold');" href="#gap_evalue_threshold">
+	                ${message:uc_E}
+	             </a>
+			</td>
+			<td class="right">
+				<t:textfield t:id="uc_E" t:value="gapProbability.uc_E" t:validate="required"/>
+			</td>
+		</tr>
+		<tr>
+			<td class="left">
+				<a name="gap_argument_weight" onclick="openHelpWindow('${asset:context:/static_pages/help.html}#gap_argument_weight');" href="#gap_argument_weight">
+                    ${message:uc_P}
+                </a>
+			</td>
+			<td class="right">
+				<t:textfield t:id="uc_P" t:value="gapProbability.uc_P" t:validate="required"/>
+			</td>
+		</tr>
+		<tr>
+			<td class="left">
+				<a name="gap_argument_shift" onclick="openHelpWindow('${asset:context:/static_pages/help.html}#gap_argument_shift');" href="#gap_argument_shift">
+                    ${message:uc_R}
+                </a>
+			</td>
+			<td class="right">
+				<t:textfield t:id="uc_R" t:value="gapProbability.uc_R" t:validate="required"/>
+			</td>
+		</tr>
+	</table>
+</t:if>
+
+</t:container>

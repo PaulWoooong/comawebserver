@@ -1,0 +1,15 @@
+<t:border t:pageTitle="Manage jobs" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+    <head>
+
+    </head>
+    <body>
+		<t:grid source="jobGridDataSource" row="job">
+		    <t:parameter name="idCell">
+                <t:actionlink t:id="delete" context="job.generatedId">Delete</t:actionlink>
+            </t:parameter>
+		    <t:parameter name="generatedIdCell">
+		        <t:actionlink t:id="view" context="job.generatedId">View</t:actionlink>
+		    </t:parameter>
+		</t:grid>
+    </body>
+</t:border>

@@ -1,0 +1,65 @@
+<t:border t:pageTitle="Results" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+    <body>
+		<t:form t:id="submitMSAForm">
+		  <t:errors/>
+		  
+		  <t:if t:test="job">
+		  
+				<t:if t:test="errNotes">
+				
+				    <table class="wait">
+				        <t:if t:test="job.description">
+					        <tr>
+		                       <td class="left">
+		                            <h3>Job Description</h3>
+		                       </td>
+		                       <td class="right">
+		                            <h3>${job.description}</h3>
+		                       </td>
+		                    </tr> 
+	                    </t:if>
+					    <tr>
+		                   <td class="left">
+		                        <h3>Job Id</h3>
+		                   </td>
+		                   <td class="right">
+		                        <h3>${job.generatedId}</h3>
+		                   </td>
+		                </tr> 
+		                <tr>
+		                   <td class="left">
+		                        <h3>Job status</h3>
+		                   </td>
+		                   <td class="right">
+		                        <h3>${job.status}</h3>
+		                   </td>
+		                </tr>  
+		                <tr t:type="loop" source="errNotes" value="errNote">
+		                     <td colspan="2">
+		                          <h3>${errNote}</h3>
+		                     </td>
+		                </tr>
+				    </table>
+				    
+				<t:parameter name="else">
+				
+					<t:if t:test="comaJob">
+	                        <t:ViewResults job="job"
+	                                       hits="hits"
+	                                       resultsHit="resultsHit"
+	                                       selectedHits="selectedHits"/>
+	                </t:if>
+	                <t:if t:test="modellerJob">
+	                        <t:ViewModellerResults job="job"/>
+	                </t:if>
+	                <t:if t:test="msaJob">
+                            <t:ViewMsaResults job="job"/>
+                    </t:if>
+	                
+				</t:parameter>
+				</t:if>
+          </t:if>
+       </t:form>
+		
+    </body>
+</t:border>

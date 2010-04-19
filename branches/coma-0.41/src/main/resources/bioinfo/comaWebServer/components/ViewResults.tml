@@ -1,0 +1,268 @@
+<t:container xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+    
+    <table class="results">
+        <tr>
+            <t:if t:test="job.description">
+	            <td class="left">
+	                Job description
+	            </td>
+	            <td class="rigth">
+	                ${job.description}
+	            </td>
+            </t:if>
+        </tr>
+        <tr>
+            <td class="left">
+                Job ID
+            </td>
+            <td class="rigth">
+                ${job.generatedId}
+            </td>
+        </tr>
+        <tr>
+            <td class="left">
+                Job expiration date
+            </td>
+            <td class="rigth">
+                ${job.expirationDate}
+            </td>
+        </tr>
+	    <tr>
+            <td class="left" style="vertical-align: top;">
+                Job details
+            </td>
+            <td class="rigth">
+                <a type="text" href="${faPath}" target="_blank">
+                    Input sequence or multiple alignment
+                </a><br/>
+                <a type="text" href="${maPath}" target="_blank">
+                    Final multiple alignment used for profile construction
+                </a><br/>
+                <a type="text" href="${paramsPath}" target="_blank">
+                    Complete list of parameter settings
+                </a><br/>
+                <t:if t:test="job.comaResults.profileDBName">
+                    Profile database: ${job.comaResults.profileDBName};<br/>
+                </t:if>
+                <t:if t:test="job.comaResults.sequenceDBName">
+                    Sequence database: ${job.comaResults.sequenceDBName};<br/>
+                </t:if>
+                
+                Number of sequences in the final multiple alignment: ${job.comaResults.numberOfSequences};<br/>
+                
+                <t:if t:test="notRestart">
+			        Do not run PSI-BLAST (used your input multiple alignment);<br/>
+			    </t:if>
+                <t:if t:test="serverHandle">
+                    The server handled PSI-BLAST run;<br/> 
+                </t:if>
+                
+                <t:if t:test="restart">
+                    Configured PSI-BLAST run;<br/>
+                    E-value threshold for inclusion: ${job.comaResults.search.lc_h};<br/>
+	                Maximal number of iterations: ${job.comaResults.search.lc_j};<br/>
+	                PSI-BLAST filters: ${job.comaResults.search.filters.getFilters()};<br/>
+	                <t:if t:test="job.comaResults.search.lc_t">
+	                   Compositional adjustments: ${job.comaResults.search.lc_t.score};<br/>
+	                </t:if>
+                </t:if>
+            </td>
+        </tr>
+    </table>
+    
+    <t:if t:test="job.comaResults.noProfilesFound">
+	    <table class="results">
+	        <tr>
+	            <td>
+	                ${job.comaResults.noProfilesFound}
+	            </td>
+	        </tr>
+	    </table>
+    <t:parameter name="else">
+    
+        <t:if t:test="job.comaResults.images">
+
+            <table style="text-align: center;">
+                <tr t:type="loop" source="job.comaResults.images" value="image">
+                    <td class="name">
+                        <a href="#${image.priority}">
+                            <img src="${resultsPath()}${image.path}" style="height: 12px; width: 700px"/>
+                        </a>
+                    </td>
+                </tr>
+            </table>
+            <p/>
+            
+        </t:if>
+    
+       <table>
+	 <tr>
+            <td></td>
+            <td></td>
+            <td>
+                 <input type="submit" t:type="submit" id="newJobButton" class="button" t:id="newFastaJobButton" style="width: 250px; font-size: 100%;" value="Alignments in FASTA"/>
+            </td>
+            <td></td>
+            <td></td>
+         </tr>
+	 <tr>
+	    <td>
+		<h3>No.</h3>
+            </td>
+	    <td>
+		<t:controlcb t:id="idController" value="prop:selectAll"/>
+	    </td>
+	    <td>
+		<h3>Profiles found below the e-value threshold:</h3>
+	    </td>
+	    <td style="text-align: right;">
+		<h3>Score</h3>
+	    </td>
+	    <td style="text-align: right; padding-right: 5px;">
+		<h3>E-value</h3>
+	    </td>
+        </tr>
+        <tr t:type="loop" source="hits" value="resultsHit">
+	    <td  style="width: 30px;"> 
+	       ${resultsHit.priority}
+            </td>
+            <td  style="width: 30px;"> 
+               <t:checkbox t:mixins="ControlledCheckbox"
+                               controller="idController" 
+                                value="selected"/> 
+            </td>
+            <td  style="width: 550px;">
+                <a href="#${resultsHit.priority}">${resultsHit.filteredName}</a>
+            </td>
+            <td  style="width: 75px; text-align: right;">
+                ${resultsHit.score}
+            </td>
+            <td  style="width: 75px; text-align: right;">
+                ${resultsHit.evalue}
+            </td>
+        </tr>
+    </table>
+
+	    <p/>
+	    
+	    <span t:type="loop" source="job.comaResults.alignments" value="resultsAlignment">
+	            <t:ViewResultsAlignment resultsAlignment="resultsAlignment"
+	                                    showLinks="true"
+	                                    supportModeling="job.comaResults.supportModeling"/>
+	        <p/>
+	    </span>
+	    
+    </t:parameter>
+    </t:if>
+    
+    <t:if t:test="job.comaResults.resultsFooter">
+	    <table id="alignmentFooter">
+           <tr>
+              <td colspan="3">
+	              <t:if t:test="${job.comaResults.resultsFooter.scoringMethod}">
+	                  Scoring method: ${job.comaResults.resultsFooter.scoringMethod}
+	                  <br/>
+	              </t:if>
+	          </td>
+	       </tr>
+	       <tr>
+	          <td colspan="3"> 
+	              <t:if t:test="${job.comaResults.resultsFooter.gapOpenCost}">
+	                  Gap open cost, ${job.comaResults.resultsFooter.gapOpenCost}
+	                  <br/>
+	              </t:if>
+	          </td>
+	       </tr>
+	       <tr>
+              <td colspan="3"> 
+	              <t:if t:test="${job.comaResults.resultsFooter.initialGapExtensionCost}">
+	                  Initial gap extension cost, ${job.comaResults.resultsFooter.initialGapExtensionCost}
+	                  <br/>
+	              </t:if>
+	         </td>
+           </tr>
+           <tr>
+              <td colspan="3"> 
+	              <t:if t:test="${job.comaResults.resultsFooter.deletionProbabilityWeight}">
+                      Deletion probability weight, ${job.comaResults.resultsFooter.deletionProbabilityWeight}
+                      <br/>
+                  </t:if>
+              </td>
+          </tr>
+           <tr>
+               <td class="left">
+                   Reference values of
+               </td>
+               <td class="middle">
+                   K
+               </td>
+               <td>
+                   Lambda
+               </td>
+           </tr>
+           <tr>
+               <td class="left">
+                   Ungapped
+               </td>
+               <td class="middle">
+                   ${job.comaResults.resultsFooter.ungappedK}
+               </td>
+               <td>
+                   ${job.comaResults.resultsFooter.ungappedLambda}
+               </td>
+           </tr>
+           <tr>
+               <td class="left">
+                   Gapped
+               </td>
+               <td class="middle">
+                   ${job.comaResults.resultsFooter.gappedK}
+               </td>
+               <td>
+                   ${job.comaResults.resultsFooter.gappedLambda}
+               </td>
+           </tr>
+	       <tr>
+	          <td colspan="3">
+	                  <t:if t:test="${job.comaResults.resultsFooter.queryLength}">
+	                      Length of query, ${job.comaResults.resultsFooter.queryLength};
+	                      <br/>
+	                  </t:if>
+	          </td>
+	       </tr>
+	       <tr>
+              <td colspan="3"> 
+	                  <t:if t:test="${job.comaResults.resultsFooter.databaseLength}">
+	                      Length of database, ${job.comaResults.resultsFooter.databaseLength}
+	                      <br/>
+	                  </t:if>
+	          </td>
+	       </tr>
+	       <tr>
+              <td colspan="3"> 
+	                  <t:if t:test="${job.comaResults.resultsFooter.queryEffectiveLength}">
+	                      Effective length of query, ${job.comaResults.resultsFooter.queryEffectiveLength}
+	                      <br/>
+	                  </t:if>
+	          </td>
+	       </tr>
+	       <tr>
+              <td colspan="3"> 
+	                  <t:if t:test="${job.comaResults.resultsFooter.databaseEffectiveLength}">
+	                      Effective length of database, ${job.comaResults.resultsFooter.databaseEffectiveLength}
+	                      <br/>
+	                  </t:if>
+	          </td>
+	       </tr>
+	       <tr>
+              <td colspan="3"> 
+	                  <t:if t:test="${job.comaResults.resultsFooter.effectiveSearchSpace}">
+                          Effective search space, ${job.comaResults.resultsFooter.effectiveSearchSpace}
+                          <br/>
+                      </t:if>
+	          </td>
+	      </tr>
+	  </table>
+  </t:if>
+    
+</t:container>
