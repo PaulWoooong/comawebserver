@@ -856,6 +856,10 @@ public class HibernateDataSource<IList> implements IDataSource
 		{
 			buffer.append(" order by ");
 		}
+		else
+		{
+			buffer.append(" order by o.expirationDate desc ");
+		}
 		
 		for(SortConstraint c : sortConstraints)
 		{
