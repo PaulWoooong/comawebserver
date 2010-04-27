@@ -2,6 +2,7 @@ package bioinfo.comaWebServer.dataServices;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.FontFormatException;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 import java.awt.font.FontRenderContext;
@@ -53,7 +54,20 @@ public class ImageProcessor
 		g2.setColor(color);
 		g2.fillRect(recBegin, 0, recWidth, height);
 		
-		Font font = new Font(Font.DIALOG, Font.BOLD, height - 1);
+		Font font = null;
+		{
+			try 
+			{
+				Font f = Font.createFont(Font.TRUETYPE_FONT, new File("fonts" + File.separator + "VERDANAB.TTF"));
+				font = f.deriveFont(height - 1f);
+			} 
+			catch (FontFormatException e) 
+			{
+				e.printStackTrace();
+				font = new Font(Font.DIALOG, Font.BOLD, height - 1);
+			}
+
+		}
 		g2.setFont(font);
 		FontRenderContext frc = g2.getFontRenderContext();
 		
