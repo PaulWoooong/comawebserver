@@ -6,7 +6,7 @@
     <session-factory>
         <property name="connection.url">jdbc:mysql://localhost/comaServerTest</property>
         <property name="connection.username">comaServerTest</property>
-        <property name="connection.password">comaServerTest123</property>
+        <property name="connection.password">comaServerTest</property>
         <property name="hbm2ddl.auto">update</property>
         <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
         <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
