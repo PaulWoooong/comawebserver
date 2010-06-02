@@ -40,11 +40,11 @@ public class ProfileConstruction extends AbstractParameter
 		}
 		
 		info += "# Weight for residue pseudocount frequencies\n";
-		info += "mb=" + lc_b  + "\n";
+		info += "PCFWEIGHT=" + lc_b  + "\n";
 		info += "# Minimum fraction of alignment an extent must cover\n";
-		info += "mY=" + uc_Y  + "\n";
+		info += "MINALNFRN=" + uc_Y  + "\n";
 		info += "# Minimum number of alignment positions an extent must consist of (safeguard to -Y)\n";
-		info += "mx=" + lc_x  + "\n";
+		info += "MINALNPOS=" + lc_x  + "\n";
 		
 		return info;
 	}
