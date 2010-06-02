@@ -10,7 +10,7 @@ Alignment filter:
 public class AlignmentFilter extends AbstractParameter
 {
 	private long id;
-	private boolean lc_u;
+	private boolean lc_u = true;
 	private int lc_w = 30;
 	private double lc_f = 3.3;
 	private double uc_F = 3.5;
@@ -19,20 +19,20 @@ public class AlignmentFilter extends AbstractParameter
 	{
 		String values = "#\n# Alignment filter:\n#\n";
 		values += "# Window length\n";
-		values += "mw=" + String.valueOf(lc_w) + "\n";
+		values += "HCWINDOW=" + String.valueOf(lc_w) + "\n";
 		values += "# Low entropy threshold\n";
-		values += "mf=" + String.valueOf(lc_f) + "\n";
+		values += "HCLOWENT=" + String.valueOf(lc_f) + "\n";
 		values += "# High entropy threshold\n";
-		values += "mF=" + String.valueOf(uc_F) + "\n";
+		values += "HCHIGHENT=" + String.valueOf(uc_F) + "\n";
 		
-		values += "# Disallow HC filter within alignment columns\n";
+		values += "# Invoke high-complexity filter in alignment columns\n";
 		if(lc_u)
 		{
-			values += "mu=1\n";
+			values += "HCFILTER=1\n";
 		}
 		else
 		{
-			values += "mu=0\n";
+			values += "HCFILTER=0\n";
 		}
 		
 		return values;
