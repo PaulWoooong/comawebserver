@@ -1,0 +1,79 @@
+coma 1.02
+
+
+ Query (426 positions):
+seq
+
+ Database:
+propdb40
+             15508 profiles
+             3778988 total positions
+
+
+ Profiles found below the e-value threshold:                                Score E-value
+
+2i0q_B mol:protein length:385  Telomere-binding protein beta subunit          113       1
+3lso_A mol:protein length:489  Putative membrane anchored protein             106       3
+
+
+
+>2i0q_B mol:protein length:385  Telomere-binding protein beta subunit
+  Query length = 426, Sbjct length = 385
+
+ Score = 113.46 (30.1 bits),  Expect = 1.3, P-value = 0.73
+ Identities = 22/88 (25%), Positives = 25/88 (28%), Gaps = 17/88 (19%)
+
+Query:   264 KSSVTRVHP*ELV---IVLL*LVFHKSLR*YGALNGYWKF*LDVNKIGARVHRSMVVITH 320  
+             K+ V + +P  LV    +++   F K      A+N +++   +VN +   ++  ++VI++
+Sbjct:    40 KCYVKESYPHFLVTDGYFFVAPYFTKE-----AVNEFHAKFPNVNIV--DLTDKVIVINN 92   
+
+Query:   321 RNFKLREV----VLGMYS---ASIITHS 341  
+              +++LR+V    V+  Y+   A +I HS
+Sbjct:    93 WSLELRRVNSAEVFTSYANLEARLIVHS 120  
+
+                           K        Lambda
+Computed  ungapped,        0.2026   0.2597
+Estimated gapped,          0.0079   0.1412
+Entropy, 0.7230; Expected, -2.3765; Min/Max, -8/18
+
+
+
+>3lso_A mol:protein length:489  Putative membrane anchored protein
+  Query length = 426, Sbjct length = 489
+
+ Score = 106.82 (29.0 bits),  Expect = 2.9, P-value = 0.94
+ Identities = 19/75 (25%), Positives = 16/75 (21%), Gaps = 23/75 (30%)
+
+Query:   144 RTDRSPRNLEELRSDMAPPLICRCCKQPME-V*S-VQCTALPLP*LLRMIKISLLALNFN 201  
+             +T+ +P       +D   P       +P++ V S V+C+      L+++ + S    NF+
+Sbjct:     8 ETNTAP------SADTQAP-------KPVNTVTSDVDCSVSAAWGLYKFNQKS----NFS 50   
+
+Query:   202 AFFLCNESI----GF 212  
+             A F + ES+    GF
+Sbjct:    51 AEFEMPESVKAGTGF 65   
+
+                           K        Lambda
+Computed  ungapped,        0.1741   0.2597
+Estimated gapped,          0.0068   0.1412
+Entropy, 1.0217; Expected, -2.6277; Min/Max, -10/22
+
+
+
+
+Scoring method: Profile-specific vector-based
+             (Increased precision)
+
+Gap open cost, Computed (window size, 4)
+Initial gap extension cost, 1
+Deletion probability weight, 0.60
+
+Reference values of   K        Lambda
+Ungapped              0.1152   0.2598
+Gapped                0.0045   0.1412
+
+Length of query, 426
+Length of database, 3778988
+Effective length of query, 414
+Effective length of database, 3592892
+Effective search space, 1483658448
+
