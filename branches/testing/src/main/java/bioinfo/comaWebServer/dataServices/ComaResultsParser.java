@@ -34,7 +34,7 @@ public class ComaResultsParser
     
     public static void main(String[] args) throws IOException
     {
-        ComaResultsParser.parseIDS("tests/comaParser_003.ids");
+        ComaResultsParser.parse(new ComaResults(), "tests/comaParser_006.inp");
     }
     
     public static int numberOfSeq(String path) throws IOException
@@ -178,7 +178,7 @@ public class ComaResultsParser
         {
             resultsQuery = new ResultsQuery();
             
-            Pattern queryPattern = Pattern.compile(".*Query:\\s+(\\d+)\\s+([\\w\\-]+)\\s+(\\d+).*");
+            Pattern queryPattern = Pattern.compile(".*Query:\\s+(\\d+)\\s+(\\S+)\\s+(\\d+).*");
             Matcher queryMatcher = queryPattern.matcher(rawAlignment.get(0));
             if(queryMatcher.matches())
             {
@@ -191,7 +191,7 @@ public class ComaResultsParser
 	            rawAlignment.remove(0);
 	            resultsQuery.setInfo(inf);
 	            
-	            Pattern subjectPattern = Pattern.compile(".*Sbjct:\\s+(\\d+)\\s+([\\w\\-]+)\\s+(\\d+).*");
+	            Pattern subjectPattern = Pattern.compile(".*Sbjct:\\s+(\\d+)\\s+(\\S+)\\s+(\\d+).*");
 	            Matcher subjectMatcher = subjectPattern.matcher(rawAlignment.get(0));
 	            
 	            if(subjectMatcher.matches())
